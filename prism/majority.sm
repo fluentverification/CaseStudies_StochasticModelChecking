@@ -32,12 +32,30 @@ const double np = 10; // np
 const double ka = 0.25; // ka
 const double kecdiff = 1; // kecdiff
 
+// Species AA
+const int AA_MAX = MAX_AMOUNT;
+module AA
+
+	AA : [0..AA_MAX] init 40; // Initial amount 0
+
+
+endmodule
+
+// Species B
+const int B_MAX = MAX_AMOUNT;
+module B
+
+	B : [0..B_MAX] init 120; // Initial amount 120
+
+
+endmodule
+
 // Species D
 const int D_MAX = MAX_AMOUNT;
 module D
-	
+
 	D : [0..D_MAX] init 200; // Initial amount 200
-	
+
 	// Degradation_D
 	[Degradation_D] D > 0 -> (D'=D-1);
 	// Production_P5
@@ -46,166 +64,166 @@ module D
 	[Production_P4]  D <= D_MAX-10 -> (D'=D+10);
 	// Production_P6
 	[Production_P6]  D <= D_MAX-10 -> (D'=D+10);
-	
+
 endmodule
 
 // Species EE
 const int EE_MAX = MAX_AMOUNT;
 module EE
-	
+
 	EE : [0..EE_MAX] init 0; // Initial amount 0
-	
+
 	// Degradation_EE
 	[Degradation_EE] EE > 0 -> (EE'=EE-1);
 	// Production_P7
 	[Production_P7]  EE <= EE_MAX-10 -> (EE'=EE+10);
-	
+
 endmodule
 
 // Species CC
 const int CC_MAX = MAX_AMOUNT;
 module CC
-	
+
 	CC : [0..CC_MAX] init 120; // Initial amount 120
-	
+
 	// Degradation_CC
 	[Degradation_CC] CC > 0 -> (CC'=CC-1);
 	// Production_P8
 	[Production_P8]  CC <= CC_MAX-10 -> (CC'=CC+10);
-	
+
 endmodule
 
 // Species Y
 const int Y_MAX = MAX_AMOUNT;
 module Y
-	
+
 	Y : [0..Y_MAX] init 0; // Initial amount 0
-	
+
 	// Degradation_Y
 	[Degradation_Y] Y > 0 -> (Y'=Y-1);
 	// Production_P1
 	[Production_P1]  Y <= Y_MAX-10 -> (Y'=Y+10);
 	// Production_P3
 	[Production_P3]  Y <= Y_MAX-10 -> (Y'=Y+10);
-	
+
 endmodule
 
 // Species XX
 const int XX_MAX = MAX_AMOUNT;
 module XX
-	
+
 	XX : [0..XX_MAX] init 0; // Initial amount 0
-	
+
 	// Degradation_XX
 	[Degradation_XX] XX > 0 -> (XX'=XX-1);
 	// Production_P1
 	[Production_P1]  XX <= XX_MAX-10 -> (XX'=XX+10);
 	// Production_P2
 	[Production_P2]  XX <= XX_MAX-10 -> (XX'=XX+10);
-	
+
 endmodule
 
 // Species Z
 const int Z_MAX = MAX_AMOUNT;
 module Z
-	
+
 	Z : [0..Z_MAX] init 0; // Initial amount 0
-	
+
 	// Degradation_Z
 	[Degradation_Z] Z > 0 -> (Z'=Z-1);
 	// Production_P3
 	[Production_P3]  Z <= Z_MAX-10 -> (Z'=Z+10);
 	// Production_P2
 	[Production_P2]  Z <= Z_MAX-10 -> (Z'=Z+10);
-	
+
 endmodule
 
 // Species P8 (P8)
 const int P8_MAX = MAX_AMOUNT;
 module P8
-	
+
 	P8 : [0..P8_MAX] init 2; // Initial amount 2
-	
-	
+
+
 endmodule
 
 // Species P5 (P5)
 const int P5_MAX = MAX_AMOUNT;
 module P5
-	
+
 	P5 : [0..P5_MAX] init 2; // Initial amount 2
-	
-	
+
+
 endmodule
 
 // Species P4 (P4)
 const int P4_MAX = MAX_AMOUNT;
 module P4
-	
+
 	P4 : [0..P4_MAX] init 2; // Initial amount 2
-	
-	
+
+
 endmodule
 
 // Species P7 (P7)
 const int P7_MAX = MAX_AMOUNT;
 module P7
-	
+
 	P7 : [0..P7_MAX] init 2; // Initial amount 2
-	
-	
+
+
 endmodule
 
 // Species P6 (P6)
 const int P6_MAX = MAX_AMOUNT;
 module P6
-	
+
 	P6 : [0..P6_MAX] init 2; // Initial amount 2
-	
-	
+
+
 endmodule
 
 // Species P1 (P1)
 const int P1_MAX = MAX_AMOUNT;
 module P1
-	
+
 	P1 : [0..P1_MAX] init 2; // Initial amount 2
-	
-	
+
+
 endmodule
 
 // Species P3 (P3)
 const int P3_MAX = MAX_AMOUNT;
 module P3
-	
+
 	P3 : [0..P3_MAX] init 2; // Initial amount 2
-	
-	
+
+
 endmodule
 
 // Species P2 (P2)
 const int P2_MAX = MAX_AMOUNT;
 module P2
-	
+
 	P2 : [0..P2_MAX] init 2; // Initial amount 2
-	
-	
+
+
 endmodule
 
 // Reaction rates
 module reaction_rates
 
-	// Degradation_D: D -> 
+	// Degradation_D: D ->
 	[Degradation_D] (kd*D) > 0 -> (kd*D) : true;
-	// Degradation_EE: EE -> 
+	// Degradation_EE: EE ->
 	[Degradation_EE] (kd*EE) > 0 -> (kd*EE) : true;
-	// Degradation_CC: CC -> 
+	// Degradation_CC: CC ->
 	[Degradation_CC] (kd*CC) > 0 -> (kd*CC) : true;
-	// Degradation_Y: Y -> 
+	// Degradation_Y: Y ->
 	[Degradation_Y] (kd*Y) > 0 -> (kd*Y) : true;
-	// Degradation_XX: XX -> 
+	// Degradation_XX: XX ->
 	[Degradation_XX] (kd*XX) > 0 -> (kd*XX) : true;
-	// Degradation_Z: Z -> 
+	// Degradation_Z: Z ->
 	[Degradation_Z] (kd*Z) > 0 -> (kd*Z) : true;
 	// Production_P8:  -> CC
 	[Production_P8] ((((P8*ko*ko_f)/ko_r)*nr)/(1+((ko_f/ko_r)*nr)+(func(pow,((kr_f/kr_r)*EE),nc)))) > 0 -> ((((P8*ko*ko_f)/ko_r)*nr)/(1+((ko_f/ko_r)*nr)+(func(pow,((kr_f/kr_r)*EE),nc)))) : true;
