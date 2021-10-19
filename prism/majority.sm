@@ -32,6 +32,7 @@ const double np = 10; // np
 const double ka = 0.25; // ka
 const double kecdiff = 1; // kecdiff
 
+// Original Model did not have this module
 // Species AA
 const int AA_MAX = MAX_AMOUNT;
 module AA
@@ -41,6 +42,7 @@ module AA
 
 endmodule
 
+// Original Model did not have this module
 // Species B
 const int B_MAX = MAX_AMOUNT;
 module B
