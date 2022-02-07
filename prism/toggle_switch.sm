@@ -31,100 +31,126 @@ const double ng = 2; // ng
 const double np = 10; // np
 const double ka = 0.25; // ka
 const double kecdiff = 1; // kecdiff
+const double nc_IPTG = 2; // nc_IPTG
+const double nc_LacI = 2; // nc_LacI
+const double nc_TetR = 2; // nc_TetR
+const double nc_aTc = 2; // nc_aTc
+
+// Species IPTG
+const int IPTG_MAX = MAX_AMOUNT;
+module IPTG
+
+	IPTG : [0..IPTG_MAX] init 0; // Initial amount 0
+
+	// Complex_C1
+	[Complex_C1] IPTG > 0 -> (IPTG'=IPTG-1);
+
+endmodule
+
+// Species aTc
+const int aTc_MAX = MAX_AMOUNT;
+module aTc
+
+	aTc : [0..aTc_MAX] init 0; // Initial amount 0
+
+	// Complex_C2
+	[Complex_C2] aTc > 0 -> (aTc'=aTc-1);
+
+endmodule
 
 // Species LacI
 const int LacI_MAX = MAX_AMOUNT;
 module LacI
-	
+
 	LacI : [0..LacI_MAX] init 0; // Initial amount 0
-	
+
 	// Degradation_LacI
 	[Degradation_LacI] LacI > 0 -> (LacI'=LacI-1);
 	// Complex_C1
 	[Complex_C1] LacI > 0 -> (LacI'=LacI-1);
 	// Production_P2
 	[Production_P2]  LacI <= LacI_MAX-10 -> (LacI'=LacI+10);
-	
+
 endmodule
 
 // Species TetR
 const int TetR_MAX = MAX_AMOUNT;
 module TetR
-	
+
 	TetR : [0..TetR_MAX] init 0; // Initial amount 0
-	
+
 	// Degradation_TetR
 	[Degradation_TetR] TetR > 0 -> (TetR'=TetR-1);
 	// Complex_C2
 	[Complex_C2] TetR > 0 -> (TetR'=TetR-1);
 	// Production_P1
 	[Production_P1]  TetR <= TetR_MAX-10 -> (TetR'=TetR+10);
-	
+
 endmodule
 
 // Species C1
 const int C1_MAX = MAX_AMOUNT;
 module C1
-	
+
 	C1 : [0..C1_MAX] init 0; // Initial amount 0
-	
+
 	// Complex_C1
 	[Complex_C1]  C1 <= C1_MAX-1 -> (C1'=C1+1);
 	// Degradation_C1
 	[Degradation_C1] C1 > 0 -> (C1'=C1-1);
-	
+
 endmodule
 
 // Species C2
 const int C2_MAX = MAX_AMOUNT;
 module C2
-	
+
 	C2 : [0..C2_MAX] init 0; // Initial amount 0
-	
+
 	// Complex_C2
 	[Complex_C2]  C2 <= C2_MAX-1 -> (C2'=C2+1);
 	// Degradation_C2
 	[Degradation_C2] C2 > 0 -> (C2'=C2-1);
-	
+
 endmodule
 
 // Species P1
 const int P1_MAX = MAX_AMOUNT;
 module P1
-	
+
 	P1 : [0..P1_MAX] init 2; // Initial amount 2
-	
-	
+
+
 endmodule
 
 // Species P2
 const int P2_MAX = MAX_AMOUNT;
 module P2
-	
+
 	P2 : [0..P2_MAX] init 2; // Initial amount 2
-	
-	
+
+
 endmodule
 
 // Species GFP
 const int GFP_MAX = MAX_AMOUNT;
 module GFP
-	
+
 	GFP : [0..GFP_MAX] init 0; // Initial amount 0
-	
+
 	// Production_P1
 	[Production_P1]  GFP <= GFP_MAX-10 -> (GFP'=GFP+10);
 	// Degradation_GFP
 	[Degradation_GFP] GFP > 0 -> (GFP'=GFP-1);
-	
+
 endmodule
 
 // Reaction rates
 module reaction_rates
 
-	// Degradation_LacI: LacI -> 
+	// Degradation_LacI: LacI ->
 	[Degradation_LacI] (kd*LacI) > 0 -> (kd*LacI) : true;
-	// Degradation_TetR: TetR -> 
+	// Degradation_TetR: TetR ->
 	[Degradation_TetR] (kd*TetR) > 0 -> (kd*TetR) : true;
 	// Complex_C1: IPTG+LacI -> C1
 	[Complex_C1] ((kc_f*(func(pow,IPTG,nc_IPTG))*(func(pow,LacI,nc_LacI)))-(kc_r*C1)) > 0 -> ((kc_f*(func(pow,IPTG,nc_IPTG))*(func(pow,LacI,nc_LacI)))-(kc_r*C1)) : true;
@@ -134,11 +160,11 @@ module reaction_rates
 	[Production_P1] ((P1*ko*(ko_f/ko_r)*nr)/(1+((ko_f/ko_r)*nr)+(func(pow,((kr_f/kr_r)*LacI),nc)))) > 0 -> ((P1*ko*(ko_f/ko_r)*nr)/(1+((ko_f/ko_r)*nr)+(func(pow,((kr_f/kr_r)*LacI),nc)))) : true;
 	// Production_P2:  -> LacI
 	[Production_P2] ((P2*ko*(ko_f/ko_r)*nr)/(1+((ko_f/ko_r)*nr)+(func(pow,((kr_f/kr_r)*TetR),nc)))) > 0 -> ((P2*ko*(ko_f/ko_r)*nr)/(1+((ko_f/ko_r)*nr)+(func(pow,((kr_f/kr_r)*TetR),nc)))) : true;
-	// Degradation_C1: C1 -> 
+	// Degradation_C1: C1 ->
 	[Degradation_C1] (kd*C1) > 0 -> (kd*C1) : true;
-	// Degradation_C2: C2 -> 
+	// Degradation_C2: C2 ->
 	[Degradation_C2] (kd*C2) > 0 -> (kd*C2) : true;
-	// Degradation_GFP: GFP -> 
+	// Degradation_GFP: GFP ->
 	[Degradation_GFP] (kd*GFP) > 0 -> (kd*GFP) : true;
 
 endmodule
