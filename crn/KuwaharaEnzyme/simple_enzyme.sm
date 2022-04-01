@@ -1,0 +1,76 @@
+ctmc
+
+
+
+const double k1 = 1;
+const double k2 = 1;
+const double k3 = 0.1;
+const double k4 = 1;
+const double k5 = 1;
+const double k6 = 0.1;
+
+const int MAX_AMOUNT = 200;
+
+module S1
+
+    S1 : [0..MAX_AMOUNT] init 1;
+
+    [R1] S1>0 -> (S1' = S1 - 1);
+    [R2] S1<=MAX_AMOUNT-1 -> (S1' = S1 + 1);
+    [R3] S1<=MAX_AMOUNT-1 -> (S1' = S1 + 1);
+endmodule
+
+module S2
+
+    S2 : [0..MAX_AMOUNT] init 50;
+
+    [R1] S2>0 -> (S2' = S2 - 1);
+    [R2] S2<=MAX_AMOUNT-1 -> (S2' = S2 + 1);
+    [R6] S2<=MAX_AMOUNT-1 -> (S2' = S2 + 1);
+endmodule
+
+module S3
+
+S3 : [0..MAX_AMOUNT] init 0;
+
+    [R1] S3<=MAX_AMOUNT-1 -> (S3' = S3 + 1);
+    [R2] S3>0 -> (S3' = S3 - 1);
+    [R3] S3>0 -> (S3' = S3 - 1);
+
+endmodule
+
+module S4
+
+    S4 : [0..MAX_AMOUNT] init 1;
+
+    [R4] S4>0 -> (S4' = S4 - 1);
+    [R5] S4<=MAX_AMOUNT-1 -> (S4' = S4 + 1);
+    [R6] S4<=MAX_AMOUNT-1 -> (S4' = S4 + 1);
+endmodule
+
+module S5
+
+    S5 : [0..MAX_AMOUNT] init 50;
+
+    [R3] S5<=MAX_AMOUNT-1 -> (S5' = S5 + 1);
+    [R4] S5>0 -> (S5' = S5 - 1);
+    [R5] S5<=MAX_AMOUNT-1 -> (S5' = S5 + 1);
+endmodule
+
+module S6
+
+    S6 : [0..MAX_AMOUNT] init 0;
+
+    [R4] S6<=MAX_AMOUNT-1 -> (S6' = S6 + 1);
+    [R5] S6>0 -> (S6' = S6 - 1);
+    [R6] S6>0 -> (S6' = S6 - 1);   
+endmodule
+
+module reactionRates
+    [R1] (k1*S1*S2)>0 -> (k1*S1*S2) : true;
+    [R2] (k2*S3)>0 -> (k2*S3) : true;
+    [R3] (k3*S3)>0 -> (k3*S3) : true;
+    [R4] (k4*S4*S5)>0 -> (k4*S4*S5) : true;
+    [R5] (k5*S6)>0 -> (k5*S6) : true;
+    [R6] (k6*S6)>0 -> (k6*S6) : true;
+endmodule
