@@ -1,0 +1,1186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version2/core" fbc:required="false" layout:required="false" level="2" version="2" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1">
+  <model id="topModell" metaid="iBioSim9" name="Created by libsbml flatten routine" substanceUnits="mole" volumeUnits="litre">
+    <annotation>
+      <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+          <rdf:Description rdf:about="#iBioSim1">
+            <mts:ModuleDefinitions>
+              <rdf:Bag>
+                <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell"/>
+              </rdf:Bag>
+            </mts:ModuleDefinitions>
+          </rdf:Description>
+        </rdf:RDF>
+      </ModelToSBOL>
+    </annotation>
+      <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <layout:layout layout:id="iBioSim">
+        <layout:dimensions layout:depth="0" layout:height="310" layout:width="435"/>
+        <layout:listOfAdditionalGraphicalObjects>
+          <layout:generalGlyph layout:id="Glyph__aTc_High" layout:reference="aTc_High">
+            <layout:boundingBox>
+              <layout:position layout:x="300" layout:y="175"/>
+              <layout:dimensions layout:height="25" layout:width="75"/>
+            </layout:boundingBox>
+            <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="Glyph__aTc" layout:id="Glyph__aTc_High__product__aTc" layout:role="product">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="337.5" layout:y="187.5"/>
+                      <layout:end layout:x="90" layout:y="95"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="Glyph__aTc_low" layout:reference="aTc_low">
+            <layout:boundingBox>
+              <layout:position layout:x="320" layout:y="210"/>
+              <layout:dimensions layout:height="25" layout:width="75"/>
+            </layout:boundingBox>
+            <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="Glyph__aTc" layout:id="Glyph__aTc_low__product__aTc" layout:role="product">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="357.5" layout:y="222.5"/>
+                      <layout:end layout:x="90" layout:y="95"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="Glyph__IPTG_high" layout:reference="IPTG_high">
+            <layout:boundingBox>
+              <layout:position layout:x="340" layout:y="245"/>
+              <layout:dimensions layout:height="25" layout:width="75"/>
+            </layout:boundingBox>
+            <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="Glyph__IPTG" layout:id="Glyph__IPTG_high__product__IPTG" layout:role="product">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="377.5" layout:y="257.5"/>
+                      <layout:end layout:x="70" layout:y="55"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="Glyph__IPTG_low" layout:reference="IPTG_low">
+            <layout:boundingBox>
+              <layout:position layout:x="360" layout:y="280"/>
+              <layout:dimensions layout:height="25" layout:width="75"/>
+            </layout:boundingBox>
+            <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="Glyph__IPTG" layout:id="Glyph__IPTG_low__product__IPTG" layout:role="product">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="397.5" layout:y="292.5"/>
+                      <layout:end layout:x="70" layout:y="55"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+        </layout:listOfAdditionalGraphicalObjects>
+        <layout:listOfCompartmentGlyphs>
+          <layout:compartmentGlyph layout:compartment="Cell" layout:id="Glyph__Cell">
+            <layout:boundingBox>
+              <layout:position layout:x="0" layout:y="0"/>
+              <layout:dimensions layout:height="425" layout:width="1070"/>
+            </layout:boundingBox>
+          </layout:compartmentGlyph>
+        </layout:listOfCompartmentGlyphs>
+        <layout:listOfSpeciesGlyphs>
+          <layout:speciesGlyph layout:id="topModell_Part2_module_sub__Glyph__Part2_fc" layout:species="topModell_Part2_module_sub__Part2_fc">
+            <layout:boundingBox>
+              <layout:position layout:x="-1" layout:y="-1"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="Glyph__IPTG" layout:species="IPTG">
+            <layout:boundingBox>
+              <layout:position layout:x="20" layout:y="40"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="Glyph__aTc" layout:species="aTc">
+            <layout:boundingBox>
+              <layout:position layout:x="40" layout:y="80"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="Glyph__YFP_protein" layout:species="YFP_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="60" layout:y="120"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="Glyph__aTc_TetR_protein" layout:species="aTc_TetR_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="80" layout:y="160"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="Glyph__LacI_protein" layout:species="LacI_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="100" layout:y="200"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="Glyph__IPTG_LacI_protein" layout:species="IPTG_LacI_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="120" layout:y="240"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="Glyph__TetR_protein" layout:species="TetR_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="140" layout:y="280"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+        </layout:listOfSpeciesGlyphs>
+        <layout:listOfReactionGlyphs>
+          <layout:reactionGlyph layout:id="Glyph__Degradation_aTc_TetR_protein" layout:reaction="Degradation_aTc_TetR_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="160" layout:y="240"/>
+              <layout:dimensions layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="Glyph__Degradation_aTc_TetR_protein__substrate__aTc_TetR_protein" layout:role="substrate" layout:speciesGlyph="Glyph__aTc_TetR_protein">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="130" layout:y="175"/>
+                      <layout:end layout:x="170" layout:y="250"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="Glyph__Degradation_YFP_protein" layout:reaction="Degradation_YFP_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="180" layout:y="270"/>
+              <layout:dimensions layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="Glyph__Degradation_YFP_protein__substrate__YFP_protein" layout:role="substrate" layout:speciesGlyph="Glyph__YFP_protein">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="110" layout:y="135"/>
+                      <layout:end layout:x="190" layout:y="280"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="Glyph__Degradation_LacI_protein" layout:reaction="Degradation_LacI_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="200" layout:y="0"/>
+              <layout:dimensions layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="Glyph__Degradation_LacI_protein__substrate__LacI_protein" layout:role="substrate" layout:speciesGlyph="Glyph__LacI_protein">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="150" layout:y="215"/>
+                      <layout:end layout:x="210" layout:y="10"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="Glyph__Degradation_IPTG_LacI_protein" layout:reaction="Degradation_IPTG_LacI_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="220" layout:y="30"/>
+              <layout:dimensions layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="Glyph__Degradation_IPTG_LacI_protein__substrate__IPTG_LacI_protein" layout:role="substrate" layout:speciesGlyph="Glyph__IPTG_LacI_protein">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="170" layout:y="255"/>
+                      <layout:end layout:x="230" layout:y="40"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="Glyph__Degradation_TetR_protein" layout:reaction="Degradation_TetR_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="240" layout:y="60"/>
+              <layout:dimensions layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="Glyph__Degradation_TetR_protein__substrate__TetR_protein" layout:role="substrate" layout:speciesGlyph="Glyph__TetR_protein">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="190" layout:y="295"/>
+                      <layout:end layout:x="250" layout:y="70"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="Glyph__R_abstracted_production_topModell_Part1_module_sub__Part1_fc" layout:reaction="R_abstracted_production_topModell_Part1_module_sub__Part1_fc">
+            <layout:boundingBox>
+              <layout:position layout:x="260" layout:y="90"/>
+              <layout:dimensions layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="Glyph__R_abstracted_production_topModell_Part1_module_sub__Part1_fc__modifier__LacI_protein" layout:role="modifier" layout:speciesGlyph="Glyph__LacI_protein">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="150" layout:y="215"/>
+                      <layout:end layout:x="270" layout:y="100"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="Glyph__R_abstracted_production_topModell_Part1_module_sub__Part1_fc__product__TetR_protein" layout:role="product" layout:speciesGlyph="Glyph__TetR_protein">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="270" layout:y="100"/>
+                      <layout:end layout:x="190" layout:y="295"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="Glyph__R_abstracted_production_topModell_Part2_module_sub__Part2_fc" layout:reaction="R_abstracted_production_topModell_Part2_module_sub__Part2_fc">
+            <layout:boundingBox>
+              <layout:position layout:x="280" layout:y="120"/>
+              <layout:dimensions layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="Glyph__R_abstracted_production_topModell_Part2_module_sub__Part2_fc__modifier__TetR_protein" layout:role="modifier" layout:speciesGlyph="Glyph__TetR_protein">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="190" layout:y="295"/>
+                      <layout:end layout:x="290" layout:y="130"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="Glyph__R_abstracted_production_topModell_Part2_module_sub__Part2_fc__product__YFP_protein" layout:role="product" layout:speciesGlyph="Glyph__YFP_protein">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="290" layout:y="130"/>
+                      <layout:end layout:x="110" layout:y="135"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="Glyph__R_abstracted_production_topModell_Part2_module_sub__Part2_fc__product__LacI_protein" layout:role="product" layout:speciesGlyph="Glyph__LacI_protein">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="290" layout:y="130"/>
+                      <layout:end layout:x="150" layout:y="215"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="Glyph__aTc__Reaction__aTc_TetR_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="130" layout:y="175"/>
+              <layout:dimensions layout:height="0" layout:width="0"/>
+            </layout:boundingBox>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="ReferenceGlyph__aTc__Reaction__aTc_TetR_protein" layout:role="product" layout:speciesGlyph="Glyph__aTc_TetR_protein">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="90" layout:y="95"/>
+                      <layout:end layout:x="130" layout:y="175"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="Glyph__TetR_protein__Reaction__aTc_TetR_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="130" layout:y="175"/>
+              <layout:dimensions layout:height="0" layout:width="0"/>
+            </layout:boundingBox>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="ReferenceGlyph__TetR_protein__Reaction__aTc_TetR_protein" layout:role="product" layout:speciesGlyph="Glyph__aTc_TetR_protein">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="190" layout:y="295"/>
+                      <layout:end layout:x="130" layout:y="175"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="Glyph__IPTG__Reaction__IPTG_LacI_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="170" layout:y="255"/>
+              <layout:dimensions layout:height="0" layout:width="0"/>
+            </layout:boundingBox>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="ReferenceGlyph__IPTG__Reaction__IPTG_LacI_protein" layout:role="product" layout:speciesGlyph="Glyph__IPTG_LacI_protein">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="70" layout:y="55"/>
+                      <layout:end layout:x="170" layout:y="255"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="Glyph__LacI_protein__Reaction__IPTG_LacI_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="170" layout:y="255"/>
+              <layout:dimensions layout:height="0" layout:width="0"/>
+            </layout:boundingBox>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="ReferenceGlyph__LacI_protein__Reaction__IPTG_LacI_protein" layout:role="product" layout:speciesGlyph="Glyph__IPTG_LacI_protein">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="150" layout:y="215"/>
+                      <layout:end layout:x="170" layout:y="255"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+        </layout:listOfReactionGlyphs>
+        <layout:listOfTextGlyphs>
+          <layout:textGlyph layout:graphicalObject="topModell_Part2_module_sub__Glyph__Part2_fc" layout:id="topModell_Part2_module_sub__TextGlyph__Part2_fc" layout:text="Part2_fc">
+            <layout:boundingBox>
+              <layout:position layout:x="-1" layout:y="-1"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__Cell" layout:id="TextGlyph__Cell" layout:text="Cell">
+            <layout:boundingBox>
+              <layout:position layout:x="0" layout:y="0"/>
+              <layout:dimensions layout:height="425" layout:width="1070"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__IPTG" layout:id="TextGlyph__IPTG" layout:text="IPTG">
+            <layout:boundingBox>
+              <layout:position layout:x="20" layout:y="40"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__aTc" layout:id="TextGlyph__aTc" layout:text="aTc">
+            <layout:boundingBox>
+              <layout:position layout:x="40" layout:y="80"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__YFP_protein" layout:id="TextGlyph__YFP_protein" layout:text="YFP_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="60" layout:y="120"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__aTc_TetR_protein" layout:id="TextGlyph__aTc_TetR_protein" layout:text="aTc_TetR_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="80" layout:y="160"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__LacI_protein" layout:id="TextGlyph__LacI_protein" layout:text="LacI_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="100" layout:y="200"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__IPTG_LacI_protein" layout:id="TextGlyph__IPTG_LacI_protein" layout:text="IPTG_LacI_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="120" layout:y="240"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__TetR_protein" layout:id="TextGlyph__TetR_protein" layout:text="TetR_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="140" layout:y="280"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__Degradation_aTc_TetR_protein" layout:id="TextGlyph__Degradation_aTc_TetR_protein" layout:text="Degradation_aTc_TetR_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="160" layout:y="240"/>
+              <layout:dimensions layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__Degradation_YFP_protein" layout:id="TextGlyph__Degradation_YFP_protein" layout:text="Degradation_YFP_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="180" layout:y="270"/>
+              <layout:dimensions layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__Degradation_LacI_protein" layout:id="TextGlyph__Degradation_LacI_protein" layout:text="Degradation_LacI_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="200" layout:y="0"/>
+              <layout:dimensions layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__Degradation_IPTG_LacI_protein" layout:id="TextGlyph__Degradation_IPTG_LacI_protein" layout:text="Degradation_IPTG_LacI_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="220" layout:y="30"/>
+              <layout:dimensions layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__Degradation_TetR_protein" layout:id="TextGlyph__Degradation_TetR_protein" layout:text="Degradation_TetR_protein">
+            <layout:boundingBox>
+              <layout:position layout:x="240" layout:y="60"/>
+              <layout:dimensions layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__R_abstracted_production_topModell_Part1_module_sub__Part1_fc" layout:id="TextGlyph__R_abstracted_production_topModell_Part1_module_sub__Part1_fc" layout:text="R_abstracted_production_topModell_Part1_module_sub__Part1_fc">
+            <layout:boundingBox>
+              <layout:position layout:x="260" layout:y="90"/>
+              <layout:dimensions layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__R_abstracted_production_topModell_Part2_module_sub__Part2_fc" layout:id="TextGlyph__R_abstracted_production_topModell_Part2_module_sub__Part2_fc" layout:text="R_abstracted_production_topModell_Part2_module_sub__Part2_fc">
+            <layout:boundingBox>
+              <layout:position layout:x="280" layout:y="120"/>
+              <layout:dimensions layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__aTc_High" layout:id="TextGlyph__aTc_High" layout:text="aTc_High">
+            <layout:boundingBox>
+              <layout:position layout:x="300" layout:y="175"/>
+              <layout:dimensions layout:height="25" layout:width="75"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__aTc_low" layout:id="TextGlyph__aTc_low" layout:text="aTc_low">
+            <layout:boundingBox>
+              <layout:position layout:x="320" layout:y="210"/>
+              <layout:dimensions layout:height="25" layout:width="75"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__IPTG_high" layout:id="TextGlyph__IPTG_high" layout:text="IPTG_high">
+            <layout:boundingBox>
+              <layout:position layout:x="340" layout:y="245"/>
+              <layout:dimensions layout:height="25" layout:width="75"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Glyph__IPTG_low" layout:id="TextGlyph__IPTG_low" layout:text="IPTG_low">
+            <layout:boundingBox>
+              <layout:position layout:x="360" layout:y="280"/>
+              <layout:dimensions layout:height="25" layout:width="75"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+        </layout:listOfTextGlyphs>
+      </layout:layout>
+      <layout:layout layout:id="topModell_Part1_module_sub__iBioSim">
+        <layout:dimensions layout:depth="0" layout:height="29" layout:width="99"/>
+        <layout:listOfSpeciesGlyphs>
+          <layout:speciesGlyph layout:id="topModell_Part1_module_sub__Glyph__Part1_fc" layout:species="topModell_Part1_module_sub__Part1_fc">
+            <layout:boundingBox>
+              <layout:position layout:x="-1" layout:y="-1"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+        </layout:listOfSpeciesGlyphs>
+        <layout:listOfTextGlyphs>
+          <layout:textGlyph layout:graphicalObject="topModell_Part1_module_sub__Glyph__Part1_fc" layout:id="topModell_Part1_module_sub__TextGlyph__Part1_fc" layout:text="Part1_fc">
+            <layout:boundingBox>
+              <layout:position layout:x="-1" layout:y="-1"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+        </layout:listOfTextGlyphs>
+      </layout:layout>
+    </layout:listOfLayouts>
+    <listOfUnitDefinitions>
+      <unitDefinition id="u_1_second_n1">
+        <listOfUnits>
+          <unit exponent="-1" kind="second" multiplier="1" scale="0"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="u_1_mole_n1">
+        <listOfUnits>
+          <unit exponent="-1" kind="mole" multiplier="1" scale="0"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="u_1_mole_n1_1_second_n1">
+        <listOfUnits>
+          <unit exponent="-1" kind="mole" multiplier="1" scale="0"/>
+          <unit exponent="-1" kind="second" multiplier="1" scale="0"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment constant="true" id="Cell" size="1" spatialDimensions="3"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species boundaryCondition="true" compartment="Cell" constant="false" hasOnlySubstanceUnits="true" id="IPTG" initialAmount="0" metaid="iBioSim2">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#iBioSim2">
+                <mts:ComponentDefinitions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/IPTG/1"/>
+                  </rdf:Bag>
+                </mts:ComponentDefinitions>
+                <mts:DNAComponents>
+                  <rdf:Seq>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/IPTG/1"/>
+                  </rdf:Seq>
+                </mts:DNAComponents>
+                <mts:Strand>+</mts:Strand>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+            </species>
+      <species boundaryCondition="true" compartment="Cell" constant="false" hasOnlySubstanceUnits="true" id="aTc" initialAmount="0" metaid="iBioSim3">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#iBioSim3">
+                <mts:ComponentDefinitions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/aTc/1"/>
+                  </rdf:Bag>
+                </mts:ComponentDefinitions>
+                <mts:DNAComponents>
+                  <rdf:Seq>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/aTc/1"/>
+                  </rdf:Seq>
+                </mts:DNAComponents>
+                <mts:Strand>+</mts:Strand>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+            </species>
+      <species boundaryCondition="false" compartment="Cell" constant="false" hasOnlySubstanceUnits="true" id="YFP_protein" initialAmount="0" metaid="iBioSim4">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#iBioSim4">
+                <mts:ComponentDefinitions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/YFP_protein/1"/>
+                  </rdf:Bag>
+                </mts:ComponentDefinitions>
+                <mts:DNAComponents>
+                  <rdf:Seq>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/YFP_protein/1"/>
+                  </rdf:Seq>
+                </mts:DNAComponents>
+                <mts:Strand>+</mts:Strand>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+            </species>
+      <species boundaryCondition="false" compartment="Cell" constant="false" hasOnlySubstanceUnits="true" id="aTc_TetR_protein" initialAmount="0" metaid="iBioSim5">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#iBioSim5">
+                <mts:ComponentDefinitions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/aTc_TetR_protein/1"/>
+                  </rdf:Bag>
+                </mts:ComponentDefinitions>
+                <mts:DNAComponents>
+                  <rdf:Seq>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/aTc_TetR_protein/1"/>
+                  </rdf:Seq>
+                </mts:DNAComponents>
+                <mts:Strand>+</mts:Strand>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+            </species>
+      <species boundaryCondition="false" compartment="Cell" constant="false" hasOnlySubstanceUnits="true" id="LacI_protein" initialAmount="0" metaid="iBioSim6">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#iBioSim6">
+                <mts:ComponentDefinitions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/LacI_protein/1"/>
+                  </rdf:Bag>
+                </mts:ComponentDefinitions>
+                <mts:DNAComponents>
+                  <rdf:Seq>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/LacI_protein/1"/>
+                  </rdf:Seq>
+                </mts:DNAComponents>
+                <mts:Strand>+</mts:Strand>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+            </species>
+      <species boundaryCondition="false" compartment="Cell" constant="false" hasOnlySubstanceUnits="true" id="IPTG_LacI_protein" initialAmount="0" metaid="iBioSim7">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#iBioSim7">
+                <mts:ComponentDefinitions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/IPTG_LacI_protein/1"/>
+                  </rdf:Bag>
+                </mts:ComponentDefinitions>
+                <mts:DNAComponents>
+                  <rdf:Seq>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/IPTG_LacI_protein/1"/>
+                  </rdf:Seq>
+                </mts:DNAComponents>
+                <mts:Strand>+</mts:Strand>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+            </species>
+      <species boundaryCondition="false" compartment="Cell" constant="false" hasOnlySubstanceUnits="true" id="TetR_protein" initialAmount="60" metaid="iBioSim8">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#iBioSim8">
+                <mts:ComponentDefinitions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/TetR_protein/1"/>
+                  </rdf:Bag>
+                </mts:ComponentDefinitions>
+                <mts:DNAComponents>
+                  <rdf:Seq>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/TetR_protein/1"/>
+                  </rdf:Seq>
+                </mts:DNAComponents>
+                <mts:Strand>+</mts:Strand>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+            </species>
+      <species boundaryCondition="false" compartment="Cell" constant="false" hasOnlySubstanceUnits="true" id="topModell_Part2_module_sub__Part2_fc" initialAmount="2" metaid="topModell_Part2_module_sub__iBioSim4" sboTerm="SBO:0000590">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#iBioSim4">
+                <mts:ComponentDefinitions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/Part2/1"/>
+                  </rdf:Bag>
+                </mts:ComponentDefinitions>
+                <mts:FunctionalComponents>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/Part2/1"/>
+                  </rdf:Bag>
+                </mts:FunctionalComponents>
+                <mts:DNAComponents>
+                  <rdf:Seq>
+                    <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/Part2/1"/>
+                  </rdf:Seq>
+                </mts:DNAComponents>
+                <mts:Strand>+</mts:Strand>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+            </species>
+      <species boundaryCondition="false" compartment="Cell" constant="false" hasOnlySubstanceUnits="true" id="topModell_Part1_module_sub__Part1_fc" initialAmount="2" metaid="topModell_Part1_module_sub__iBioSim2" sboTerm="SBO:0000590">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#iBioSim2">
+                <mts:ComponentDefinitions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/Part1/1"/>
+                  </rdf:Bag>
+                </mts:ComponentDefinitions>
+                <mts:FunctionalComponents>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/Part1/1"/>
+                  </rdf:Bag>
+                </mts:FunctionalComponents>
+                <mts:DNAComponents>
+                  <rdf:Seq>
+                    <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/Part1/1"/>
+                  </rdf:Seq>
+                </mts:DNAComponents>
+                <mts:Strand>+</mts:Strand>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+            </species>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter constant="true" id="kd" metaid="iBioSim1" name="Degradation rate" value="0.0075"/>
+      <parameter constant="true" id="kc_f" metaid="iBioSim30" name="Forward complex formation rate" value="0.05"/>
+      <parameter constant="true" id="kc_r" metaid="iBioSim31" name="Reverse complex formation rate" value="1"/>
+      <parameter constant="true" id="nc" metaid="iBioSim32" name="Stoichiometry of binding" value="2"/>
+      <parameter constant="true" id="topModell_Part2_module_sub__kr_f" metaid="iBioSim24" name="Forward repression binding rate" value="0.5"/>
+      <parameter constant="true" id="topModell_Part2_module_sub__kr_r" metaid="iBioSim25" name="Reverse repression binding rate" value="1"/>
+      <parameter constant="true" id="topModell_Part2_module_sub__ka_f" metaid="iBioSim27" name="Forward activation binding rate" value="0.0033"/>
+      <parameter constant="true" id="topModell_Part2_module_sub__ka_r" metaid="iBioSim28" name="Reverse activation binding rate" value="1"/>
+      <parameter constant="true" id="topModell_Part2_module_sub__ko_f" metaid="iBioSim29" name="Forward RNAP binding rate" value="0.033"/>
+      <parameter constant="true" id="topModell_Part2_module_sub__ko_r" metaid="iBioSim38" name="Reverse RNAP binding rate" value="1"/>
+      <parameter constant="true" id="topModell_Part2_module_sub__kao_f" metaid="iBioSim39" name="Forward activated RNAP binding rate" value="1"/>
+      <parameter constant="true" id="topModell_Part2_module_sub__kao_r" metaid="iBioSim42" name="Reverse activated RNAP binding rate" value="1"/>
+      <parameter constant="true" id="topModell_Part2_module_sub__nc" metaid="iBioSim43" name="Stoichiometry of binding" value="2"/>
+      <parameter constant="true" id="topModell_Part2_module_sub__nr" metaid="iBioSim44" name="Initial RNAP count" value="30"/>
+      <parameter constant="true" id="topModell_Part2_module_sub__ko" metaid="iBioSim45" name="Open complex production rate" value="0.05"/>
+      <parameter constant="true" id="topModell_Part2_module_sub__kb" metaid="iBioSim46" name="Basal production rate" value="0.0001"/>
+      <parameter constant="true" id="topModell_Part2_module_sub__ng" metaid="iBioSim47" name="Initial promoter count" value="2"/>
+      <parameter constant="true" id="topModell_Part2_module_sub__np" metaid="iBioSim48" name="Stoichiometry of production" value="10"/>
+      <parameter constant="true" id="topModell_Part2_module_sub__ka" metaid="iBioSim49" name="Activated production rate" value="0.25"/>
+      <parameter constant="true" id="topModell_Part1_module_sub__kr_f" metaid="iBioSim50" name="Forward repression binding rate" value="0.5"/>
+      <parameter constant="true" id="topModell_Part1_module_sub__kr_r" metaid="iBioSim51" name="Reverse repression binding rate" value="1"/>
+      <parameter constant="true" id="topModell_Part1_module_sub__ka_f" metaid="iBioSim52" name="Forward activation binding rate" value="0.0033"/>
+      <parameter constant="true" id="topModell_Part1_module_sub__ka_r" metaid="iBioSim53" name="Reverse activation binding rate" value="1"/>
+      <parameter constant="true" id="topModell_Part1_module_sub__ko_f" metaid="iBioSim54" name="Forward RNAP binding rate" value="0.033"/>
+      <parameter constant="true" id="topModell_Part1_module_sub__ko_r" metaid="iBioSim55" name="Reverse RNAP binding rate" value="1"/>
+      <parameter constant="true" id="topModell_Part1_module_sub__kao_f" metaid="iBioSim56" name="Forward activated RNAP binding rate" value="1"/>
+      <parameter constant="true" id="topModell_Part1_module_sub__kao_r" metaid="iBioSim57" name="Reverse activated RNAP binding rate" value="1"/>
+      <parameter constant="true" id="topModell_Part1_module_sub__nc" metaid="iBioSim58" name="Stoichiometry of binding" value="2"/>
+      <parameter constant="true" id="topModell_Part1_module_sub__nr" metaid="iBioSim59" name="Initial RNAP count" value="30"/>
+      <parameter constant="true" id="topModell_Part1_module_sub__ko" metaid="iBioSim60" name="Open complex production rate" value="0.05"/>
+      <parameter constant="true" id="topModell_Part1_module_sub__kb" metaid="iBioSim61" name="Basal production rate" value="0.0001"/>
+      <parameter constant="true" id="topModell_Part1_module_sub__ng" metaid="iBioSim62" name="Initial promoter count" value="2"/>
+      <parameter constant="true" id="topModell_Part1_module_sub__np" metaid="iBioSim63" name="Stoichiometry of production" value="10"/>
+      <parameter constant="true" id="topModell_Part1_module_sub__ka" metaid="iBioSim64" name="Activated production rate" value="0.25"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction compartment="Cell" id="Degradation_aTc_TetR_protein" metaid="iBioSim10" reversible="false">
+        <listOfReactants>
+          <speciesReference constant="true" species="aTc_TetR_protein" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kd </ci>
+              <ci> aTc_TetR_protein </ci>
+            </apply>
+          </math>
+                  <listOfLocalParameters>
+            <localParameter id="kd" units="u_1_second_n1" value="0.0075"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction compartment="Cell" id="Degradation_YFP_protein" metaid="iBioSim11" reversible="false">
+        <listOfReactants>
+          <speciesReference constant="true" species="YFP_protein" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kd </ci>
+              <ci> YFP_protein </ci>
+            </apply>
+          </math>
+                  <listOfLocalParameters>
+            <localParameter id="kd" units="u_1_second_n1" value="0.0075"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction compartment="Cell" id="Degradation_LacI_protein" metaid="iBioSim12" reversible="false">
+        <listOfReactants>
+          <speciesReference constant="true" species="LacI_protein" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kd </ci>
+              <ci> LacI_protein </ci>
+            </apply>
+          </math>
+                  <listOfLocalParameters>
+            <localParameter id="kd" units="u_1_second_n1" value="0.0075"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction compartment="Cell" id="Degradation_IPTG_LacI_protein" metaid="iBioSim13" reversible="false">
+        <listOfReactants>
+          <speciesReference constant="true" species="IPTG_LacI_protein" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kd </ci>
+              <ci> IPTG_LacI_protein </ci>
+            </apply>
+          </math>
+                  <listOfLocalParameters>
+            <localParameter id="kd" units="u_1_second_n1" value="0.0075"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction compartment="Cell" id="Degradation_TetR_protein" metaid="iBioSim14" reversible="false">
+        <listOfReactants>
+          <speciesReference constant="true" species="TetR_protein" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kd </ci>
+              <ci> TetR_protein </ci>
+            </apply>
+          </math>
+                  <listOfLocalParameters>
+            <localParameter id="kd" units="u_1_second_n1" value="0.0075"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction compartment="Cell" id="R_abstracted_production_topModell_Part1_module_sub__Part1_fc" metaid="iBioSim15" reversible="false">
+        <listOfProducts>
+          <speciesReference constant="true" species="TetR_protein" stoichiometry="10"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="LacI_protein"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <ci> ko__topModell_Part1_module_sub__Part1_fc </ci>
+                  <ci> ng__topModell_Part1_module_sub__Part1_fc </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> Ko__topModell_Part1_module_sub__Part1_fc </ci>
+                  <ci> RNAP </ci>
+                </apply>
+              </apply>
+              <apply>
+                <plus/>
+                <apply>
+                  <plus/>
+                  <cn type="integer"> 1 </cn>
+                  <apply>
+                    <times/>
+                    <ci> Ko__topModell_Part1_module_sub__Part1_fc </ci>
+                    <ci> RNAP </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <power/>
+                  <apply>
+                    <times/>
+                    <ci> Kr__LacI_protein_topModell_Part1_module_sub__Part1_fc </ci>
+                    <ci> LacI_protein </ci>
+                  </apply>
+                  <ci> nc__LacI_protein_topModell_Part1_module_sub__Part1_fc </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+                  <listOfLocalParameters>
+            <localParameter id="RNAP" units="u_1_mole_n1" value="30"/>
+            <localParameter id="ng__topModell_Part1_module_sub__Part1_fc" units="u_1_mole_n1" value="2"/>
+            <localParameter id="Ko__topModell_Part1_module_sub__Part1_fc" units="u_1_mole_n1" value="0.033"/>
+            <localParameter id="ko__topModell_Part1_module_sub__Part1_fc" units="u_1_second_n1" value="0.05"/>
+            <localParameter id="nc__LacI_protein_topModell_Part1_module_sub__Part1_fc" units="dimensionless" value="2"/>
+            <localParameter id="Kr__LacI_protein_topModell_Part1_module_sub__Part1_fc" units="u_1_mole_n1" value="0.5"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction compartment="Cell" id="R_abstracted_production_topModell_Part2_module_sub__Part2_fc" metaid="iBioSim16" reversible="false">
+        <listOfProducts>
+          <speciesReference constant="true" species="YFP_protein" stoichiometry="10"/>
+          <speciesReference constant="true" species="LacI_protein" stoichiometry="10"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="TetR_protein"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <ci> ko__topModell_Part2_module_sub__Part2_fc </ci>
+                  <ci> ng__topModell_Part2_module_sub__Part2_fc </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> Ko__topModell_Part2_module_sub__Part2_fc </ci>
+                  <ci> RNAP </ci>
+                </apply>
+              </apply>
+              <apply>
+                <plus/>
+                <apply>
+                  <plus/>
+                  <cn type="integer"> 1 </cn>
+                  <apply>
+                    <times/>
+                    <ci> Ko__topModell_Part2_module_sub__Part2_fc </ci>
+                    <ci> RNAP </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <power/>
+                  <apply>
+                    <times/>
+                    <ci> Kr__TetR_protein_topModell_Part2_module_sub__Part2_fc </ci>
+                    <ci> TetR_protein </ci>
+                  </apply>
+                  <ci> nc__TetR_protein_topModell_Part2_module_sub__Part2_fc </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+                  <listOfLocalParameters>
+            <localParameter id="RNAP" units="u_1_mole_n1" value="30"/>
+            <localParameter id="ng__topModell_Part2_module_sub__Part2_fc" units="u_1_mole_n1" value="2"/>
+            <localParameter id="Ko__topModell_Part2_module_sub__Part2_fc" units="u_1_mole_n1" value="0.033"/>
+            <localParameter id="ko__topModell_Part2_module_sub__Part2_fc" units="u_1_second_n1" value="0.05"/>
+            <localParameter id="nc__TetR_protein_topModell_Part2_module_sub__Part2_fc" units="dimensionless" value="2"/>
+            <localParameter id="Kr__TetR_protein_topModell_Part2_module_sub__Part2_fc" units="u_1_mole_n1" value="0.5"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction compartment="Cell" id="Complex_aTc_TetR_protein" metaid="iBioSim17" reversible="true">
+        <listOfReactants>
+          <speciesReference constant="true" species="aTc" stoichiometry="2"/>
+          <speciesReference constant="true" species="TetR_protein" stoichiometry="2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" species="aTc_TetR_protein" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <apply>
+                    <times/>
+                    <ci> kf_c </ci>
+                    <apply>
+                      <power/>
+                      <ci> Kc </ci>
+                      <apply>
+                        <minus/>
+                        <apply>
+                          <plus/>
+                          <ci> nc__aTc_aTc_TetR_protein </ci>
+                          <ci> nc__TetR_protein_aTc_TetR_protein </ci>
+                        </apply>
+                        <cn type="integer"> 2 </cn>
+                      </apply>
+                    </apply>
+                  </apply>
+                  <apply>
+                    <power/>
+                    <ci> aTc </ci>
+                    <ci> nc__aTc_aTc_TetR_protein </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <power/>
+                  <ci> TetR_protein </ci>
+                  <ci> nc__TetR_protein_aTc_TetR_protein </ci>
+                </apply>
+              </apply>
+              <apply>
+                <times/>
+                <ci> kr_c </ci>
+                <ci> aTc_TetR_protein </ci>
+              </apply>
+            </apply>
+          </math>
+                  <listOfLocalParameters>
+            <localParameter id="nc__aTc_aTc_TetR_protein" units="dimensionless" value="2"/>
+            <localParameter id="nc__TetR_protein_aTc_TetR_protein" units="dimensionless" value="2"/>
+            <localParameter id="kf_c" units="u_1_mole_n1_1_second_n1" value="0.05"/>
+            <localParameter id="Kc" units="u_1_mole_n1" value="0.05"/>
+            <localParameter id="kr_c" units="u_1_second_n1" value="1"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction compartment="Cell" id="Complex_IPTG_LacI_protein" metaid="iBioSim18" reversible="true">
+        <listOfReactants>
+          <speciesReference constant="true" species="IPTG" stoichiometry="2"/>
+          <speciesReference constant="true" species="LacI_protein" stoichiometry="2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" species="IPTG_LacI_protein" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <apply>
+                    <times/>
+                    <ci> kf_c </ci>
+                    <apply>
+                      <power/>
+                      <ci> Kc </ci>
+                      <apply>
+                        <minus/>
+                        <apply>
+                          <plus/>
+                          <ci> nc__IPTG_IPTG_LacI_protein </ci>
+                          <ci> nc__LacI_protein_IPTG_LacI_protein </ci>
+                        </apply>
+                        <cn type="integer"> 2 </cn>
+                      </apply>
+                    </apply>
+                  </apply>
+                  <apply>
+                    <power/>
+                    <ci> IPTG </ci>
+                    <ci> nc__IPTG_IPTG_LacI_protein </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <power/>
+                  <ci> LacI_protein </ci>
+                  <ci> nc__LacI_protein_IPTG_LacI_protein </ci>
+                </apply>
+              </apply>
+              <apply>
+                <times/>
+                <ci> kr_c </ci>
+                <ci> IPTG_LacI_protein </ci>
+              </apply>
+            </apply>
+          </math>
+                  <listOfLocalParameters>
+            <localParameter id="nc__IPTG_IPTG_LacI_protein" units="dimensionless" value="2"/>
+            <localParameter id="nc__LacI_protein_IPTG_LacI_protein" units="dimensionless" value="2"/>
+            <localParameter id="kf_c" units="u_1_mole_n1_1_second_n1" value="0.05"/>
+            <localParameter id="Kc" units="u_1_mole_n1" value="0.05"/>
+            <localParameter id="kr_c" units="u_1_second_n1" value="1"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+    <listOfEvents>
+      <event id="aTc_High" metaid="iBioSim22" useValuesFromTriggerTime="false">
+        <trigger initialValue="false" persistent="false">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <true/>
+          </math>
+                </trigger>
+        <delay>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <cn type="integer"> 2000 </cn>
+          </math>
+                </delay>
+        <listOfEventAssignments>
+          <eventAssignment variable="aTc">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <cn type="integer"> 60 </cn>
+            </math>
+                    </eventAssignment>
+        </listOfEventAssignments>
+      </event>
+      <event id="aTc_low" metaid="iBioSim26" useValuesFromTriggerTime="false">
+        <trigger initialValue="false" persistent="false">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <true/>
+          </math>
+                </trigger>
+        <delay>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <cn type="integer"> 4000 </cn>
+          </math>
+                </delay>
+        <listOfEventAssignments>
+          <eventAssignment variable="aTc">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <cn type="integer"> 0 </cn>
+            </math>
+                    </eventAssignment>
+        </listOfEventAssignments>
+      </event>
+      <event id="IPTG_high" metaid="iBioSim40" useValuesFromTriggerTime="false">
+        <trigger initialValue="false" persistent="false">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <true/>
+          </math>
+                </trigger>
+        <delay>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <cn type="integer"> 6000 </cn>
+          </math>
+                </delay>
+        <listOfEventAssignments>
+          <eventAssignment variable="IPTG">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <cn type="integer"> 60 </cn>
+            </math>
+                    </eventAssignment>
+        </listOfEventAssignments>
+      </event>
+      <event id="IPTG_low" metaid="iBioSim41" useValuesFromTriggerTime="false">
+        <trigger initialValue="false" persistent="false">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <true/>
+          </math>
+                </trigger>
+        <delay>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <cn type="integer"> 8000 </cn>
+          </math>
+                </delay>
+        <listOfEventAssignments>
+          <eventAssignment variable="IPTG">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <cn type="integer"> 0 </cn>
+            </math>
+                    </eventAssignment>
+        </listOfEventAssignments>
+      </event>
+    </listOfEvents>
+  </model>
+</sbml>
