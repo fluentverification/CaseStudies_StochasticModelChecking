@@ -1,0 +1,100 @@
+#lang ivy1.7
+
+attribute method=mc
+
+type num
+interpret num -> bv[10] #lowering this lowers execution time
+
+var r   : num
+var l   : num
+var rl  : num
+var g   : num
+var ga  : num
+var gbg : num
+var gd  : num
+
+after init {
+  r   := 50;
+  l   :=  2;
+  rl  :=  0;
+  g   := 50;
+  ga  :=  0;
+  gbg :=  0;
+  gd  :=  0;
+}
+
+before r1 {
+  require true;
+}
+action r1 = {
+  r := r + 1;
+}
+export r1
+
+before r2 {
+  require r >= 1;
+}
+action r2 = {
+  r := r - 1;
+}
+export r2
+
+before r3 {
+  require l >= 1 & r >= 1;
+}
+action r3 = {
+  r := r - 1;
+  l := l - 1;
+  rl := rl + 1;
+  l := l + 1;
+}
+export r3
+
+before r4 {
+  require rl >= 1;
+}
+action r4 = {
+  rl := rl - 1;
+  r := r + 1;
+}
+export r4
+
+before r5 {
+  require rl >= 1 & g >= 1;
+}
+action r5 = {
+  rl := rl - 1;
+  g := g - 1;
+  ga := ga + 1;
+  gbg := gbg + 1;
+}
+export r5
+
+before r6 {
+  require ga >= 1;
+}
+action r6 = {
+  ga := ga - 1;
+  gd := gd + 1;
+}
+export r6
+
+before r7 {
+  require gd >= 1 & gbg >= 1;
+}
+action r7 = {
+  gd := gd - 1;
+  gbg := gbg - 1;
+  g := g + 1;
+}
+export r7
+
+before r8 {
+  require true;
+}
+action r8 = {
+  rl := rl + 1;
+}
+export r8
+
+invariant (gbg ~= 50)
