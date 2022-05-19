@@ -1,0 +1,211 @@
+#lang ivy1.6
+
+
+type num
+
+interpret num -> bv[10]
+
+object fifth = {
+	individual rl:num
+	individual g:num
+	individual ga:num
+	individual gbg:num
+
+	after init {
+		rl := 0;
+		g := 50;
+		ga := 0;
+		gbg := 0
+	}
+
+	
+
+	action r5
+	
+	action r3 = {
+		rl := rl + 1
+	}
+
+	action r4 = {
+		rl := rl - 1
+	}
+		
+	action r6 = { 
+		ga := ga - 1
+	}
+
+	action r7 = {
+		gbg := gbg - 1;
+		g := g + 1
+	}
+
+	action r8 = {
+		rl := rl + 1
+	}
+
+	object spec = {
+		before r5 {
+			assert rl >= 1;
+			assert g >= 1;
+			rl := rl - 1;
+			g := g - 1;
+			ga := ga + 1;
+			gbg := gbg + 1
+		}
+	}	
+	
+	#export r3
+	#export r4
+	#export r6
+	#export r7
+	#export r8
+	
+}
+
+export fifth.r5
+
+object others = {
+	individual r:num
+	individual l:num
+	individual rl:num
+	individual g:num
+	individual ga:num
+	individual gbg:num
+	individual gd:num
+
+	after init {
+		r := 50;
+		l := 2;
+		rl := 0;
+		g := 50;
+		ga := 0;
+		gbg := 0;
+		gd := 0
+	}
+
+	action r1
+	
+	action r2
+	
+	action r3
+
+	action r4 
+
+	action r6 
+
+	action r7 
+
+	action r8 
+
+	action r5 = {
+		rl := rl - 1;
+		g := g - 1;
+		ga := ga + 1;
+		gbg := gbg + 1
+	}
+	
+
+	object spec = {
+		before r1 {
+			assert true;
+			r := r + 1
+		}
+		
+		before r2 {
+			assert r >= 1;
+			r := r - 1
+		}
+		before r3 {
+			assert r >= 1;
+			assert l >= 1;
+			r := r - 1;
+			rl := rl + 1
+		}
+		before r4 {
+			assert rl >= 1;
+			rl := rl - 1;
+			r := r + 1
+		}
+		before r6 {
+			assert ga >= 1;
+			ga := ga - 1;
+			gd := gd + 1
+		}
+		before r7 {
+			assert gbg >= 1;
+			assert gd >= 1;
+			gbg := gbg - 1;
+			gd := gd - 1;
+			g := g + 1
+		}
+		before r8 {
+			assert true;
+			rl := rl + 1
+		}
+	} 
+}
+
+export others.r1
+export others.r2
+export others.r3
+export others.r4
+export others.r6
+export others.r7
+export others.r8
+
+object goal = {
+	action achieved(v:num)
+
+	object spec = {
+		before achieved {
+			assert v >= 50
+		}
+	}
+
+}
+
+object proto = {
+	individual gbg:num
+
+	after init {
+		gbg := 0
+	}
+
+	implement fifth.r5 {		
+		if gbg >= 49 {
+			gbg := gbg + 1;
+			call others.r5;
+			call goal.achieved(gbg)
+		}
+		else if gbg < 49 {
+			gbg := gbg + 1;
+			call others.r5
+		}
+	}
+	implement others.r3 {
+		call fifth.r3
+	}
+
+	implement others.r4 {
+		call fifth.r4
+	}
+
+	implement others.r6 {
+		call fifth.r6
+	}
+	
+	implement others.r7 {
+		gbg := gbg - 1;
+		call fifth.r7
+	}
+
+	implement others.r8 {
+		call fifth.r8
+	}
+}
+
+import goal.achieved
+
+isolate iso_fifth = fifth with proto
+isolate iso_others = others with proto
+isolate iso_proto = proto with fifth, others, goal
