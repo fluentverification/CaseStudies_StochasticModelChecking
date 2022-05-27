@@ -23,11 +23,11 @@ module fifth_reaction(t) = {
 #	individual ga : chem.num
 #	individual gbg : chem.num
 	
-	export action r5
-	import action r3(rl_1:t)
-	import action r4(rl_1:t)
-	import action r6(ga_1:t)
-	import action r7(gbg_1:t,g_1:t)
+	export action r5(rl_1:t, g_1:t, ga_1:t, gbg_1:t)
+	import action r3(r_1:t, l_1:t, rl_1:t)
+	import action r4(rl_1:t, r_1:t)
+	import action r6(ga_1:t, gd_1:t)
+	import action r7(gbg_1:t,gd_1:t, g_1:t)
 	import action r8(rl_1:t)
 
 	object spec = {
@@ -42,7 +42,8 @@ module fifth_reaction(t) = {
 			gbg := 0
 		}
 		
-		before r5 {
+		before r5(rl_1:t, g_1:t, ga_1:t, gbg_1:t) {
+			assert rl_1 = rl & g_1 = g & ga_1 = ga & gbg_1 = gbg;
 			assert rl >= 1 & g >= 1;
 			rl := chem.decr(rl);
 			g := chem.decr(g);
@@ -51,22 +52,25 @@ module fifth_reaction(t) = {
 		}
 		
 		before r3 {
-			assert true;
+			assert r_1 >= 1;
 			rl := chem.incr(rl)
 		}
 
 		before r4 {
-			assert rl >= 1;
-			rl := chem.decr(rl);
+			assert rl_1 = rl;
+			assert rl_1 >= 1 & rl >= 1;
+			rl := chem.decr(rl)
 		}
 
 		before r6 {
+			assert ga_1 = ga;
 			assert ga >= 1;
 			ga := chem.decr(ga);
 		}
 
 		before r7 {
-			assert gbg >= 1;
+			assert gbg_1 = gbg & g_1 = g;
+			assert gbg >= 1 & gd_1 >= 1;
 			gbg := chem.decr(gbg);
 			g := chem.incr(g)
 		}
@@ -82,13 +86,13 @@ instance fifth : fifth_reaction(chem.num)
 module other_reactions(t) = {
 
 	import action r5(rl_1:t,g_1:t,ga_1:t,gbg_1:t)
-	export action r1
-	export action r2
-	export action r3
-	export action r4
-	export action r6
-	export action r7
-	export action r8
+	export action r1(r_1:t)
+	export action r2(r_1:t)
+	export action r3(r_1:t, l_1:t, rl_1:t)
+	export action r4(rl_1:t, r_1:t)
+	export action r6(ga_1:t, gd_1:t)
+	export action r7(gbg_1:t,gd_1:t,g_1:t)
+	export action r8(rl_1:t)
 
 	object spec = {
 		individual r : t
@@ -120,41 +124,52 @@ module other_reactions(t) = {
 		}
 		
 		before r1 {
-			assert true;
+			#assert false;
+			assert r_1 = r;
 			r := chem.incr(r)
 		}
 
 		before r2 {
+			#assert false;
+			assert r_1 = r;
 			assert r >= 1;
 			r := chem.decr(r)
 		}
 
 		before r3 {
+			#assert false;
+			assert r_1 = r & l_1 = l & rl_1 = rl;
 			assert r >= 1 & l >= 1;
 			r := chem.decr(r);
 			rl := chem.incr(rl)
 		}
 
-		before r4 {
+		before r4(rl_1:t, r_1:t) {
+			#assert false;i
+			assert rl_1 = rl & r_1 = r;
 			assert rl >= 1;
 			rl := chem.decr(rl);
 			r := chem.incr(r)
 		}
-		before r6 {
+		before r6(ga_1:t, gd_1:t) {
+			#assert false;
+			assert ga_1 = ga & gd_1 = gd;
 			assert ga >= 1;
 			ga := chem.decr(ga);
 			gd := chem.incr(gd)
 		}
 
-		before r7 {
+		before r7(gbg_1:t, gd_1:t, g_1:t) {
+			#assert false;
+			assert gbg_1 = gbg & g_1 = g & gd_1 = gd;
 			assert gbg >= 1 & gd >= 1;
 			gbg := chem.decr(gbg);
 			gd := chem.decr(gd);
 			g := chem.incr(g)
 		}
 
-		before r8 {
-			assert true;
+		before r8(rl_1:t) {
+			assert rl_1 = rl;
 			rl := chem.incr(rl)
 		}		
 	}	
@@ -168,7 +183,7 @@ object goal = {
 
 	object spec = {
 		before achieved {
-			assert v >= 50 
+			assert v >= 5 
 		}
 	}
 }
@@ -213,7 +228,7 @@ object proto = {
 	}
 
 	implement others.r3 {
-		call fifth.r3(rl);
+		call fifth.r3(r,l,rl);
 		r := chem.decr(r);
 		l := chem.decr(l);
 		rl := chem.incr(rl);
@@ -221,19 +236,19 @@ object proto = {
 	}
 
 	implement others.r4 {
-		call fifth.r4(rl);
+		call fifth.r4(rl,r);
 		rl := chem.decr(rl);
 		r := chem.incr(r)
 	}
 
 	implement others.r6 {
-		call fifth.r6(ga);
+		call fifth.r6(ga,gd);
 		ga := chem.decr(ga);
 		gd := chem.incr(gd)
 	}
 
 	implement others.r7 {
-		call fifth.r7(gbg,g);
+		call fifth.r7(gbg,gd,g);
 		gbg := chem.decr(gbg);
 		gd := chem.decr(gd);
 		g := chem.incr(g)

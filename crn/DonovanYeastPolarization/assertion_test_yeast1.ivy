@@ -23,10 +23,12 @@ object chem = {
 
 object intf = {
 	action r8(rl_1:chem.num)
-	action r7(gbg_1:chem.num, gd_1:chem.num, g_1:chem.num)
-	action r6(ga_1:chem.num, gd_1:chem.num)
-	action r4(rl_1:chem.num, r_1:chem.num)
-	action r3(r:chem.num, l_1:chem.num, rl_1:chem.num)
+	action r7(rl_1:chem.num, g_1:chem.num, ga_1:chem.num, gbg_1:chem.num)
+	#action r7
+	action r6
+	action r4
+	#action r3
+	action r3(rl_1:chem.num, g_1:chem.num, ga_1:chem.num, gbg_1:chem.num)
 	action r5(rl_1:chem.num, g_1:chem.num, ga_1:chem.num, gbg_1:chem.num) 
 }
 
@@ -42,7 +44,7 @@ object spec = {
 	after init {
 		r := 50;
 		l := 2;
-		rl := 0;
+		rl := 60;
 		g := 50;
 		ga := 0;
 		gbg := 0;
@@ -50,45 +52,44 @@ object spec = {
 	}
 	before intf.r8(rl_1:chem.num) {
 		#assert false;
-		assert rl_1 = rl;
-		assert true;
+		assert rl >= 50;
 		rl := chem.incr(rl)		
 	}
-	before intf.r7(gbg_1:chem.num, gd_1:chem.num, g_1:chem.num) {
+	before intf.r7(rl_s:chem.num, g_1:chem.num, ga_1:chem.num, gbg_1:chem.num) {
+	#before intf.r7 {
+		#rl := rl + 132;
 		#assert false;
-		assert gbg_1 = gbg & gd_1 = gd & g_1 = g;
+		#assert true;
 		assert gd >= 1 & gbg >= 1;
 		g := chem.incr(g);
 		gd := chem.decr(gd);
 		gbg := chem.decr(gbg)
 	}
-	before intf.r6(ga_1:chem.num, gd_1:chem.num) {
-		#assert false;
-		assert ga_1 = ga & gd_1 = gd;
-		assert ga >= 1;
+	before intf.r6 {
+		assert false;
+		#assert ga >= 1;
 		ga := chem.decr(ga);
 		gd := chem.incr(gd)
 	}
-	before intf.r4(rl_1:chem.num, r_1:chem.num) {
-		#assert false;
-		assert rl_1 = rl & r_1 = r;
-		assert rl >= 1;
+	before intf.r4 {
+		assert false;
+		#assert rl >= 1;
 		rl := chem.decr(rl);
 		r := chem.incr(r)
 	}
 	
-	before intf.r3(r_1:chem.num, l_1:chem.num, rl_1:chem.num) {
-		#assert false;
-		assert rl_1 = rl & l_1 = l & r_1 = r;
-		assert l >= 1 & r >= 1;
+	before intf.r3(rl_1:chem.num, g_1:chem.num, ga_1:chem.num, gbg_1:chem.num) {
+	#before intf.r3 {
+		assert false;
+		#assert l >= 1 & r >= 1;
 		r := chem.decr(r);
 		l := chem.decr(l);
 		rl := chem.incr(rl);
 		l := chem.incr(l)
 	}
 	before intf.r5(rl_1:chem.num, g_1:chem.num, ga_1:chem.num, gbg_1:chem.num) {
+		#rl := rl + 120;
 		#assert false;
-		assert rl_1 = rl & g_1 = g & ga_1 = ga & gbg_1 = gbg;
 		assert rl >= 1 & g >= 1;
 		rl := chem.decr(rl);
 		g := chem.decr(g);
@@ -112,7 +113,7 @@ object other_reactions = {
 	after init {
 		local_r := 50;
 		local_l := 2;
-		local_rl := 0;
+		local_rl := 60;
 		local_g := 50;
 		local_ga := 0;
 		local_gbg := 0;
@@ -131,7 +132,8 @@ object other_reactions = {
 
 	action r3_local = {
 		if local_l >= 1 & local_r >= 1 {
-			call intf.r3(local_r, local_l, local_rl);
+			#call intf.r3;
+			call intf.r3(spec.rl, spec.g, spec.ga, spec.gbg);
 			local_r := chem.decr(local_r);
 			local_l := chem.decr(local_l);
 			local_rl := chem.incr(local_rl);
@@ -141,7 +143,7 @@ object other_reactions = {
 	}
 	action r4_local = {
 		if local_rl >= 1 {
-			call intf.r4(local_rl, local_r);
+			call intf.r4;
 			local_rl := chem.decr(local_rl);
 			local_r := chem.incr(local_r)
 		}
@@ -149,7 +151,7 @@ object other_reactions = {
 	}
 	action r6_local = {
 		if local_ga >= 1 {
-			call intf.r6(local_ga, local_gd);
+			call intf.r6;
 			local_ga := chem.decr(local_ga);
 			local_gd := chem.incr(local_gd)
 		}
@@ -157,7 +159,8 @@ object other_reactions = {
 	}
 	action r7_local = {
 		if local_gd >= 1 & local_gbg >= 1 {
-			call intf.r7(local_gbg,local_gd,local_g);
+			call intf.r7(local_rl,local_g,local_ga,local_gbg);
+			#call intf.r7;
 			local_gd := chem.decr(local_gd);
 			local_gbg := chem.decr(local_gbg);
 			local_g := chem.incr(local_g)
@@ -198,10 +201,11 @@ object fifth_reaction = {
 		  local_gbg := chem.incr(local_gbg)
 		}
 	}
-	implement intf.r8 {
+	implement intf.r8(rl_1:chem.num) {
 		local_rl := chem.incr(local_rl)
 	}
 	
+	#implement intf.r7(rl_s:chem.num, g_1:chem.num, ga_1:chem.num, gbg_1:chem.num) {
 	implement intf.r7 {
 		local_gbg := chem.decr(local_gbg);
 		local_g := chem.incr(local_g)
@@ -212,7 +216,8 @@ object fifth_reaction = {
 	implement intf.r4 {
 		local_rl := chem.decr(local_rl)
 	}
-	implement intf.r3 {
+	implement intf.r3(rl_1:chem.num, g_1:chem.num, ga_1:chem.num, gbg_1:chem.num) {
+	#implement intf.r3 {
 		local_rl := chem.incr(local_rl)
 	}
 }
