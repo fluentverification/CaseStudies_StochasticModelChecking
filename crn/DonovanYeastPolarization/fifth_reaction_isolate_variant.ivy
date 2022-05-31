@@ -74,7 +74,10 @@ object spec = {
 		ga := ga + 1;
 		gbg_prev := gbg;
 		gbg := gbg + 1;
-		assert gbg > gbg_prev
+	        assert gbg > gbg_prev;
+	        # if gbg = 50, gbg := gbg
+	        # else if gbg < 50, gbg := gbg + 1;
+	
 	}
 	# after intf.r5 {
 	# 	assert gbg > gbg_prev
