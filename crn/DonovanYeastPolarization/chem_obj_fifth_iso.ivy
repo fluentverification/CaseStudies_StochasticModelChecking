@@ -26,7 +26,7 @@ object intf = {
 	action r7(gbg_1:chem.num, gd_1:chem.num, g_1:chem.num)
 	action r6(ga_1:chem.num, gd_1:chem.num)
 	action r4(rl_1:chem.num, r_1:chem.num)
-	action r3(r:chem.num, l_1:chem.num, rl_1:chem.num)
+	action r3(r_1:chem.num, l_1:chem.num, rl_1:chem.num)
 	action r5(rl_1:chem.num, g_1:chem.num, ga_1:chem.num, gbg_1:chem.num) 
 }
 

@@ -17,10 +17,6 @@ object chem = {
 }
 
 module fifth_reaction(t) = {
-#	individual rl : chem.num
-#	individual g : chem.num
-#	individual ga : chem.num
-#	individual gbg : chem.num
 	
 	export action r5(rl_1:t, g_1:t, ga_1:t, gbg_1:t)
 	import action r3(r_1:t, l_1:t, rl_1:t)
@@ -283,6 +279,7 @@ object proto = {
 
 import goal.achieved
 
-isolate iso_fifth = fifth with chem, proto
+#isolate iso_fifth = fifth with chem, proto
+isolate iso_fifth = fifth with chem
 isolate iso_others = others with chem, goal, proto
 isolate iso_proto = proto with fifth, others, chem, goal
