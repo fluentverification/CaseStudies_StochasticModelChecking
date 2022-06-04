@@ -1,4 +1,4 @@
-#lang ivy1.6
+#lang ivy1.7
 
 #type num
 #interpret num -> bv[10]
@@ -16,14 +16,14 @@ object chem = {
 	}
 }
 
-module fifth_reaction(t) = {
+module other_reactions(t) = {
 	
-	export action r5(rl_1:t, g_1:t, ga_1:t, gbg_1:t)
-	import action r3(r_1:t, l_1:t, rl_1:t)
-	import action r4(rl_1:t, r_1:t)
-	import action r6(ga_1:t, gd_1:t)
-	import action r7(gbg_1:t,gd_1:t, g_1:t)
-	import action r8(rl_1:t)
+	import action r5(rl_1:t, g_1:t, ga_1:t, gbg_1:t)
+	export action r3(r_1:t, l_1:t, rl_1:t)
+	export action r4(rl_1:t, r_1:t)
+	export action r6(ga_1:t, gd_1:t)
+	export action r7(gbg_1:t,gd_1:t, g_1:t)
+	export action r8(rl_1:t)
 
 	object spec = {
 		individual rl : t
@@ -81,21 +81,22 @@ module fifth_reaction(t) = {
 		gbg := chem.incr(gbg);
 		if gbg >= 50 {
 			call goal.achieved(gbg)
-	        }
-	}
+		}
 }
-instance fifth : fifth_reaction(chem.num)
+instance others : other_reactions(chem.num)    
 
-module other_reactions(t) = {
 
-	import action r5(rl_1:t,g_1:t,ga_1:t,gbg_1:t)
-	export action r1(r_1:t)
-	export action r2(r_1:t)
-	export action r3(r_1:t, l_1:t, rl_1:t)
-	export action r4(rl_1:t, r_1:t)
-	export action r6(ga_1:t, gd_1:t)
-	export action r7(gbg_1:t,gd_1:t,g_1:t)
-	export action r8(rl_1:t)
+
+module fifth_reaction(t) = {
+
+	export action r5(rl_1:t,g_1:t,ga_1:t,gbg_1:t)
+	import action r1(r_1:t)
+	import action r2(r_1:t)
+	import action r3(r_1:t, l_1:t, rl_1:t)
+	import action r4(rl_1:t, r_1:t)
+	import action r6(ga_1:t, gd_1:t)
+	import action r7(gbg_1:t,gd_1:t,g_1:t)
+	import action r8(rl_1:t)
 
 	object spec = {
 		individual r : t
@@ -179,7 +180,7 @@ module other_reactions(t) = {
 		}		
 	}	
 }
-instance others : other_reactions(chem.num)
+instance fifth : fifth_reaction(chem.num)
 
 
 object goal = {
@@ -213,17 +214,17 @@ object proto = {
 		gd := 0
 	}
 
-	# implement fifth.r5 {
-	# 	assert rl_1 = rl & g_1 = g & ga_1 = ga & gbg_1 = gbg;
-	# 	call others.r5(rl,g,ga,gbg);
-	# 	rl := chem.decr(rl);
-	# 	g := chem.decr(g);
-	# 	ga := chem.incr(ga);
-	# 	gbg := chem.incr(gbg);
-	# 	if gbg >= 50 {
-	# 		call goal.achieved(gbg)
-	# 	}
-	#}
+	implement fifth.r5 {
+		assert rl_1 = rl & g_1 = g & ga_1 = ga & gbg_1 = gbg;
+		call others.r5(rl,g,ga,gbg);
+		rl := chem.decr(rl);
+		g := chem.decr(g);
+		ga := chem.incr(ga);
+		gbg := chem.incr(gbg);
+		if gbg >= 50 {
+			call goal.achieved(gbg)
+		}
+	}
 
 	implement others.r1 {
 		assert r_1 = r;
