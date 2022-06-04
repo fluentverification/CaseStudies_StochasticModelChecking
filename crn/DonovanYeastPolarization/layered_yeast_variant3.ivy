@@ -71,7 +71,7 @@ module fifth_reaction(t) = {
 			assert true;
 			rl := chem.incr(rl)
 		}
-        }
+
        	implement r5 {
 		assert rl_1 = rl & g_1 = g & ga_1 = ga & gbg_1 = gbg;
 		call others.r5(rl,g,ga,gbg);
@@ -82,6 +82,8 @@ module fifth_reaction(t) = {
 		if gbg >= 50 {
 			call goal.achieved(gbg)
 		}
+	}
+	}
 }
 instance fifth : fifth_reaction(chem.num)
 
@@ -222,7 +224,7 @@ object proto = {
 	# 	if gbg >= 50 {
 	# 		call goal.achieved(gbg)
 	# 	}
-	}
+#	}
 
 	implement others.r1 {
 		assert r_1 = r;
@@ -280,6 +282,6 @@ object proto = {
 import goal.achieved
 
 #isolate iso_fifth = fifth with chem, proto
-isolate iso_fifth = fifth with chem
+isolate iso_fifth = fifth with chem, goal
 isolate iso_others = others with chem, goal, proto
 isolate iso_proto = proto with fifth, others, chem, goal
