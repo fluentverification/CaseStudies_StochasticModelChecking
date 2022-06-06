@@ -338,6 +338,8 @@ object proto = {
 import goal.achieved
 
 #isolate iso_fifth = fifth with chem, proto
+isolate iso_both1 = fifth with chem, others
+isolate iso_both2 = others with chem, fifth
 isolate iso_fifth = fifth with chem
 isolate iso_others = others with chem
 isolate iso_proto = proto with fifth, others, chem, goal
