@@ -191,7 +191,7 @@ object fifth_reaction = {
 	
 	action r5_local = {
 		if local_rl >= 1 & local_g >= 1 {
-		  call intf.r5(spec.rl, spec.g, spec.ga, spec.gbg);	
+		  call intf.r5(local_rl, local_g, local_ga, local_gbg);	
 		  local_rl := chem.decr(local_rl);
 		  local_g := chem.decr(local_g);
 		  local_ga := chem.incr(local_ga);
