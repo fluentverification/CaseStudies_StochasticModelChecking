@@ -1,5 +1,7 @@
 #lang ivy 1.7
 
+individual GOAL_gbg = 50
+
 object chem = {
 	type num
 	
@@ -416,7 +418,7 @@ object proto = {
 				g := chem.decr(g);
 				ga := chem.incr(ga);
 				gbg := chem.incr(gbg);
-				if gbg >= 50 {
+				if gbg >= GOAL_gbg {
 					call goal.achieved(gbg)
 				}
 			}
