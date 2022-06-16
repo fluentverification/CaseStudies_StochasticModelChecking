@@ -1,4 +1,4 @@
-#lang ivy 1.6
+#lang ivy 1.7
 
 object chem = {
 	type num

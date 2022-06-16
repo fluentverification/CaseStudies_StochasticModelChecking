@@ -3,17 +3,20 @@
 
 object proto = {
 	type num
+ 	
+	individual x : bool
 
 	interpret num -> bv[10]
-	
+	individual x_count : num	
 	individual money : num
 
-	after init {
-		money := 50		
-	}
-
 	action transaction(v:num) = {
-		if * {
+		x_count := x_count + 1;
+		if x_count > 5 {
+			x := ~x;
+			x_count := 0	
+		};
+		if x {
 			money := money + 1
 		}
 		else {
@@ -25,9 +28,9 @@ object proto = {
 		assert v = money
 	}
 
-	after transaction {
-		assert money < 275
-	}
+#	after transaction {
+#		assert money < 275
+#	}
 
 }
 
