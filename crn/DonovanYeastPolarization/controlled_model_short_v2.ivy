@@ -200,7 +200,7 @@ object executer = {
 
 	after init {
 		r5_exec := 0;
-		r5_rate := 1;
+		r5_rate := 2;
 		r8_exec := 0;
 		r8_rate := 1;
 		r5_stage := 0;
