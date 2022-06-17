@@ -38,14 +38,14 @@ object goal = {
 object enabled = {
 
 	action r1(r_1:chem.num) returns(y:bool) = {
-		#y := false
-		y := true
+		y := false
+		#y := true
 	}
 
 	action r2(r_1:chem.num) returns(y:bool) = {
 		if r_1 >= 1 {
-			#y := false
-			y := true
+			y := false
+			#y := true
 		}
 		else {
 			y := false
@@ -54,8 +54,8 @@ object enabled = {
 	
 	action r3(r_1:chem.num,l_1:chem.num) returns(y:bool) = {
 		if r_1 >= 1 & l_1 >= 1 {
-			#y := false
-			y := true
+			y := false
+			#y := true
 		}
 		else {
 			y := false
@@ -64,8 +64,8 @@ object enabled = {
 
 	action r4(rl_1:chem.num) returns(y:bool) = {
 		if rl_1 >= 1 {
-			#y := false
-			y := true
+			y := false
+			#y := true
 		}
 		else {
 			y := false
@@ -83,8 +83,8 @@ object enabled = {
 
 	action r6(ga_1:chem.num) returns(y:bool) = {
 		if ga_1 >= 1 {
-			#y := false
-			y := true
+			y := false
+			#y := true
 		}
 		else {
 			y := false
@@ -93,8 +93,8 @@ object enabled = {
 
 	action r7(gbg_1:chem.num,gd_1:chem.num) returns(y:bool) = {
 		if gbg_1 >= 1 & gd_1 >= 1 {
-			#y := false
-			y := true
+			y := false
+			#y := true
 		}
 		else {
 			y := false
@@ -199,6 +199,11 @@ object executer = {
 
 
 	after init {
+		r5_exec := 0;
+		r5_rate := 1;
+		r8_exec := 0;
+		r8_rate := 1;
+	
 		r1_count := 0;
 		r2_count := 0;
 		r3_count := 0;
