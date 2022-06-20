@@ -222,7 +222,7 @@ object executer = {
 		r5_count_rate := 4;
 		r6_count_rate := 4;
 		r7_count_rate := 4;
-		r8_count_rate := 4;
+		r8_count_rate := 4 
 	}
 
 	action r1_execution returns(y:bool) = {

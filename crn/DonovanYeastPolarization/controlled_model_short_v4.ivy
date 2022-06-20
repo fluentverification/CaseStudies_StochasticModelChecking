@@ -222,7 +222,7 @@ object executer = {
 		r5_count_rate := 4;
 		r6_count_rate := 4;
 		r7_count_rate := 4;
-		r8_count_rate := 4;
+		r8_count_rate := 1
 	}
 
 	action r1_execution returns(y:bool) = {
@@ -437,7 +437,7 @@ object executer = {
 		};
 		if r5_stage = 0 {
 			r5_count_rate := 1;
-			r5_rate := 5
+			r5_rate := 4
 		}
 		else if r5_stage = 1 {
 			r5_count_rate := 3;
@@ -446,7 +446,7 @@ object executer = {
 
 		else if r5_stage = 2 {
 			r5_count_rate := 1;
-			r5_rate := 5
+			r5_rate := 4
 		}
 		else if r5_stage = 3 {
 			r5_count_rate := 3;
@@ -454,7 +454,7 @@ object executer = {
 		}
 		else if r5_stage = 4 {
 			r5_count_rate := 1;
-			r5_rate := 5
+			r5_rate := 4
 		}
 		else if r5_stage = 5 {
 			r5_count_rate := 3;
@@ -462,7 +462,7 @@ object executer = {
 		}
 		else if r5_stage = 6 {
 			r5_count_rate := 1;
-			r5_rate := 5
+			r5_rate := 4
 		}
 		else if r5_stage = 7 {
 			r5_count_rate := 3;
