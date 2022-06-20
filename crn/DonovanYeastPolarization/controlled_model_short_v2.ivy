@@ -204,7 +204,7 @@ object executer = {
 		r8_exec := 0;
 		r8_rate := 1;
 		r5_stage := 0;
-		r8_stage := 0;
+		r8_stage := 7;
 	
 		r1_count := 0;
 		r2_count := 0;
@@ -222,7 +222,7 @@ object executer = {
 		r5_count_rate := 4;
 		r6_count_rate := 4;
 		r7_count_rate := 4;
-		r8_count_rate := 4 
+		r8_count_rate := 1 
 	}
 
 	action r1_execution returns(y:bool) = {
