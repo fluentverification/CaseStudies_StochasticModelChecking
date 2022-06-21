@@ -664,77 +664,6 @@ object proto = {
 		idle := 0 
 	}
 
-#	action updating = {
-#		if enabled.r1(r) & idle = 0 {
-#			if executer.r1_execution {
-#				call reactions.r1(r);
-#				r := chem.incr(r)
-#			}
-#		}
-#
-#		if enabled.r2(r) & idle = 0 {
-#			if executer.r2_execution {
-#				call reactions.r2(r);
-#				r := chem.decr(r)
-#			}
-#		}
-#
-#		if enabled.r3(r,l) & idle = 0 {
-#			if executer.r3_execution {
-#				call reactions.r3(r,l,rl);
-#				r:= chem.decr(r);
-#				rl := chem.incr(rl)
-#			}
-#		}
-#
-#		if enabled.r4(rl) & idle = 0 {
-#			if executer.r4_execution {
-#				call reactions.r4(rl,r);
-#				rl := chem.decr(rl);
-#				r := chem.incr(r)
-#			}
-#		}
-
-
-
-#		if enabled.r5(rl,g) & idle = 0 {
-#			if executer.r5_execution {
-#				call reactions.r5(rl,g,ga,gbg);
-#				rl := chem.decr(rl);
-#				g := chem.decr(g);
-#				ga := chem.incr(ga);
-#				gbg := chem.incr(gbg);
-#				if gbg >= 50 {
-#					call goal.achieved(gbg)
-#				}
-#			}
-#		}
-#	
-#		if enabled.r6(ga) & idle = 0 {
-#			if executer.r6_execution {
-#				call reactions.r6(ga,gd);
-#				ga := chem.decr(ga);
-#				gd := chem.incr(gd);
-#			}
-#		}
-
-#		if enabled.r7(gbg,gd) & idle = 0 {
-#			if executer.r7_execution {
-#				call reactions.r7(gbg,gd,g);
-#				gbg := chem.decr(gbg);
-#				gd := chem.decr(gd);
-#				g := chem.incr(g);
-#
-#			}
-#		}
-
-#		if enabled.r8(rl) & idle = 0 {
-#			if executer.r8_execution {
-#				call reactions.r8(rl);
-#				rl := chem.incr(rl);
-#			}
-#		}
-#	}
 	action updating_r1 = {
 		if executer.r1_execution {
 			call reactions.r1(r);
@@ -809,49 +738,41 @@ object proto = {
 	before updating_r1 {
 		assert idle = 0;
 		assert enabled.r1(r);
-		#assert executer.r1_execution
 	}
 
 	before updating_r2 {
 		assert idle = 0;
 		assert enabled.r2(r);
-		#assert executer.r2_execution
 	}
 
 	before updating_r3 {
 		assert idle = 0;
 		assert enabled.r3(r,l);
-		#assert executer.r3_execution
 	}
 
 	before updating_r4 {
 		assert idle = 0;
 		assert enabled.r4(rl);
-		#assert executer.r4_execution
 	}
 
 	before updating_r5 {
 		assert idle = 0;
 		assert enabled.r5(rl,g);
-		#assert executer.r5_execution
 	}
 
 	before updating_r6 {
 		assert idle = 0;
 		assert enabled.r6(ga);
-		#assert executer.r6_execution
 	}
 
 	before updating_r7 {
 		assert idle = 0;
 		assert enabled.r7(gbg,gd);
-		#assert executer.r7_execution
 	}
 
 	before updating_r8 {
 		assert idle = 0;
 		assert enabled.r8(rl);
-		#assert executer.r8_execution
 	}
 
 	before idling {
