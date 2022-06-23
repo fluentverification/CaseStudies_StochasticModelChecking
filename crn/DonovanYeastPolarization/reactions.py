@@ -622,7 +622,7 @@ for obj in Reactions:
     if(obj.reactant1 == "" and obj.product1 != "" and obj.product2 == ""):
         ivy_file.write("action updating_r")
         ivy_file.write(str(count))
-        ivy_file.write(" {\n\t\t")
+        ivy_file.write(" = {\n\t\t")
         ivy_file.write("if executer.r")
         ivy_file.write(str(count))
         ivy_file.write("_execution {\n\t\t\tcall reactions.r")
@@ -644,7 +644,7 @@ for obj in Reactions:
     elif(obj.reactant1 == "" and obj.product1 != "" and obj.product2 != ""):
         ivy_file.write("action updating_r")
         ivy_file.write(str(count))
-        ivy_file.write(" {\n\t\t")
+        ivy_file.write(" = {\n\t\t")
         ivy_file.write("if executer.r")
         ivy_file.write(str(count))
         ivy_file.write("_execution {\n\t\t\tcall reactions.r")
@@ -670,7 +670,7 @@ for obj in Reactions:
     elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 == ""):
         ivy_file.write("action updating_r")
         ivy_file.write(str(count))
-        ivy_file.write(" {\n\t\t")
+        ivy_file.write(" = {\n\t\t")
         ivy_file.write("if executer.r")
         ivy_file.write(str(count))
         ivy_file.write("_execution {\n\t\t\tcall reactions.r")
@@ -695,7 +695,7 @@ for obj in Reactions:
     elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 != "" and obj.product2 == ""):
         ivy_file.write("action updating_r")
         ivy_file.write(str(count))
-        ivy_file.write(" {\n\t\t")
+        ivy_file.write(" = {\n\t\t")
         ivy_file.write("if executer.r")
         ivy_file.write(str(count))
         ivy_file.write("_execution {\n\t\t\tcall reactions.r")
@@ -724,7 +724,7 @@ for obj in Reactions:
     elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 != "" and obj.product2 != ""):
         ivy_file.write("action updating_r")
         ivy_file.write(str(count))
-        ivy_file.write(" {\n\t\t")
+        ivy_file.write(" = {\n\t\t")
         ivy_file.write("if executer.r")
         ivy_file.write(str(count))
         ivy_file.write("_execution {\n\t\t\tcall reactions.r")
@@ -757,7 +757,7 @@ for obj in Reactions:
     elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 == ""):
         ivy_file.write("action updating_r")
         ivy_file.write(str(count))
-        ivy_file.write(" {\n\t\t")
+        ivy_file.write(" = {\n\t\t")
         ivy_file.write("if executer.r")
         ivy_file.write(str(count))
         ivy_file.write("_execution {\n\t\t\tcall reactions.r")
@@ -788,7 +788,7 @@ for obj in Reactions:
     elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 != "" and obj.product2 == ""):
         ivy_file.write("action updating_r")
         ivy_file.write(str(count))
-        ivy_file.write(" {\n\t\t")
+        ivy_file.write(" = {\n\t\t")
         ivy_file.write("if executer.r")
         ivy_file.write(str(count))
         ivy_file.write("_execution {\n\t\t\tcall reactions.r")
@@ -823,7 +823,7 @@ for obj in Reactions:
     elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 != "" and obj.product2 != ""):
         ivy_file.write("action updating_r")
         ivy_file.write(str(count))
-        ivy_file.write(" {\n\t\t")
+        ivy_file.write(" = {\n\t\t")
         ivy_file.write("if executer.r")
         ivy_file.write(str(count))
         ivy_file.write("_execution {\n\t\t\tcall reactions.r")
