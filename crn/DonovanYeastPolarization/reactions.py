@@ -374,7 +374,7 @@ for obj in Reactions:
         ivy_file.write(str(count))
         ivy_file.write("_stage = 2 {\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_count_rate := 2;\n\t\t\tr")
+        ivy_file.write("_count_rate := 5;\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_rate := 1\n\t\t}\n\t\t")
         ivy_file.write("else if r")
@@ -397,7 +397,7 @@ for obj in Reactions:
         ivy_file.write(str(count))
         ivy_file.write("_count_rate := 2;\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_rate := 3\n\t\t}\n\t\t")
+        ivy_file.write("_rate := 1\n\t\t}\n\t\t")
         ivy_file.write("else if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 6 {\n\t\t\tr")
@@ -888,7 +888,7 @@ ivy_file.write("\n\n\taction idling = {}\n\n\t")
 count = 0
 for obj in Reactions:
     count = count + 1
-    ivy_file.write("before action updating_r")
+    ivy_file.write("before updating_r")
     ivy_file.write(str(count))
     if (Reactions[count-1].reactant1 == ""):
         ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled.r")
