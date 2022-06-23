@@ -631,8 +631,8 @@ for obj in Reactions:
         ivy_file.write(obj.product1)
         ivy_file.write(" := chem.incr(")
         ivy_file.write(obj.product1)
-        ivy_file.write(")\n\t\t")
         if obj.priority >= 5:
+            ivy_file.write(");\n\t\t")
             ivy_file.write("\tif ")
             ivy_file.write(targetchem)
             ivy_file.write(" >= ")
@@ -640,6 +640,8 @@ for obj in Reactions:
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
+        else:
+            ivy_file.write(")\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 == "" and obj.product1 != "" and obj.product2 != ""):
         ivy_file.write("action updating_r")
@@ -657,8 +659,9 @@ for obj in Reactions:
         ivy_file.write(obj.product2)
         ivy_file.write(" := chem.incr(")
         ivy_file.write(obj.product2)
-        ivy_file.write(")\n\t\t")
+        #ivy_file.write(")\n\t\t")
         if obj.priority >= 5:
+            ivy_file.write(");\n\t\t")
             ivy_file.write("\tif ")
             ivy_file.write(targetchem)
             ivy_file.write(" >= ")
@@ -666,6 +669,8 @@ for obj in Reactions:
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
+        else:
+            ivy_file.write(")\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 == ""):
         ivy_file.write("action updating_r")
@@ -682,8 +687,9 @@ for obj in Reactions:
         ivy_file.write(obj.reactant1)
         ivy_file.write(" := chem.decr(")
         ivy_file.write(obj.reactant1)
-        ivy_file.write(")\n\t\t")
+        #ivy_file.write(")\n\t\t")
         if obj.priority >= 5:
+            ivy_file.write(");\n\t\t")
             ivy_file.write("\tif ")
             ivy_file.write(targetchem)
             ivy_file.write(" >= ")
@@ -691,6 +697,8 @@ for obj in Reactions:
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
+        else:
+            ivy_file.write(")\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 != "" and obj.product2 == ""):
         ivy_file.write("action updating_r")
@@ -711,8 +719,9 @@ for obj in Reactions:
         ivy_file.write(obj.product1)
         ivy_file.write(" := chem.incr(")
         ivy_file.write(obj.product1)
-        ivy_file.write(")\n\t\t")
+        #ivy_file.write(")\n\t\t")
         if obj.priority >= 5:
+            ivy_file.write(");\n\t\t")
             ivy_file.write("\tif ")
             ivy_file.write(targetchem)
             ivy_file.write(" >= ")
@@ -720,6 +729,8 @@ for obj in Reactions:
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
+        else:
+            ivy_file.write(")\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 != "" and obj.product2 != ""):
         ivy_file.write("action updating_r")
@@ -744,8 +755,9 @@ for obj in Reactions:
         ivy_file.write(obj.product2)
         ivy_file.write(" := chem.incr(")
         ivy_file.write(obj.product2)
-        ivy_file.write(")\n\t\t")
+        #ivy_file.write(")\n\t\t")
         if obj.priority >= 5:
+            ivy_file.write(");\n\t\t")
             ivy_file.write("\tif ")
             ivy_file.write(targetchem)
             ivy_file.write(" >= ")
@@ -753,6 +765,8 @@ for obj in Reactions:
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
+        else:
+            ivy_file.write(")\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 == ""):
         ivy_file.write("action updating_r")
@@ -775,8 +789,9 @@ for obj in Reactions:
         ivy_file.write(obj.reactant2)
         ivy_file.write(" := chem.decr(")
         ivy_file.write(obj.reactant2)
-        ivy_file.write(")\n\t\t")
+        #ivy_file.write(")\n\t\t")
         if obj.priority >= 5:
+            ivy_file.write(");\n\t\t")
             ivy_file.write("\tif ")
             ivy_file.write(targetchem)
             ivy_file.write(" >= ")
@@ -784,6 +799,8 @@ for obj in Reactions:
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
+        else:
+            ivy_file.write(")\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 != "" and obj.product2 == ""):
         ivy_file.write("action updating_r")
@@ -810,8 +827,9 @@ for obj in Reactions:
         ivy_file.write(obj.product1)
         ivy_file.write(" := chem.incr(")
         ivy_file.write(obj.product1)
-        ivy_file.write(")\n\t\t")
+        #ivy_file.write(")\n\t\t")
         if obj.priority >= 5:
+            ivy_file.write(");\n\t\t")
             ivy_file.write("\tif ")
             ivy_file.write(targetchem)
             ivy_file.write(" >= ")
@@ -819,6 +837,8 @@ for obj in Reactions:
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
+        else:
+            ivy_file.write(")\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 != "" and obj.product2 != ""):
         ivy_file.write("action updating_r")
@@ -849,8 +869,9 @@ for obj in Reactions:
         ivy_file.write(obj.product2)
         ivy_file.write(" := chem.incr(")
         ivy_file.write(obj.product2)
-        ivy_file.write(")\n\t\t")
+        #ivy_file.write(")\n\t\t")
         if obj.priority >= 5:
+            ivy_file.write(");\n\t\t")
             ivy_file.write("\tif ")
             ivy_file.write(targetchem)
             ivy_file.write(" >= ")
@@ -858,6 +879,8 @@ for obj in Reactions:
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
+        else:
+            ivy_file.write(")\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
 
 #ivy_file.write("\n\t}\n\n\t")
