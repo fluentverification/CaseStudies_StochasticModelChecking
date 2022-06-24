@@ -996,7 +996,7 @@ ivy_file.write("\n\n\taction idling = {}\n\n\t")
 count = 0
 for obj in Reactions:
     count = count + 1
-    ivy_file.write("before action updating_r")
+    ivy_file.write("before updating_r")
     ivy_file.write(str(count))
     if (Reactions[count-1].reactant1 == ""):
         ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled.r")
