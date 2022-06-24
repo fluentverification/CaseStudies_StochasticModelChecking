@@ -1,0 +1,745 @@
+#lang ivy 1.7
+
+object chem = {
+	type num
+	
+	interpret num -> bv[10]
+
+	type exec_var
+
+	interpret exec_var -> bv[8]
+
+	type exec_stage
+	
+	interpret exec_stage -> bv[3]	
+
+	action incr(x:num) returns(y:num) = {
+		y := x + 1
+	}
+
+	action decr(x:num) returns(y:num) = {
+		y := x - 1
+	}
+}
+
+
+object goal = {
+
+	action achieved(v:chem.num)
+
+	object spec = {
+		before achieved {
+			assert v >= 50;
+			proto.idle := 1
+		}
+	}
+}
+
+object enabled = {
+
+	action r1(r_1:chem.num) returns(y:bool) = {
+		y := false
+		#y := true
+	}
+
+	action r2(r_1:chem.num) returns(y:bool) = {
+		if r_1 >= 1 {
+			y := false
+			#y := true
+		}
+		else {
+			y := false
+		}
+	}
+	
+	action r3(r_1:chem.num,l_1:chem.num) returns(y:bool) = {
+		if r_1 >= 1 & l_1 >= 1 {
+			y := false
+			#y := true
+		}
+		else {
+			y := false
+		}
+	}
+
+	action r4(rl_1:chem.num) returns(y:bool) = {
+		if rl_1 >= 1 {
+			y := false
+			#y := true
+		}
+		else {
+			y := false
+		}
+	}
+
+	action r5(rl_1:chem.num,g_1:chem.num) returns(y:bool) = {
+		if rl_1 >= 1 & g_1 >= 1 {
+			y := true
+		}
+		else {
+			y := false
+		}
+	}
+
+	action r6(ga_1:chem.num) returns(y:bool) = {
+		if ga_1 >= 1 {
+			y := false
+			#y := true
+		}
+		else {
+			y := false
+		}
+	}
+
+	action r7(gbg_1:chem.num,gd_1:chem.num) returns(y:bool) = {
+		if gbg_1 >= 1 & gd_1 >= 1 {
+			y := false
+			#y := true
+		}
+		else {
+			y := false
+		}
+	}
+
+	action r8(rl_1:chem.num) returns(y:bool) = {
+		#y := false
+		y := true
+	}
+}
+
+object reactions = {
+	action r1(r_1:chem.num)
+	action r2(r_1:chem.num)
+	action r3(r_1:chem.num,l_1:chem.num,rl_1:chem.num)
+	action r4(rl_1:chem.num,r_1:chem.num)
+	action r5(rl_1:chem.num,g_1:chem.num,ga_1:chem.num,gbg_1:chem.num)
+	action r6(ga_1:chem.num,gd_1:chem.num)
+	action r7(gbg_1:chem.num,gd_1:chem.num,g_1:chem.num)
+	action r8(rl_1:chem.num)
+
+	before r1 {
+		assert true
+	}
+
+	before r2 {
+		assert r_1 >= 1
+	}
+
+	before r3 {
+		assert r_1 >= 1 & l_1 >= 1
+	}
+
+	before r4 {
+		assert rl_1 >= 1
+	}
+
+	before r5 {
+		assert rl_1 >= 1 & g_1 >= 1
+	}
+
+	before r6 {
+		assert ga_1 >= 1
+	}
+
+	before r7 {
+		assert gbg_1 >= 1 & gd_1 >= 1
+	}
+
+	before r8 {
+		assert true
+	}
+
+}
+
+object executer = {
+	individual r1_exec : chem.exec_var
+	individual r2_exec : chem.exec_var
+	individual r3_exec : chem.exec_var	
+	individual r4_exec : chem.exec_var	
+	individual r5_exec : chem.exec_var	
+	individual r6_exec : chem.exec_var	
+	individual r7_exec : chem.exec_var	
+	individual r8_exec : chem.exec_var
+
+	individual r1_rate : chem.exec_var
+	individual r2_rate : chem.exec_var
+	individual r3_rate : chem.exec_var
+	individual r4_rate : chem.exec_var
+	individual r5_rate : chem.exec_var
+	individual r6_rate : chem.exec_var
+	individual r7_rate : chem.exec_var
+	individual r8_rate : chem.exec_var
+
+	individual r1_count : chem.exec_var
+	individual r2_count : chem.exec_var
+	individual r3_count : chem.exec_var
+	individual r4_count : chem.exec_var
+	individual r5_count : chem.exec_var
+	individual r6_count : chem.exec_var
+	individual r7_count : chem.exec_var
+	individual r8_count : chem.exec_var
+
+	individual r1_count_rate : chem.exec_var
+	individual r2_count_rate : chem.exec_var
+	individual r3_count_rate : chem.exec_var
+	individual r4_count_rate : chem.exec_var
+	individual r5_count_rate : chem.exec_var
+	individual r6_count_rate : chem.exec_var
+	individual r7_count_rate : chem.exec_var
+	individual r8_count_rate : chem.exec_var
+
+	individual r1_stage : chem.exec_stage
+	individual r2_stage : chem.exec_stage
+	individual r3_stage : chem.exec_stage
+	individual r4_stage : chem.exec_stage
+	individual r5_stage : chem.exec_stage
+	individual r6_stage : chem.exec_stage
+	individual r7_stage : chem.exec_stage
+	individual r8_stage : chem.exec_stage
+
+
+	after init {
+		r5_exec := 0;
+		r5_rate := 2;
+		r8_exec := 0;
+		r8_rate := 1;
+		r5_stage := 0;
+		r8_stage := 7;
+	
+		r1_count := 0;
+		r2_count := 0;
+		r3_count := 0;
+		r4_count := 0;
+		r5_count := 0;
+		r6_count := 0;
+		r7_count := 0;
+		r8_count := 0;
+
+		r1_count_rate := 4;
+		r2_count_rate := 4;
+		r3_count_rate := 4;
+		r4_count_rate := 4;
+		r5_count_rate := 4;
+		r6_count_rate := 4;
+		r7_count_rate := 4;
+		r8_count_rate := 1 
+	}
+
+	action r1_execution returns(y:bool) = {
+		r1_exec := r1_exec + 1;
+		if r1_exec >= r1_rate {
+			y := true;
+			r1_exec := 0;
+			r1_count := r1_count + 1
+		}
+		else {
+			y := false
+		};
+		if r1_count >= r1_count_rate {
+			r1_stage := r1_stage + 1;
+			r1_count := 0
+		};
+		if r1_stage = 0 {
+			r1_count_rate := 3;
+			r1_rate := 3
+		}
+		else if r1_stage = 1 {
+			r1_count_rate := 4;
+			r1_rate := 3
+		}
+
+		else if r1_stage = 2 {
+			r1_count_rate := 3;
+			r1_rate := 2
+		}
+		else if r1_stage = 3 {
+			r1_count_rate := 9;
+			r1_rate := 5
+		}
+		else if r1_stage = 4 {
+			r1_count_rate := 5;
+			r1_rate := 1
+		}
+		else if r1_stage = 5 {
+			r1_count_rate := 4;
+			r1_rate := 2
+		}
+		else if r1_stage = 6 {
+			r1_count_rate := 5;
+			r1_rate := 3
+		}
+		else if r1_stage = 7 {
+			r1_count_rate := 3;
+			r1_rate := 1
+		}
+	}
+
+	action r2_execution returns(y:bool) = {
+		r2_exec := r2_exec + 1;
+		if r2_exec >= r2_rate {
+			y := true;
+			r2_exec := 0;
+			r2_count := r2_count + 1
+		}
+		else {
+			y := false
+		};
+		if r2_count >= r2_count_rate {
+			r2_stage := r2_stage + 1;
+			r2_count := 0
+		};
+		if r2_stage = 0 {
+			r2_count_rate := 3;
+			r2_rate := 3
+		}
+		else if r2_stage = 1 {
+			r2_count_rate := 4;
+			r2_rate := 3
+		}
+
+		else if r2_stage = 2 {
+			r2_count_rate := 3;
+			r2_rate := 2
+		}
+		else if r2_stage = 3 {
+			r2_count_rate := 9;
+			r2_rate := 5
+		}
+		else if r2_stage = 4 {
+			r2_count_rate := 5;
+			r2_rate := 1
+		}
+		else if r2_stage = 5 {
+			r2_count_rate := 4;
+			r2_rate := 2
+		}
+		else if r2_stage = 6 {
+			r2_count_rate := 5;
+			r2_rate := 3
+		}
+		else if r2_stage = 7 {
+			r2_count_rate := 3;
+			r2_rate := 1
+		}
+	}
+
+	action r3_execution returns(y:bool) = {
+		r3_exec := r3_exec + 1;
+		if r3_exec >= r3_rate {
+			y := true;
+			r3_exec := 0;
+			r3_count := r3_count + 1
+		}
+		else {
+			y := false
+		};
+		if r3_count >= r3_count_rate {
+			r3_stage := r3_stage + 1;
+			r3_count := 0
+		};
+		if r3_stage = 0 {
+			r3_count_rate := 3;
+			r3_rate := 3
+		}
+		else if r3_stage = 1 {
+			r3_count_rate := 4;
+			r3_rate := 3
+		}
+
+		else if r3_stage = 2 {
+			r3_count_rate := 3;
+			r3_rate := 2
+		}
+		else if r3_stage = 3 {
+			r3_count_rate := 9;
+			r3_rate := 5
+		}
+		else if r3_stage = 4 {
+			r3_count_rate := 5;
+			r3_rate := 1
+		}
+		else if r3_stage = 5 {
+			r3_count_rate := 4;
+			r3_rate := 2
+		}
+		else if r3_stage = 6 {
+			r3_count_rate := 5;
+			r3_rate := 3
+		}
+		else if r3_stage = 7 {
+			r3_count_rate := 3;
+			r3_rate := 1
+		}
+	}
+
+	action r4_execution returns(y:bool) = {
+		r4_exec := r4_exec + 1;
+		if r4_exec >= r4_rate {
+			y := true;
+			r4_exec := 0;
+			r4_count := r4_count + 1
+		}
+		else {
+			y := false
+		};
+		if r4_count >= r4_count_rate {
+			r4_stage := r4_stage + 1;
+			r4_count := 0
+		};
+		if r4_stage = 0 {
+			r4_count_rate := 3;
+			r4_rate := 3
+		}
+		else if r4_stage = 1 {
+			r4_count_rate := 4;
+			r4_rate := 3
+		}
+
+		else if r4_stage = 2 {
+			r4_count_rate := 3;
+			r4_rate := 2
+		}
+		else if r4_stage = 3 {
+			r4_count_rate := 9;
+			r4_rate := 5
+		}
+		else if r4_stage = 4 {
+			r4_count_rate := 5;
+			r4_rate := 1
+		}
+		else if r4_stage = 5 {
+			r4_count_rate := 4;
+			r4_rate := 2
+		}
+		else if r4_stage = 6 {
+			r4_count_rate := 5;
+			r4_rate := 3
+		}
+		else if r4_stage = 7 {
+			r4_count_rate := 3;
+			r4_rate := 1
+		}
+	}
+
+	action r5_execution returns(y:bool) = {
+		r5_exec := r5_exec + 1;
+		if r5_exec >= r5_rate {
+			y := true;
+			r5_exec := 0;
+			r5_count := r5_count + 1
+		}
+		else {
+			y := false
+		};
+		if r5_count >= r5_count_rate {
+			r5_stage := r5_stage + 1;
+			r5_count := 0
+		};
+		if r5_stage = 0 {
+			r5_count_rate := 1;
+			r5_rate := 3
+		}
+		else if r5_stage = 1 {
+			r5_count_rate := 3;
+			r5_rate := 1
+		}
+
+		else if r5_stage = 2 {
+			r5_count_rate := 1;
+			r5_rate := 3
+		}
+		else if r5_stage = 3 {
+			r5_count_rate := 3;
+			r5_rate := 1
+		}
+		else if r5_stage = 4 {
+			r5_count_rate := 1;
+			r5_rate := 3
+		}
+		else if r5_stage = 5 {
+			r5_count_rate := 3;
+			r5_rate := 1
+		}
+		else if r5_stage = 6 {
+			r5_count_rate := 1;
+			r5_rate := 3
+		}
+		else if r5_stage = 7 {
+			r5_count_rate := 3;
+			r5_rate := 1
+		}
+	}
+
+	action r6_execution returns(y:bool) = {
+		r6_exec := r6_exec + 1;
+		if r6_exec >= r6_rate {
+			y := true;
+			r6_exec := 0;
+			r6_count := r6_count + 1
+		}
+		else {
+			y := false
+		};
+		if r6_count >= r6_count_rate {
+			r6_stage := r6_stage + 1;
+			r6_count := 0
+		};
+		if r6_stage = 0 {
+			r6_count_rate := 3;
+			r6_rate := 3
+		}
+		else if r6_stage = 1 {
+			r6_count_rate := 4;
+			r6_rate := 3
+		}
+
+		else if r6_stage = 2 {
+			r6_count_rate := 3;
+			r6_rate := 2
+		}
+		else if r6_stage = 3 {
+			r6_count_rate := 9;
+			r6_rate := 5
+		}
+		else if r6_stage = 4 {
+			r6_count_rate := 5;
+			r6_rate := 1
+		}
+		else if r6_stage = 5 {
+			r6_count_rate := 4;
+			r6_rate := 2
+		}
+		else if r6_stage = 6 {
+			r6_count_rate := 5;
+			r6_rate := 3
+		}
+		else if r6_stage = 7 {
+			r6_count_rate := 3;
+			r6_rate := 1
+		}
+	}
+
+	action r7_execution returns(y:bool) = {
+		r7_exec := r7_exec + 1;
+		if r7_exec >= r7_rate {
+			y := true;
+			r7_exec := 0;
+			r7_count := r7_count + 1
+		}
+		else {
+			y := false
+		};
+		if r7_count >= r7_count_rate {
+			r7_stage := r7_stage + 1;
+			r7_count := 0
+		};
+		if r7_stage = 0 {
+			r7_count_rate := 3;
+			r7_rate := 25
+		}
+		else if r7_stage = 1 {
+			r7_count_rate := 4;
+			r7_rate := 25
+		}
+
+		else if r7_stage = 2 {
+			r7_count_rate := 3;
+			r7_rate := 25
+		}
+		else if r7_stage = 3 {
+			r7_count_rate := 9;
+			r7_rate := 25
+		}
+		else if r7_stage = 4 {
+			r7_count_rate := 5;
+			r7_rate := 25
+		}
+		else if r7_stage = 5 {
+			r7_count_rate := 4;
+			r7_rate := 25
+		}
+		else if r7_stage = 6 {
+			r7_count_rate := 5;
+			r7_rate := 25
+		}
+		else if r7_stage = 7 {
+			r7_count_rate := 3;
+			r7_rate := 25
+		}
+	}
+
+	action r8_execution returns(y:bool) = {
+		r8_exec := r8_exec + 1;
+		if r8_exec >= r8_rate {
+			y := true;
+			r8_exec := 0;
+			r8_count := r8_count + 1
+		}
+		else {
+			y := false
+		};
+		if r8_count >= r8_count_rate {
+			r8_stage := r8_stage + 1;
+			r8_count := 0
+		};
+		if r8_stage = 0 {
+			r8_count_rate := 3;
+			r8_rate := 1
+		}
+		else if r8_stage = 1 {
+			r8_count_rate := 1;
+			r8_rate := 3
+		}
+
+		else if r8_stage = 2 {
+			r8_count_rate := 3;
+			r8_rate := 1
+		}
+		else if r8_stage = 3 {
+			r8_count_rate := 1;
+			r8_rate := 3
+		}
+		else if r8_stage = 4 {
+			r8_count_rate := 3;
+			r8_rate := 1
+		}
+		else if r8_stage = 5 {
+			r8_count_rate := 1;
+			r8_rate := 3
+		}
+		else if r8_stage = 6 {
+			r8_count_rate := 3;
+			r8_rate := 1
+		}
+		else if r8_stage = 7 {
+			r8_count_rate := 1;
+			r8_rate := 3
+		}
+	}
+
+}
+
+object proto = {
+
+	type 2bit
+
+	interpret 2bit -> bv[1]
+
+	individual idle : 2bit
+
+	individual r : chem.num
+	individual l : chem.num
+	individual rl : chem.num
+	individual g : chem.num
+	individual ga : chem.num
+	individual gbg : chem.num
+	individual gd : chem.num
+
+	after init {
+		r := 50;
+		l := 2;
+		rl := 0;
+		g := 50;
+		ga := 0;
+		gbg := 0;
+		gd := 0;
+
+		idle := 0 
+	}
+
+	action updating = {
+		if enabled.r1(r) & idle = 0 {
+			if executer.r1_execution {
+				call reactions.r1(r);
+				r := chem.incr(r)
+			}
+		}
+
+		if enabled.r2(r) & idle = 0 {
+			if executer.r2_execution {
+				call reactions.r2(r);
+				r := chem.decr(r)
+			}
+		}
+
+		if enabled.r3(r,l) & idle = 0 {
+			if executer.r3_execution {
+				call reactions.r3(r,l,rl);
+				r:= chem.decr(r);
+				rl := chem.incr(rl)
+			}
+		}
+
+		if enabled.r4(rl) & idle = 0 {
+			if executer.r4_execution {
+				call reactions.r4(rl,r);
+				rl := chem.decr(rl);
+				r := chem.incr(r)
+			}
+		}
+
+		if enabled.r5(rl,g) & idle = 0 {
+			if executer.r5_execution {
+				call reactions.r5(rl,g,ga,gbg);
+				rl := chem.decr(rl);
+				g := chem.decr(g);
+				ga := chem.incr(ga);
+				gbg := chem.incr(gbg);
+				if gbg >= 50 {
+					call goal.achieved(gbg)
+				}
+			}
+		}
+	
+		if enabled.r6(ga) & idle = 0 {
+			if executer.r6_execution {
+				call reactions.r6(ga,gd);
+				ga := chem.decr(ga);
+				gd := chem.incr(gd);
+			}
+		}
+
+		if enabled.r7(gbg,gd) & idle = 0 {
+			if executer.r7_execution {
+				call reactions.r7(gbg,gd,g);
+				gbg := chem.decr(gbg);
+				gd := chem.decr(gd);
+				g := chem.incr(g);
+
+			}
+		}
+
+		if enabled.r8(rl) & idle = 0 {
+			if executer.r8_execution {
+				call reactions.r8(rl);
+				rl := chem.incr(rl);
+			}
+		}
+	}
+
+	action idling = {}
+
+	before updating {
+		assert idle = 0
+	}
+
+	before idling {
+		assert idle = 1 
+	}
+	
+}
+
+export proto.updating
+export proto.idling
+import goal.achieved
+import reactions.r1
+import reactions.r2
+import reactions.r3
+import reactions.r4
+import reactions.r5
+import reactions.r6
+import reactions.r7
+import reactions.r8
+
+isolate iso_proto = proto with enabled, chem, goal, executer, reactions
+isolate iso_react = reactions
