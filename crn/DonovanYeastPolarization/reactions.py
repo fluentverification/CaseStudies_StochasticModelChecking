@@ -16,21 +16,21 @@ class chemical:
 Reactions = []
 for x in range(numofreactions):
     print("\n\n","reaction",x+1, ": \n")
-    firstreactant = input("What is the first reactant (if no reactants type 'NA'): ").lower()
-    if(firstreactant == "na"):
+    firstreactant = input("What is the first reactant (if no reactants type 'NA'): ")
+    if(firstreactant.lower() == "na"):
         firstreactant = ""
         secondreactant = ""
     else:
-        secondreactant = input("What is the second reactant (if no second reactant type 'NA'): ").lower()
-        if(secondreactant == "na"):
+        secondreactant = input("What is the second reactant (if no second reactant type 'NA'): ")
+        if(secondreactant.lower() == "na"):
             secondreactant = ""
-    firstproduct = input("What is the first product (if no products type 'NA'): ").lower()
-    if(firstproduct == "na"):
+    firstproduct = input("What is the first product (if no products type 'NA'): ")
+    if(firstproduct.lower() == "na"):
         firstproduct = ""
         secondproduct = ""
     else:
-        secondproduct = input("What is the second product (if no second product type 'NA'): ").lower()
-        if(secondproduct == "na"):
+        secondproduct = input("What is the second product (if no second product type 'NA'): ")
+        if(secondproduct.lower() == "na"):
             secondproduct = ""
     Reactions.append(reaction(firstreactant,secondreactant,firstproduct,secondproduct,3))
 
@@ -90,7 +90,7 @@ if(targetchem not in chem):
     exit()
 targetnum = input("What is the target number for this chemical? ")
 
-upordown = input("Are you interested in seeing when the chemical is above or below the specified number? (type either above or below)")
+upordown = input("Are you interested in seeing when the chemical is above or below the specified number? (type either above or below): ")
 
 for obj in chemlist:
     if obj.name == targetchem:
@@ -98,7 +98,7 @@ for obj in chemlist:
             if obj.value >= int(targetnum):
                 print("\nSpecified target is already achieved in target state, please start over")
                 exit()
-        if upordown.lower() == "below":
+        elif upordown.lower() == "below":
             if obj.value <= int(targetnum):
                 print("\nSpecified target is already achieved in target state, please start over")
                 exit()
@@ -395,7 +395,7 @@ for obj in Reactions:
         ivy_file.write(str(count))
         ivy_file.write("_stage = 2 {\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_count_rate := 5;\n\t\t\tr")
+        ivy_file.write("_count_rate := 2;\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_rate := 1\n\t\t}\n\t\t")
         ivy_file.write("else if r")
@@ -418,7 +418,7 @@ for obj in Reactions:
         ivy_file.write(str(count))
         ivy_file.write("_count_rate := 2;\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_rate := 1\n\t\t}\n\t\t")
+        ivy_file.write("_rate := 3\n\t\t}\n\t\t")
         ivy_file.write("else if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 6 {\n\t\t\tr")
@@ -622,12 +622,14 @@ ivy_file.write("\nobject proto = {\n\n\ttype 2bit\n\tinterpret 2bit -> bv[1]\n\t
 
 for obj in chem:
     ivy_file.write("\tindividual ")
+    ivy_file.write("r_")
     ivy_file.write(obj)
     ivy_file.write(" : chem.num\n")
 
 ivy_file.write("\n\tafter init {\n\t\t")
 
 for obj in chemlist:
+    ivy_file.write("r_")
     ivy_file.write(obj.name)
     ivy_file.write(" := ")
     ivy_file.write(str(obj.value))
@@ -649,12 +651,15 @@ for obj in Reactions:
         ivy_file.write("_execution {\n\t\t\tcall reactions.r")
         ivy_file.write(str(count))
         ivy_file.write(";\n\t\t\t")
+        ivy_file.write("r_")
         ivy_file.write(obj.product1)
         ivy_file.write(" := chem.incr(")
+        ivy_file.write("r_")
         ivy_file.write(obj.product1)
         if obj.priority >= 5:
             ivy_file.write(");\n\t\t")
             ivy_file.write("\tif ")
+            ivy_file.write("r_")
             ivy_file.write(targetchem)
             if upordown.lower() == "above":
                 ivy_file.write(" >= ")
@@ -662,6 +667,7 @@ for obj in Reactions:
                 ivy_file.write(" <= ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
+            ivy_file.write("r_")
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
         else:
@@ -676,17 +682,22 @@ for obj in Reactions:
         ivy_file.write("_execution {\n\t\t\tcall reactions.r")
         ivy_file.write(str(count))
         ivy_file.write(";\n\t\t\t")
+        ivy_file.write("r_")
         ivy_file.write(obj.product1)
         ivy_file.write(" := chem.incr(")
+        ivy_file.write("r_")
         ivy_file.write(obj.product1)
         ivy_file.write(");\n\t\t\t")
+        ivy_file.write("r_")
         ivy_file.write(obj.product2)
         ivy_file.write(" := chem.incr(")
+        ivy_file.write("r_")
         ivy_file.write(obj.product2)
         #ivy_file.write(")\n\t\t")
         if obj.priority >= 5:
             ivy_file.write(");\n\t\t")
             ivy_file.write("\tif ")
+            ivy_file.write("r_")
             ivy_file.write(targetchem)
             if upordown.lower() == "above":
                 ivy_file.write(" >= ")
@@ -694,6 +705,7 @@ for obj in Reactions:
                 ivy_file.write(" <= ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
+            ivy_file.write("r_")
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
         else:
@@ -708,16 +720,20 @@ for obj in Reactions:
         ivy_file.write("_execution {\n\t\t\tcall reactions.r")
         ivy_file.write(str(count))
         ivy_file.write("(")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant1)
         ivy_file.write(")")
         ivy_file.write(";\n\t\t\t")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant1)
         ivy_file.write(" := chem.decr(")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant1)
         #ivy_file.write(")\n\t\t")
         if obj.priority >= 5:
             ivy_file.write(");\n\t\t")
             ivy_file.write("\tif ")
+            ivy_file.write("r_")
             ivy_file.write(targetchem)
             if upordown.lower() == "above":
                 ivy_file.write(" >= ")
@@ -725,6 +741,7 @@ for obj in Reactions:
                 ivy_file.write(" <= ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
+            ivy_file.write("r_")
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
         else:
@@ -739,20 +756,26 @@ for obj in Reactions:
         ivy_file.write("_execution {\n\t\t\tcall reactions.r")
         ivy_file.write(str(count))
         ivy_file.write("(")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant1)
         ivy_file.write(")")
         ivy_file.write(";\n\t\t\t")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant1)
         ivy_file.write(" := chem.decr(")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant1)
         ivy_file.write(");\n\t\t\t")
+        ivy_file.write("r_")
         ivy_file.write(obj.product1)
         ivy_file.write(" := chem.incr(")
+        ivy_file.write("r_")
         ivy_file.write(obj.product1)
         #ivy_file.write(")\n\t\t")
         if obj.priority >= 5:
             ivy_file.write(");\n\t\t")
             ivy_file.write("\tif ")
+            ivy_file.write("r_")
             ivy_file.write(targetchem)
             if upordown.lower() == "above":
                 ivy_file.write(" >= ")
@@ -760,6 +783,7 @@ for obj in Reactions:
                 ivy_file.write(" <= ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
+            ivy_file.write("r_")
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
         else:
@@ -774,24 +798,32 @@ for obj in Reactions:
         ivy_file.write("_execution {\n\t\t\tcall reactions.r")
         ivy_file.write(str(count))
         ivy_file.write("(")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant1)
         ivy_file.write(")")
         ivy_file.write(";\n\t\t\t")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant1)
         ivy_file.write(" := chem.decr(")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant1)
         ivy_file.write(");\n\t\t\t")
+        ivy_file.write("r_")
         ivy_file.write(obj.product1)
         ivy_file.write(" := chem.incr(")
+        ivy_file.write("r_")
         ivy_file.write(obj.product1)
         ivy_file.write(");\n\t\t\t")
+        ivy_file.write("r_")
         ivy_file.write(obj.product2)
         ivy_file.write(" := chem.incr(")
+        ivy_file.write("r_")
         ivy_file.write(obj.product2)
         #ivy_file.write(")\n\t\t")
         if obj.priority >= 5:
             ivy_file.write(");\n\t\t")
             ivy_file.write("\tif ")
+            ivy_file.write("r_")
             ivy_file.write(targetchem)
             if upordown.lower() == "above":
                 ivy_file.write(" >= ")
@@ -799,6 +831,7 @@ for obj in Reactions:
                 ivy_file.write(" <= ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
+            ivy_file.write("r_")
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
         else:
@@ -813,22 +846,29 @@ for obj in Reactions:
         ivy_file.write("_execution {\n\t\t\tcall reactions.r")
         ivy_file.write(str(count))
         ivy_file.write("(")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant1)
         ivy_file.write(",")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant2)
         ivy_file.write(")")
         ivy_file.write(";\n\t\t\t")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant1)
         ivy_file.write(" := chem.decr(")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant1)
         ivy_file.write(");\n\t\t\t")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant2)
         ivy_file.write(" := chem.decr(")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant2)
         #ivy_file.write(")\n\t\t")
         if obj.priority >= 5:
             ivy_file.write(");\n\t\t")
             ivy_file.write("\tif ")
+            ivy_file.write("r_")
             ivy_file.write(targetchem)
             if upordown.lower() == "above":
                 ivy_file.write(" >= ")
@@ -836,6 +876,7 @@ for obj in Reactions:
                 ivy_file.write(" <= ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
+            ivy_file.write("r_")
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
         else:
@@ -850,26 +891,35 @@ for obj in Reactions:
         ivy_file.write("_execution {\n\t\t\tcall reactions.r")
         ivy_file.write(str(count))
         ivy_file.write("(")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant1)
         ivy_file.write(",")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant2)
         ivy_file.write(")")
         ivy_file.write(";\n\t\t\t")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant1)
         ivy_file.write(" := chem.decr(")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant1)
         ivy_file.write(");\n\t\t\t")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant2)
         ivy_file.write(" := chem.decr(")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant2)
         ivy_file.write(");\n\t\t\t")
+        ivy_file.write("r_")
         ivy_file.write(obj.product1)
         ivy_file.write(" := chem.incr(")
+        ivy_file.write("r_")
         ivy_file.write(obj.product1)
         #ivy_file.write(")\n\t\t")
         if obj.priority >= 5:
             ivy_file.write(");\n\t\t")
             ivy_file.write("\tif ")
+            ivy_file.write("r_")
             ivy_file.write(targetchem)
             if upordown.lower() == "above":
                 ivy_file.write(" >= ")
@@ -877,6 +927,7 @@ for obj in Reactions:
                 ivy_file.write(" <= ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
+            ivy_file.write("r_")
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
         else:
@@ -891,30 +942,41 @@ for obj in Reactions:
         ivy_file.write("_execution {\n\t\t\tcall reactions.r")
         ivy_file.write(str(count))
         ivy_file.write("(")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant1)
         ivy_file.write(",")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant2)
         ivy_file.write(")")
         ivy_file.write(";\n\t\t\t")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant1)
         ivy_file.write(" := chem.decr(")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant1)
         ivy_file.write(");\n\t\t\t")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant2)
         ivy_file.write(" := chem.decr(")
+        ivy_file.write("r_")
         ivy_file.write(obj.reactant2)
         ivy_file.write(");\n\t\t\t")
+        ivy_file.write("r_")
         ivy_file.write(obj.product1)
         ivy_file.write(" := chem.incr(")
+        ivy_file.write("r_")
         ivy_file.write(obj.product1)
         ivy_file.write(");\n\t\t\t")
+        ivy_file.write("r_")
         ivy_file.write(obj.product2)
         ivy_file.write(" := chem.incr(")
+        ivy_file.write("r_")
         ivy_file.write(obj.product2)
         #ivy_file.write(")\n\t\t")
         if obj.priority >= 5:
             ivy_file.write(");\n\t\t")
             ivy_file.write("\tif ")
+            ivy_file.write("r_")
             ivy_file.write(targetchem)
             if upordown.lower() == "above":
                 ivy_file.write(" >= ")
@@ -922,6 +984,7 @@ for obj in Reactions:
                 ivy_file.write(" <= ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
+            ivy_file.write("r_")
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
         else:
@@ -933,7 +996,7 @@ ivy_file.write("\n\n\taction idling = {}\n\n\t")
 count = 0
 for obj in Reactions:
     count = count + 1
-    ivy_file.write("before updating_r")
+    ivy_file.write("before action updating_r")
     ivy_file.write(str(count))
     if (Reactions[count-1].reactant1 == ""):
         ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled.r")
@@ -943,14 +1006,17 @@ for obj in Reactions:
         ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled.r")
         ivy_file.write(str(count))
         ivy_file.write("(")
+        ivy_file.write("r_")
         ivy_file.write(Reactions[count-1].reactant1)
         ivy_file.write(")\n\t}\n\t")
     elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 != ""):
         ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled.r")
         ivy_file.write(str(count))
         ivy_file.write("(")
+        ivy_file.write("r_")
         ivy_file.write(Reactions[count-1].reactant1)
         ivy_file.write(",")
+        ivy_file.write("r_")
         ivy_file.write(Reactions[count-1].reactant2)
         ivy_file.write(")\n\t}\n\n\t")
 
