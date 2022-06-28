@@ -165,33 +165,39 @@ for obj in Reactions:
                             obj.priority = obj.priority - 5
                         if obj.reactant2 == tar:
                             obj.priority = obj.priority - 5
+
+for obj in chemlist:
+    if obj.name == targetchem:
+        chemnum = abs(int(targetnum) - obj.value)
         
 for obj in Reactions:
     if obj.priority < 25:
         for tar in secondtarget:
             for chemical in chemlist:
+                #chemnum = (chemical.value - int(targetnum))
                 if chemical.name == tar:
-                    if chemical.value >= int(targetnum):
+                    #if chemnum >= 0:
+                    if chemical.value >= chemnum:
                         if obj.product1 == tar:
                             obj.priority = obj.priority + 1
                         if obj.product2 == tar:
                             obj.priority = obj.priority + 1
-                    elif chemical.value >= 3*(int(targetnum)/4):
+                    elif chemical.value >= 3*(chemnum/4):
                         if obj.product1 == tar:
                             obj.priority = obj.priority + 2
                         if obj.product2 == tar:
                             obj.priority = obj.priority + 2
-                    elif chemical.value >= (int(targetnum)/2):
+                    elif chemical.value >= (chemnum/2):
                         if obj.product1 == tar:
                             obj.priority = obj.priority + 3
                         if obj.product2 == tar:
                             obj.priority = obj.priority + 3
-                    elif chemical.value >= (int(targetnum)/4):
+                    elif chemical.value >= (chemnum/4):
                         if obj.product1 == tar:
                             obj.priority = obj.priority + 4
                         if obj.product2 == tar:
                             obj.priority = obj.priority + 4
-                    elif chemical.value < (int(targetnum)/4):
+                    elif chemical.value < (chemnum/4):
                         if obj.product1 == tar:
                             obj.priority = obj.priority + 5
                         if obj.product2 == tar:
