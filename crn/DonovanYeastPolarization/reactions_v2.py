@@ -1227,7 +1227,7 @@ for obj in Reactions:
     if (Reactions[count-1].reactant1 == ""):
         ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled.r")
         ivy_file.write(str(count))
-        if obj.priority <= 7:
+        if obj.priority <= 6:
             ivy_file.write(";\n\t\tassert false")
         ivy_file.write("\n\t}\n\t")
     elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 == ""):
@@ -1237,7 +1237,7 @@ for obj in Reactions:
         ivy_file.write("r_")
         ivy_file.write(Reactions[count-1].reactant1)
         ivy_file.write(")")
-        if obj.priority <= 7:
+        if obj.priority <= 6:
             ivy_file.write(";\n\t\tassert false")
         ivy_file.write("\n\t}\n\t")
     elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 != ""):
@@ -1250,7 +1250,7 @@ for obj in Reactions:
         ivy_file.write("r_")
         ivy_file.write(Reactions[count-1].reactant2)
         ivy_file.write(")")
-        if obj.priority <= 7:
+        if obj.priority <= 6:
             ivy_file.write(";\n\t\tassert false")
         ivy_file.write("\n\t}\n\n\t")
 
