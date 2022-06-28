@@ -32,7 +32,7 @@ for x in range(numofreactions):
         secondproduct = input("What is the second product (if no second product type 'NA'): ")
         if(secondproduct.lower() == "na"):
             secondproduct = ""
-    Reactions.append(reaction(firstreactant,secondreactant,firstproduct,secondproduct,3))
+    Reactions.append(reaction(firstreactant,secondreactant,firstproduct,secondproduct,15))
 
 print("\n\nThe follwing reactions will be considered in the model:\n")
 
@@ -112,19 +112,19 @@ secondtarget = []
 if upordown.lower() == "above":
     for obj in Reactions:
         if obj.product1 == targetchem or obj.product2 == targetchem:
-            obj.priority = obj.priority + 2
+            obj.priority = obj.priority + 10
         elif obj.reactant1 == targetchem or obj.reactant2 == targetchem:
-            obj.priority = obj.priority - 2
+            obj.priority = obj.priority - 10
 elif upordown.lower() == "below":
     for obj in Reactions:
         if obj.product1 == targetchem or obj.product2 == targetchem:
-            obj.priority = obj.priority - 2
+            obj.priority = obj.priority - 10
         elif obj.reactant1 == targetchem or obj.reactant2 == targetchem:
-            obj.priority = obj.priority + 2
+            obj.priority = obj.priority + 10
 
 
 for obj in Reactions:
-    if obj.priority >= 5:
+    if obj.priority >= 25:
         if obj.reactant1 != "" and obj.reactant2 != "":
             if obj.reactant1 != targetchem:
                 secondtarget.append(obj.reactant1)
@@ -133,22 +133,69 @@ for obj in Reactions:
         elif obj.reactant1 != "" and obj.reactant2 == "":
             if obj.reactant1 != targetchem:
                 secondtarget.append(obj.reactant1)
+
  
 for obj in Reactions:
-    if obj.priority < 5:
+    if obj.priority < 25:
         for tar in secondtarget:
-            if obj.reactant1 == tar:
-                obj.priority = obj.priority - 1
-            if obj.reactant2 == tar:
-                obj.priority = obj.priority - 1
+            for chemical in chemlist:
+                if chemical.name == tar:
+                    if chemical.value >= int(targetnum):
+                        if obj.reactant1 == tar:
+                            obj.priority = obj.priority - 1
+                        if obj.reactant2 == tar:
+                            obj.priority = obj.priority - 1
+                    elif chemical.value >= 3*(int(targetnum)/4):
+                        if obj.reactant1 == tar:
+                            obj.priority = obj.priority - 2
+                        if obj.reactant2 == tar:
+                            obj.priority = obj.priority - 2
+                    elif chemical.value >= (int(targetnum)/2):
+                        if obj.reactant1 == tar:
+                            obj.priority = obj.priority - 3
+                        if obj.reactant2 == tar:
+                            obj.priority = obj.priority - 3
+                    elif chemical.value >= (int(targetnum)/4):
+                        if obj.reactant1 == tar:
+                            obj.priority = obj.priority - 4
+                        if obj.reactant2 == tar:
+                            obj.priority = obj.priority - 4
+                    elif chemical.value < (int(targetnum)/4):
+                        if obj.reactant1 == tar:
+                            obj.priority = obj.priority - 5
+                        if obj.reactant2 == tar:
+                            obj.priority = obj.priority - 5
         
 for obj in Reactions:
-    if obj.priority < 5:
+    if obj.priority < 25:
         for tar in secondtarget:
-            if obj.product1 == tar:
-                obj.priority = obj.priority + 1
-            if obj.product2 == tar:
-                obj.priority = obj.priority + 1
+            for chemical in chemlist:
+                if chemical.name == tar:
+                    if chemical.value >= int(targetnum):
+                        if obj.product1 == tar:
+                            obj.priority = obj.priority + 1
+                        if obj.product2 == tar:
+                            obj.priority = obj.priority + 1
+                    elif chemical.value >= 3*(int(targetnum)/4):
+                        if obj.product1 == tar:
+                            obj.priority = obj.priority + 2
+                        if obj.product2 == tar:
+                            obj.priority = obj.priority + 2
+                    elif chemical.value >= (int(targetnum)/2):
+                        if obj.product1 == tar:
+                            obj.priority = obj.priority + 3
+                        if obj.product2 == tar:
+                            obj.priority = obj.priority + 3
+                    elif chemical.value >= (int(targetnum)/4):
+                        if obj.product1 == tar:
+                            obj.priority = obj.priority + 4
+                        if obj.product2 == tar:
+                            obj.priority = obj.priority + 4
+                    elif chemical.value < (int(targetnum)/4):
+                        if obj.product1 == tar:
+                            obj.priority = obj.priority + 5
+                        if obj.product2 == tar:
+                            obj.priority = obj.priority + 5
 
 print("The following priorities have been noted for the reactions: \n")
 
@@ -173,7 +220,7 @@ if shortest == "Yes":
 
     
 
-ivy_file = open("test.ivy", "w")
+ivy_file = open("test_v2.ivy", "w")
 
 ivy_file.write("#lang ivy 1.7\n\nobject chem = {\n")
 ivy_file.write("\ttype num\n\tinterpret num -> bv[10]\n\ttype exec_var\n\tinterpret exec_var -> bv[8]\n\ttype exec_stage\n\tinterpret exec_stage -> bv[3]\n\n\taction incr(x:num) returns(y:num) = {\n\t\ty := x + 1\n\t}\n\n\taction decr(x:num) returns(y:num) = {\n\t\ty := x - 1\n\t}\n}")
@@ -319,7 +366,7 @@ for obj in Reactions:
     ivy_file.write("_stage + 1;\n\t\t\tr")
     ivy_file.write(str(count))
     ivy_file.write("_count := 0\n\t\t};\n\t\t")
-    if obj.priority >= 5:
+    if obj.priority >= 19:
         ivy_file.write("if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 0 {\n\t\t\tr")
@@ -378,7 +425,7 @@ for obj in Reactions:
         ivy_file.write("_rate := 1\n\t\t}\n\t\telse {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
-    elif obj.priority == 4:
+    elif obj.priority == 18:
         ivy_file.write("if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 0 {\n\t\t\tr")
@@ -390,7 +437,7 @@ for obj in Reactions:
         ivy_file.write(str(count))
         ivy_file.write("_stage = 1 {\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_count_rate := 3;\n\t\t\tr")
+        ivy_file.write("_count_rate := 2;\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_rate := 2\n\t\t}\n\t\t")
         ivy_file.write("else if r")
@@ -404,14 +451,14 @@ for obj in Reactions:
         ivy_file.write(str(count))
         ivy_file.write("_stage = 3 {\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_count_rate := 4;\n\t\t\tr")
+        ivy_file.write("_count_rate := 3;\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_rate := 2\n\t\t}\n\t\t")
         ivy_file.write("else if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 4 {\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_count_rate := 2;\n\t\t\tr")
+        ivy_file.write("_count_rate := 5;\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_rate := 1\n\t\t}\n\t\t")
         ivy_file.write("else if r")
@@ -420,7 +467,7 @@ for obj in Reactions:
         ivy_file.write(str(count))
         ivy_file.write("_count_rate := 2;\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_rate := 3\n\t\t}\n\t\t")
+        ivy_file.write("_rate := 2\n\t\t}\n\t\t")
         ivy_file.write("else if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 6 {\n\t\t\tr")
@@ -437,7 +484,66 @@ for obj in Reactions:
         ivy_file.write("_rate := 2\n\t\t}\n\t\telse {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
-    elif obj.priority == 3:
+    elif obj.priority == 17:
+        ivy_file.write("if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 0 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 3;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 1\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 1 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 4;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 2\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 2 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 2;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 3\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 3 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 4;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 2\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 4 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 3;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 3\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 5 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 2;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 2\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 6 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 1;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 1\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 7 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 4;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 2\n\t\t}\n\t\telse {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
+    elif obj.priority <= 16 and obj.priority >= 14:
         ivy_file.write("if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 0 {\n\t\t\tr")
@@ -496,71 +602,130 @@ for obj in Reactions:
         ivy_file.write("_rate := 5\n\t\t}\n\t\telse {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
-    elif obj.priority == 2:
+    elif obj.priority == 13:
         ivy_file.write("if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 0 {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_count_rate := 4;\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_rate := 18\n\t\t}\n\t\t")
+        ivy_file.write("_rate := 13\n\t\t}\n\t\t")
         ivy_file.write("else if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 1 {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_count_rate := 3;\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_rate := 22\n\t\t}\n\t\t")
+        ivy_file.write("_rate := 11\n\t\t}\n\t\t")
         ivy_file.write("else if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 2 {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_count_rate := 2;\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_rate := 20\n\t\t}\n\t\t")
+        ivy_file.write("_rate := 15\n\t\t}\n\t\t")
         ivy_file.write("else if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 3 {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_count_rate := 9;\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_rate := 20\n\t\t}\n\t\t")
+        ivy_file.write("_rate := 12\n\t\t}\n\t\t")
         ivy_file.write("else if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 4 {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_count_rate := 4;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 14\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 5 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 4;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 12\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 6 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 5;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 15\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 7 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 3;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 10\n\t\t}\n\t\telse {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
+    elif obj.priority <= 12 and obj.priority >= 10:
+        ivy_file.write("if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 0 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 5;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 30\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 1 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 3;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 28\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 2 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 2;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 34\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 3 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 9;\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_rate := 25\n\t\t}\n\t\t")
         ivy_file.write("else if r")
         ivy_file.write(str(count))
+        ivy_file.write("_stage = 4 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 4;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 36\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
         ivy_file.write("_stage = 5 {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_count_rate := 2;\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_rate := 32\n\t\t}\n\t\t")
+        ivy_file.write("_rate := 29\n\t\t}\n\t\t")
         ivy_file.write("else if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 6 {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_count_rate := 5;\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_rate := 21\n\t\t}\n\t\t")
+        ivy_file.write("_rate := 30\n\t\t}\n\t\t")
         ivy_file.write("else if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 7 {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_count_rate := 1;\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_rate := 20\n\t\t}\n\t\telse {\n\t\t\tr")
+        ivy_file.write("_rate := 34\n\t\t}\n\t\telse {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
-    elif obj.priority <= 1:
+    elif obj.priority <= 9 and obj.priority >= 7:
         ivy_file.write("if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 0 {\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_count_rate := 4;\n\t\t\tr")
+        ivy_file.write("_count_rate := 5;\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_rate := 50\n\t\t}\n\t\t")
         ivy_file.write("else if r")
@@ -569,49 +734,108 @@ for obj in Reactions:
         ivy_file.write(str(count))
         ivy_file.write("_count_rate := 3;\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_rate := 50\n\t\t}\n\t\t")
+        ivy_file.write("_rate := 56\n\t\t}\n\t\t")
         ivy_file.write("else if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 2 {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_count_rate := 2;\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_rate := 50\n\t\t}\n\t\t")
+        ivy_file.write("_rate := 62\n\t\t}\n\t\t")
         ivy_file.write("else if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 3 {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_count_rate := 9;\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_rate := 50\n\t\t}\n\t\t")
+        ivy_file.write("_rate := 48\n\t\t}\n\t\t")
         ivy_file.write("else if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 4 {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_count_rate := 4;\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_rate := 50\n\t\t}\n\t\t")
+        ivy_file.write("_rate := 63\n\t\t}\n\t\t")
         ivy_file.write("else if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 5 {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_count_rate := 2;\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_rate := 50\n\t\t}\n\t\t")
+        ivy_file.write("_rate := 52\n\t\t}\n\t\t")
         ivy_file.write("else if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 6 {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_count_rate := 5;\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_rate := 50\n\t\t}\n\t\t")
+        ivy_file.write("_rate := 58\n\t\t}\n\t\t")
         ivy_file.write("else if r")
         ivy_file.write(str(count))
         ivy_file.write("_stage = 7 {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_count_rate := 1;\n\t\t\tr")
         ivy_file.write(str(count))
-        ivy_file.write("_rate := 50\n\t\t}\n\t\telse {\n\t\t\tr")
+        ivy_file.write("_rate := 82\n\t\t}\n\t\telse {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
+    elif obj.priority <= 6:
+        ivy_file.write("if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 0 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 5;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 250\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 1 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 3;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 250\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 2 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 2;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 250\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 3 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 9;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 250\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 4 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 4;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 250\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 5 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 2;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 250\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 6 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 5;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 250\n\t\t}\n\t\t")
+        ivy_file.write("else if r")
+        ivy_file.write(str(count))
+        ivy_file.write("_stage = 7 {\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_count_rate := 1;\n\t\t\tr")
+        ivy_file.write(str(count))
+        ivy_file.write("_rate := 250\n\t\t}\n\t\telse {\n\t\t\tr")
         ivy_file.write(str(count))
         ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
 
@@ -1003,6 +1227,8 @@ for obj in Reactions:
     if (Reactions[count-1].reactant1 == ""):
         ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled.r")
         ivy_file.write(str(count))
+        if obj.priority <= 5:
+            ivy_file.write(";\n\t\tassert false")
         ivy_file.write("\n\t}\n\t")
     elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 == ""):
         ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled.r")
@@ -1010,7 +1236,10 @@ for obj in Reactions:
         ivy_file.write("(")
         ivy_file.write("r_")
         ivy_file.write(Reactions[count-1].reactant1)
-        ivy_file.write(")\n\t}\n\t")
+        ivy_file.write(")")
+        if obj.priority <= 5:
+            ivy_file.write(";\n\t\tassert false")
+        ivy_file.write("\n\t}\n\t")
     elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 != ""):
         ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled.r")
         ivy_file.write(str(count))
@@ -1020,7 +1249,10 @@ for obj in Reactions:
         ivy_file.write(",")
         ivy_file.write("r_")
         ivy_file.write(Reactions[count-1].reactant2)
-        ivy_file.write(")\n\t}\n\n\t")
+        ivy_file.write(")")
+        if obj.priority <= 5:
+            ivy_file.write(";\n\t\tassert false")
+        ivy_file.write("\n\t}\n\n\t")
 
 
 ivy_file.write("\n\n\tbefore idling {\n\t\tassert idle = 1\n\t}\n}\n")
