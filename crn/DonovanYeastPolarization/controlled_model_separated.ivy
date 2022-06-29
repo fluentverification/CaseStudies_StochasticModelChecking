@@ -801,4 +801,3 @@ import reactions.r7
 import reactions.r8
 
 isolate iso_proto = proto with enabled, chem, goal, executer, reactions
-isolate iso_react = reactions
