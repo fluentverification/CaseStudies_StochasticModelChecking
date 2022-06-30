@@ -20,22 +20,28 @@ class chemical:
 Reactions = []
 for x in range(numofreactions):
     print("\n\n","reaction",x+1, ": \n")
-    firstreactant = input("What is the first reactant (if no reactants type 'NA'): ")
-    if(firstreactant.lower() == "na"):
+    firstreactant = input("What is the first reactant (if no reactants type 'NA' or leave blank): ")
+    if(firstreactant.lower() == "na" or firstreactant == ""):
         firstreactant = ""
         firstreactantnum = 0
         secondreactant = ""
         secondreactantnum = 0
     else:
         firstreactantnum = int(input("What amount of this reactant is needed (type an integer): "))
-        secondreactant = input("What is the second reactant (if no second reactant type 'NA'): ")
-        if(secondreactant.lower() == "na"):
+        if (firstreactantnum == 0):
+            print("Error, must be greater than 0, please start over")
+            exit()
+        secondreactant = input("What is the second reactant (if no second reactant type 'NA' or leave blank): ")
+        if(secondreactant.lower() == "na" or secondreactant == ""):
             secondreactant = ""
             secondreactantnum = 0
         else:
             secondreactantnum = int(input("What amount of this reactant is needed (type an integer): "))
-    firstproduct = input("What is the first product (if no products type 'NA'): ")
-    if(firstproduct.lower() == "na"):
+            if (secondreactantnum == 0):
+                print("Error, must be greater than 0, please start over")
+                exit()
+    firstproduct = input("What is the first product (if no products type 'NA' or leave blank): ")
+    if(firstproduct.lower() == "na" or firstproduct == ""):
         if(firstreactant == ""):
             print("Error, this reaction has no reactants or products please start over")
             exit()
@@ -45,12 +51,18 @@ for x in range(numofreactions):
         secondproductnum = 0
     else:
         firstproductnum = int(input("What amount of this product is produced (type an integer): "))
-        secondproduct = input("What is the second product (if no second product type 'NA'): ")
-        if(secondproduct.lower() == "na"):
+        if(firstproductnum == 0):
+            print("Error, must be greater than 0, please start over")
+            exit()
+        secondproduct = input("What is the second product (if no second product type 'NA' or leave blank): ")
+        if(secondproduct.lower() == "na" or secondproduct == ""):
             secondproduct = ""
             secondproductnum = 0
         else:
             secondproductnum = int(input("What amount of this product is produced (type an integer): "))
+            if (secondproductnum == 0):
+                print("Error, must be greater than 0, please start over")
+                exit()
     Reactions.append(reaction(firstreactant,firstreactantnum,secondreactant,secondreactantnum,firstproduct,firstproductnum,secondproduct,secondproductnum,15))
 
 print("\n\nThe follwing reactions will be considered in the model:\n")
@@ -933,7 +945,7 @@ for obj in Reactions:
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
         else:
-            ivy_file.write(")\n\t\t")
+            ivy_file.write("\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 == "" and obj.product1 != "" and obj.product2 != ""):
         ivy_file.write("action updating_r")
@@ -975,7 +987,7 @@ for obj in Reactions:
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
         else:
-            ivy_file.write(")\n\t\t")
+            ivy_file.write("\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 == ""):
         ivy_file.write("action updating_r")
@@ -1013,7 +1025,7 @@ for obj in Reactions:
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
         else:
-            ivy_file.write(")\n\t\t")
+            ivy_file.write("\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 != "" and obj.product2 == ""):
         ivy_file.write("action updating_r")
@@ -1059,7 +1071,7 @@ for obj in Reactions:
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
         else:
-            ivy_file.write(")\n\t\t")
+            ivy_file.write("\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 != "" and obj.product2 != ""):
         ivy_file.write("action updating_r")
@@ -1113,7 +1125,7 @@ for obj in Reactions:
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
         else:
-            ivy_file.write(")\n\t\t")
+            ivy_file.write("\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 == ""):
         ivy_file.write("action updating_r")
@@ -1162,7 +1174,7 @@ for obj in Reactions:
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
         else:
-            ivy_file.write(")\n\t\t")
+            ivy_file.write("\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 != "" and obj.product2 == ""):
         ivy_file.write("action updating_r")
@@ -1219,7 +1231,7 @@ for obj in Reactions:
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
         else:
-            ivy_file.write(")\n\t\t")
+            ivy_file.write("\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 != "" and obj.product2 != ""):
         ivy_file.write("action updating_r")
@@ -1284,7 +1296,7 @@ for obj in Reactions:
             ivy_file.write(targetchem)
             ivy_file.write(")\n\t\t\t}\n\t\t")
         else:
-            ivy_file.write(")\n\t\t")
+            ivy_file.write("\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
 
 #ivy_file.write("\n\t}\n\n\t")

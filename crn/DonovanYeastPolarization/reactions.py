@@ -16,21 +16,21 @@ class chemical:
 Reactions = []
 for x in range(numofreactions):
     print("\n\n","reaction",x+1, ": \n")
-    firstreactant = input("What is the first reactant (if no reactants type 'NA'): ")
-    if(firstreactant.lower() == "na"):
+    firstreactant = input("What is the first reactant (if no reactants type 'NA' or leave blank): ")
+    if(firstreactant.lower() == "na" or firstreactant == ""):
         firstreactant = ""
         secondreactant = ""
     else:
-        secondreactant = input("What is the second reactant (if no second reactant type 'NA'): ")
-        if(secondreactant.lower() == "na"):
+        secondreactant = input("What is the second reactant (if no second reactant type 'NA' or leave blank): ")
+        if(secondreactant.lower() == "na" or secondreactant == ""):
             secondreactant = ""
-    firstproduct = input("What is the first product (if no products type 'NA'): ")
-    if(firstproduct.lower() == "na"):
+    firstproduct = input("What is the first product (if no products type 'NA' or leave blank): ")
+    if(firstproduct.lower() == "na" or firstproduct == ""):
         firstproduct = ""
         secondproduct = ""
     else:
-        secondproduct = input("What is the second product (if no second product type 'NA'): ")
-        if(secondproduct.lower() == "na"):
+        secondproduct = input("What is the second product (if no second product type 'NA' or leave blank): ")
+        if(secondproduct.lower() == "na" or secondproduct == ""):
             secondproduct = ""
     Reactions.append(reaction(firstreactant,secondreactant,firstproduct,secondproduct,3))
 
