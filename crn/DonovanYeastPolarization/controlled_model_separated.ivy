@@ -1,6 +1,6 @@
 #lang ivy 1.7
 
-object chem = {
+object inc_dec = {
 	type num
 	
 	interpret num -> bv[10]
@@ -25,7 +25,7 @@ object chem = {
 
 object goal = {
 
-	action achieved(v:chem.num)
+	action achieved(v:inc_dec.num)
 
 	object spec = {
 		before achieved {
@@ -37,12 +37,12 @@ object goal = {
 
 object enabled = {
 
-	action r1(r_1:chem.num) returns(y:bool) = {
+	action r1(r_1:inc_dec.num) returns(y:bool) = {
 		#y := false
 		y := true
 	}
 
-	action r2(r_1:chem.num) returns(y:bool) = {
+	action r2(r_1:inc_dec.num) returns(y:bool) = {
 		if r_1 >= 1 {
 			#y := false
 			y := true
@@ -52,7 +52,7 @@ object enabled = {
 		}
 	}
 	
-	action r3(r_1:chem.num,l_1:chem.num) returns(y:bool) = {
+	action r3(r_1:inc_dec.num,l_1:inc_dec.num) returns(y:bool) = {
 		if r_1 >= 1 & l_1 >= 1 {
 			#y := false
 			y := true
@@ -62,7 +62,7 @@ object enabled = {
 		}
 	}
 
-	action r4(rl_1:chem.num) returns(y:bool) = {
+	action r4(rl_1:inc_dec.num) returns(y:bool) = {
 		if rl_1 >= 1 {
 			#y := false
 			y := true
@@ -72,7 +72,7 @@ object enabled = {
 		}
 	}
 
-	action r5(rl_1:chem.num,g_1:chem.num) returns(y:bool) = {
+	action r5(rl_1:inc_dec.num,g_1:inc_dec.num) returns(y:bool) = {
 		if rl_1 >= 1 & g_1 >= 1 {
 			y := true
 		}
@@ -81,7 +81,7 @@ object enabled = {
 		}
 	}
 
-	action r6(ga_1:chem.num) returns(y:bool) = {
+	action r6(ga_1:inc_dec.num) returns(y:bool) = {
 		if ga_1 >= 1 {
 			#y := false
 			y := true
@@ -91,7 +91,7 @@ object enabled = {
 		}
 	}
 
-	action r7(gbg_1:chem.num,gd_1:chem.num) returns(y:bool) = {
+	action r7(gbg_1:inc_dec.num,gd_1:inc_dec.num) returns(y:bool) = {
 		if gbg_1 >= 1 & gd_1 >= 1 {
 			#y := false
 			y := true
@@ -101,21 +101,21 @@ object enabled = {
 		}
 	}
 
-	action r8(rl_1:chem.num) returns(y:bool) = {
+	action r8(rl_1:inc_dec.num) returns(y:bool) = {
 		#y := false
 		y := true
 	}
 }
 
-object reactions = {
-	action r1(r_1:chem.num)
-	action r2(r_1:chem.num)
-	action r3(r_1:chem.num,l_1:chem.num,rl_1:chem.num)
-	action r4(rl_1:chem.num,r_1:chem.num)
-	action r5(rl_1:chem.num,g_1:chem.num,ga_1:chem.num,gbg_1:chem.num)
-	action r6(ga_1:chem.num,gd_1:chem.num)
-	action r7(gbg_1:chem.num,gd_1:chem.num,g_1:chem.num)
-	action r8(rl_1:chem.num)
+object monitor = {
+	action r1(r_1:inc_dec.num)
+	action r2(r_1:inc_dec.num)
+	action r3(r_1:inc_dec.num,l_1:inc_dec.num,rl_1:inc_dec.num)
+	action r4(rl_1:inc_dec.num,r_1:inc_dec.num)
+	action r5(rl_1:inc_dec.num,g_1:inc_dec.num,ga_1:inc_dec.num,gbg_1:inc_dec.num)
+	action r6(ga_1:inc_dec.num,gd_1:inc_dec.num)
+	action r7(gbg_1:inc_dec.num,gd_1:inc_dec.num,g_1:inc_dec.num)
+	action r8(rl_1:inc_dec.num)
 
 	before r1 {
 		assert true
@@ -151,51 +151,51 @@ object reactions = {
 
 }
 
-object executer = {
-	individual r1_exec : chem.exec_var
-	individual r2_exec : chem.exec_var
-	individual r3_exec : chem.exec_var	
-	individual r4_exec : chem.exec_var	
-	individual r5_exec : chem.exec_var	
-	individual r6_exec : chem.exec_var	
-	individual r7_exec : chem.exec_var	
-	individual r8_exec : chem.exec_var
+object choose_reaction = {
+	individual r1_exec : inc_dec.exec_var
+	individual r2_exec : inc_dec.exec_var
+	individual r3_exec : inc_dec.exec_var	
+	individual r4_exec : inc_dec.exec_var	
+	individual r5_exec : inc_dec.exec_var	
+	individual r6_exec : inc_dec.exec_var	
+	individual r7_exec : inc_dec.exec_var	
+	individual r8_exec : inc_dec.exec_var
 
-	individual r1_rate : chem.exec_var
-	individual r2_rate : chem.exec_var
-	individual r3_rate : chem.exec_var
-	individual r4_rate : chem.exec_var
-	individual r5_rate : chem.exec_var
-	individual r6_rate : chem.exec_var
-	individual r7_rate : chem.exec_var
-	individual r8_rate : chem.exec_var
+	individual r1_rate : inc_dec.exec_var
+	individual r2_rate : inc_dec.exec_var
+	individual r3_rate : inc_dec.exec_var
+	individual r4_rate : inc_dec.exec_var
+	individual r5_rate : inc_dec.exec_var
+	individual r6_rate : inc_dec.exec_var
+	individual r7_rate : inc_dec.exec_var
+	individual r8_rate : inc_dec.exec_var
 
-	individual r1_count : chem.exec_var
-	individual r2_count : chem.exec_var
-	individual r3_count : chem.exec_var
-	individual r4_count : chem.exec_var
-	individual r5_count : chem.exec_var
-	individual r6_count : chem.exec_var
-	individual r7_count : chem.exec_var
-	individual r8_count : chem.exec_var
+	individual r1_count : inc_dec.exec_var
+	individual r2_count : inc_dec.exec_var
+	individual r3_count : inc_dec.exec_var
+	individual r4_count : inc_dec.exec_var
+	individual r5_count : inc_dec.exec_var
+	individual r6_count : inc_dec.exec_var
+	individual r7_count : inc_dec.exec_var
+	individual r8_count : inc_dec.exec_var
 
-	individual r1_count_rate : chem.exec_var
-	individual r2_count_rate : chem.exec_var
-	individual r3_count_rate : chem.exec_var
-	individual r4_count_rate : chem.exec_var
-	individual r5_count_rate : chem.exec_var
-	individual r6_count_rate : chem.exec_var
-	individual r7_count_rate : chem.exec_var
-	individual r8_count_rate : chem.exec_var
+	individual r1_count_rate : inc_dec.exec_var
+	individual r2_count_rate : inc_dec.exec_var
+	individual r3_count_rate : inc_dec.exec_var
+	individual r4_count_rate : inc_dec.exec_var
+	individual r5_count_rate : inc_dec.exec_var
+	individual r6_count_rate : inc_dec.exec_var
+	individual r7_count_rate : inc_dec.exec_var
+	individual r8_count_rate : inc_dec.exec_var
 
-	individual r1_stage : chem.exec_stage
-	individual r2_stage : chem.exec_stage
-	individual r3_stage : chem.exec_stage
-	individual r4_stage : chem.exec_stage
-	individual r5_stage : chem.exec_stage
-	individual r6_stage : chem.exec_stage
-	individual r7_stage : chem.exec_stage
-	individual r8_stage : chem.exec_stage
+	individual r1_stage : inc_dec.exec_stage
+	individual r2_stage : inc_dec.exec_stage
+	individual r3_stage : inc_dec.exec_stage
+	individual r4_stage : inc_dec.exec_stage
+	individual r5_stage : inc_dec.exec_stage
+	individual r6_stage : inc_dec.exec_stage
+	individual r7_stage : inc_dec.exec_stage
+	individual r8_stage : inc_dec.exec_stage
 
 
 	after init {
@@ -644,13 +644,13 @@ object proto = {
 
 	individual idle : 2bit
 
-	individual r : chem.num
-	individual l : chem.num
-	individual rl : chem.num
-	individual g : chem.num
-	individual ga : chem.num
-	individual gbg : chem.num
-	individual gd : chem.num
+	individual r : inc_dec.num
+	individual l : inc_dec.num
+	individual rl : inc_dec.num
+	individual g : inc_dec.num
+	individual ga : inc_dec.num
+	individual gbg : inc_dec.num
+	individual gd : inc_dec.num
 
 	after init {
 		r := 50;
@@ -665,44 +665,44 @@ object proto = {
 	}
 
 	action updating_r1 = {
-		if executer.r1_execution {
-			call reactions.r1(r);
-			r := chem.incr(r)
+		if choose_reaction.r1_execution {
+			call monitor.r1(r);
+			r := inc_dec.incr(r)
 		}
 	}
 
 	action updating_r2 = {
-		if executer.r2_execution {
-			call reactions.r2(r);
-			r := chem.decr(r)
+		if choose_reaction.r2_execution {
+			call monitor.r2(r);
+			r := inc_dec.decr(r)
 		}
 	}
 
 	action updating_r3 = {
-		if executer.r3_execution {
-			call reactions.r3(r,l,rl);
-			r := chem.decr(r);
-			l := chem.decr(l);
-			rl := chem.incr(rl);
-			l := chem.incr(l)
+		if choose_reaction.r3_execution {
+			call monitor.r3(r,l,rl);
+			r := inc_dec.decr(r);
+			l := inc_dec.decr(l);
+			rl := inc_dec.incr(rl);
+			l := inc_dec.incr(l)
 		}
 	}
 
 	action updating_r4 = {
-		if executer.r4_execution {
-			call reactions.r4(rl,r);
-			rl := chem.decr(rl);
-			r := chem.incr(r)
+		if choose_reaction.r4_execution {
+			call monitor.r4(rl,r);
+			rl := inc_dec.decr(rl);
+			r := inc_dec.incr(r)
 		}
 	}
 
 	action updating_r5 = {
-		if executer.r5_execution {
-			call reactions.r5(rl,g,ga,gbg);
-			rl := chem.decr(rl);
-			g := chem.decr(g);
-			ga := chem.incr(ga);
-			gbg := chem.incr(gbg);
+		if choose_reaction.r5_execution {
+			call monitor.r5(rl,g,ga,gbg);
+			rl := inc_dec.decr(rl);
+			g := inc_dec.decr(g);
+			ga := inc_dec.incr(ga);
+			gbg := inc_dec.incr(gbg);
 			if gbg >= 50 {
 				call goal.achieved(gbg)
 			}
@@ -710,26 +710,26 @@ object proto = {
 	}
 
 	action updating_r6 = {
-		if executer.r6_execution {
-			call reactions.r6(ga,gd);
-			ga := chem.decr(ga);
-			gd := chem.incr(gd)
+		if choose_reaction.r6_execution {
+			call monitor.r6(ga,gd);
+			ga := inc_dec.decr(ga);
+			gd := inc_dec.incr(gd)
 		}
 	}
 
 	action updating_r7 = {
-		if executer.r7_execution {
-			call reactions.r7(gbg,gd,g);
-			gbg := chem.decr(gbg);
-			gd := chem.decr(gd);
-			g := chem.incr(g)
+		if choose_reaction.r7_execution {
+			call monitor.r7(gbg,gd,g);
+			gbg := inc_dec.decr(gbg);
+			gd := inc_dec.decr(gd);
+			g := inc_dec.incr(g)
 		}
 	}
 
 	action updating_r8 = {
-		if executer.r8_execution {
-			call reactions.r8(rl);
-			rl := chem.incr(rl)
+		if choose_reaction.r8_execution {
+			call monitor.r8(rl);
+			rl := inc_dec.incr(rl)
 		}
 	}
 
@@ -791,13 +791,13 @@ export proto.updating_r7
 export proto.updating_r8
 export proto.idling
 import goal.achieved
-import reactions.r1
-import reactions.r2
-import reactions.r3
-import reactions.r4
-import reactions.r5
-import reactions.r6
-import reactions.r7
-import reactions.r8
+import monitor.r1
+import monitor.r2
+import monitor.r3
+import monitor.r4
+import monitor.r5
+import monitor.r6
+import monitor.r7
+import monitor.r8
 
-isolate iso_proto = proto with enabled, chem, goal, executer, reactions
+isolate iso_proto = proto with enabled, inc_dec, goal, choose_reaction, monitor
