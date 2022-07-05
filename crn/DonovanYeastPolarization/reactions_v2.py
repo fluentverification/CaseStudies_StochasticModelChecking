@@ -201,35 +201,35 @@ for obj in Reactions:
 
         
 for obj in Reactions:
-    if obj.priority < 25:
-        for tar in secondtarget:
-            for chemical in chemlist:
-                if chemical.name == tar:
-                    if chemical.value >= (2*chemnum):
-                        if obj.product1 == tar:
-                            obj.priority = obj.priority + 1
-                        if obj.product2 == tar:
-                            obj.priority = obj.priority + 1
-                    elif chemical.value >= chemnum:
-                        if obj.product1 == tar:
-                            obj.priority = obj.priority + 2
-                        if obj.product2 == tar:
-                            obj.priority = obj.priority + 2
-                    elif chemical.value >= (chemnum/2):
-                        if obj.product1 == tar:
-                            obj.priority = obj.priority + 3
-                        if obj.product2 == tar:
-                            obj.priority = obj.priority + 3
-                    elif chemical.value >= (chemnum/4):
-                        if obj.product1 == tar:
-                            obj.priority = obj.priority + 4
-                        if obj.product2 == tar:
-                            obj.priority = obj.priority + 4
-                    elif chemical.value < (chemnum/4):
-                        if obj.product1 == tar:
-                            obj.priority = obj.priority + 5
-                        if obj.product2 == tar:
-                            obj.priority = obj.priority + 5
+    #if obj.priority < 25:
+    for tar in secondtarget:
+        for chemical in chemlist:
+            if chemical.name == tar:
+                if chemical.value >= (2*chemnum):
+                    if obj.product1 == tar:
+                        obj.priority = obj.priority + 1
+                    if obj.product2 == tar:
+                        obj.priority = obj.priority + 1
+                elif chemical.value >= chemnum:
+                    if obj.product1 == tar:
+                        obj.priority = obj.priority + 2
+                    if obj.product2 == tar:
+                        obj.priority = obj.priority + 2
+                elif chemical.value >= (chemnum/2):
+                    if obj.product1 == tar:
+                        obj.priority = obj.priority + 3
+                    if obj.product2 == tar:
+                        obj.priority = obj.priority + 3
+                elif chemical.value >= (chemnum/4):
+                    if obj.product1 == tar:
+                        obj.priority = obj.priority + 4
+                    if obj.product2 == tar:
+                        obj.priority = obj.priority + 4
+                elif chemical.value < (chemnum/4):
+                    if obj.product1 == tar:
+                        obj.priority = obj.priority + 5
+                    if obj.product2 == tar:
+                        obj.priority = obj.priority + 5
 
 print("The following priorities have been noted for the reactions: \n")
 
