@@ -256,9 +256,9 @@ if shortest == "Yes":
 
 ivy_file = open("test_v2.ivy", "w")
 
-ivy_file.write("#lang ivy 1.7\n\nobject chem = {\n")
+ivy_file.write("#lang ivy 1.7\n\nobject inc_dec = {\n")
 ivy_file.write("\ttype num\n\tinterpret num -> bv[10]\n\ttype exec_var\n\tinterpret exec_var -> bv[8]\n\ttype exec_stage\n\tinterpret exec_stage -> bv[3]\n\n\taction incr(x:num) returns(y:num) = {\n\t\ty := x + 1\n\t}\n\n\taction decr(x:num) returns(y:num) = {\n\t\ty := x - 1\n\t}\n}")
-ivy_file.write("\n\nobject goal = {\n\taction achieved(v:chem.num)\n\tobject spec = {\n\t\tbefore achieved {\n\t\t\tassert v ")
+ivy_file.write("\n\nobject goal = {\n\taction achieved(v:inc_dec.num)\n\tobject spec = {\n\t\tbefore achieved {\n\t\t\tassert v ")
 if upordown.lower() == "above":
     ivy_file.write(">= ")
 elif upordown.lower() == "below":
@@ -276,18 +276,18 @@ for obj in Reactions:
     if (Reactions[count-1].reactant1 == ""):
         ivy_file.write(" returns(y:bool) = {\n\t\ty := true\n\t}\n\n\t")
     elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 == ""):
-        ivy_file.write("(reactant1:chem.num) returns(y:bool) = {\n\t\tif reactant1 >= ")
+        ivy_file.write("(reactant1:inc_dec.num) returns(y:bool) = {\n\t\tif reactant1 >= ")
         ivy_file.write(str(obj.reactant1num))
         ivy_file.write(" {\n\t\t\ty := true\n\t\t}\n\t\telse {\n\t\t\ty := false\n\t\t}\n\t}\n\n\t")
     elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 != ""):
-        ivy_file.write("(reactant1:chem.num,reactant2:chem.num) returns(y:bool) = {\n\t\tif reactant1 >= ")
+        ivy_file.write("(reactant1:inc_dec.num,reactant2:inc_dec.num) returns(y:bool) = {\n\t\tif reactant1 >= ")
         ivy_file.write(str(obj.reactant1num))
         ivy_file.write(" & reactant2 >= ")
         ivy_file.write(str(obj.reactant2num))
         ivy_file.write(" {\n\t\t\ty := true\n\t\t}\n\t\telse {\n\t\t\ty := false\n\t\t}\n\t}\n\n\t")
 ivy_file.write("\n}\n\n")
 
-ivy_file.write("object reactions = {\n\t")
+ivy_file.write("object monitor = {\n\t")
 count = 0
 for obj in Reactions:
     count = count + 1
@@ -298,13 +298,13 @@ for obj in Reactions:
         ivy_file.write(str(count))
         ivy_file.write(" {\n\t\tassert true\n\t}\n\n\t")
     elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 == ""):
-        ivy_file.write("(reactant1:chem.num)\n\tbefore r")
+        ivy_file.write("(reactant1:inc_dec.num)\n\tbefore r")
         ivy_file.write(str(count))
         ivy_file.write(" {\n\t\tassert reactant1 >= ")
         ivy_file.write(str(obj.reactant1num))
         ivy_file.write("\n\t}\n\n\t")
     elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 != ""):
-        ivy_file.write("(reactant1:chem.num,reactant2:chem.num)\n\tbefore r")
+        ivy_file.write("(reactant1:inc_dec.num,reactant2:inc_dec.num)\n\tbefore r")
         ivy_file.write(str(count))
         ivy_file.write(" {\n\t\tassert reactant1 >= ")
         ivy_file.write(str(obj.reactant1num))
@@ -315,7 +315,7 @@ for obj in Reactions:
         
 ivy_file.write("\n}")
 
-ivy_file.write("\n\nobject executer = {\n\t")
+ivy_file.write("\n\nobject choose_reaction = {\n\t")
 
 count = 0
 
@@ -323,7 +323,7 @@ for obj in Reactions:
     count = count + 1
     ivy_file.write("individual r")
     ivy_file.write(str(count))
-    ivy_file.write("_exec : chem.exec_var\n\t")
+    ivy_file.write("_exec : inc_dec.exec_var\n\t")
 
 ivy_file.write("\n\t")
 count = 0
@@ -332,7 +332,7 @@ for obj in Reactions:
     count = count + 1
     ivy_file.write("individual r")
     ivy_file.write(str(count))
-    ivy_file.write("_rate : chem.exec_var\n\t")
+    ivy_file.write("_rate : inc_dec.exec_var\n\t")
 
 ivy_file.write("\n\t")
 
@@ -341,7 +341,7 @@ for obj in Reactions:
     count = count + 1
     ivy_file.write("individual r")
     ivy_file.write(str(count))
-    ivy_file.write("_count : chem.exec_var\n\t")
+    ivy_file.write("_count : inc_dec.exec_var\n\t")
 
 ivy_file.write("\n\t")
 
@@ -350,7 +350,7 @@ for obj in Reactions:
     count = count + 1
     ivy_file.write("individual r")
     ivy_file.write(str(count))
-    ivy_file.write("_count_rate : chem.exec_var\n\t")
+    ivy_file.write("_count_rate : inc_dec.exec_var\n\t")
 
 ivy_file.write("\n\t")
 
@@ -359,7 +359,7 @@ for obj in Reactions:
     count = count + 1
     ivy_file.write("individual r")
     ivy_file.write(str(count))
-    ivy_file.write("_stage : chem.exec_stage\n\t")
+    ivy_file.write("_stage : inc_dec.exec_stage\n\t")
 
 ivy_file.write("\n\n\tafter init {\n\t\t")
 #import random
@@ -896,7 +896,7 @@ for obj in chem:
     ivy_file.write("\tindividual ")
     ivy_file.write("r_")
     ivy_file.write(obj)
-    ivy_file.write(" : chem.num\n")
+    ivy_file.write(" : inc_dec.num\n")
 
 ivy_file.write("\n\tafter init {\n\t\t")
 
@@ -918,15 +918,15 @@ for obj in Reactions:
         ivy_file.write("action updating_r")
         ivy_file.write(str(count))
         ivy_file.write(" = {\n\t\t")
-        ivy_file.write("if executer.r")
+        ivy_file.write("if choose_reaction.r")
         ivy_file.write(str(count))
-        ivy_file.write("_execution {\n\t\t\tcall reactions.r")
+        ivy_file.write("_execution {\n\t\t\tcall monitor.r")
         ivy_file.write(str(count))
         for x in range(obj.product1num):
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
-            ivy_file.write(" := chem.incr(")
+            ivy_file.write(" := inc_dec.incr(")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
             ivy_file.write(")")
@@ -951,15 +951,15 @@ for obj in Reactions:
         ivy_file.write("action updating_r")
         ivy_file.write(str(count))
         ivy_file.write(" = {\n\t\t")
-        ivy_file.write("if executer.r")
+        ivy_file.write("if choose_reaction.r")
         ivy_file.write(str(count))
-        ivy_file.write("_execution {\n\t\t\tcall reactions.r")
+        ivy_file.write("_execution {\n\t\t\tcall monitor.r")
         ivy_file.write(str(count))
         for x in range(obj.product1num):
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
-            ivy_file.write(" := chem.incr(")
+            ivy_file.write(" := inc_dec.incr(")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
             ivy_file.write(")")
@@ -967,7 +967,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.product2)
-            ivy_file.write(" := chem.incr(")
+            ivy_file.write(" := inc_dec.incr(")
             ivy_file.write("r_")
             ivy_file.write(obj.product2)
             ivy_file.write(")")
@@ -993,9 +993,9 @@ for obj in Reactions:
         ivy_file.write("action updating_r")
         ivy_file.write(str(count))
         ivy_file.write(" = {\n\t\t")
-        ivy_file.write("if executer.r")
+        ivy_file.write("if choose_reaction.r")
         ivy_file.write(str(count))
-        ivy_file.write("_execution {\n\t\t\tcall reactions.r")
+        ivy_file.write("_execution {\n\t\t\tcall monitor.r")
         ivy_file.write(str(count))
         ivy_file.write("(")
         ivy_file.write("r_")
@@ -1005,7 +1005,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
-            ivy_file.write(" := chem.decr(")
+            ivy_file.write(" := inc_dec.decr(")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
             ivy_file.write(")")
@@ -1031,9 +1031,9 @@ for obj in Reactions:
         ivy_file.write("action updating_r")
         ivy_file.write(str(count))
         ivy_file.write(" = {\n\t\t")
-        ivy_file.write("if executer.r")
+        ivy_file.write("if choose_reaction.r")
         ivy_file.write(str(count))
-        ivy_file.write("_execution {\n\t\t\tcall reactions.r")
+        ivy_file.write("_execution {\n\t\t\tcall monitor.r")
         ivy_file.write(str(count))
         ivy_file.write("(")
         ivy_file.write("r_")
@@ -1043,7 +1043,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
-            ivy_file.write(" := chem.decr(")
+            ivy_file.write(" := inc_dec.decr(")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
             ivy_file.write(")")
@@ -1051,7 +1051,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
-            ivy_file.write(" := chem.incr(")
+            ivy_file.write(" := inc_dec.incr(")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
             ivy_file.write(")")
@@ -1077,9 +1077,9 @@ for obj in Reactions:
         ivy_file.write("action updating_r")
         ivy_file.write(str(count))
         ivy_file.write(" = {\n\t\t")
-        ivy_file.write("if executer.r")
+        ivy_file.write("if choose_reaction.r")
         ivy_file.write(str(count))
-        ivy_file.write("_execution {\n\t\t\tcall reactions.r")
+        ivy_file.write("_execution {\n\t\t\tcall monitor.r")
         ivy_file.write(str(count))
         ivy_file.write("(")
         ivy_file.write("r_")
@@ -1089,7 +1089,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
-            ivy_file.write(" := chem.decr(")
+            ivy_file.write(" := inc_dec.decr(")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
             ivy_file.write(")")
@@ -1097,7 +1097,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
-            ivy_file.write(" := chem.incr(")
+            ivy_file.write(" := inc_dec.incr(")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
             ivy_file.write(")")
@@ -1105,7 +1105,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.product2)
-            ivy_file.write(" := chem.incr(")
+            ivy_file.write(" := inc_dec.incr(")
             ivy_file.write("r_")
             ivy_file.write(obj.product2)
             ivy_file.write(")")
@@ -1131,9 +1131,9 @@ for obj in Reactions:
         ivy_file.write("action updating_r")
         ivy_file.write(str(count))
         ivy_file.write(" = {\n\t\t")
-        ivy_file.write("if executer.r")
+        ivy_file.write("if choose_reaction.r")
         ivy_file.write(str(count))
-        ivy_file.write("_execution {\n\t\t\tcall reactions.r")
+        ivy_file.write("_execution {\n\t\t\tcall monitor.r")
         ivy_file.write(str(count))
         ivy_file.write("(")
         ivy_file.write("r_")
@@ -1146,7 +1146,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
-            ivy_file.write(" := chem.decr(")
+            ivy_file.write(" := inc_dec.decr(")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
             ivy_file.write(")")
@@ -1154,7 +1154,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant2)
-            ivy_file.write(" := chem.decr(")
+            ivy_file.write(" := inc_dec.decr(")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant2)
             ivy_file.write(")")
@@ -1180,9 +1180,9 @@ for obj in Reactions:
         ivy_file.write("action updating_r")
         ivy_file.write(str(count))
         ivy_file.write(" = {\n\t\t")
-        ivy_file.write("if executer.r")
+        ivy_file.write("if choose_reaction.r")
         ivy_file.write(str(count))
-        ivy_file.write("_execution {\n\t\t\tcall reactions.r")
+        ivy_file.write("_execution {\n\t\t\tcall monitor.r")
         ivy_file.write(str(count))
         ivy_file.write("(")
         ivy_file.write("r_")
@@ -1195,7 +1195,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
-            ivy_file.write(" := chem.decr(")
+            ivy_file.write(" := inc_dec.decr(")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
             ivy_file.write(")")
@@ -1203,7 +1203,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant2)
-            ivy_file.write(" := chem.decr(")
+            ivy_file.write(" := inc_dec.decr(")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant2)
             ivy_file.write(")")
@@ -1211,7 +1211,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
-            ivy_file.write(" := chem.incr(")
+            ivy_file.write(" := inc_dec.incr(")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
             ivy_file.write(")")
@@ -1237,9 +1237,9 @@ for obj in Reactions:
         ivy_file.write("action updating_r")
         ivy_file.write(str(count))
         ivy_file.write(" = {\n\t\t")
-        ivy_file.write("if executer.r")
+        ivy_file.write("if choose_reaction.r")
         ivy_file.write(str(count))
-        ivy_file.write("_execution {\n\t\t\tcall reactions.r")
+        ivy_file.write("_execution {\n\t\t\tcall monitor.r")
         ivy_file.write(str(count))
         ivy_file.write("(")
         ivy_file.write("r_")
@@ -1252,7 +1252,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
-            ivy_file.write(" := chem.decr(")
+            ivy_file.write(" := inc_dec.decr(")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
             ivy_file.write(")")
@@ -1260,7 +1260,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant2)
-            ivy_file.write(" := chem.decr(")
+            ivy_file.write(" := inc_dec.decr(")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant2)
             ivy_file.write(")")
@@ -1268,7 +1268,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
-            ivy_file.write(" := chem.incr(")
+            ivy_file.write(" := inc_dec.incr(")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
             ivy_file.write(")")
@@ -1276,7 +1276,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.product2)
-            ivy_file.write(" := chem.incr(")
+            ivy_file.write(" := inc_dec.incr(")
             ivy_file.write("r_")
             ivy_file.write(obj.product2)
             ivy_file.write(")")
@@ -1353,8 +1353,8 @@ ivy_file.write("export proto.idling\nimport goal.achieved\n")
 count = 0
 for obj in Reactions:
     count= count + 1
-    ivy_file.write("import reactions.r")
+    ivy_file.write("import monitor.r")
     ivy_file.write(str(count))
     ivy_file.write("\n")
 
-ivy_file.write("\nisolate iso_proto = proto with enabled, chem, goal, executer, reactions")
+ivy_file.write("\nisolate iso_proto = proto with enabled, inc_dec, goal, choose_reaction, monitor")
