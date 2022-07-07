@@ -17,6 +17,11 @@ class chemical:
         self.value = value
         self.name = name
 
+class secondtarget:
+    def __init__(self, name, min_iters):
+        self.name = name
+        self.min_iters = min_iters
+
 Reactions = []
 for x in range(numofreactions):
     print("\n\n","reaction",x+1, ": \n")
@@ -114,38 +119,51 @@ for obj in chemlist:
 
 print("\n")
 
-targetchem = input("Which chemical is going to be monitored? ")
+targetchem = input("Which species is going to be monitored? ")
 if(targetchem not in chem):
-    print("Error, chemical specified not found in the reactions reported please start over")
+    print("Error, species specified not found in the reactions reported please start over")
     exit()
-targetnum = input("What is the target number for this chemical? ")
+targetnum = input("What is the target number for this species? ")
 
-upordown = input("Are you interested in seeing when the chemical is above or below the specified number? (type either above or below): ")
+print("\n\nWhich option is your desired guard?\n\n","1:", targetchem, ">=", targetnum, "\n 2:", targetchem, ">", targetnum, "\n 3:", targetchem, "<=", targetnum,"\n 4:", targetchem, "<", targetnum) 
+
+upordown = input("\n\n(Please type an integer corresponding to your desired guard):  ")
 
 for obj in chemlist:
     if obj.name == targetchem:
-        if upordown.lower() == "above":
+        if upordown == "1":
             if obj.value >= int(targetnum):
                 print("\nSpecified target is already achieved in target state, please start over")
                 exit()
-        elif upordown.lower() == "below":
+        elif upordown == "2":
+            if obj.value > int(targetnum):
+                print("\nSpecified target is already achieved in target state, please start over")
+                exit()
+        elif upordown == "3":
             if obj.value <= int(targetnum):
                 print("\nSpecified target is already achieved in target state, please start over")
                 exit()
+        elif upordown == "4":
+            if obj.value < int(targetnum):
+                print("\nSpecified target is already achieved in target state, please start over")
+                exit()
+            if targetnum == "0":
+                print("Error, no species can reach a value lower than zero")
+                exit()
         else:
-            print("Problem with information entered (check spelling and make sure there are no spaces)")
+            print("Problem with information entered (check make sure your answer you only entered a integer between 1 and 4 and there are no spaces)")
             exit()
 
-print("We will monitor when", targetchem, "reaches",targetnum,"\n")
+#print("We will monitor when", targetchem, "reaches",targetnum,"\n")
 
-secondtarget = []
-if upordown.lower() == "above":
+secondtargetlist = []
+if upordown == "1" or upordown == "2":
     for obj in Reactions:
         if obj.product1 == targetchem or obj.product2 == targetchem:
             obj.priority = obj.priority + 10
         elif obj.reactant1 == targetchem or obj.reactant2 == targetchem:
             obj.priority = obj.priority - 10
-elif upordown.lower() == "below":
+elif upordown == "3" or upordown == "4":
     for obj in Reactions:
         if obj.product1 == targetchem or obj.product2 == targetchem:
             obj.priority = obj.priority - 10
@@ -154,81 +172,133 @@ elif upordown.lower() == "below":
 
 
 for obj in Reactions:
-    if obj.priority >= 25:
-        if obj.reactant1 != "" and obj.reactant2 != "":
-            if obj.reactant1 != targetchem:
-                secondtarget.append(obj.reactant1)
-            if obj.reactant2 != targetchem:    
-                secondtarget.append(obj.reactant2)
-        elif obj.reactant1 != "" and obj.reactant2 == "":
-            if obj.reactant1 != targetchem:
-                secondtarget.append(obj.reactant1)
+    if upordown == "1" or upordown == "2":
+        if obj.priority >= 25:
+            if obj.reactant1 != "" and obj.reactant2 != "":
+                if obj.reactant1 != targetchem:
+                    if obj.product1 == targetchem:
+                        for tar in chemlist:
+                            if tar.name == targetchem:
+                                tarnumone = tar.value
+                                secondtargetlist.append(secondtarget(obj.reactant1, obj.reactant1num * abs(int(targetnum) - tar.value)/obj.product1num))
+                                #print("chemical", obj.reactant1, "is identified as a secondary target, it is found to have a min_iters value of", str(obj.reactant1num * abs(int(targetnum) - tar.value)/obj.product1num))
+                    elif obj.product2 == targetchem:
+                        for tar in chemlist:
+                            if tar.name == targetchem:
+                                tarnumone = tar.value
+                                secondtargetlist.append(secondtarget(obj.reactant1, obj.reactant1num * abs(int(targetnum) - tar.value)/obj.product2num))
+                                #print("chemical", obj.reactant1, "is identified as a secondary target, it is found to have a min_iters value of", str(obj.reactant1num * abs(int(targetnum) - tar.value)/obj.product2num))
+                if obj.reactant2 != targetchem:    
+                    if obj.product1 == targetchem:
+                        for tar in chemlist:
+                            if tar.name == targetchem:
+                                tarnumone = tar.value
+                                secondtargetlist.append(secondtarget(obj.reactant2, obj.reactant2num * abs(int(targetnum) - tar.value)/obj.product1num))
+                                #print("chemical", obj.reactant2, "is identified as a secondary target, it is found to have a min_iters value of", str(obj.reactant2num * abs(int(targetnum) - tar.value)/obj.product1num))
+                    elif obj.product2 == targetchem:
+                        for tar in chemlist:
+                            if tar.name == targetchem:
+                                tarnumone = tar.value
+                                secondtargetlist.append(secondtarget(obj.reactant2, obj.reactant2num * abs(int(targetnum) - tar.value)/obj.product2num))
+                                #print("chemical", obj.reactant2, "is identified as a secondary target, it is found to have a min_iters value of", str(obj.reactant2num * abs(int(targetnum) - tar.value)/obj.product2num))
+            elif obj.reactant1 != "" and obj.reactant2 == "":
+                if obj.reactant1 != targetchem:
+                    if obj.product1 == targetchem:
+                        for tar in chemlist:
+                            if tar.name == targetchem:
+                                tarnumone = tar.value
+                                secondtargetlist.append(secondtarget(obj.reactant1, obj.reactant1num * abs(int(targetnum) - tar.value)/obj.product1num))
+                                #print("chemical", obj.reactant1, "is identified as a secondary target, it is found to have a min_iters value of", str(obj.reactant1num * abs(int(targetnum) - tar.value)/obj.product1num))
+                    elif obj.product2 == targetchem:
+                        for tar in chemlist:
+                            if tar.name == targetchem:
+                                tarnumone = tar.value
+                                secondtargetlist.append(secondtarget(obj.reactant1, obj.reactant1num * abs(int(targetnum) - tar.value)/obj.product2num))
+                                #print("chemical", obj.reactant1, "is identified as a secondary target, it is found to have a min_iters value of", str(obj.reactant1num * abs(int(targetnum) - tar.value)/obj.product2num))
+    elif upordown == "3" or upordown== "4":
+        if obj.priority >= 25:
+            if obj.reactant1 != "" and obj.reactant2 != "":
+                if obj.reactant1 != targetchem:
+                    if obj.reactant2 == targetchem:
+                        for tar in chemlist:
+                            if tar.name == targetchem:
+                                tarnumone = tar.value
+                                secondtargetlist.append(secondtarget(obj.reactant1, obj.reactant1num * abs(int(targetnum) - tar.value)/obj.reactant2num))
+                                #print("chemical", obj.reactant1, "is identified as a secondary target, it is found to have a min_iters value of", str(obj.reactant1num * abs(int(targetnum) - tar.value)/obj.product1num))
+                if obj.reactant2 != targetchem:    
+                    if obj.reactant1 == targetchem:
+                        for tar in chemlist:
+                            if tar.name == targetchem:
+                                tarnumone = tar.value
+                                secondtargetlist.append(secondtarget(obj.reactant2, obj.reactant2num * abs(int(targetnum) - tar.value)/obj.reactant1num))
+                                #print("chemical", obj.reactant2, "is identified as a secondary target, it is found to have a min_iters value of", str(obj.reactant2num * abs(int(targetnum) - tar.value)/obj.product1num))
+            
 
-for obj in chemlist:
-    if obj.name == targetchem:
-        chemnum = abs(int(targetnum) - obj.value)
+#for obj in chemlist:
+#    if obj.name == targetchem:
+#        min_iters = abs(int(targetnum) - obj.value)
+
+#for obj in secondtargetlist:
+#   print("The chemical", obj.name, "is a secondary target and has a min_iters value of", str(obj.min_iters),"\n")
  
 for obj in Reactions:
     if obj.priority < 25:
-        for tar in secondtarget:
+        for tar in secondtargetlist:
             for chemical in chemlist:
-                if chemical.name == tar:
-                    if chemical.value >= 2*chemnum:
-                        if obj.reactant1 == tar:
+                if chemical.name == tar.name:
+                    if chemical.value >= (2*tar.min_iters):
+                        if obj.reactant1 == tar.name:
                             obj.priority = obj.priority - 1
-                        if obj.reactant2 == tar:
+                        if obj.reactant2 == tar.name:
                             obj.priority = obj.priority - 1
-                    elif chemical.value >= chemnum:
-                        if obj.reactant1 == tar:
+                    elif chemical.value >= tar.min_iters:
+                        if obj.reactant1 == tar.name:
                             obj.priority = obj.priority - 2
-                        if obj.reactant2 == tar:
+                        if obj.reactant2 == tar.name:
                             obj.priority = obj.priority - 2
-                    elif chemical.value >= (chemnum/2):
-                        if obj.reactant1 == tar:
+                    elif chemical.value >= (tar.min_iters/2):
+                        if obj.reactant1 == tar.name:
                             obj.priority = obj.priority - 3
-                        if obj.reactant2 == tar:
+                        if obj.reactant2 == tar.name:
                             obj.priority = obj.priority - 3
-                    elif chemical.value >= (chemnum/4):
-                        if obj.reactant1 == tar:
+                    elif chemical.value >= (tar.min_iters/4):
+                        if obj.reactant1 == tar.name:
                             obj.priority = obj.priority - 4
-                        if obj.reactant2 == tar:
+                        if obj.reactant2 == tar.name:
                             obj.priority = obj.priority - 4
-                    elif chemical.value < (chemnum/4):
-                        if obj.reactant1 == tar:
+                    elif chemical.value < (tar.min_iters/4):
+                        if obj.reactant1 == tar.name:
                             obj.priority = obj.priority - 5
-                        if obj.reactant2 == tar:
+                        if obj.reactant2 == tar.name:
                             obj.priority = obj.priority - 5
 
         
 for obj in Reactions:
     #if obj.priority < 25:
-    for tar in secondtarget:
+    for tar in secondtargetlist:
         for chemical in chemlist:
-            if chemical.name == tar:
-                if chemical.value >= (2*chemnum):
-                    if obj.product1 == tar:
+            if chemical.name == tar.name:
+                if obj.product1 == tar.name:
+                    if chemical.value >= (2*tar.min_iters):
                         obj.priority = obj.priority + 1
-                    if obj.product2 == tar:
-                        obj.priority = obj.priority + 1
-                elif chemical.value >= chemnum:
-                    if obj.product1 == tar:
+                    elif chemical.value >= tar.min_iters:
                         obj.priority = obj.priority + 2
-                    if obj.product2 == tar:
-                        obj.priority = obj.priority + 2
-                elif chemical.value >= (chemnum/2):
-                    if obj.product1 == tar:
+                    elif chemical.value >= (tar.min_iters/2):
                         obj.priority = obj.priority + 3
-                    if obj.product2 == tar:
-                        obj.priority = obj.priority + 3
-                elif chemical.value >= (chemnum/4):
-                    if obj.product1 == tar:
+                    elif chemical.value >= (tar.min_iters/4):
                         obj.priority = obj.priority + 4
-                    if obj.product2 == tar:
-                        obj.priority = obj.priority + 4
-                elif chemical.value < (chemnum/4):
-                    if obj.product1 == tar:
+                    elif chemical.value < (tar.min_iters/4):
                         obj.priority = obj.priority + 5
-                    if obj.product2 == tar:
+                elif obj.product2 == tar.name:
+                    if chemical.value >= (2*tar.min_iters):
+                        obj.priority = obj.priority + 1
+                    elif chemical.value >= tar.min_iters:
+                        obj.priority = obj.priority + 2
+                    elif chemical.value >= (tar.min_iters/2):
+                        obj.priority = obj.priority + 3
+                    elif chemical.value >= (tar.min_iters/4):
+                        obj.priority = obj.priority + 4
+                    elif chemical.value < (tar.min_iters/4):
                         obj.priority = obj.priority + 5
 
 print("The following priorities have been noted for the reactions: \n")
@@ -259,10 +329,14 @@ ivy_file = open("test_v2.ivy", "w")
 ivy_file.write("#lang ivy 1.7\n\nobject inc_dec = {\n")
 ivy_file.write("\ttype num\n\tinterpret num -> bv[10]\n\ttype exec_var\n\tinterpret exec_var -> bv[8]\n\ttype exec_stage\n\tinterpret exec_stage -> bv[3]\n\n\taction incr(x:num) returns(y:num) = {\n\t\ty := x + 1\n\t}\n\n\taction decr(x:num) returns(y:num) = {\n\t\ty := x - 1\n\t}\n}")
 ivy_file.write("\n\nobject goal = {\n\taction achieved(v:inc_dec.num)\n\tobject spec = {\n\t\tbefore achieved {\n\t\t\tassert v ")
-if upordown.lower() == "above":
+if upordown == "1":
     ivy_file.write(">= ")
-elif upordown.lower() == "below":
+elif upordown == "2":
+    ivy_file.write("> ")
+elif upordown == "3":
     ivy_file.write("<= ")
+elif upordown == "4":
+    ivy_file.write("< ")
 ivy_file.write(targetnum)
 ivy_file.write(";\n\t\t\tproto.idle := 1\n\t\t}\n\t}\n}\n\n")
 
@@ -935,10 +1009,14 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetchem)
-            if upordown.lower() == "above":
+            if upordown == "1":
                 ivy_file.write(" >= ")
-            elif upordown.lower() == "below":
+            elif upordown == "2":
+                ivy_file.write(" > ")
+            elif upordown == "3":
                 ivy_file.write(" <= ")
+            elif upordown == "4":
+                ivy_file.write(" < ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
             ivy_file.write("r_")
@@ -977,10 +1055,14 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetchem)
-            if upordown.lower() == "above":
+            if upordown == "1":
                 ivy_file.write(" >= ")
-            elif upordown.lower() == "below":
+            elif upordown == "2":
+                ivy_file.write(" > ")
+            elif upordown == "3":
                 ivy_file.write(" <= ")
+            elif upordown == "4":
+                ivy_file.write(" < ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
             ivy_file.write("r_")
@@ -1015,10 +1097,14 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetchem)
-            if upordown.lower() == "above":
+            if upordown == "1":
                 ivy_file.write(" >= ")
-            elif upordown.lower() == "below":
+            elif upordown == "2":
+                ivy_file.write(" > ")
+            elif upordown == "3":
                 ivy_file.write(" <= ")
+            elif upordown == "4":
+                ivy_file.write(" < ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
             ivy_file.write("r_")
@@ -1061,10 +1147,14 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetchem)
-            if upordown.lower() == "above":
+            if upordown == "1":
                 ivy_file.write(" >= ")
-            elif upordown.lower() == "below":
+            elif upordown == "2":
+                ivy_file.write(" > ")
+            elif upordown == "3":
                 ivy_file.write(" <= ")
+            elif upordown == "4":
+                ivy_file.write(" < ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
             ivy_file.write("r_")
@@ -1115,10 +1205,14 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetchem)
-            if upordown.lower() == "above":
+            if upordown == "1":
                 ivy_file.write(" >= ")
-            elif upordown.lower() == "below":
+            elif upordown == "2":
+                ivy_file.write(" > ")
+            elif upordown == "3":
                 ivy_file.write(" <= ")
+            elif upordown == "4":
+                ivy_file.write(" < ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
             ivy_file.write("r_")
@@ -1164,10 +1258,14 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetchem)
-            if upordown.lower() == "above":
+            if upordown == "1":
                 ivy_file.write(" >= ")
-            elif upordown.lower() == "below":
+            elif upordown == "2":
+                ivy_file.write(" > ")
+            elif upordown == "3":
                 ivy_file.write(" <= ")
+            elif upordown == "4":
+                ivy_file.write(" < ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
             ivy_file.write("r_")
@@ -1221,10 +1319,14 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetchem)
-            if upordown.lower() == "above":
+            if upordown == "1":
                 ivy_file.write(" >= ")
-            elif upordown.lower() == "below":
+            elif upordown == "2":
+                ivy_file.write(" > ")
+            elif upordown == "3":
                 ivy_file.write(" <= ")
+            elif upordown == "4":
+                ivy_file.write(" < ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
             ivy_file.write("r_")
@@ -1286,10 +1388,14 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetchem)
-            if upordown.lower() == "above":
+            if upordown == "1":
                 ivy_file.write(" >= ")
-            elif upordown.lower() == "below":
+            elif upordown == "2":
+                ivy_file.write(" > ")
+            elif upordown == "3":
                 ivy_file.write(" <= ")
+            elif upordown == "4":
+                ivy_file.write(" < ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
             ivy_file.write("r_")
