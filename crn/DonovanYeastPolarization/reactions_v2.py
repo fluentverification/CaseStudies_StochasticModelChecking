@@ -18,9 +18,9 @@ class species:
         self.name = name
 
 class secondtarget:
-    def __init__(self, name, min_iters):
+    def __init__(self, name, min_amount):
         self.name = name
-        self.min_iters = min_iters
+        self.min_amount = min_amount
 
 Reactions = []
 for x in range(numofreactions):
@@ -229,27 +229,27 @@ for obj in Reactions:
         for tar in secondtargetlist:
             for species in specieslist:
                 if species.name == tar.name:
-                    if species.value >= (2*tar.min_iters):
+                    if species.value >= (2*tar.min_amount):
                         if obj.reactant1 == tar.name:
                             obj.priority = obj.priority - 1
                         if obj.reactant2 == tar.name:
                             obj.priority = obj.priority - 1
-                    elif species.value >= tar.min_iters:
+                    elif species.value >= tar.min_amount:
                         if obj.reactant1 == tar.name:
                             obj.priority = obj.priority - 2
                         if obj.reactant2 == tar.name:
                             obj.priority = obj.priority - 2
-                    elif species.value >= (tar.min_iters/2):
+                    elif species.value >= (tar.min_amount/2):
                         if obj.reactant1 == tar.name:
                             obj.priority = obj.priority - 3
                         if obj.reactant2 == tar.name:
                             obj.priority = obj.priority - 3
-                    elif species.value >= (tar.min_iters/4):
+                    elif species.value >= (tar.min_amount/4):
                         if obj.reactant1 == tar.name:
                             obj.priority = obj.priority - 4
                         if obj.reactant2 == tar.name:
                             obj.priority = obj.priority - 4
-                    elif species.value < (tar.min_iters/4):
+                    elif species.value < (tar.min_amount/4):
                         if obj.reactant1 == tar.name:
                             obj.priority = obj.priority - 5
                         if obj.reactant2 == tar.name:
@@ -261,26 +261,26 @@ for obj in Reactions:
         for species in specieslist:
             if species.name == tar.name:
                 if obj.product1 == tar.name:
-                    if species.value >= (2*tar.min_iters):
+                    if species.value >= (2*tar.min_amount):
                         obj.priority = obj.priority + 1
-                    elif species.value >= tar.min_iters:
+                    elif species.value >= tar.min_amount:
                         obj.priority = obj.priority + 2
-                    elif species.value >= (tar.min_iters/2):
+                    elif species.value >= (tar.min_amount/2):
                         obj.priority = obj.priority + 3
-                    elif species.value >= (tar.min_iters/4):
+                    elif species.value >= (tar.min_amount/4):
                         obj.priority = obj.priority + 4
-                    elif species.value < (tar.min_iters/4):
+                    elif species.value < (tar.min_amount/4):
                         obj.priority = obj.priority + 5
                 elif obj.product2 == tar.name:
-                    if species.value >= (2*tar.min_iters):
+                    if species.value >= (2*tar.min_amount):
                         obj.priority = obj.priority + 1
-                    elif species.value >= tar.min_iters:
+                    elif species.value >= tar.min_amount:
                         obj.priority = obj.priority + 2
-                    elif species.value >= (tar.min_iters/2):
+                    elif species.value >= (tar.min_amount/2):
                         obj.priority = obj.priority + 3
-                    elif species.value >= (tar.min_iters/4):
+                    elif species.value >= (tar.min_amount/4):
                         obj.priority = obj.priority + 4
-                    elif species.value < (tar.min_iters/4):
+                    elif species.value < (tar.min_amount/4):
                         obj.priority = obj.priority + 5
 
 print("\n\nThe following priorities have been noted for the reactions: \n")
