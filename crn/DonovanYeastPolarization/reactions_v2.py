@@ -125,9 +125,20 @@ if(targetspecies not in spec):
     exit()
 targetnum = input("What is the target number for this species? ")
 
-print("\n\nWhich option is your desired guard?\n\n","1:", targetspecies, ">=", targetnum, "\n 2:", targetspecies, ">", targetnum, "\n 3:", targetspecies, "<=", targetnum,"\n 4:", targetspecies, "<", targetnum) 
+print("\n\nWhich option is your desired guard?\n\n","1:", targetspecies, ">=", targetnum, "\n 2:", targetspecies, ">", targetnum, "\n 3:", targetspecies, "<=", targetnum,"\n 4:", targetspecies, "<", targetnum,"\n 5:", targetspecies, "=", targetnum) 
 
 upordown = input("\n\n(Please type an integer corresponding to your desired guard):  ")
+
+if upordown == "5":
+    for obj in specieslist:
+        if obj.name == targetspecies:
+            if obj.value > int(targetnum):
+                upordown = "3"
+            elif obj.value < int(targetnum):
+                upordown = "1"
+            elif obj.value == int(targetnum):
+                print("\nSpecified target is already achieved in target state, please start over")
+                exit()
 
 for obj in specieslist:
     if obj.name == targetspecies:
@@ -257,31 +268,32 @@ for obj in Reactions:
 
         
 for obj in Reactions:
-    for tar in secondtargetlist:
-        for species in specieslist:
-            if species.name == tar.name:
-                if obj.product1 == tar.name:
-                    if species.value >= (2*tar.min_amount):
-                        obj.priority = obj.priority + 1
-                    elif species.value >= tar.min_amount:
-                        obj.priority = obj.priority + 2
-                    elif species.value >= (tar.min_amount/2):
-                        obj.priority = obj.priority + 3
-                    elif species.value >= (tar.min_amount/4):
-                        obj.priority = obj.priority + 4
-                    elif species.value < (tar.min_amount/4):
-                        obj.priority = obj.priority + 5
-                elif obj.product2 == tar.name:
-                    if species.value >= (2*tar.min_amount):
-                        obj.priority = obj.priority + 1
-                    elif species.value >= tar.min_amount:
-                        obj.priority = obj.priority + 2
-                    elif species.value >= (tar.min_amount/2):
-                        obj.priority = obj.priority + 3
-                    elif species.value >= (tar.min_amount/4):
-                        obj.priority = obj.priority + 4
-                    elif species.value < (tar.min_amount/4):
-                        obj.priority = obj.priority + 5
+    if obj.priority < 25:
+        for tar in secondtargetlist:
+            for species in specieslist:
+                if species.name == tar.name:
+                    if obj.product1 == tar.name:
+                        if species.value >= (2*tar.min_amount):
+                            obj.priority = obj.priority + 1
+                        elif species.value >= tar.min_amount:
+                            obj.priority = obj.priority + 2
+                        elif species.value >= (tar.min_amount/2):
+                            obj.priority = obj.priority + 3
+                        elif species.value >= (tar.min_amount/4):
+                            obj.priority = obj.priority + 4
+                        elif species.value < (tar.min_amount/4):
+                            obj.priority = obj.priority + 5
+                    elif obj.product2 == tar.name:
+                        if species.value >= (2*tar.min_amount):
+                            obj.priority = obj.priority + 1
+                        elif species.value >= tar.min_amount:
+                            obj.priority = obj.priority + 2
+                        elif species.value >= (tar.min_amount/2):
+                            obj.priority = obj.priority + 3
+                        elif species.value >= (tar.min_amount/4):
+                            obj.priority = obj.priority + 4
+                        elif species.value < (tar.min_amount/4):
+                            obj.priority = obj.priority + 5
 
 print("\n\nThe following priorities have been noted for the reactions: \n")
 
