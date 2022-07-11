@@ -108,14 +108,14 @@ object enabled_checker = {
 }
 
 object inspector = {
-	action r1(r_1:updater.num)
-	action r2(r_1:updater.num)
-	action r3(r_1:updater.num,l_1:updater.num,rl_1:updater.num)
-	action r4(rl_1:updater.num,r_1:updater.num)
-	action r5(rl_1:updater.num,g_1:updater.num,ga_1:updater.num,gbg_1:updater.num)
-	action r6(ga_1:updater.num,gd_1:updater.num)
-	action r7(gbg_1:updater.num,gd_1:updater.num,g_1:updater.num)
-	action r8(rl_1:updater.num)
+	action check_guard_r1(r_1:updater.num)
+	action check_guard_r2(r_1:updater.num)
+	action check_guard_r3(r_1:updater.num,l_1:updater.num,rl_1:updater.num)
+	action check_guard_r4(rl_1:updater.num,r_1:updater.num)
+	action check_guard_r5(rl_1:updater.num,g_1:updater.num,ga_1:updater.num,gbg_1:updater.num)
+	action check_guard_r6(ga_1:updater.num,gd_1:updater.num)
+	action check_guard_r7(gbg_1:updater.num,gd_1:updater.num,g_1:updater.num)
+	action check_guard_r8(rl_1:updater.num)
 
 	before check_guard_r1 {
 		assert true
