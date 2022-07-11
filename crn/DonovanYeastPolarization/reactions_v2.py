@@ -292,9 +292,9 @@ for obj in Reactions:
 
 ivy_file = open("test_v2.ivy", "w")
 
-ivy_file.write("#lang ivy 1.7\n\nobject inc_dec = {\n")
+ivy_file.write("#lang ivy 1.7\n\nobject updater = {\n")
 ivy_file.write("\ttype num\n\tinterpret num -> bv[10]\n\ttype exec_var\n\tinterpret exec_var -> bv[8]\n\ttype exec_stage\n\tinterpret exec_stage -> bv[3]\n\n\taction incr(x:num) returns(y:num) = {\n\t\ty := x + 1\n\t}\n\n\taction decr(x:num) returns(y:num) = {\n\t\ty := x - 1\n\t}\n}")
-ivy_file.write("\n\nobject goal = {\n\taction achieved(v:inc_dec.num)\n\tobject spec = {\n\t\tbefore achieved {\n\t\t\tassert v ")
+ivy_file.write("\n\nobject goal = {\n\taction achieved(v:updater.num)\n\tobject spec = {\n\t\tbefore achieved {\n\t\t\tassert v ")
 if upordown == "1":
     ivy_file.write(">= ")
 elif upordown == "2":
@@ -304,47 +304,47 @@ elif upordown == "3":
 elif upordown == "4":
     ivy_file.write("< ")
 ivy_file.write(targetnum)
-ivy_file.write(";\n\t\t\tproto.idle := 1\n\t\t}\n\t}\n}\n\n")
+ivy_file.write(";\n\t\t\tprotocol.idle := 1\n\t\t}\n\t}\n}\n\n")
 
-ivy_file.write("object enabled = {\n\n\t")
+ivy_file.write("object enabled_checker = {\n\n\t")
 
 count = 0
 for obj in Reactions:
     count = count + 1
-    ivy_file.write("action r") 
+    ivy_file.write("action is_enabled_r") 
     ivy_file.write(str(count))
     if (Reactions[count-1].reactant1 == ""):
         ivy_file.write(" returns(y:bool) = {\n\t\ty := true\n\t}\n\n\t")
     elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 == ""):
-        ivy_file.write("(reactant1:inc_dec.num) returns(y:bool) = {\n\t\tif reactant1 >= ")
+        ivy_file.write("(reactant1:updater.num) returns(y:bool) = {\n\t\tif reactant1 >= ")
         ivy_file.write(str(obj.reactant1num))
         ivy_file.write(" {\n\t\t\ty := true\n\t\t}\n\t\telse {\n\t\t\ty := false\n\t\t}\n\t}\n\n\t")
     elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 != ""):
-        ivy_file.write("(reactant1:inc_dec.num,reactant2:inc_dec.num) returns(y:bool) = {\n\t\tif reactant1 >= ")
+        ivy_file.write("(reactant1:updater.num,reactant2:updater.num) returns(y:bool) = {\n\t\tif reactant1 >= ")
         ivy_file.write(str(obj.reactant1num))
         ivy_file.write(" & reactant2 >= ")
         ivy_file.write(str(obj.reactant2num))
         ivy_file.write(" {\n\t\t\ty := true\n\t\t}\n\t\telse {\n\t\t\ty := false\n\t\t}\n\t}\n\n\t")
 ivy_file.write("\n}\n\n")
 
-ivy_file.write("object monitor = {\n\t")
+ivy_file.write("object inspector = {\n\t")
 count = 0
 for obj in Reactions:
     count = count + 1
-    ivy_file.write("action r")
+    ivy_file.write("action check_guard_r")
     ivy_file.write(str(count))
     if (Reactions[count-1].reactant1 == ""):
-        ivy_file.write("\n\tbefore r")
+        ivy_file.write("\n\tbefore check_guard_r")
         ivy_file.write(str(count))
         ivy_file.write(" {\n\t\tassert true\n\t}\n\n\t")
     elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 == ""):
-        ivy_file.write("(reactant1:inc_dec.num)\n\tbefore r")
+        ivy_file.write("(reactant1:updater.num)\n\tbefore check_guard_r")
         ivy_file.write(str(count))
         ivy_file.write(" {\n\t\tassert reactant1 >= ")
         ivy_file.write(str(obj.reactant1num))
         ivy_file.write("\n\t}\n\n\t")
     elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 != ""):
-        ivy_file.write("(reactant1:inc_dec.num,reactant2:inc_dec.num)\n\tbefore r")
+        ivy_file.write("(reactant1:updater.num,reactant2:updater.num)\n\tbefore check_guard_r")
         ivy_file.write(str(count))
         ivy_file.write(" {\n\t\tassert reactant1 >= ")
         ivy_file.write(str(obj.reactant1num))
@@ -355,7 +355,7 @@ for obj in Reactions:
         
 ivy_file.write("\n}")
 
-ivy_file.write("\n\nobject choose_reaction = {\n\t")
+ivy_file.write("\n\nobject selector = {\n\t")
 
 count = 0
 
@@ -363,7 +363,7 @@ for obj in Reactions:
     count = count + 1
     ivy_file.write("individual r")
     ivy_file.write(str(count))
-    ivy_file.write("_exec : inc_dec.exec_var\n\t")
+    ivy_file.write("_exec : updater.exec_var\n\t")
 
 ivy_file.write("\n\t")
 count = 0
@@ -372,7 +372,7 @@ for obj in Reactions:
     count = count + 1
     ivy_file.write("individual r")
     ivy_file.write(str(count))
-    ivy_file.write("_rate : inc_dec.exec_var\n\t")
+    ivy_file.write("_rate : updater.exec_var\n\t")
 
 ivy_file.write("\n\t")
 
@@ -381,7 +381,7 @@ for obj in Reactions:
     count = count + 1
     ivy_file.write("individual r")
     ivy_file.write(str(count))
-    ivy_file.write("_count : inc_dec.exec_var\n\t")
+    ivy_file.write("_count : updater.exec_var\n\t")
 
 ivy_file.write("\n\t")
 
@@ -390,7 +390,7 @@ for obj in Reactions:
     count = count + 1
     ivy_file.write("individual r")
     ivy_file.write(str(count))
-    ivy_file.write("_count_rate : inc_dec.exec_var\n\t")
+    ivy_file.write("_count_rate : updater.exec_var\n\t")
 
 ivy_file.write("\n\t")
 
@@ -399,7 +399,7 @@ for obj in Reactions:
     count = count + 1
     ivy_file.write("individual r")
     ivy_file.write(str(count))
-    ivy_file.write("_stage : inc_dec.exec_stage\n\t")
+    ivy_file.write("_stage : updater.exec_stage\n\t")
 
 ivy_file.write("\n\n\tafter init {\n\t\t")
 
@@ -425,9 +425,9 @@ ivy_file.write("\n\t}\n\n\t")
 count = 0
 for obj in Reactions:
     count = count + 1
-    ivy_file.write("action r")
+    ivy_file.write("action execute_r")
     ivy_file.write(str(count))
-    ivy_file.write("_execution returns(y:bool) = {\n\t\tr")
+    ivy_file.write(" returns(y:bool) = {\n\t\tr")
     ivy_file.write(str(count))
     ivy_file.write("_exec := r")
     ivy_file.write(str(count))
@@ -930,13 +930,13 @@ for obj in Reactions:
 
 ivy_file.write("\n}\n")
 
-ivy_file.write("\nobject proto = {\n\n\ttype 2bit\n\tinterpret 2bit -> bv[1]\n\tindividual idle : 2bit\n\n")
+ivy_file.write("\nobject protocol = {\n\n\ttype 2bit\n\tinterpret 2bit -> bv[1]\n\tindividual idle : 2bit\n\n")
 
 for obj in spec:
     ivy_file.write("\tindividual ")
     ivy_file.write("r_")
     ivy_file.write(obj)
-    ivy_file.write(" : inc_dec.num\n")
+    ivy_file.write(" : updater.num\n")
 
 ivy_file.write("\n\tafter init {\n\t\t")
 
@@ -953,18 +953,18 @@ count = 0
 for obj in Reactions:
     count = count + 1
     if(obj.reactant1 == "" and obj.product1 != "" and obj.product2 == ""):
-        ivy_file.write("action updating_r")
+        ivy_file.write("action update_r")
         ivy_file.write(str(count))
         ivy_file.write(" = {\n\t\t")
-        ivy_file.write("if choose_reaction.r")
+        ivy_file.write("if selector.execute_r")
         ivy_file.write(str(count))
-        ivy_file.write("_execution {\n\t\t\tcall monitor.r")
+        ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
         ivy_file.write(str(count))
         for x in range(obj.product1num):
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
-            ivy_file.write(" := inc_dec.incr(")
+            ivy_file.write(" := updater.incr(")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
             ivy_file.write(")")
@@ -990,18 +990,18 @@ for obj in Reactions:
             ivy_file.write("\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 == "" and obj.product1 != "" and obj.product2 != ""):
-        ivy_file.write("action updating_r")
+        ivy_file.write("action update_r")
         ivy_file.write(str(count))
         ivy_file.write(" = {\n\t\t")
-        ivy_file.write("if choose_reaction.r")
+        ivy_file.write("if selector.execute_r")
         ivy_file.write(str(count))
-        ivy_file.write("_execution {\n\t\t\tcall monitor.r")
+        ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
         ivy_file.write(str(count))
         for x in range(obj.product1num):
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
-            ivy_file.write(" := inc_dec.incr(")
+            ivy_file.write(" := updater.incr(")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
             ivy_file.write(")")
@@ -1009,7 +1009,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.product2)
-            ivy_file.write(" := inc_dec.incr(")
+            ivy_file.write(" := updater.incr(")
             ivy_file.write("r_")
             ivy_file.write(obj.product2)
             ivy_file.write(")")
@@ -1035,12 +1035,12 @@ for obj in Reactions:
             ivy_file.write("\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 == ""):
-        ivy_file.write("action updating_r")
+        ivy_file.write("action update_r")
         ivy_file.write(str(count))
         ivy_file.write(" = {\n\t\t")
-        ivy_file.write("if choose_reaction.r")
+        ivy_file.write("if selector.execute_r")
         ivy_file.write(str(count))
-        ivy_file.write("_execution {\n\t\t\tcall monitor.r")
+        ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
         ivy_file.write(str(count))
         ivy_file.write("(")
         ivy_file.write("r_")
@@ -1050,7 +1050,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
-            ivy_file.write(" := inc_dec.decr(")
+            ivy_file.write(" := updater.decr(")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
             ivy_file.write(")")
@@ -1076,12 +1076,12 @@ for obj in Reactions:
             ivy_file.write("\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 != "" and obj.product2 == ""):
-        ivy_file.write("action updating_r")
+        ivy_file.write("action update_r")
         ivy_file.write(str(count))
         ivy_file.write(" = {\n\t\t")
-        ivy_file.write("if choose_reaction.r")
+        ivy_file.write("if selector.execute_r")
         ivy_file.write(str(count))
-        ivy_file.write("_execution {\n\t\t\tcall monitor.r")
+        ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
         ivy_file.write(str(count))
         ivy_file.write("(")
         ivy_file.write("r_")
@@ -1091,7 +1091,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
-            ivy_file.write(" := inc_dec.decr(")
+            ivy_file.write(" := updater.decr(")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
             ivy_file.write(")")
@@ -1099,7 +1099,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
-            ivy_file.write(" := inc_dec.incr(")
+            ivy_file.write(" := updater.incr(")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
             ivy_file.write(")")
@@ -1125,12 +1125,12 @@ for obj in Reactions:
             ivy_file.write("\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 != "" and obj.product2 != ""):
-        ivy_file.write("action updating_r")
+        ivy_file.write("action update_r")
         ivy_file.write(str(count))
         ivy_file.write(" = {\n\t\t")
-        ivy_file.write("if choose_reaction.r")
+        ivy_file.write("if selector.execute_r")
         ivy_file.write(str(count))
-        ivy_file.write("_execution {\n\t\t\tcall monitor.r")
+        ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
         ivy_file.write(str(count))
         ivy_file.write("(")
         ivy_file.write("r_")
@@ -1140,7 +1140,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
-            ivy_file.write(" := inc_dec.decr(")
+            ivy_file.write(" := updater.decr(")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
             ivy_file.write(")")
@@ -1148,7 +1148,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
-            ivy_file.write(" := inc_dec.incr(")
+            ivy_file.write(" := updater.incr(")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
             ivy_file.write(")")
@@ -1156,7 +1156,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.product2)
-            ivy_file.write(" := inc_dec.incr(")
+            ivy_file.write(" := updater.incr(")
             ivy_file.write("r_")
             ivy_file.write(obj.product2)
             ivy_file.write(")")
@@ -1182,12 +1182,12 @@ for obj in Reactions:
             ivy_file.write("\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 == ""):
-        ivy_file.write("action updating_r")
+        ivy_file.write("action update_r")
         ivy_file.write(str(count))
         ivy_file.write(" = {\n\t\t")
-        ivy_file.write("if choose_reaction.r")
+        ivy_file.write("if selector.execute_r")
         ivy_file.write(str(count))
-        ivy_file.write("_execution {\n\t\t\tcall monitor.r")
+        ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
         ivy_file.write(str(count))
         ivy_file.write("(")
         ivy_file.write("r_")
@@ -1200,7 +1200,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
-            ivy_file.write(" := inc_dec.decr(")
+            ivy_file.write(" := updater.decr(")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
             ivy_file.write(")")
@@ -1208,7 +1208,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant2)
-            ivy_file.write(" := inc_dec.decr(")
+            ivy_file.write(" := updater.decr(")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant2)
             ivy_file.write(")")
@@ -1234,12 +1234,12 @@ for obj in Reactions:
             ivy_file.write("\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 != "" and obj.product2 == ""):
-        ivy_file.write("action updating_r")
+        ivy_file.write("action update_r")
         ivy_file.write(str(count))
         ivy_file.write(" = {\n\t\t")
-        ivy_file.write("if choose_reaction.r")
+        ivy_file.write("if selector.execute_r")
         ivy_file.write(str(count))
-        ivy_file.write("_execution {\n\t\t\tcall monitor.r")
+        ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
         ivy_file.write(str(count))
         ivy_file.write("(")
         ivy_file.write("r_")
@@ -1252,7 +1252,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
-            ivy_file.write(" := inc_dec.decr(")
+            ivy_file.write(" := updater.decr(")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
             ivy_file.write(")")
@@ -1260,7 +1260,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant2)
-            ivy_file.write(" := inc_dec.decr(")
+            ivy_file.write(" := updater.decr(")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant2)
             ivy_file.write(")")
@@ -1268,7 +1268,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
-            ivy_file.write(" := inc_dec.incr(")
+            ivy_file.write(" := updater.incr(")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
             ivy_file.write(")")
@@ -1294,12 +1294,12 @@ for obj in Reactions:
             ivy_file.write("\n\t\t")
         ivy_file.write("}\n\t}\n\n\t")
     elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 != "" and obj.product2 != ""):
-        ivy_file.write("action updating_r")
+        ivy_file.write("action update_r")
         ivy_file.write(str(count))
         ivy_file.write(" = {\n\t\t")
-        ivy_file.write("if choose_reaction.r")
+        ivy_file.write("if selector.execute_r")
         ivy_file.write(str(count))
-        ivy_file.write("_execution {\n\t\t\tcall monitor.r")
+        ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
         ivy_file.write(str(count))
         ivy_file.write("(")
         ivy_file.write("r_")
@@ -1312,7 +1312,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
-            ivy_file.write(" := inc_dec.decr(")
+            ivy_file.write(" := updater.decr(")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant1)
             ivy_file.write(")")
@@ -1320,7 +1320,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant2)
-            ivy_file.write(" := inc_dec.decr(")
+            ivy_file.write(" := updater.decr(")
             ivy_file.write("r_")
             ivy_file.write(obj.reactant2)
             ivy_file.write(")")
@@ -1328,7 +1328,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
-            ivy_file.write(" := inc_dec.incr(")
+            ivy_file.write(" := updater.incr(")
             ivy_file.write("r_")
             ivy_file.write(obj.product1)
             ivy_file.write(")")
@@ -1336,7 +1336,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\t\t")
             ivy_file.write("r_")
             ivy_file.write(obj.product2)
-            ivy_file.write(" := inc_dec.incr(")
+            ivy_file.write(" := updater.incr(")
             ivy_file.write("r_")
             ivy_file.write(obj.product2)
             ivy_file.write(")")
@@ -1366,16 +1366,16 @@ ivy_file.write("\n\n\taction idling = {}\n\n\t")
 count = 0
 for obj in Reactions:
     count = count + 1
-    ivy_file.write("before updating_r")
+    ivy_file.write("before update_r")
     ivy_file.write(str(count))
     if (Reactions[count-1].reactant1 == ""):
-        ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled.r")
+        ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r")
         ivy_file.write(str(count))
         if obj.priority <= 6:
             ivy_file.write(";\n\t\tassert false")
         ivy_file.write("\n\t}\n\t")
     elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 == ""):
-        ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled.r")
+        ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r")
         ivy_file.write(str(count))
         ivy_file.write("(")
         ivy_file.write("r_")
@@ -1385,7 +1385,7 @@ for obj in Reactions:
             ivy_file.write(";\n\t\tassert false")
         ivy_file.write("\n\t}\n\t")
     elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 != ""):
-        ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled.r")
+        ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r")
         ivy_file.write(str(count))
         ivy_file.write("(")
         ivy_file.write("r_")
@@ -1404,18 +1404,18 @@ ivy_file.write("\n\n\tbefore idling {\n\t\tassert idle = 1\n\t}\n}\n")
 count = 0
 for obj in Reactions:
     count = count + 1
-    ivy_file.write("export proto.updating_r")
+    ivy_file.write("export protocol.update_r")
     ivy_file.write(str(count))
     ivy_file.write("\n")
 
 
-ivy_file.write("export proto.idling\nimport goal.achieved\n")
+ivy_file.write("export protocol.idling\nimport goal.achieved\n")
 
 count = 0
 for obj in Reactions:
     count= count + 1
-    ivy_file.write("import monitor.r")
+    ivy_file.write("import inspector.check_guard_r")
     ivy_file.write(str(count))
     ivy_file.write("\n")
 
-ivy_file.write("\nisolate iso_proto = proto with enabled, inc_dec, goal, choose_reaction, monitor")
+ivy_file.write("\nisolate iso_proto = protocol with enabled_checker, updater, goal, selector, inspector")

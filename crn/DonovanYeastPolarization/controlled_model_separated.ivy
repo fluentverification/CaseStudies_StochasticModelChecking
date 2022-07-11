@@ -30,7 +30,7 @@ object goal = {
 	object spec = {
 		before achieved {
 			assert v >= 50;
-			proto.idle := 1
+			protocol.idle := 1
 		}
 	}
 }
@@ -107,7 +107,7 @@ object enabled = {
 	}
 }
 
-object monitor = {
+object reactions = {
 	action r1(r_1:inc_dec.num)
 	action r2(r_1:inc_dec.num)
 	action r3(r_1:inc_dec.num,l_1:inc_dec.num,rl_1:inc_dec.num)
@@ -151,7 +151,7 @@ object monitor = {
 
 }
 
-object choose_reaction = {
+object selector = {
 	individual r1_exec : inc_dec.exec_var
 	individual r2_exec : inc_dec.exec_var
 	individual r3_exec : inc_dec.exec_var	
@@ -636,7 +636,7 @@ object choose_reaction = {
 
 }
 
-object proto = {
+object protocol = {
 
 	type 2bit
 
@@ -664,23 +664,23 @@ object proto = {
 		idle := 0 
 	}
 
-	action updating_r1 = {
-		if choose_reaction.r1_execution {
-			call monitor.r1(r);
+	action update_r1 = {
+		if selector.r1_execution {
+			call reactions.r1(r);
 			r := inc_dec.incr(r)
 		}
 	}
 
-	action updating_r2 = {
-		if choose_reaction.r2_execution {
-			call monitor.r2(r);
+	action update_r2 = {
+		if selector.r2_execution {
+			call reactions.r2(r);
 			r := inc_dec.decr(r)
 		}
 	}
 
-	action updating_r3 = {
-		if choose_reaction.r3_execution {
-			call monitor.r3(r,l,rl);
+	action update_r3 = {
+		if selector.r3_execution {
+			call reactions.r3(r,l,rl);
 			r := inc_dec.decr(r);
 			l := inc_dec.decr(l);
 			rl := inc_dec.incr(rl);
@@ -688,17 +688,17 @@ object proto = {
 		}
 	}
 
-	action updating_r4 = {
-		if choose_reaction.r4_execution {
-			call monitor.r4(rl,r);
+	action update_r4 = {
+		if selector.r4_execution {
+			call reactions.r4(rl,r);
 			rl := inc_dec.decr(rl);
 			r := inc_dec.incr(r)
 		}
 	}
 
-	action updating_r5 = {
-		if choose_reaction.r5_execution {
-			call monitor.r5(rl,g,ga,gbg);
+	action update_r5 = {
+		if selector.r5_execution {
+			call reactions.r5(rl,g,ga,gbg);
 			rl := inc_dec.decr(rl);
 			g := inc_dec.decr(g);
 			ga := inc_dec.incr(ga);
@@ -709,68 +709,68 @@ object proto = {
 		}
 	}
 
-	action updating_r6 = {
-		if choose_reaction.r6_execution {
-			call monitor.r6(ga,gd);
+	action update_r6 = {
+		if selector.r6_execution {
+			call reactions.r6(ga,gd);
 			ga := inc_dec.decr(ga);
 			gd := inc_dec.incr(gd)
 		}
 	}
 
-	action updating_r7 = {
-		if choose_reaction.r7_execution {
-			call monitor.r7(gbg,gd,g);
+	action update_r7 = {
+		if selector.r7_execution {
+			call reactions.r7(gbg,gd,g);
 			gbg := inc_dec.decr(gbg);
 			gd := inc_dec.decr(gd);
 			g := inc_dec.incr(g)
 		}
 	}
 
-	action updating_r8 = {
-		if choose_reaction.r8_execution {
-			call monitor.r8(rl);
+	action update_r8 = {
+		if selector.r8_execution {
+			call reactions.r8(rl);
 			rl := inc_dec.incr(rl)
 		}
 	}
 
 	action idling = {}
 
-	before updating_r1 {
+	before update_r1 {
 		assert idle = 0;
 		assert enabled.r1(r);
 	}
 
-	before updating_r2 {
+	before update_r2 {
 		assert idle = 0;
 		assert enabled.r2(r);
 	}
 
-	before updating_r3 {
+	before update_r3 {
 		assert idle = 0;
 		assert enabled.r3(r,l);
 	}
 
-	before updating_r4 {
+	before update_r4 {
 		assert idle = 0;
 		assert enabled.r4(rl);
 	}
 
-	before updating_r5 {
+	before update_r5 {
 		assert idle = 0;
 		assert enabled.r5(rl,g);
 	}
 
-	before updating_r6 {
+	before update_r6 {
 		assert idle = 0;
 		assert enabled.r6(ga);
 	}
 
-	before updating_r7 {
+	before update_r7 {
 		assert idle = 0;
 		assert enabled.r7(gbg,gd);
 	}
 
-	before updating_r8 {
+	before update_r8 {
 		assert idle = 0;
 		assert enabled.r8(rl);
 	}
@@ -781,23 +781,23 @@ object proto = {
 	
 }
 
-export proto.updating_r1
-export proto.updating_r2
-export proto.updating_r3
-export proto.updating_r4
-export proto.updating_r5
-export proto.updating_r6
-export proto.updating_r7
-export proto.updating_r8
-export proto.idling
+export protocol.update_r1
+export protocol.update_r2
+export protocol.update_r3
+export protocol.update_r4
+export protocol.update_r5
+export protocol.update_r6
+export protocol.update_r7
+export protocol.update_r8
+export protocol.idling
 import goal.achieved
-import monitor.r1
-import monitor.r2
-import monitor.r3
-import monitor.r4
-import monitor.r5
-import monitor.r6
-import monitor.r7
-import monitor.r8
+import reactions.r1
+import reactions.r2
+import reactions.r3
+import reactions.r4
+import reactions.r5
+import reactions.r6
+import reactions.r7
+import reactions.r8
 
-isolate iso_proto = proto with enabled, inc_dec, goal, choose_reaction, monitor
+isolate iso_protocol = protocol with enabled, inc_dec, goal, selector, reactions
