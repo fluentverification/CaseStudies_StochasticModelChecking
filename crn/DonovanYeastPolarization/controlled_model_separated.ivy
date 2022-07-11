@@ -1,6 +1,6 @@
 #lang ivy 1.7
 
-object inc_dec = {
+object updater = {
 	type num
 	
 	interpret num -> bv[10]
@@ -25,7 +25,7 @@ object inc_dec = {
 
 object goal = {
 
-	action achieved(v:inc_dec.num)
+	action achieved(v:updater.num)
 
 	object spec = {
 		before achieved {
@@ -35,14 +35,14 @@ object goal = {
 	}
 }
 
-object enabled = {
+object enabled_checker = {
 
-	action r1(r_1:inc_dec.num) returns(y:bool) = {
+	action is_enabled_r1(r_1:updater.num) returns(y:bool) = {
 		#y := false
 		y := true
 	}
 
-	action r2(r_1:inc_dec.num) returns(y:bool) = {
+	action is_enabled_r2(r_1:updater.num) returns(y:bool) = {
 		if r_1 >= 1 {
 			#y := false
 			y := true
@@ -52,7 +52,7 @@ object enabled = {
 		}
 	}
 	
-	action r3(r_1:inc_dec.num,l_1:inc_dec.num) returns(y:bool) = {
+	action is_enabled_r3(r_1:updater.num,l_1:updater.num) returns(y:bool) = {
 		if r_1 >= 1 & l_1 >= 1 {
 			#y := false
 			y := true
@@ -62,7 +62,7 @@ object enabled = {
 		}
 	}
 
-	action r4(rl_1:inc_dec.num) returns(y:bool) = {
+	action is_enabled_r4(rl_1:updater.num) returns(y:bool) = {
 		if rl_1 >= 1 {
 			#y := false
 			y := true
@@ -72,7 +72,7 @@ object enabled = {
 		}
 	}
 
-	action r5(rl_1:inc_dec.num,g_1:inc_dec.num) returns(y:bool) = {
+	action is_enabled_r5(rl_1:updater.num,g_1:updater.num) returns(y:bool) = {
 		if rl_1 >= 1 & g_1 >= 1 {
 			y := true
 		}
@@ -81,7 +81,7 @@ object enabled = {
 		}
 	}
 
-	action r6(ga_1:inc_dec.num) returns(y:bool) = {
+	action is_enabled_r6(ga_1:updater.num) returns(y:bool) = {
 		if ga_1 >= 1 {
 			#y := false
 			y := true
@@ -91,7 +91,7 @@ object enabled = {
 		}
 	}
 
-	action r7(gbg_1:inc_dec.num,gd_1:inc_dec.num) returns(y:bool) = {
+	action is_enabled_r7(gbg_1:updater.num,gd_1:updater.num) returns(y:bool) = {
 		if gbg_1 >= 1 & gd_1 >= 1 {
 			#y := false
 			y := true
@@ -101,101 +101,101 @@ object enabled = {
 		}
 	}
 
-	action r8(rl_1:inc_dec.num) returns(y:bool) = {
+	action is_enabled_r8(rl_1:updater.num) returns(y:bool) = {
 		#y := false
 		y := true
 	}
 }
 
-object reactions = {
-	action r1(r_1:inc_dec.num)
-	action r2(r_1:inc_dec.num)
-	action r3(r_1:inc_dec.num,l_1:inc_dec.num,rl_1:inc_dec.num)
-	action r4(rl_1:inc_dec.num,r_1:inc_dec.num)
-	action r5(rl_1:inc_dec.num,g_1:inc_dec.num,ga_1:inc_dec.num,gbg_1:inc_dec.num)
-	action r6(ga_1:inc_dec.num,gd_1:inc_dec.num)
-	action r7(gbg_1:inc_dec.num,gd_1:inc_dec.num,g_1:inc_dec.num)
-	action r8(rl_1:inc_dec.num)
+object inspector = {
+	action r1(r_1:updater.num)
+	action r2(r_1:updater.num)
+	action r3(r_1:updater.num,l_1:updater.num,rl_1:updater.num)
+	action r4(rl_1:updater.num,r_1:updater.num)
+	action r5(rl_1:updater.num,g_1:updater.num,ga_1:updater.num,gbg_1:updater.num)
+	action r6(ga_1:updater.num,gd_1:updater.num)
+	action r7(gbg_1:updater.num,gd_1:updater.num,g_1:updater.num)
+	action r8(rl_1:updater.num)
 
-	before r1 {
+	before check_guard_r1 {
 		assert true
 	}
 
-	before r2 {
+	before check_guard_r2 {
 		assert r_1 >= 1
 	}
 
-	before r3 {
+	before check_guard_r3 {
 		assert r_1 >= 1 & l_1 >= 1
 	}
 
-	before r4 {
+	before check_guard_r4 {
 		assert rl_1 >= 1
 	}
 
-	before r5 {
+	before check_guard_r5 {
 		assert rl_1 >= 1 & g_1 >= 1
 	}
 
-	before r6 {
+	before check_guard_r6 {
 		assert ga_1 >= 1
 	}
 
-	before r7 {
+	before check_guard_r7 {
 		assert gbg_1 >= 1 & gd_1 >= 1
 	}
 
-	before r8 {
+	before check_guard_r8 {
 		assert true
 	}
 
 }
 
 object selector = {
-	individual r1_exec : inc_dec.exec_var
-	individual r2_exec : inc_dec.exec_var
-	individual r3_exec : inc_dec.exec_var	
-	individual r4_exec : inc_dec.exec_var	
-	individual r5_exec : inc_dec.exec_var	
-	individual r6_exec : inc_dec.exec_var	
-	individual r7_exec : inc_dec.exec_var	
-	individual r8_exec : inc_dec.exec_var
+	individual r1_exec : updater.exec_var
+	individual r2_exec : updater.exec_var
+	individual r3_exec : updater.exec_var	
+	individual r4_exec : updater.exec_var	
+	individual r5_exec : updater.exec_var	
+	individual r6_exec : updater.exec_var	
+	individual r7_exec : updater.exec_var	
+	individual r8_exec : updater.exec_var
 
-	individual r1_rate : inc_dec.exec_var
-	individual r2_rate : inc_dec.exec_var
-	individual r3_rate : inc_dec.exec_var
-	individual r4_rate : inc_dec.exec_var
-	individual r5_rate : inc_dec.exec_var
-	individual r6_rate : inc_dec.exec_var
-	individual r7_rate : inc_dec.exec_var
-	individual r8_rate : inc_dec.exec_var
+	individual r1_rate : updater.exec_var
+	individual r2_rate : updater.exec_var
+	individual r3_rate : updater.exec_var
+	individual r4_rate : updater.exec_var
+	individual r5_rate : updater.exec_var
+	individual r6_rate : updater.exec_var
+	individual r7_rate : updater.exec_var
+	individual r8_rate : updater.exec_var
 
-	individual r1_count : inc_dec.exec_var
-	individual r2_count : inc_dec.exec_var
-	individual r3_count : inc_dec.exec_var
-	individual r4_count : inc_dec.exec_var
-	individual r5_count : inc_dec.exec_var
-	individual r6_count : inc_dec.exec_var
-	individual r7_count : inc_dec.exec_var
-	individual r8_count : inc_dec.exec_var
+	individual r1_count : updater.exec_var
+	individual r2_count : updater.exec_var
+	individual r3_count : updater.exec_var
+	individual r4_count : updater.exec_var
+	individual r5_count : updater.exec_var
+	individual r6_count : updater.exec_var
+	individual r7_count : updater.exec_var
+	individual r8_count : updater.exec_var
 
-	individual r1_count_rate : inc_dec.exec_var
-	individual r2_count_rate : inc_dec.exec_var
-	individual r3_count_rate : inc_dec.exec_var
-	individual r4_count_rate : inc_dec.exec_var
-	individual r5_count_rate : inc_dec.exec_var
-	individual r6_count_rate : inc_dec.exec_var
-	individual r7_count_rate : inc_dec.exec_var
-	individual r8_count_rate : inc_dec.exec_var
+	individual r1_count_rate : updater.exec_var
+	individual r2_count_rate : updater.exec_var
+	individual r3_count_rate : updater.exec_var
+	individual r4_count_rate : updater.exec_var
+	individual r5_count_rate : updater.exec_var
+	individual r6_count_rate : updater.exec_var
+	individual r7_count_rate : updater.exec_var
+	individual r8_count_rate : updater.exec_var
 
-	individual r1_stage : inc_dec.exec_stage
-	individual r2_stage : inc_dec.exec_stage
-	individual r3_stage : inc_dec.exec_stage
-	individual r4_stage : inc_dec.exec_stage
-	individual r5_stage : inc_dec.exec_stage
-	individual r6_stage : inc_dec.exec_stage
-	individual r7_stage : inc_dec.exec_stage
-	individual r8_stage : inc_dec.exec_stage
+	individual r1_stage : updater.exec_stage
+	individual r2_stage : updater.exec_stage
+	individual r3_stage : updater.exec_stage
+	individual r4_stage : updater.exec_stage
+	individual r5_stage : updater.exec_stage
+	individual r6_stage : updater.exec_stage
+	individual r7_stage : updater.exec_stage
+	individual r8_stage : updater.exec_stage
 
 
 	after init {
@@ -218,7 +218,7 @@ object selector = {
 		r8_count_rate := 4;
 	}
 
-	action r1_execution returns(y:bool) = {
+	action execute_r1 returns(y:bool) = {
 		r1_exec := r1_exec + 1;
 		if r1_exec >= r1_rate {
 			y := true;
@@ -270,7 +270,7 @@ object selector = {
 		}
 	}
 
-	action r2_execution returns(y:bool) = {
+	action execute_r2 returns(y:bool) = {
 		r2_exec := r2_exec + 1;
 		if r2_exec >= r2_rate {
 			y := true;
@@ -322,7 +322,7 @@ object selector = {
 		}
 	}
 
-	action r3_execution returns(y:bool) = {
+	action execute_r3 returns(y:bool) = {
 		r3_exec := r3_exec + 1;
 		if r3_exec >= r3_rate {
 			y := true;
@@ -374,7 +374,7 @@ object selector = {
 		}
 	}
 
-	action r4_execution returns(y:bool) = {
+	action execute_r4 returns(y:bool) = {
 		r4_exec := r4_exec + 1;
 		if r4_exec >= r4_rate {
 			y := true;
@@ -426,7 +426,7 @@ object selector = {
 		}
 	}
 
-	action r5_execution returns(y:bool) = {
+	action execute_r5 returns(y:bool) = {
 		r5_exec := r5_exec + 1;
 		if r5_exec >= r5_rate {
 			y := true;
@@ -478,7 +478,7 @@ object selector = {
 		}
 	}
 
-	action r6_execution returns(y:bool) = {
+	action execute_r6 returns(y:bool) = {
 		r6_exec := r6_exec + 1;
 		if r6_exec >= r6_rate {
 			y := true;
@@ -530,7 +530,7 @@ object selector = {
 		}
 	}
 
-	action r7_execution returns(y:bool) = {
+	action execute_r7 returns(y:bool) = {
 		r7_exec := r7_exec + 1;
 		if r7_exec >= r7_rate {
 			y := true;
@@ -582,7 +582,7 @@ object selector = {
 		}
 	}
 
-	action r8_execution returns(y:bool) = {
+	action execute_r8 returns(y:bool) = {
 		r8_exec := r8_exec + 1;
 		if r8_exec >= r8_rate {
 			y := true;
@@ -644,13 +644,13 @@ object protocol = {
 
 	individual idle : 2bit
 
-	individual r : inc_dec.num
-	individual l : inc_dec.num
-	individual rl : inc_dec.num
-	individual g : inc_dec.num
-	individual ga : inc_dec.num
-	individual gbg : inc_dec.num
-	individual gd : inc_dec.num
+	individual r : updater.num
+	individual l : updater.num
+	individual rl : updater.num
+	individual g : updater.num
+	individual ga : updater.num
+	individual gbg : updater.num
+	individual gd : updater.num
 
 	after init {
 		r := 50;
@@ -665,44 +665,44 @@ object protocol = {
 	}
 
 	action update_r1 = {
-		if selector.r1_execution {
-			call reactions.r1(r);
-			r := inc_dec.incr(r)
+		if selector.execute_r1 {
+			call inspector.check_guard_r1(r);
+			r := updater.incr(r)
 		}
 	}
 
 	action update_r2 = {
-		if selector.r2_execution {
-			call reactions.r2(r);
-			r := inc_dec.decr(r)
+		if selector.execute_r2 {
+			call inspector.check_guard_r2(r);
+			r := updater.decr(r)
 		}
 	}
 
 	action update_r3 = {
-		if selector.r3_execution {
-			call reactions.r3(r,l,rl);
-			r := inc_dec.decr(r);
-			l := inc_dec.decr(l);
-			rl := inc_dec.incr(rl);
-			l := inc_dec.incr(l)
+		if selector.execute_r3 {
+			call inspector.check_guard_r3(r,l,rl);
+			r := updater.decr(r);
+			l := updater.decr(l);
+			rl := updater.incr(rl);
+			l := updater.incr(l)
 		}
 	}
 
 	action update_r4 = {
-		if selector.r4_execution {
-			call reactions.r4(rl,r);
-			rl := inc_dec.decr(rl);
-			r := inc_dec.incr(r)
+		if selector.execute_r4 {
+			call inspector.check_guard_r4(rl,r);
+			rl := updater.decr(rl);
+			r := updater.incr(r)
 		}
 	}
 
 	action update_r5 = {
-		if selector.r5_execution {
-			call reactions.r5(rl,g,ga,gbg);
-			rl := inc_dec.decr(rl);
-			g := inc_dec.decr(g);
-			ga := inc_dec.incr(ga);
-			gbg := inc_dec.incr(gbg);
+		if selector.execute_r5 {
+			call inspector.check_guard_r5(rl,g,ga,gbg);
+			rl := updater.decr(rl);
+			g := updater.decr(g);
+			ga := updater.incr(ga);
+			gbg := updater.incr(gbg);
 			if gbg >= 50 {
 				call goal.achieved(gbg)
 			}
@@ -710,26 +710,26 @@ object protocol = {
 	}
 
 	action update_r6 = {
-		if selector.r6_execution {
-			call reactions.r6(ga,gd);
-			ga := inc_dec.decr(ga);
-			gd := inc_dec.incr(gd)
+		if selector.execute_r6 {
+			call inspector.check_guard_r6(ga,gd);
+			ga := updater.decr(ga);
+			gd := updater.incr(gd)
 		}
 	}
 
 	action update_r7 = {
-		if selector.r7_execution {
-			call reactions.r7(gbg,gd,g);
-			gbg := inc_dec.decr(gbg);
-			gd := inc_dec.decr(gd);
-			g := inc_dec.incr(g)
+		if selector.execute_r7 {
+			call inspector.check_guard_r7(gbg,gd,g);
+			gbg := updater.decr(gbg);
+			gd := updater.decr(gd);
+			g := updater.incr(g)
 		}
 	}
 
 	action update_r8 = {
-		if selector.r8_execution {
-			call reactions.r8(rl);
-			rl := inc_dec.incr(rl)
+		if selector.execute_r8 {
+			call inspector.check_guard_r8(rl);
+			rl := updater.incr(rl)
 		}
 	}
 
@@ -737,42 +737,42 @@ object protocol = {
 
 	before update_r1 {
 		assert idle = 0;
-		assert enabled.r1(r);
+		assert enabled_checker.is_enabled_r1(r);
 	}
 
 	before update_r2 {
 		assert idle = 0;
-		assert enabled.r2(r);
+		assert enabled_checker.is_enabled_r2(r);
 	}
 
 	before update_r3 {
 		assert idle = 0;
-		assert enabled.r3(r,l);
+		assert enabled_checker.is_enabled_r3(r,l);
 	}
 
 	before update_r4 {
 		assert idle = 0;
-		assert enabled.r4(rl);
+		assert enabled_checker.is_enabled_r4(rl);
 	}
 
 	before update_r5 {
 		assert idle = 0;
-		assert enabled.r5(rl,g);
+		assert enabled_checker.is_enabled_r5(rl,g);
 	}
 
 	before update_r6 {
 		assert idle = 0;
-		assert enabled.r6(ga);
+		assert enabled_checker.is_enabled_r6(ga);
 	}
 
 	before update_r7 {
 		assert idle = 0;
-		assert enabled.r7(gbg,gd);
+		assert enabled_checker.is_enabled_r7(gbg,gd);
 	}
 
 	before update_r8 {
 		assert idle = 0;
-		assert enabled.r8(rl);
+		assert enabled_checker.is_enabled_r8(rl);
 	}
 
 	before idling {
@@ -791,13 +791,13 @@ export protocol.update_r7
 export protocol.update_r8
 export protocol.idling
 import goal.achieved
-import reactions.r1
-import reactions.r2
-import reactions.r3
-import reactions.r4
-import reactions.r5
-import reactions.r6
-import reactions.r7
-import reactions.r8
+import inspector.check_guard_r1
+import inspector.check_guard_r2
+import inspector.check_guard_r3
+import inspector.check_guard_r4
+import inspector.check_guard_r5
+import inspector.check_guard_r6
+import inspector.check_guard_r7
+import inspector.check_guard_r8
 
-isolate iso_protocol = protocol with enabled, inc_dec, goal, selector, reactions
+isolate iso_proto = protocol with enabled_checker, updater, goal, selector, inspector
