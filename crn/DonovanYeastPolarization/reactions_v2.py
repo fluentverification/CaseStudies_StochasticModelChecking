@@ -1443,11 +1443,11 @@ ivy_to_cpp_command.wait()
 #runs_wanted = subprocess.Popen(["5"])
 #runs_wanted.wait()
 import os
-print("starting to execute and store")
+print("starting to run randomized testing and store the results")
 os.system("./test_v2 >test_v2.txt")
 #execution = subprocess.Popen(["./test_v2>test_v2.txt"])
 #execution.wait()
-print("finished executing and storing")
+print("finished randomized testing")
 #nextscript = subprocess.Popen(["python3", "file_reader.py"])
 #nextscript.wait()
 
@@ -1456,16 +1456,25 @@ reaction_exec_count = []
 for x in range(numofreactions):
     reaction_exec_count.append(0)
 
+#count = 0
+#for obj in reaction_exec_count:
+    #print(str(count), ":", str(reaction_exec_count[count]))
+    #count += 1
+    #print(obj)
+
 iters = 0
 
 transitions = 0
 
 transitionmap = open("reaction_list.txt", "w")
 
+count3 = 0
+
 with open("test_v2.txt", "r") as f:
     count = 0
     #transitionmap.write("Run 1:\n\n")
     while True:
+        count3 += 1
         line = f.readline()
         if not line:
             break
@@ -1477,10 +1486,14 @@ with open("test_v2.txt", "r") as f:
             if line[11:17] != "idling":
                 iters += 1
         if line[0] == "<":
-            transitions += 1
-            transitionmap.write(line[24:26])
-            transitionmap.write("\t")
-            reaction_exec_count[int(line[25])-1] += 1
+            if line[2] == "i":
+                transitions += 1
+                transitionmap.write(line[24:26])
+                transitionmap.write("\t")
+                #print(count3, ":", line[25])
+                #print(int(line[25])-1)
+                #reaction_exec_count[0] += 1
+                reaction_exec_count[int(line[25])-1] += 1
         if line[0] == "t":
             count = count + 1
             transitionmap.write("\n\nRun ")
@@ -1495,6 +1508,7 @@ with open("test_v2.txt", "r") as f:
                 transitionmap.write(str(x+1))
                 transitionmap.write("executions are ")
                 transitionmap.write(str(reaction_exec_count[x]))
+                reaction_exec_count[x] = 0
             transitionmap.write("\n\n\n\n")
             #transitionmap.write(str(count+1))
             #transitionmap.write(":\n\n")
