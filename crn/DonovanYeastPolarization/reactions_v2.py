@@ -1448,6 +1448,57 @@ os.system("./test_v2 >test_v2.txt")
 #execution = subprocess.Popen(["./test_v2>test_v2.txt"])
 #execution.wait()
 print("finished executing and storing")
-nextscript = subprocess.Popen(["python3", "file_reader.py"])
-nextscript.wait()
+#nextscript = subprocess.Popen(["python3", "file_reader.py"])
+#nextscript.wait()
+
+reaction_exec_count = []
+
+for x in range(numofreactions):
+    reaction_exec_count.append(0)
+
+iters = 0
+
+transitions = 0
+
+transitionmap = open("reaction_list.txt", "w")
+
+with open("test_v2.txt", "r") as f:
+    count = 0
+    #transitionmap.write("Run 1:\n\n")
+    while True:
+        line = f.readline()
+        if not line:
+            break
+        if iters == 0:
+            transitionmap.write("Run ")
+            transitionmap.write(str(count+1))
+            transitionmap.write(":\n\n")
+        if line[0] == ">":
+            if line[11:17] != "idling":
+                iters += 1
+        if line[0] == "<":
+            transitions += 1
+            transitionmap.write(line[24:26])
+            transitionmap.write("\t")
+            reaction_exec_count[int(line[25])-1] += 1
+        if line[0] == "t":
+            count = count + 1
+            transitionmap.write("\n\nRun ")
+            transitionmap.write(str(count))
+            transitionmap.write(" information\n\nIterations before idling was reached: ")
+            transitionmap.write(str(iters))
+            transitionmap.write("\nNumber of transitions: ")
+            transitionmap.write(str(transitions))
+            count2 = 0
+            for x in range(numofreactions):
+                transitionmap.write("\nr")
+                transitionmap.write(str(x+1))
+                transitionmap.write("executions are ")
+                transitionmap.write(str(reaction_exec_count[x]))
+            transitionmap.write("\n\n\n\n")
+            #transitionmap.write(str(count+1))
+            #transitionmap.write(":\n\n")
+            iters = 0
+            transitions = 0
+
 print("The traces recorded and the information on those traces are stored in 'reaction_list.txt'")
