@@ -1431,3 +1431,15 @@ for obj in Reactions:
     ivy_file.write("\n")
 
 ivy_file.write("\nisolate iso_proto = protocol with enabled_checker, updater, goal, selector, inspector")
+
+ivy_file.close()
+
+import subprocess
+
+ivy_to_cpp_command = subprocess.Popen(["ivy_to_cpp", "isolate=iso_proto", "target=test", "build=true", "test_v2.ivy"])
+ivy_to_cpp_command.wait()
+iterations = subprocess.Popen(["550"])
+iterations.wait()
+runs_wanted = subprocess.Popen(["5"])
+runs_wanted.wait()
+execution = subprocess.Popen(["./test_v2 >test_v2.txt"])
