@@ -11,11 +11,11 @@ with open("test_v2.txt", "r") as f:
         if not line:
             break
         if line[0] == ">":
-            if line[11:16] != "idling":
+            if line[11:17] != "idling":
                 iters += 1
         if line[0] == "<":
             transitions += 1
-            transitionmap.write(line[24:25])
+            transitionmap.write(line[24:26])
             transitionmap.write("\t")
         if line[0] == "t":
             count = count + 1
@@ -25,6 +25,7 @@ with open("test_v2.txt", "r") as f:
             transitionmap.write(str(iters))
             transitionmap.write("\nNumber of transitions: ")
             transitionmap.write(str(transitions))
+            transitionmap.write("\n\n")
             iters = 0
             transitions = 0
 
