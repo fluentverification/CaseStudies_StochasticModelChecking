@@ -6,11 +6,15 @@ transitionmap = open("reaction_list.txt", "w")
 
 with open("test_v2.txt", "r") as f:
     count = 0
-    transitionmap.write("Run 1:\n\n")
+    #transitionmap.write("Run 1:\n\n")
     while True:
         line = f.readline()
         if not line:
             break
+        if iters == 0:
+            transitionmap.write("Run ")
+            transitionmap.write(str(count+1))
+            transitionmap.write(":\n\n")
         if line[0] == ">":
             if line[11:17] != "idling":
                 iters += 1
@@ -26,9 +30,10 @@ with open("test_v2.txt", "r") as f:
             transitionmap.write(str(iters))
             transitionmap.write("\nNumber of transitions: ")
             transitionmap.write(str(transitions))
-            transitionmap.write("\n\n\n\nRun ")
-            transitionmap.write(str(count+1))
-            transitionmap.write(":\n\n")
+            transitionmap.write("\n\n\n\n")
+            #transitionmap.write(str(count+1))
+            #transitionmap.write(":\n\n")
             iters = 0
             transitions = 0
+
 
