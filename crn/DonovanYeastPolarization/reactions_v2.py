@@ -1438,33 +1438,22 @@ import subprocess
 
 ivy_to_cpp_command = subprocess.Popen(["ivy_to_cpp", "isolate=iso_proto", "target=test", "build=true", "test_v2.ivy"])
 ivy_to_cpp_command.wait()
-#iterations = subprocess.Popen(["550"])
-#iterations.wait()
-#runs_wanted = subprocess.Popen(["5"])
-#runs_wanted.wait()
 import os
 print("starting to run randomized testing and store the results")
 os.system("./test_v2 >test_v2.txt")
-#execution = subprocess.Popen(["./test_v2>test_v2.txt"])
-#execution.wait()
 print("finished randomized testing")
-#nextscript = subprocess.Popen(["python3", "file_reader.py"])
-#nextscript.wait()
 
 reaction_exec_count = []
 
 for x in range(numofreactions):
     reaction_exec_count.append(0)
 
-#count = 0
-#for obj in reaction_exec_count:
-    #print(str(count), ":", str(reaction_exec_count[count]))
-    #count += 1
-    #print(obj)
 
 iters = 0
 
 transitions = 0
+
+tracelist = open("trace_list.txt", "w")
 
 transitionmap = open("reaction_list.txt", "w")
 
@@ -1472,7 +1461,6 @@ count3 = 0
 
 with open("test_v2.txt", "r") as f:
     count = 0
-    #transitionmap.write("Run 1:\n\n")
     while True:
         count3 += 1
         line = f.readline()
@@ -1490,9 +1478,8 @@ with open("test_v2.txt", "r") as f:
                 transitions += 1
                 transitionmap.write(line[24:26])
                 transitionmap.write("\t")
-                #print(count3, ":", line[25])
-                #print(int(line[25])-1)
-                #reaction_exec_count[0] += 1
+                tracelist.write(line[24:26])
+                tracelist.write("\t")
                 reaction_exec_count[int(line[25])-1] += 1
         if line[0] == "t":
             count = count + 1
@@ -1506,13 +1493,16 @@ with open("test_v2.txt", "r") as f:
             for x in range(numofreactions):
                 transitionmap.write("\nr")
                 transitionmap.write(str(x+1))
-                transitionmap.write("executions are ")
+                transitionmap.write("executions: ")
                 transitionmap.write(str(reaction_exec_count[x]))
                 reaction_exec_count[x] = 0
             transitionmap.write("\n\n\n\n")
-            #transitionmap.write(str(count+1))
-            #transitionmap.write(":\n\n")
+            tracelist.write("\n")
             iters = 0
             transitions = 0
 
-print("The traces recorded and the information on those traces are stored in 'reaction_list.txt'")
+print("\nThe traces recorded and the information on those traces are stored in 'reaction_list.txt'")
+print("\nThe traces by themselves are found in 'trace_list.txt'")
+transitionmap.close()
+
+tracelist.close()
