@@ -1457,6 +1457,8 @@ with open("test_v2.txt", "r") as f:
             if line[11:17] != "idling":
                 first_iters += 1
 
+print("The iters recorded for this initial example is", first_iters)
+
 ######
 ivy_file = open("test_v2.ivy", "w")
 
