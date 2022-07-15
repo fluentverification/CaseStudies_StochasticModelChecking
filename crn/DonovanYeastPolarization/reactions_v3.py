@@ -2605,10 +2605,11 @@ runswanted = input("How many traces do you want to the target specified? (Type a
 print("starting to run rest of tests")
 firsthalf = "./test_v2 iters="
 middle = str(first_iters*2)
-middle2 = "runs="
+middle2 = " runs="
 secondhalf = " >test_v2.txt"
 firstpart = firsthalf + middle + middle2 + runswanted
 fullstring = firstpart + secondhalf
+print(fullstring)
 os.system(fullstring)
 print("finished randomized testing")
 
