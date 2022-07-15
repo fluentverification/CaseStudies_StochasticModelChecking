@@ -2597,11 +2597,15 @@ import subprocess
 ivy_to_cpp_command = subprocess.Popen(["ivy_to_cpp", "isolate=iso_proto", "target=test", "build=true", "test_v2.ivy"])
 ivy_to_cpp_command.wait()
 import os
+
+runswanted = input("How many traces do you want to the target specified? (Type an integer greater than 0): ")
+
 print("starting to run rest of tests")
 firsthalf = "./test_v2 iters="
 middle = str(first_iters*2)
+middle2 = "runs="
 secondhalf = " >test_v2.txt"
-firstpart = firsthalf + middle
+firstpart = firsthalf + middle + middle2 + runswanted
 fullstring = firstpart + secondhalf
 os.system(fullstring)
 print("finished randomized testing")
