@@ -1442,7 +1442,7 @@ ivy_to_cpp_command = subprocess.Popen(["ivy_to_cpp", "isolate=iso_proto", "targe
 ivy_to_cpp_command.wait()
 import os
 print("starting to run initial test")
-os.system("./test_v2 seed=367 iters=10000000 >test_v2.txt")
+os.system("./test_v2 seed=367 iters=10000000 runs=1 >test_v2.txt")
 print("finished initial test")
 
 first_iters = 0
@@ -1456,6 +1456,10 @@ with open("test_v2.txt", "r") as f:
         if line[0] == ">":
             if line[11:17] != "idling":
                 first_iters += 1
+
+if first_iters >= 10000000:
+    print("Trace not found to specified target from randomized testing")
+    exit()
 
 print("The iters recorded for this initial example is", first_iters)
 
