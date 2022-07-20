@@ -23,7 +23,7 @@ class secondtarget:
         self.min_amount = min_amount
 
 Reactions = []
-for x in range(numofreactions):
+for x in range(numofreactions):     #Reads in all the reactions (accepts up to two reactants and two products)
     print("\n\n","reaction",x+1, ": \n")
     firstreactant = input("What is the first reactant (if no reactants type 'NA' or leave blank): ")
     if(firstreactant.lower() == "na" or firstreactant == ""):
@@ -73,7 +73,7 @@ for x in range(numofreactions):
 print("\n\nThe follwing reactions will be considered in the model:\n")
 
 count = 0
-for obj in Reactions:
+for obj in Reactions: #Prints each of the reactions that have been recorded
     count = count + 1
     if (obj.reactant1num >= 1 and obj.reactant2num >= 1 and obj.product1num >= 1 and obj.product2num >= 1):
         print(str(count),": ",obj.reactant1num,obj.reactant1," + ",obj.reactant2num, obj.reactant2," -> ", obj.product1num,obj.product1," + ", obj.product2num,obj.product2)
@@ -95,7 +95,7 @@ for obj in Reactions:
 print("\n")
 spec = []
 
-for obj in Reactions:
+for obj in Reactions: #adds all the species recorded in the reactions to a list
     if (obj.reactant1 not in spec and obj.reactant1 != ""):
         spec.append(obj.reactant1)
     if (obj.reactant2 not in spec and obj.reactant2 != ""):
@@ -107,27 +107,29 @@ for obj in Reactions:
 
 specieslist = []
 
-for obj in spec:
+for obj in spec: #intial value of each species is asked for and recorded
     print("What is the initial value of", obj, "?")
     val = int(input())
     specieslist.append(species(val, obj))
 
 print("The initial values reported are:")
 
-for obj in specieslist:
+for obj in specieslist: #initial values reported are displayed
     print(obj.name,"=",obj.value)
 
 print("\n")
 
-targetspecies = input("Which species is going to be monitored? ")
+targetspecies = input("Which species is going to be monitored? ") #target species identified
 if(targetspecies not in spec):
     print("Error, species specified not found in the reactions reported please start over")
     exit()
-targetnum = input("What is the target number for this species? ")
+targetnum = input("What is the target number for this species? ") #target number also identified
 
 print("\n\nWhich option is your desired guard?\n\n","1:", targetspecies, ">=", targetnum, "\n 2:", targetspecies, ">", targetnum, "\n 3:", targetspecies, "<=", targetnum,"\n 4:", targetspecies, "<", targetnum,"\n 5:", targetspecies, "=", targetnum) 
 
 upordown = input("\n\n(Please type an integer corresponding to your desired guard):  ")
+
+#guard is chosen
 
 if upordown == "5":
     for obj in specieslist:
@@ -166,7 +168,7 @@ for obj in specieslist:
             exit()
 
 secondtargetlist = []
-if upordown == "1" or upordown == "2":
+if upordown == "1" or upordown == "2": #reactions that directly affect the target species have 10 added or subtracted from their priority
     for obj in Reactions:
         if obj.product1 == targetspecies or obj.product2 == targetspecies:
             obj.priority = obj.priority + 10
@@ -180,7 +182,7 @@ elif upordown == "3" or upordown == "4":
             obj.priority = obj.priority + 10
 
 
-for obj in Reactions:
+for obj in Reactions:       #secondary target species identified and added to a list of secondary target species, also given min_amount value (amount needed for reaction to fire enough times to get to target state)
     if upordown == "1" or upordown == "2":
         if obj.priority >= 25:
             if obj.reactant1 != "" and obj.reactant2 != "":
@@ -235,7 +237,7 @@ for obj in Reactions:
                                 secondtargetlist.append(secondtarget(obj.reactant2, obj.reactant2num * abs(int(targetnum) - tar.value)/obj.reactant1num))
             
  
-for obj in Reactions:
+for obj in Reactions:          #every reaction that consumes a secondary target has its priority modified
     if obj.priority < 25:
         for tar in secondtargetlist:
             for species in specieslist:
@@ -267,7 +269,7 @@ for obj in Reactions:
                             obj.priority = obj.priority - 5
 
         
-for obj in Reactions:
+for obj in Reactions:       #every reaction that produces a secondary target has its priority modified
     if obj.priority < 25:
         for tar in secondtargetlist:
             for species in specieslist:
@@ -298,11 +300,11 @@ for obj in Reactions:
 print("\n\nThe following priorities have been noted for the reactions: \n")
 
 count = 0
-for obj in Reactions:
+for obj in Reactions: #each reactions priority is displayed
     count = count + 1
     print("reaction", str(count), ":", str(obj.priority))
 
-ivy_file = open("test_v2.ivy", "w")
+ivy_file = open("test_v2.ivy", "w") #an ivy model for the CRN is made to have assertion failure at first idling action
 
 ivy_file.write("#lang ivy 1.7\n\nobject updater = {\n")
 ivy_file.write("\ttype num\n\tinterpret num -> bv[10]\n\ttype exec_var\n\tinterpret exec_var -> bv[8]\n\ttype exec_stage\n\tinterpret exec_stage -> bv[3]\n\n\taction incr(x:num) returns(y:num) = {\n\t\ty := x + 1\n\t}\n\n\taction decr(x:num) returns(y:num) = {\n\t\ty := x - 1\n\t}\n}")
@@ -1434,7 +1436,7 @@ for obj in Reactions:
 
 ivy_file.write("\nisolate iso_proto = protocol with enabled_checker, updater, goal, selector, inspector")
 
-ivy_file.close()
+ivy_file.close()        #ivy model complete
 
 import subprocess
 
@@ -1443,11 +1445,11 @@ ivy_to_cpp_command.wait()
 import os
 print("starting to run initial test")
 os.system("./test_v2 seed=367 iters=10000000 runs=1 >test_v2.txt")
-print("finished initial test")
+print("finished initial test") #test is run and results are stored in test_v2.txt
 
 first_iters = 0
 
-with open("test_v2.txt", "r") as f:
+with open("test_v2.txt", "r") as f: #The amount of iters needed to reach the goal in the first example is recorded
     count = 0
     while True:
         line = f.readline()
@@ -1464,7 +1466,7 @@ if first_iters >= 10000000:
 print("The iters recorded for this initial example is", first_iters)
 
 ######
-ivy_file = open("test_v2.ivy", "w")
+ivy_file = open("test_v2.ivy", "w") #another ivy model is created that will not have assertion failure
 
 ivy_file.write("#lang ivy 1.7\n\nobject updater = {\n")
 ivy_file.write("\ttype num\n\tinterpret num -> bv[10]\n\ttype exec_var\n\tinterpret exec_var -> bv[8]\n\ttype exec_stage\n\tinterpret exec_stage -> bv[3]\n\n\taction incr(x:num) returns(y:num) = {\n\t\ty := x + 1\n\t}\n\n\taction decr(x:num) returns(y:num) = {\n\t\ty := x - 1\n\t}\n}")
@@ -2596,7 +2598,7 @@ for obj in Reactions:
 
 ivy_file.write("\nisolate iso_proto = protocol with enabled_checker, updater, goal, selector, inspector")
 
-ivy_file.close()
+ivy_file.close() #ivy model complete
 
 import subprocess
 
@@ -2604,7 +2606,7 @@ ivy_to_cpp_command = subprocess.Popen(["ivy_to_cpp", "isolate=iso_proto", "targe
 ivy_to_cpp_command.wait()
 import os
 
-runswanted = input("How many traces do you want to the target specified? (Type an integer greater than 0): ")
+runswanted = input("How many traces do you want to the target specified? (Type an integer greater than 0): ") #Amount of traces desired is recorded
 
 print("starting to run rest of tests")
 firsthalf = "./test_v2 iters="
@@ -2615,9 +2617,7 @@ firstpart = firsthalf + middle + middle2 + runswanted
 fullstring = firstpart + secondhalf
 print(fullstring)
 os.system(fullstring)
-print("finished randomized testing")
-
-######
+print("finished randomized testing")#More tests run with twice the amount of iters needed for the first test, for the specified number of traces wanted by the user
 
 reaction_exec_count = []
 
@@ -2629,9 +2629,9 @@ iters = 0
 
 transitions = 0
 
-tracelist = open("trace_list.txt", "w")
+tracelist = open("trace_list.txt", "w") #The traces by themselves are recorded in 'trace_list.txt'
 
-transitionmap = open("reaction_list.txt", "w")
+transitionmap = open("reaction_list.txt", "w")  #The traces and additional information is stored in 'reactoin_list.txt'
 
 count3 = 0
 
