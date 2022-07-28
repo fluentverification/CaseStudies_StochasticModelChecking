@@ -2722,14 +2722,14 @@ with open("reaction_list.txt", "r") as f:
                     Total[x] = Total[x] + int(line[14])
                     iterations[x].append(int(line[14]))
 
-print("\n\nAverage num of transitions is:", str(Totaltran/runswanted))
-print("\nThe biggest num of transitions recorded is:", max(Totaltranlist))
-print("\nThe smallest num of transitions recorded is:", min(Totaltranlist))
-print("\n\nAverage num of iters is:", str(Totaliter/runswanted))
-print("\nThe biggest num of iters recorded is:", max(Totaliterlist))
-print("\nThe smallest num of iters recorded is:", min(Totaliterlist))
+print("\n\nAverage number of transitions in a trace is:", Totaltran/int(runswanted))
+print("\nThe biggest number of transitions recorded in a trace is:", max(Totaltranlist))
+print("\nThe smallest number of transitions recorded in a trace is:", min(Totaltranlist))
+print("\n\nAverage number of iterations needed in a trace is:", Totaliter/int(runswanted))
+print("\nThe biggest number of iterations needed for a trace was:", max(Totaliterlist))
+print("\nThe smallest number of iterations needed for a trace was:", min(Totaliterlist))
 
 for x in range(numofreactions):
-    print("\n\nAverage number of reaction", x+1, "executions is:", str(Total[x]/runswanted))
-    print("\nThe biggest number of reaction", x+1, "executions recorded is:", max(iterations[x]))
-    print("\nThe smallest number of reaction", x+1, "executions recorded is:", min(iterations[x]))
+    print("\n\nAverage number of reaction", x+1, "executions in a trace is:", Total[x]/int(runswanted))
+    print("\nThe biggest number of reaction", x+1, "executions recorded in a trace is:", max(iterations[x]))
+    print("\nThe smallest number of reaction", x+1, "executions recorded in a trace is:", min(iterations[x]))
