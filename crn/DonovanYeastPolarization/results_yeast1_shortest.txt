@@ -221,7 +221,7 @@ yeast1.ivy: line 96:
     rl := rl + 1
 
     [
-        rl = 17
+        rl = 16
     ]
 }
 
@@ -866,13 +866,13 @@ yeast1.ivy: line 68:
     ga := ga + 1
 
     [
-        ga = 17
+        ga = 16
     ]
 yeast1.ivy: line 69: 
     gbg := gbg + 1
 
     [
-        gbg = 17
+        gbg = 16
     ]
 }
 
@@ -883,7 +883,7 @@ yeast1.ivy: line 66:
     rl := rl - 1
 
     [
-        rl = 17
+        rl = 16
     ]
 yeast1.ivy: line 67: 
     g := g - 1
@@ -1492,7 +1492,7 @@ yeast1.ivy: line 67:
     g := g - 1
 
     [
-        g = 17
+        g = 16
     ]
 yeast1.ivy: line 68: 
     ga := ga + 1
