@@ -2636,23 +2636,24 @@ for obj in Reactions:
             ivy_file.write(str(count))
             count1 = 0
             count2 = 0
-            for x in Reactions:
-                count1 += 1
-                if x.priority > 15 and x.priority < 25:
-                    count2 += 1
-                    if count2 == 1:
-                        ivy_file.write(";\n\t\tassert (r")
-                        ivy_file.write(str(count1))
-                        ivy_file.write("_executions")
-                    if count2 >= 2:
-                        ivy_file.write(" + r")
-                        ivy_file.write(str(count1))
-                        ivy_file.write("_executions")
-                if count1 == numofreactions:
-                    ivy_file.write(") < ")
-                    ivy_file.write(str(targetnum + 1)) #this needs to modified to be universal
-            if obj.priority <= 17:
-                ivy_file.write(";\n\t\tassert false")
+            if obj.priority < 25:
+                for x in Reactions:
+                    count1 += 1
+                    if x.priority > 15 and x.priority < 25:
+                        count2 += 1
+                        if count2 == 1:
+                            ivy_file.write(";\n\t\tassert (r")
+                            ivy_file.write(str(count1))
+                            ivy_file.write("_executions")
+                        if count2 >= 2:
+                            ivy_file.write(" + r")
+                            ivy_file.write(str(count1))
+                            ivy_file.write("_executions")
+                    if count1 == numofreactions:
+                        ivy_file.write(") < ")
+                        ivy_file.write(str(targetnum)) #this needs to modified to be universal
+                if obj.priority <= 17:
+                    ivy_file.write(";\n\t\tassert false")
             ivy_file.write("\n\t}\n\t")
         elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 == ""):
             ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r")
@@ -2663,23 +2664,24 @@ for obj in Reactions:
             ivy_file.write(")")
             count1 = 0
             count2 = 0
-            for x in Reactions:
-                count1 += 1
-                if x.priority > 15 and x.priority < 25:
-                    count2 += 1
-                    if count2 == 1:
-                        ivy_file.write(";\n\t\tassert (r")
-                        ivy_file.write(str(count1))
-                        ivy_file.write("_executions")
-                    if count2 >= 2:
-                        ivy_file.write(" + r")
-                        ivy_file.write(str(count1))
-                        ivy_file.write("_executions")
-                if count1 == numofreactions:
-                    ivy_file.write(") < ")
-                    ivy_file.write(str(targetnum + 1)) #this needs to modified to be universal
-            if obj.priority <= 17:
-                ivy_file.write(";\n\t\tassert false")
+            if obj.priority < 25:
+                for x in Reactions:
+                    count1 += 1
+                    if x.priority > 15 and x.priority < 25:
+                        count2 += 1
+                        if count2 == 1:
+                            ivy_file.write(";\n\t\tassert (r")
+                            ivy_file.write(str(count1))
+                            ivy_file.write("_executions")
+                        if count2 >= 2:
+                            ivy_file.write(" + r")
+                            ivy_file.write(str(count1))
+                            ivy_file.write("_executions")
+                    if count1 == numofreactions:
+                        ivy_file.write(") < ")
+                        ivy_file.write(str(targetnum)) #this needs to modified to be universal
+                if obj.priority <= 17:
+                    ivy_file.write(";\n\t\tassert false")
             ivy_file.write("\n\t}\n\t")
         elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 != ""):
             ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r")
@@ -2693,23 +2695,24 @@ for obj in Reactions:
             ivy_file.write(")")
             count1 = 0
             count2 = 0
-            for x in Reactions:
-                count1 += 1
-                if x.priority > 15 and x.priority < 25:
-                    count2 += 1
-                    if count2 == 1:
-                        ivy_file.write(";\n\t\tassert (r")
-                        ivy_file.write(str(count1))
-                        ivy_file.write("_executions")
-                    if count2 >= 2:
-                        ivy_file.write(" + r")
-                        ivy_file.write(str(count1))
-                        ivy_file.write("_executions")
-                if count1 == numofreactions:
-                    ivy_file.write(") < ")
-                    ivy_file.write(str(targetnum + 1)) #this needs to modified to be universal
-            if obj.priority <= 17:
-                ivy_file.write(";\n\t\tassert false")
+            if obj.priority < 25:
+                for x in Reactions:
+                    count1 += 1
+                    if x.priority > 15 and x.priority < 25:
+                        count2 += 1
+                        if count2 == 1:
+                            ivy_file.write(";\n\t\tassert (r")
+                            ivy_file.write(str(count1))
+                            ivy_file.write("_executions")
+                        if count2 >= 2:
+                            ivy_file.write(" + r")
+                            ivy_file.write(str(count1))
+                            ivy_file.write("_executions")
+                    if count1 == numofreactions:
+                        ivy_file.write(") < ")
+                        ivy_file.write(str(targetnum)) #this needs to modified to be universal
+                if obj.priority <= 17:
+                    ivy_file.write(";\n\t\tassert false")
             ivy_file.write("\n\t}\n\n\t")
 
 
@@ -2750,7 +2753,7 @@ runswanted = input("How many traces do you want to the target specified? (Type a
 
 print("starting to run rest of tests")
 firsthalf = "./test_v2 iters="
-middle = str(first_iters*2)
+middle = str(first_iters*1.25)
 middle2 = " runs="
 secondhalf = " >test_v2.txt"
 firstpart = firsthalf + middle + middle2 + runswanted

@@ -19,7 +19,7 @@ r6iters = []
 r7iters = []
 r8iters = []
 
-with open("250Runs_reaction_list.txt", "r") as f:
+with open("test2_reaction_list.txt", "r") as f:
     count = 0
     while True:
         line = f.readline()
