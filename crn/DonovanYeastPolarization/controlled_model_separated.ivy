@@ -755,7 +755,6 @@ object protocol = {
 
 	before update_r3 {
 		assert idle = 0;
-		assert r3_executions + r8_executions < 50;
 		assert enabled_checker.is_enabled_r3(r,l);
 	}
 
@@ -781,7 +780,6 @@ object protocol = {
 
 	before update_r8 {
 		assert idle = 0;
-		assert r3_executions + r8_executions < 50;
 		assert enabled_checker.is_enabled_r8(rl);
 	}
 
