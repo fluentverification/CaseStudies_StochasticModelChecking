@@ -2166,7 +2166,7 @@ for obj in Reactions:
     if obj.priority > 15:
         ivy_file.write("r")
         ivy_file.write(str(count))
-        ivy_file.write("_executions = 0;\n\t\t")
+        ivy_file.write("_executions := 0;\n\t\t")
 
 ivy_file.write("idle := 0\n\t}\n\n\t")
 
