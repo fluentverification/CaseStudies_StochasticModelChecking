@@ -2606,7 +2606,7 @@ for obj in Reactions:
             ivy_file.write("\n\t}\n\n\t")
 
 
-ivy_file.write("\n\n\tbefore idling {\n\t\tassert idle = 1\n\t}")#\n}\n")
+ivy_file.write("\n\n\tbefore idling {\n\t\tassert idle = 1\n\t}\n}\n")
 
 #ivy_file.write("\n\n\tafter idling {\n\t\tassert idle = 0\n\t}\n}\n") #this causes assertion failure for the first run
 
