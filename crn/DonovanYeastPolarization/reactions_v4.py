@@ -2143,6 +2143,13 @@ for obj in spec:
     ivy_file.write(obj)
     ivy_file.write(" : updater.num\n")
 
+for obj in Reactions:
+    count = count + 1
+    if obj.priority > 15:
+        ivy_file.write("\t individual r")
+        ivy_file.write(str(count))
+        ivy_file.write("_executions : updater.num\n")
+
 ivy_file.write("\n\tafter init {\n\t\t")
 
 for obj in specieslist:
@@ -2151,6 +2158,13 @@ for obj in specieslist:
     ivy_file.write(" := ")
     ivy_file.write(str(obj.value))
     ivy_file.write(";\n\t\t")
+
+for obj in Reactions:
+    count = count + 1
+    if obj.priority > 15:
+        ivy_file.write("r")
+        ivy_file.write(str(count))
+        ivy_file.write("_executions = 0;\n\t\t")
 
 ivy_file.write("idle := 0\n\t}\n\n\t")
 
@@ -2193,6 +2207,11 @@ for obj in Reactions:
                 ivy_file.write(targetspecies)
                 ivy_file.write(")\n\t\t\t}\n\t\t")
             else:
+                ivy_file.write(";\n\t\t\tr")
+                ivy_file.write(str(count))
+                ivy_file.write("_executions := updater.incr(r")
+                ivy_file.write(str(count))
+                ivy_file.write("_executions)")
                 ivy_file.write("\n\t\t")
             ivy_file.write("}\n\t}\n\n\t")
         elif(obj.reactant1 == "" and obj.product1 != "" and obj.product2 != ""):
@@ -2238,6 +2257,11 @@ for obj in Reactions:
                 ivy_file.write(targetspecies)
                 ivy_file.write(")\n\t\t\t}\n\t\t")
             else:
+                ivy_file.write(";\n\t\t\tr")
+                ivy_file.write(str(count))
+                ivy_file.write("_executions := updater.incr(r")
+                ivy_file.write(str(count))
+                ivy_file.write("_executions)")
                 ivy_file.write("\n\t\t")
             ivy_file.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 == ""):
@@ -2279,6 +2303,11 @@ for obj in Reactions:
                 ivy_file.write(targetspecies)
                 ivy_file.write(")\n\t\t\t}\n\t\t")
             else:
+                ivy_file.write(";\n\t\t\tr")
+                ivy_file.write(str(count))
+                ivy_file.write("_executions := updater.incr(r")
+                ivy_file.write(str(count))
+                ivy_file.write("_executions)")
                 ivy_file.write("\n\t\t")
             ivy_file.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 != "" and obj.product2 == ""):
@@ -2328,6 +2357,11 @@ for obj in Reactions:
                 ivy_file.write(targetspecies)
                 ivy_file.write(")\n\t\t\t}\n\t\t")
             else:
+                ivy_file.write(";\n\t\t\tr")
+                ivy_file.write(str(count))
+                ivy_file.write("_executions := updater.incr(r")
+                ivy_file.write(str(count))
+                ivy_file.write("_executions)")
                 ivy_file.write("\n\t\t")
             ivy_file.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 != "" and obj.product2 != ""):
@@ -2385,6 +2419,11 @@ for obj in Reactions:
                 ivy_file.write(targetspecies)
                 ivy_file.write(")\n\t\t\t}\n\t\t")
             else:
+                ivy_file.write(";\n\t\t\tr")
+                ivy_file.write(str(count))
+                ivy_file.write("_executions := updater.incr(r")
+                ivy_file.write(str(count))
+                ivy_file.write("_executions)")
                 ivy_file.write("\n\t\t")
             ivy_file.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 == ""):
@@ -2437,6 +2476,11 @@ for obj in Reactions:
                 ivy_file.write(targetspecies)
                 ivy_file.write(")\n\t\t\t}\n\t\t")
             else:
+                ivy_file.write(";\n\t\t\tr")
+                ivy_file.write(str(count))
+                ivy_file.write("_executions := updater.incr(r")
+                ivy_file.write(str(count))
+                ivy_file.write("_executions)")
                 ivy_file.write("\n\t\t")
             ivy_file.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 != "" and obj.product2 == ""):
@@ -2497,6 +2541,11 @@ for obj in Reactions:
                 ivy_file.write(targetspecies)
                 ivy_file.write(")\n\t\t\t}\n\t\t")
             else:
+                ivy_file.write(";\n\t\t\tr")
+                ivy_file.write(str(count))
+                ivy_file.write("_executions := updater.incr(r")
+                ivy_file.write(str(count))
+                ivy_file.write("_executions)")
                 ivy_file.write("\n\t\t")
             ivy_file.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 != "" and obj.product2 != ""):
@@ -2565,11 +2614,18 @@ for obj in Reactions:
                 ivy_file.write(targetspecies)
                 ivy_file.write(")\n\t\t\t}\n\t\t")
             else:
+                ivy_file.write(";\n\t\t\tr")
+                ivy_file.write(str(count))
+                ivy_file.write("_executions := updater.incr(r")
+                ivy_file.write(str(count))
+                ivy_file.write("_executions)")
                 ivy_file.write("\n\t\t")
             ivy_file.write("}\n\t}\n\n\t")
 
 ivy_file.write("\n\n\taction idling = {}\n\n\t")
 count = 0
+count1 = 0
+count2 = 0
 for obj in Reactions:
     count = count + 1
     if obj.priority > 15:
@@ -2578,7 +2634,22 @@ for obj in Reactions:
         if (Reactions[count-1].reactant1 == ""):
             ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r")
             ivy_file.write(str(count))
-            if obj.priority <= 6:
+            for x in Reactions:
+                count1 += 1
+                if x.priority > 15 and x.priority < 25:
+                    count2 += 1
+                    if count2 == 1:
+                        ivy_file.write(";\n\t\tassert r")
+                        ivy_file.write(str(count1))
+                        ivy_file.write("_executions")
+                    if count2 >= 2:
+                        ivy_file.write(" + r")
+                        ivy_file.write(str(count1))
+                        ivy_file.write("_executions")
+                if count1 == numofreactions:
+                    ivy_file.write(" < ")
+                    ivy_file.write(str(targetnum)) #this needs to modified to be universal
+            if obj.priority <= 17:
                 ivy_file.write(";\n\t\tassert false")
             ivy_file.write("\n\t}\n\t")
         elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 == ""):
@@ -2588,7 +2659,7 @@ for obj in Reactions:
             ivy_file.write("r_")
             ivy_file.write(Reactions[count-1].reactant1)
             ivy_file.write(")")
-            if obj.priority <= 6:
+            if obj.priority <= 17:
                 ivy_file.write(";\n\t\tassert false")
             ivy_file.write("\n\t}\n\t")
         elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 != ""):
@@ -2601,7 +2672,7 @@ for obj in Reactions:
             ivy_file.write("r_")
             ivy_file.write(Reactions[count-1].reactant2)
             ivy_file.write(")")
-            if obj.priority <= 6:
+            if obj.priority <= 17:
                 ivy_file.write(";\n\t\tassert false")
             ivy_file.write("\n\t}\n\n\t")
 

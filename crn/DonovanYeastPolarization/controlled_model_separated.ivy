@@ -652,6 +652,9 @@ object protocol = {
 	individual gbg : updater.num
 	individual gd : updater.num
 
+	individual r3_executions: updater.num
+	individual r8_executions: updater.num
+
 	after init {
 		r := 50;
 		l := 2;
@@ -660,6 +663,9 @@ object protocol = {
 		ga := 0;
 		gbg := 0;
 		gd := 0;
+
+		r3_executions = 0;
+		r8_executions = 0;
 
 		idle := 0 
 	}
@@ -681,6 +687,7 @@ object protocol = {
 	action update_r3 = {
 		if selector.execute_r3 {
 			call inspector.check_guard_r3(r,l,rl);
+			r3_executions := updater.incr(r3_executions);
 			r := updater.decr(r);
 			l := updater.decr(l);
 			rl := updater.incr(rl);
@@ -729,6 +736,7 @@ object protocol = {
 	action update_r8 = {
 		if selector.execute_r8 {
 			call inspector.check_guard_r8(rl);
+			r8_executions := updater.incr(r8_executions);
 			rl := updater.incr(rl)
 		}
 	}
@@ -747,6 +755,7 @@ object protocol = {
 
 	before update_r3 {
 		assert idle = 0;
+		assert r3_executions + r8_executions < 50;
 		assert enabled_checker.is_enabled_r3(r,l);
 	}
 
@@ -772,6 +781,7 @@ object protocol = {
 
 	before update_r8 {
 		assert idle = 0;
+		assert r3_executions + r8_executions < 50;
 		assert enabled_checker.is_enabled_r8(rl);
 	}
 
