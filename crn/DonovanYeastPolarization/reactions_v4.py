@@ -2143,10 +2143,11 @@ for obj in spec:
     ivy_file.write(obj)
     ivy_file.write(" : updater.num\n")
 
+count = 0
 for obj in Reactions:
     count = count + 1
     if obj.priority > 15:
-        ivy_file.write("\t individual r")
+        ivy_file.write("\tindividual r")
         ivy_file.write(str(count))
         ivy_file.write("_executions : updater.num\n")
 
@@ -2159,6 +2160,7 @@ for obj in specieslist:
     ivy_file.write(str(obj.value))
     ivy_file.write(";\n\t\t")
 
+count = 0
 for obj in Reactions:
     count = count + 1
     if obj.priority > 15:
@@ -2624,8 +2626,6 @@ for obj in Reactions:
 
 ivy_file.write("\n\n\taction idling = {}\n\n\t")
 count = 0
-count1 = 0
-count2 = 0
 for obj in Reactions:
     count = count + 1
     if obj.priority > 15:
@@ -2634,6 +2634,8 @@ for obj in Reactions:
         if (Reactions[count-1].reactant1 == ""):
             ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r")
             ivy_file.write(str(count))
+            count1 = 0
+            count2 = 0
             for x in Reactions:
                 count1 += 1
                 if x.priority > 15 and x.priority < 25:
@@ -2659,6 +2661,23 @@ for obj in Reactions:
             ivy_file.write("r_")
             ivy_file.write(Reactions[count-1].reactant1)
             ivy_file.write(")")
+            count1 = 0
+            count2 = 0
+            for x in Reactions:
+                count1 += 1
+                if x.priority > 15 and x.priority < 25:
+                    count2 += 1
+                    if count2 == 1:
+                        ivy_file.write(";\n\t\tassert r")
+                        ivy_file.write(str(count1))
+                        ivy_file.write("_executions")
+                    if count2 >= 2:
+                        ivy_file.write(" + r")
+                        ivy_file.write(str(count1))
+                        ivy_file.write("_executions")
+                if count1 == numofreactions:
+                    ivy_file.write(" < ")
+                    ivy_file.write(str(targetnum)) #this needs to modified to be universal
             if obj.priority <= 17:
                 ivy_file.write(";\n\t\tassert false")
             ivy_file.write("\n\t}\n\t")
@@ -2672,6 +2691,23 @@ for obj in Reactions:
             ivy_file.write("r_")
             ivy_file.write(Reactions[count-1].reactant2)
             ivy_file.write(")")
+            count1 = 0
+            count2 = 0
+            for x in Reactions:
+                count1 += 1
+                if x.priority > 15 and x.priority < 25:
+                    count2 += 1
+                    if count2 == 1:
+                        ivy_file.write(";\n\t\tassert r")
+                        ivy_file.write(str(count1))
+                        ivy_file.write("_executions")
+                    if count2 >= 2:
+                        ivy_file.write(" + r")
+                        ivy_file.write(str(count1))
+                        ivy_file.write("_executions")
+                if count1 == numofreactions:
+                    ivy_file.write(" < ")
+                    ivy_file.write(str(targetnum)) #this needs to modified to be universal
             if obj.priority <= 17:
                 ivy_file.write(";\n\t\tassert false")
             ivy_file.write("\n\t}\n\n\t")
