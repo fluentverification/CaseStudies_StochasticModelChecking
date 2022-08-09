@@ -2698,7 +2698,7 @@ for obj in Reactions:
                 if x.priority > 15 and x.priority < 25:
                     count2 += 1
                     if count2 == 1:
-                        ivy_file.write(";\n\t\tassert r")
+                        ivy_file.write(";\n\t\tassert (r")
                         ivy_file.write(str(count1))
                         ivy_file.write("_executions")
                     if count2 >= 2:
@@ -2706,7 +2706,7 @@ for obj in Reactions:
                         ivy_file.write(str(count1))
                         ivy_file.write("_executions")
                 if count1 == numofreactions:
-                    ivy_file.write(" < ")
+                    ivy_file.write(") < ")
                     ivy_file.write(str(targetnum)) #this needs to modified to be universal
             if obj.priority <= 17:
                 ivy_file.write(";\n\t\tassert false")
