@@ -2645,7 +2645,7 @@ for obj in Reactions:
                         ivy_file.write(str(count1))
                         ivy_file.write("_executions")
                         ivy_file.write(" * ")
-                        for x in secondtarget:
+                        for x in secondtargetlist:
                             if obj.product1 == x.name:
                                 ivy_file.write(obj.product1num)
                             elif obj.product2 == x.name:
@@ -2655,7 +2655,7 @@ for obj in Reactions:
                         ivy_file.write(str(count1))
                         ivy_file.write("_executions")
                         ivy_file.write(" * ")
-                        for x in secondtarget:
+                        for x in secondtargetlist:
                             if obj.product1 == x.name:
                                 ivy_file.write(obj.product1num)
                             elif obj.product2 == x.name:
@@ -2702,7 +2702,7 @@ for obj in Reactions:
                         ivy_file.write(str(count1))
                         ivy_file.write("_executions")
                         ivy_file.write(" * ")
-                        for x in secondtarget:
+                        for x in secondtargetlist:
                             if obj.product1 == x.name:
                                 ivy_file.write(obj.product1num)
                             elif obj.product2 == x.name:
@@ -2712,7 +2712,7 @@ for obj in Reactions:
                         ivy_file.write(str(count1))
                         ivy_file.write("_executions")
                         ivy_file.write(" * ")
-                        for x in secondtarget:
+                        for x in secondtargetlist:
                             if obj.product1 == x.name:
                                 ivy_file.write(obj.product1num)
                             elif obj.product2 == x.name:
@@ -2762,7 +2762,7 @@ for obj in Reactions:
                         ivy_file.write(str(count1))
                         ivy_file.write("_executions")
                         ivy_file.write(" * ")
-                        for x in secondtarget:
+                        for x in secondtargetlist:
                             if obj.product1 == x.name:
                                 ivy_file.write(obj.product1num)
                             elif obj.product2 == x.name:
@@ -2772,7 +2772,7 @@ for obj in Reactions:
                         ivy_file.write(str(count1))
                         ivy_file.write("_executions")
                         ivy_file.write(" * ")
-                        for x in secondtarget:
+                        for x in secondtargetlist:
                             if obj.product1 == x.name:
                                 ivy_file.write(obj.product1num)
                             elif obj.product2 == x.name:
