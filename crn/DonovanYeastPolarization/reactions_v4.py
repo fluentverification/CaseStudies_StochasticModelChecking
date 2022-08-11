@@ -2636,33 +2636,6 @@ for obj in Reactions:
             ivy_file.write(str(count))
             count1 = 0
             count2 = 0
-            for x in Reactions:
-                count1 += 1
-                if x.priority > 15 and x.priority < 25:
-                    count2 += 1
-                    if count2 == 1:
-                        ivy_file.write(";\n\t\tassert (r")
-                        ivy_file.write(str(count1))
-                        ivy_file.write("_executions")
-                        ivy_file.write(" * ")
-                        for x in secondtargetlist:
-                            if obj.product1 == x.name:
-                                ivy_file.write(str(obj.product1num))
-                            elif obj.product2 == x.name:
-                                ivy_file.write(str(obj.product2num))
-                    if count2 >= 2:
-                        ivy_file.write(" + r")
-                        ivy_file.write(str(count1))
-                        ivy_file.write("_executions")
-                        ivy_file.write(" * ")
-                        for x in secondtargetlist:
-                            if obj.product1 == x.name:
-                                ivy_file.write(str(obj.product1num))
-                            elif obj.product2 == x.name:
-                                ivy_file.write(str(obj.product2num))
-                if count1 == numofreactions:
-                    ivy_file.write(") < ")
-                    ivy_file.write(str(targetnum)) #this needs to modified to be universal
             if obj.priority <= 17:
                 ivy_file.write(";\n\t\tassert false")
             if obj.priority < 25:
@@ -2704,33 +2677,6 @@ for obj in Reactions:
             ivy_file.write(")")
             count1 = 0
             count2 = 0
-            for x in Reactions:
-                count1 += 1
-                if x.priority > 15 and x.priority < 25:
-                    count2 += 1
-                    if count2 == 1:
-                        ivy_file.write(";\n\t\tassert (r")
-                        ivy_file.write(str(count1))
-                        ivy_file.write("_executions")
-                        ivy_file.write(" * ")
-                        for x in secondtargetlist:
-                            if obj.product1 == x.name:
-                                ivy_file.write(str(obj.product1num))
-                            elif obj.product2 == x.name:
-                                ivy_file.write(str(obj.product2num))
-                    if count2 >= 2:
-                        ivy_file.write(" + r")
-                        ivy_file.write(str(count1))
-                        ivy_file.write("_executions")
-                        ivy_file.write(" * ")
-                        for x in secondtargetlist:
-                            if obj.product1 == x.name:
-                                ivy_file.write(str(obj.product1num))
-                            elif obj.product2 == x.name:
-                                ivy_file.write(str(obj.product2num))
-                if count1 == numofreactions:
-                    ivy_file.write(") < ")
-                    ivy_file.write(str(targetnum)) #this needs to modified to be universal
             if obj.priority <= 17:
                 ivy_file.write(";\n\t\tassert false")
             if obj.priority < 25:
@@ -2774,33 +2720,6 @@ for obj in Reactions:
             ivy_file.write(")")
             count1 = 0
             count2 = 0
-            for x in Reactions:
-                count1 += 1
-                if x.priority > 15 and x.priority < 25:
-                    count2 += 1
-                    if count2 == 1:
-                        ivy_file.write(";\n\t\tassert (r")
-                        ivy_file.write(str(count1))
-                        ivy_file.write("_executions")
-                        ivy_file.write(" * ")
-                        for x in secondtargetlist:
-                            if obj.product1 == x.name:
-                                ivy_file.write(str(obj.product1num))
-                            elif obj.product2 == x.name:
-                                ivy_file.write(str(obj.product2num))
-                    if count2 >= 2:
-                        ivy_file.write(" + r")
-                        ivy_file.write(str(count1))
-                        ivy_file.write("_executions")
-                        ivy_file.write(" * ")
-                        for x in secondtargetlist:
-                            if obj.product1 == x.name:
-                                ivy_file.write(str(obj.product1num))
-                            elif obj.product2 == x.name:
-                                ivy_file.write(str(obj.product2num))
-                if count1 == numofreactions:
-                    ivy_file.write(") < ")
-                    ivy_file.write(str(targetnum)) #this needs to modified to be universal
             if obj.priority <= 17:
                 ivy_file.write(";\n\t\tassert false")
             if obj.priority < 25:
