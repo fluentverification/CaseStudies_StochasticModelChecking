@@ -2665,7 +2665,12 @@ for obj in Reactions:
                                     ivy_file.write(str(y.product2num))
                     if count1 == numofreactions:
                         ivy_file.write(") < ")
-                        ivy_file.write(str(targetnum)) #this needs to modified to be universal
+                        for tar in secondtargetlist:
+                            if tar.name == obj.product1 or tar.name == obj.product2:
+                                for tar2 in specieslist:
+                                    if tar2.name == tar.name:
+                                        needed_amount = tar.min_amount - tar2.value
+                                        ivy_file.write(str(needed_amount)) #this needs to modified to be universal
                 if obj.priority <= 17:
                     ivy_file.write(";\n\t\tassert false")
             ivy_file.write("\n\t}\n\t")
@@ -2707,7 +2712,12 @@ for obj in Reactions:
                                     ivy_file.write(str(y.product2num))
                     if count1 == numofreactions:
                         ivy_file.write(") < ")
-                        ivy_file.write(str(targetnum)) #this needs to modified to be universal
+                        for tar in secondtargetlist:
+                            if tar.name == obj.product1 or tar.name == obj.product2:
+                                for tar2 in specieslist:
+                                    if tar2.name == tar.name:
+                                        needed_amount = tar.min_amount - tar2.value
+                                        ivy_file.write(str(needed_amount)) #this needs to modified to be universal
                 if obj.priority <= 17:
                     ivy_file.write(";\n\t\tassert false")
             ivy_file.write("\n\t}\n\t")
@@ -2752,7 +2762,12 @@ for obj in Reactions:
                                     ivy_file.write(str(y.product2num))
                     if count1 == numofreactions:
                         ivy_file.write(") < ")
-                        ivy_file.write(str(targetnum)) #this needs to modified to be universal
+                        for tar in secondtargetlist:
+                            if tar.name == obj.product1 or tar.name == obj.product2:
+                                for tar2 in specieslist:
+                                    if tar2.name == tar.name:
+                                        needed_amount = tar.min_amount - tar2.value
+                                        ivy_file.write(str(needed_amount)) #this needs to modified to be universal
                 if obj.priority <= 17:
                     ivy_file.write(";\n\t\tassert false")
             ivy_file.write("\n\t}\n\n\t")
