@@ -2647,9 +2647,9 @@ for obj in Reactions:
                         ivy_file.write(" * ")
                         for x in secondtargetlist:
                             if obj.product1 == x.name:
-                                ivy_file.write(obj.product1num)
+                                ivy_file.write(str(obj.product1num))
                             elif obj.product2 == x.name:
-                                ivy_file.write(obj.product2num)
+                                ivy_file.write(str(obj.product2num))
                     if count2 >= 2:
                         ivy_file.write(" + r")
                         ivy_file.write(str(count1))
@@ -2657,9 +2657,9 @@ for obj in Reactions:
                         ivy_file.write(" * ")
                         for x in secondtargetlist:
                             if obj.product1 == x.name:
-                                ivy_file.write(obj.product1num)
+                                ivy_file.write(str(obj.product1num))
                             elif obj.product2 == x.name:
-                                ivy_file.write(obj.product2num)
+                                ivy_file.write(str(obj.product2num))
                 if count1 == numofreactions:
                     ivy_file.write(") < ")
                     ivy_file.write(str(targetnum + 1)) #this needs to modified to be universal
@@ -2674,10 +2674,20 @@ for obj in Reactions:
                             ivy_file.write(";\n\t\tassert (r")
                             ivy_file.write(str(count1))
                             ivy_file.write("_executions")
+                            for x in secondtargetlist:
+                            if obj.product1 == x.name:
+                                ivy_file.write(str(obj.product1num))
+                            elif obj.product2 == x.name:
+                                ivy_file.write(str(obj.product2num))
                         if count2 >= 2:
                             ivy_file.write(" + r")
                             ivy_file.write(str(count1))
                             ivy_file.write("_executions")
+                            for x in secondtargetlist:
+                            if obj.product1 == x.name:
+                                ivy_file.write(str(obj.product1num))
+                            elif obj.product2 == x.name:
+                                ivy_file.write(str(obj.product2num))
                     if count1 == numofreactions:
                         ivy_file.write(") < ")
                         ivy_file.write(str(targetnum)) #this needs to modified to be universal
@@ -2704,9 +2714,9 @@ for obj in Reactions:
                         ivy_file.write(" * ")
                         for x in secondtargetlist:
                             if obj.product1 == x.name:
-                                ivy_file.write(obj.product1num)
+                                ivy_file.write(str(obj.product1num))
                             elif obj.product2 == x.name:
-                                ivy_file.write(obj.product2num)
+                                ivy_file.write(str(obj.product2num))
                     if count2 >= 2:
                         ivy_file.write(" + r")
                         ivy_file.write(str(count1))
@@ -2714,9 +2724,9 @@ for obj in Reactions:
                         ivy_file.write(" * ")
                         for x in secondtargetlist:
                             if obj.product1 == x.name:
-                                ivy_file.write(obj.product1num)
+                                ivy_file.write(str(obj.product1num))
                             elif obj.product2 == x.name:
-                                ivy_file.write(obj.product2num)
+                                ivy_file.write(str(obj.product2num))
                 if count1 == numofreactions:
                     ivy_file.write(") < ")
                     ivy_file.write(str(targetnum + 1)) #this needs to modified to be universal
@@ -2731,10 +2741,20 @@ for obj in Reactions:
                             ivy_file.write(";\n\t\tassert (r")
                             ivy_file.write(str(count1))
                             ivy_file.write("_executions")
+                            for x in secondtargetlist:
+                            if obj.product1 == x.name:
+                                ivy_file.write(str(obj.product1num))
+                            elif obj.product2 == x.name:
+                                ivy_file.write(str(obj.product2num))
                         if count2 >= 2:
                             ivy_file.write(" + r")
                             ivy_file.write(str(count1))
                             ivy_file.write("_executions")
+                            for x in secondtargetlist:
+                            if obj.product1 == x.name:
+                                ivy_file.write(str(obj.product1num))
+                            elif obj.product2 == x.name:
+                                ivy_file.write(str(obj.product2num))
                     if count1 == numofreactions:
                         ivy_file.write(") < ")
                         ivy_file.write(str(targetnum)) #this needs to modified to be universal
@@ -2764,9 +2784,9 @@ for obj in Reactions:
                         ivy_file.write(" * ")
                         for x in secondtargetlist:
                             if obj.product1 == x.name:
-                                ivy_file.write(obj.product1num)
+                                ivy_file.write(str(obj.product1num))
                             elif obj.product2 == x.name:
-                                ivy_file.write(obj.product2num)
+                                ivy_file.write(str(obj.product2num))
                     if count2 >= 2:
                         ivy_file.write(" + r")
                         ivy_file.write(str(count1))
@@ -2774,9 +2794,9 @@ for obj in Reactions:
                         ivy_file.write(" * ")
                         for x in secondtargetlist:
                             if obj.product1 == x.name:
-                                ivy_file.write(obj.product1num)
+                                ivy_file.write(str(obj.product1num))
                             elif obj.product2 == x.name:
-                                ivy_file.write(obj.product2num)
+                                ivy_file.write(str(obj.product2num))
                 if count1 == numofreactions:
                     ivy_file.write(") < ")
                     ivy_file.write(str(targetnum + 1)) #this needs to modified to be universal
@@ -2791,10 +2811,20 @@ for obj in Reactions:
                             ivy_file.write(";\n\t\tassert (r")
                             ivy_file.write(str(count1))
                             ivy_file.write("_executions")
+                            for x in secondtargetlist:
+                            if obj.product1 == x.name:
+                                ivy_file.write(str(obj.product1num))
+                            elif obj.product2 == x.name:
+                                ivy_file.write(str(obj.product2num))
                         if count2 >= 2:
                             ivy_file.write(" + r")
                             ivy_file.write(str(count1))
                             ivy_file.write("_executions")
+                            for x in secondtargetlist:
+                            if obj.product1 == x.name:
+                                ivy_file.write(str(obj.product1num))
+                            elif obj.product2 == x.name:
+                                ivy_file.write(str(obj.product2num))
                     if count1 == numofreactions:
                         ivy_file.write(") < ")
                         ivy_file.write(str(targetnum)) #this needs to modified to be universal
