@@ -2662,7 +2662,7 @@ for obj in Reactions:
                                 ivy_file.write(str(obj.product2num))
                 if count1 == numofreactions:
                     ivy_file.write(") < ")
-                    ivy_file.write(str(targetnum + 1)) #this needs to modified to be universal
+                    ivy_file.write(str(targetnum)) #this needs to modified to be universal
             if obj.priority <= 17:
                 ivy_file.write(";\n\t\tassert false")
             if obj.priority < 25:
@@ -2730,7 +2730,7 @@ for obj in Reactions:
                                 ivy_file.write(str(obj.product2num))
                 if count1 == numofreactions:
                     ivy_file.write(") < ")
-                    ivy_file.write(str(targetnum + 1)) #this needs to modified to be universal
+                    ivy_file.write(str(targetnum)) #this needs to modified to be universal
             if obj.priority <= 17:
                 ivy_file.write(";\n\t\tassert false")
             if obj.priority < 25:
@@ -2800,7 +2800,7 @@ for obj in Reactions:
                                 ivy_file.write(str(obj.product2num))
                 if count1 == numofreactions:
                     ivy_file.write(") < ")
-                    ivy_file.write(str(targetnum + 1)) #this needs to modified to be universal
+                    ivy_file.write(str(targetnum)) #this needs to modified to be universal
             if obj.priority <= 17:
                 ivy_file.write(";\n\t\tassert false")
             if obj.priority < 25:
