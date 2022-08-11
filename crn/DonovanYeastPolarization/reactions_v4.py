@@ -2641,7 +2641,7 @@ for obj in Reactions:
             if obj.priority < 25:
                 for y in Reactions:
                     count1 += 1
-                    if x.priority > 15 and x.priority < 25:
+                    if y.priority > 15 and y.priority < 25:
                         count2 += 1
                         if count2 == 1:
                             ivy_file.write(";\n\t\tassert (r")
@@ -2683,7 +2683,7 @@ for obj in Reactions:
             if obj.priority < 25:
                 for y in Reactions:
                     count1 += 1
-                    if x.priority > 15 and x.priority < 25:
+                    if y.priority > 15 and y.priority < 25:
                         count2 += 1
                         if count2 == 1:
                             ivy_file.write(";\n\t\tassert (r")
@@ -2728,7 +2728,7 @@ for obj in Reactions:
             if obj.priority < 25:
                 for y in Reactions:
                     count1 += 1
-                    if x.priority > 15 and x.priority < 25:
+                    if y.priority > 15 and y.priority < 25:
                         count2 += 1
                         if count2 == 1:
                             ivy_file.write(";\n\t\tassert (r")
