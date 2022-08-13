@@ -879,13 +879,13 @@ for obj in  reactions:
                 ivyFile.write(";\n\t\tassert false")
             ivyFile.write("\n\t}\n\t")
         elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 != ""):
-            ivyFile.write(f" {o}\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r{count}(r_{obj.reactant1},{obj.reactant2})")
+            ivyFile.write(f" {o}\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r{count}(r_{obj.reactant1},r_{obj.reactant2})")
             if obj.priority <= 6:
                 ivyFile.write(";\n\t\tassert false")
             ivyFile.write("\n\t}\n\n\t")
 
 
-ivyFile.write("\n\n\tbefore idling {\n\t\tassert idle = 1\n\t}")
+ivyFile.write("\n\n\tbefore idling {\n\t\tassert idle = 1\n\t}\n")
 
 ivyFile.write("\n\n\tafter idling {\n\t\tassert idle = 0\n\t}\n}\n") #this causes assertion failure for the first run
 
@@ -1504,13 +1504,13 @@ for obj in  reactions:
                 ivyFile.write(";\n\t\tassert false")
             ivyFile.write("\n\t}\n\t")
         elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 != ""):
-            ivyFile.write(f" {o}\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r{count}(r_{obj.reactant1},{obj.reactant2})")
+            ivyFile.write(f" {o}\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r{count}(r_{obj.reactant1},r_{obj.reactant2})")
             if obj.priority <= 6:
                 ivyFile.write(";\n\t\tassert false")
             ivyFile.write("\n\t}\n\n\t")
 
 
-ivyFile.write("\n\n\tbefore idling {\n\t\tassert idle = 1\n\t}")
+ivyFile.write("\n\n\tbefore idling {\n\t\tassert idle = 1\n\t}\n")
 
 count = 0
 for obj in  reactions:
