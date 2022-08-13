@@ -1365,10 +1365,22 @@ ivyFile.write("\nobject protocol = {\n\n\ttype 2bit\n\tinterpret 2bit -> bv[1]\n
 for obj in spec:
     ivyFile.write(f"\tindividual r_{obj} : updater.num\n")
 
+count = 0
+for obj in reactions:
+    count += 1
+    if obj.priority > 15:
+        ivyFile.write(f"\tindividual r{count}_executions : updater.num\n")
+
 ivyFile.write("\n\tafter init {\n\t\t")
 
 for obj in speciesList:
     ivyFile.write(f"r_{obj.name} := {obj.value};\n\t\t")
+
+count = 0
+for obj in reactions:
+    count += 1
+    if obj.priority > 15:
+        ivyFile.write(f"r{count}_executions := 0;\n\t\t")
 
 ivyFile.write("idle := 0\n\t}\n\n\t")
 
@@ -1385,7 +1397,7 @@ for obj in  reactions:
             if obj.priority >= 25:
                 ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivyFile.write("\n\t\t")
+                ivyFile.write(f";\n\t\t\tr{count}_executions := updater.incr(r{count}_executions)\n\t\t")
             ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 == "" and obj.product1 != "" and obj.product2 != ""):
             ivyFile.write(f"""action update_r{count} = {o}
@@ -1398,7 +1410,7 @@ for obj in  reactions:
             if obj.priority >= 25:
                 ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivyFile.write("\n\t\t")
+                ivyFile.write(f";\n\t\t\tr{count}_executions := updater.incr(r{count}_executions)\n\t\t")
             ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 == ""):
             ivyFile.write(f"""action update_r{count} =  {o}
@@ -1409,7 +1421,7 @@ for obj in  reactions:
             if obj.priority >= 25:
                 ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivyFile.write("\n\t\t")
+                ivyFile.write(f";\n\t\t\tr{count}_executions := updater.incr(r{count}_executions)\n\t\t")
             ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 != "" and obj.product2 == ""):
             ivyFile.write(f"""action update_r{count} =  {o}
@@ -1422,7 +1434,7 @@ for obj in  reactions:
             if obj.priority >= 25:
                 ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivyFile.write("\n\t\t")
+                ivyFile.write(f";\n\t\t\tr{count}_executions := updater.incr(r{count}_executions)\n\t\t")
             ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 != "" and obj.product2 != ""):
             ivyFile.write(f"""action update_r{count} =  {o}
@@ -1437,7 +1449,7 @@ for obj in  reactions:
             if obj.priority >= 25:
                 ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivyFile.write("\n\t\t")
+                ivyFile.write(f";\n\t\t\tr{count}_executions := updater.incr(r{count}_executions)\n\t\t")
             ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 == ""):
             ivyFile.write(f"""action update_r{count} =  {o}
@@ -1450,7 +1462,7 @@ for obj in  reactions:
             if obj.priority >= 25:
                 ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivyFile.write("\n\t\t")
+                ivyFile.write(f";\n\t\t\tr{count}_executions := updater.incr(r{count}_executions)\n\t\t")
             ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 != "" and obj.product2 == ""):
             ivyFile.write(f"""action update_r{count} =  {o}
@@ -1465,7 +1477,7 @@ for obj in  reactions:
             if obj.priority >= 25:
                 ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivyFile.write("\n\t\t")
+                ivyFile.write(f";\n\t\t\tr{count}_executions := updater.incr(r{count}_executions)\n\t\t")
             ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 != "" and obj.product2 != ""):
             ivyFile.write(f"""action update_r{count} =  {o}
@@ -1482,7 +1494,7 @@ for obj in  reactions:
             if obj.priority >= 25:
                 ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivyFile.write("\n\t\t")
+                ivyFile.write(f";\n\t\t\tr{count}_executions := updater.incr(r{count}_executions)\n\t\t")
             ivyFile.write("}\n\t}\n\n\t")
 
 ivyFile.write("\n\n\taction idling = {}\n\n\t")
@@ -1494,18 +1506,101 @@ for obj in  reactions:
         ivyFile.write(f"before update_r{count}")
         if (reactions[count-1].reactant1 == ""):
             ivyFile.write(f" {o}\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r{count}")
-            if obj.priority <= 6:
+            count1 = 0
+            count2 = 0
+            if obj.priority <= 17:
                 ivyFile.write(";\n\t\tassert false")
+            elif obj.priority < 25:
+                for y in reactions:
+                    count1 += 1
+                    if y.priority > 15 and y.prioirty < 25:
+                        count2 += 1
+                        if count2 == 1:
+                            ivyFile.write(f";\n\t\tassert (r{count1}_executions * ")
+                            for x in secondTargetList:
+                                if y.product1 == x.name:
+                                    ivyFile.write(str(y.product1num))
+                                elif y.product2 == x.name:
+                                    ivyFile.write(str(y.product2num))
+                        if count2 >= 2:
+                            ivyFile.write(f" + r{count1}_executions * ")
+                            for x in secondTargetList:
+                                if y.product1 == x.name:
+                                    ivyFile.write(str(y.product1num))
+                                elif y.product2 == x.name:
+                                    ivyFile.write(str(y.product2num))
+                    if count1 == numOfReactions:
+                        ivyFile.write(") < ")
+                        for tar in secondTargetList:
+                            if tar.name == obj.product1 or tar.name == obj.product2:
+                                for tar2 in speciesList:
+                                    if tar2.name == tar.name:
+                                        needed_amount = tar.min_amount - tar2.value
+                                        ivyFile.write(str(needed_amount))
             ivyFile.write("\n\t}\n\t")
         elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 == ""):
             ivyFile.write(f" {o}\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r{count}(r_{obj.reactant1})")
-            if obj.priority <= 6:
+            if obj.priority <= 17:
                 ivyFile.write(";\n\t\tassert false")
+            elif obj.priority < 25:
+                for y in reactions:
+                    count1 += 1
+                    if y.priority > 15 and y.prioirty < 25:
+                        count2 += 1
+                        if count2 == 1:
+                            ivyFile.write(f";\n\t\tassert (r{count1}_executions * ")
+                            for x in secondTargetList:
+                                if y.product1 == x.name:
+                                    ivyFile.write(str(y.product1num))
+                                elif y.product2 == x.name:
+                                    ivyFile.write(str(y.product2num))
+                        if count2 >= 2:
+                            ivyFile.write(f" + r{count1}_executions * ")
+                            for x in secondTargetList:
+                                if y.product1 == x.name:
+                                    ivyFile.write(str(y.product1num))
+                                elif y.product2 == x.name:
+                                    ivyFile.write(str(y.product2num))
+                    if count1 == numOfReactions:
+                        ivyFile.write(") < ")
+                        for tar in secondTargetList:
+                            if tar.name == obj.product1 or tar.name == obj.product2:
+                                for tar2 in speciesList:
+                                    if tar2.name == tar.name:
+                                        needed_amount = tar.min_amount - tar2.value
+                                        ivyFile.write(str(needed_amount))
             ivyFile.write("\n\t}\n\t")
         elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 != ""):
             ivyFile.write(f" {o}\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r{count}(r_{obj.reactant1},r_{obj.reactant2})")
-            if obj.priority <= 6:
+            if obj.priority <= 17:
                 ivyFile.write(";\n\t\tassert false")
+            elif obj.priority < 25:
+                for y in reactions:
+                    count1 += 1
+                    if y.priority > 15 and y.prioirty < 25:
+                        count2 += 1
+                        if count2 == 1:
+                            ivyFile.write(f";\n\t\tassert (r{count1}_executions * ")
+                            for x in secondTargetList:
+                                if y.product1 == x.name:
+                                    ivyFile.write(str(y.product1num))
+                                elif y.product2 == x.name:
+                                    ivyFile.write(str(y.product2num))
+                        if count2 >= 2:
+                            ivyFile.write(f" + r{count1}_executions * ")
+                            for x in secondTargetList:
+                                if y.product1 == x.name:
+                                    ivyFile.write(str(y.product1num))
+                                elif y.product2 == x.name:
+                                    ivyFile.write(str(y.product2num))
+                    if count1 == numOfReactions:
+                        ivyFile.write(") < ")
+                        for tar in secondTargetList:
+                            if tar.name == obj.product1 or tar.name == obj.product2:
+                                for tar2 in speciesList:
+                                    if tar2.name == tar.name:
+                                        needed_amount = tar.min_amount - tar2.value
+                                        ivyFile.write(str(needed_amount))
             ivyFile.write("\n\t}\n\n\t")
 
 
