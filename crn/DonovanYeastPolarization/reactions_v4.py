@@ -1519,23 +1519,23 @@ for obj in  reactions:
                             ivyFile.write(f";\n\t\tassert (r{count1}_executions * ")
                             for x in secondTargetList:
                                 if y.product1 == x.name:
-                                    ivyFile.write(str(y.product1num))
+                                    ivyFile.write(str(y.product1Num))
                                 elif y.product2 == x.name:
-                                    ivyFile.write(str(y.product2num))
+                                    ivyFile.write(str(y.product2Num))
                         if count2 >= 2:
                             ivyFile.write(f" + r{count1}_executions * ")
                             for x in secondTargetList:
                                 if y.product1 == x.name:
-                                    ivyFile.write(str(y.product1num))
+                                    ivyFile.write(str(y.product1Num))
                                 elif y.product2 == x.name:
-                                    ivyFile.write(str(y.product2num))
+                                    ivyFile.write(str(y.product2Num))
                     if count1 == numOfReactions:
                         ivyFile.write(") < ")
                         for tar in secondTargetList:
                             if tar.name == obj.product1 or tar.name == obj.product2:
                                 for tar2 in speciesList:
                                     if tar2.name == tar.name:
-                                        needed_amount = tar.min_amount - tar2.value
+                                        needed_amount = tar.minAmount - tar2.value
                                         ivyFile.write(str(needed_amount))
             ivyFile.write("\n\t}\n\t")
         elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 == ""):
@@ -1553,23 +1553,23 @@ for obj in  reactions:
                             ivyFile.write(f";\n\t\tassert (r{count1}_executions * ")
                             for x in secondTargetList:
                                 if y.product1 == x.name:
-                                    ivyFile.write(str(y.product1num))
+                                    ivyFile.write(str(y.product1Num))
                                 elif y.product2 == x.name:
-                                    ivyFile.write(str(y.product2num))
+                                    ivyFile.write(str(y.product2Num))
                         if count2 >= 2:
                             ivyFile.write(f" + r{count1}_executions * ")
                             for x in secondTargetList:
                                 if y.product1 == x.name:
-                                    ivyFile.write(str(y.product1num))
+                                    ivyFile.write(str(y.product1Num))
                                 elif y.product2 == x.name:
-                                    ivyFile.write(str(y.product2num))
+                                    ivyFile.write(str(y.product2Num))
                     if count1 == numOfReactions:
                         ivyFile.write(") < ")
                         for tar in secondTargetList:
                             if tar.name == obj.product1 or tar.name == obj.product2:
                                 for tar2 in speciesList:
                                     if tar2.name == tar.name:
-                                        needed_amount = tar.min_amount - tar2.value
+                                        needed_amount = tar.minAmount - tar2.value
                                         ivyFile.write(str(needed_amount))
             ivyFile.write("\n\t}\n\t")
         elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 != ""):
@@ -1587,23 +1587,23 @@ for obj in  reactions:
                             ivyFile.write(f";\n\t\tassert (r{count1}_executions * ")
                             for x in secondTargetList:
                                 if y.product1 == x.name:
-                                    ivyFile.write(str(y.product1num))
+                                    ivyFile.write(str(y.product1Num))
                                 elif y.product2 == x.name:
-                                    ivyFile.write(str(y.product2num))
+                                    ivyFile.write(str(y.product2Num))
                         if count2 >= 2:
                             ivyFile.write(f" + r{count1}_executions * ")
                             for x in secondTargetList:
                                 if y.product1 == x.name:
-                                    ivyFile.write(str(y.product1num))
+                                    ivyFile.write(str(y.product1Num))
                                 elif y.product2 == x.name:
-                                    ivyFile.write(str(y.product2num))
+                                    ivyFile.write(str(y.product2Num))
                     if count1 == numOfReactions:
                         ivyFile.write(") < ")
                         for tar in secondTargetList:
                             if tar.name == obj.product1 or tar.name == obj.product2:
                                 for tar2 in speciesList:
                                     if tar2.name == tar.name:
-                                        needed_amount = tar.min_amount - tar2.value
+                                        needed_amount = tar.minAmount - tar2.value
                                         ivyFile.write(str(needed_amount))
             ivyFile.write("\n\t}\n\n\t")
 
