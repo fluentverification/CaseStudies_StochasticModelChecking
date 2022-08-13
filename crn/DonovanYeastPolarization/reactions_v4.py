@@ -917,11 +917,10 @@ ivyFile.close()        #ivy model complete
 #if quit == "y":
 #    exit()
 
-import subprocess
 
 ivy_to_cpp_command = subprocess.Popen(["ivy_to_cpp", "isolate=iso_proto", "target=test", "build=true", "test_v2.ivy"])
 ivy_to_cpp_command.wait()
-import os
+
 print("starting to run initial test")
 os.system("./test_v2 seed=367 iters=10000 runs=1 >test_v2.txt")
 print("finished initial test") #test is run and results are stored in test_v2.txt
@@ -1535,11 +1534,8 @@ ivyFile.write("\nisolate iso_proto = protocol with enabled_checker, updater, goa
 
 ivyFile.close()        #ivy model complete
 
-import subprocess
-
 ivy_to_cpp_command = subprocess.Popen(["ivy_to_cpp", "isolate=iso_proto", "target=test", "build=true", "test_v2.ivy"])
 ivy_to_cpp_command.wait()
-import os
 
 runswanted = input("How many traces do you want to the target specified? (Type an integer greater than 0): ") #Amount of traces desired is recorded
 
