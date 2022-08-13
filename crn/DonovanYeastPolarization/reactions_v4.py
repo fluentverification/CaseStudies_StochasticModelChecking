@@ -1540,6 +1540,8 @@ for obj in  reactions:
             ivyFile.write("\n\t}\n\t")
         elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 == ""):
             ivyFile.write(f" {o}\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r{count}(r_{obj.reactant1})")
+            count1 = 0
+            count2 = 0
             if obj.priority <= 17:
                 ivyFile.write(";\n\t\tassert false")
             elif obj.priority < 25:
@@ -1572,6 +1574,8 @@ for obj in  reactions:
             ivyFile.write("\n\t}\n\t")
         elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 != ""):
             ivyFile.write(f" {o}\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r{count}(r_{obj.reactant1},r_{obj.reactant2})")
+            count1 = 0
+            count2 = 0
             if obj.priority <= 17:
                 ivyFile.write(";\n\t\tassert false")
             elif obj.priority < 25:
