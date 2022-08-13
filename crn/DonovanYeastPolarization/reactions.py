@@ -90,15 +90,15 @@ if(targetchem not in chem):
     exit()
 targetnum = input("What is the target number for this chemical? ")
 
-upordown = input("Are you interested in seeing when the chemical is above or below the specified number? (type either above or below): ")
+upOrDown = input("Are you interested in seeing when the chemical is above or below the specified number? (type either above or below): ")
 
 for obj in chemlist:
     if obj.name == targetchem:
-        if upordown.lower() == "above":
+        if upOrDown.lower() == "above":
             if obj.value >= int(targetnum):
                 print("\nSpecified target is already achieved in target state, please start over")
                 exit()
-        elif upordown.lower() == "below":
+        elif upOrDown.lower() == "below":
             if obj.value <= int(targetnum):
                 print("\nSpecified target is already achieved in target state, please start over")
                 exit()
@@ -109,13 +109,13 @@ for obj in chemlist:
 print("We will monitor when", targetchem, "reaches",targetnum,"\n")
 
 secondtarget = []
-if upordown.lower() == "above":
+if upOrDown.lower() == "above":
     for obj in Reactions:
         if obj.product1 == targetchem or obj.product2 == targetchem:
             obj.priority = obj.priority + 2
         elif obj.reactant1 == targetchem or obj.reactant2 == targetchem:
             obj.priority = obj.priority - 2
-elif upordown.lower() == "below":
+elif upOrDown.lower() == "below":
     for obj in Reactions:
         if obj.product1 == targetchem or obj.product2 == targetchem:
             obj.priority = obj.priority - 2
@@ -178,9 +178,9 @@ ivy_file = open("test.ivy", "w")
 ivy_file.write("#lang ivy 1.7\n\nobject chem = {\n")
 ivy_file.write("\ttype num\n\tinterpret num -> bv[10]\n\ttype exec_var\n\tinterpret exec_var -> bv[8]\n\ttype exec_stage\n\tinterpret exec_stage -> bv[3]\n\n\taction incr(x:num) returns(y:num) = {\n\t\ty := x + 1\n\t}\n\n\taction decr(x:num) returns(y:num) = {\n\t\ty := x - 1\n\t}\n}")
 ivy_file.write("\n\nobject goal = {\n\taction achieved(v:chem.num)\n\tobject spec = {\n\t\tbefore achieved {\n\t\t\tassert v ")
-if upordown.lower() == "above":
+if upOrDown.lower() == "above":
     ivy_file.write(">= ")
-elif upordown.lower() == "below":
+elif upOrDown.lower() == "below":
     ivy_file.write("<= ")
 ivy_file.write(targetnum)
 ivy_file.write(";\n\t\t\tproto.idle := 1\n\t\t}\n\t}\n}\n\n")
@@ -663,9 +663,9 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetchem)
-            if upordown.lower() == "above":
+            if upOrDown.lower() == "above":
                 ivy_file.write(" >= ")
-            elif upordown.lower() == "below":
+            elif upOrDown.lower() == "below":
                 ivy_file.write(" <= ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
@@ -701,9 +701,9 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetchem)
-            if upordown.lower() == "above":
+            if upOrDown.lower() == "above":
                 ivy_file.write(" >= ")
-            elif upordown.lower() == "below":
+            elif upOrDown.lower() == "below":
                 ivy_file.write(" <= ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
@@ -737,9 +737,9 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetchem)
-            if upordown.lower() == "above":
+            if upOrDown.lower() == "above":
                 ivy_file.write(" >= ")
-            elif upordown.lower() == "below":
+            elif upOrDown.lower() == "below":
                 ivy_file.write(" <= ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
@@ -779,9 +779,9 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetchem)
-            if upordown.lower() == "above":
+            if upOrDown.lower() == "above":
                 ivy_file.write(" >= ")
-            elif upordown.lower() == "below":
+            elif upOrDown.lower() == "below":
                 ivy_file.write(" <= ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
@@ -827,9 +827,9 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetchem)
-            if upordown.lower() == "above":
+            if upOrDown.lower() == "above":
                 ivy_file.write(" >= ")
-            elif upordown.lower() == "below":
+            elif upOrDown.lower() == "below":
                 ivy_file.write(" <= ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
@@ -872,9 +872,9 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetchem)
-            if upordown.lower() == "above":
+            if upOrDown.lower() == "above":
                 ivy_file.write(" >= ")
-            elif upordown.lower() == "below":
+            elif upOrDown.lower() == "below":
                 ivy_file.write(" <= ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
@@ -923,9 +923,9 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetchem)
-            if upordown.lower() == "above":
+            if upOrDown.lower() == "above":
                 ivy_file.write(" >= ")
-            elif upordown.lower() == "below":
+            elif upOrDown.lower() == "below":
                 ivy_file.write(" <= ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
@@ -980,9 +980,9 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetchem)
-            if upordown.lower() == "above":
+            if upOrDown.lower() == "above":
                 ivy_file.write(" >= ")
-            elif upordown.lower() == "below":
+            elif upOrDown.lower() == "below":
                 ivy_file.write(" <= ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")

@@ -1,101 +1,108 @@
-numofreactions = int(input("Number of reactions: "))
+import subprocess
 
-class reaction:
-    def __init__(self, reactant1, reactant1num, reactant2, reactant2num, product1, product1num, product2, product2num, priority):
+import os
+
+class Reaction:
+    def __init__(self, reactant1, reactant1Num, reactant2, reactant2Num, product1, product1Num, product2, product2Num, priority):
         self.reactant1 = reactant1
-        self.reactant1num = reactant1num
+        self.reactant1Num = reactant1Num
         self.reactant2 = reactant2
-        self.reactant2num = reactant2num
+        self.reactant2Num = reactant2Num
         self.product1 = product1
-        self.product1num = product1num
+        self.product1Num = product1Num
         self.product2 = product2
-        self.product2num = product2num
+        self.product2Num = product2Num
         self.priority = priority
 
-class species:
+class Species:
     def __init__(self, value, name):
         self.value = value
         self.name = name
 
-class secondtarget:
-    def __init__(self, name, min_amount):
+class SecondTarget:
+    def __init__(self, name, minAmount):
         self.name = name
-        self.min_amount = min_amount
+        self.minAmount = minAmount
 
-Reactions = []
-for x in range(numofreactions):     #Reads in all the reactions (accepts up to two reactants and two products)
+numOfReactions = int(input("Number of reactions: "))
+
+o = "{"
+c = "}"
+
+reactions = []
+for x in range(numOfReactions):     #Reads in all the reactions (accepts up to two reactants and two products)
     print("\n\n","reaction",x+1, ": \n")
-    firstreactant = input("What is the first reactant (if no reactants type 'NA' or leave blank): ")
-    if(firstreactant.lower() == "na" or firstreactant == ""):
-        firstreactant = ""
-        firstreactantnum = 0
-        secondreactant = ""
-        secondreactantnum = 0
+    firstReactant = input("What is the first reactant (if no reactants type 'NA' or leave blank): ")
+    if(firstReactant.lower() == "na" or firstReactant == ""):
+        firstReactant = ""
+        firstReactantNum = 0
+        secondReactant = ""
+        secondReactantNum = 0
     else:
-        firstreactantnum = int(input("What amount of this reactant is needed (type an integer): "))
-        if (firstreactantnum == 0):
+        firstReactantNum = int(input("What amount of this reactant is needed (type an integer): "))
+        if (firstReactantNum == 0):
             print("Error, must be greater than 0, please start over")
-            exit()
-        secondreactant = input("What is the second reactant (if no second reactant type 'NA' or leave blank): ")
-        if(secondreactant.lower() == "na" or secondreactant == ""):
-            secondreactant = ""
-            secondreactantnum = 0
+            exit(1)
+        secondReactant = input("What is the second reactant (if no second reactant type 'NA' or leave blank): ")
+        if(secondReactant.lower() == "na" or secondReactant == ""):
+            secondReactant = ""
+            secondReactantNum = 0
         else:
-            secondreactantnum = int(input("What amount of this reactant is needed (type an integer): "))
-            if (secondreactantnum == 0):
+            secondReactantNum = int(input("What amount of this reactant is needed (type an integer): "))
+            if (secondReactantNum == 0):
                 print("Error, must be greater than 0, please start over")
-                exit()
-    firstproduct = input("What is the first product (if no products type 'NA' or leave blank): ")
-    if(firstproduct.lower() == "na" or firstproduct == ""):
-        if(firstreactant == ""):
+                exit(1)
+    firstProduct = input("What is the first product (if no products type 'NA' or leave blank): ")
+    if(firstProduct.lower() == "na" or firstProduct == ""):
+        if(firstReactant == ""):
             print("Error, this reaction has no reactants or products please start over")
-            exit()
-        firstproduct = ""
-        firstproductnum = 0
-        secondproduct = ""
-        secondproductnum = 0
+            exit(1)
+        firstProduct = ""
+        firstProductNum = 0
+        secondProduct = ""
+        secondProductNum = 0
     else:
-        firstproductnum = int(input("What amount of this product is produced (type an integer): "))
-        if(firstproductnum == 0):
+        firstProductNum = int(input("What amount of this product is produced (type an integer): "))
+        if(firstProductNum == 0):
             print("Error, must be greater than 0, please start over")
             exit()
-        secondproduct = input("What is the second product (if no second product type 'NA' or leave blank): ")
-        if(secondproduct.lower() == "na" or secondproduct == ""):
-            secondproduct = ""
-            secondproductnum = 0
+        secondProduct = input("What is the second product (if no second product type 'NA' or leave blank): ")
+        if(secondProduct.lower() == "na" or secondProduct == ""):
+            secondProduct = ""
+            secondProductNum = 0
         else:
-            secondproductnum = int(input("What amount of this product is produced (type an integer): "))
-            if (secondproductnum == 0):
+            secondProductNum = int(input("What amount of this product is produced (type an integer): "))
+            if (secondProductNum == 0):
                 print("Error, must be greater than 0, please start over")
                 exit()
-    Reactions.append(reaction(firstreactant,firstreactantnum,secondreactant,secondreactantnum,firstproduct,firstproductnum,secondproduct,secondproductnum,15))
+    reactions.append(Reaction(firstReactant,firstReactantNum,secondReactant,secondReactantNum,firstProduct,firstProductNum,secondProduct,secondProductNum,15))
 
 print("\n\nThe follwing reactions will be considered in the model:\n")
 
 count = 0
-for obj in Reactions: #Prints each of the reactions that have been recorded
+for obj in  reactions: #Prints each of the reactions that have been recorded
     count = count + 1
-    if (obj.reactant1num >= 1 and obj.reactant2num >= 1 and obj.product1num >= 1 and obj.product2num >= 1):
-        print(str(count),": ",obj.reactant1num,obj.reactant1," + ",obj.reactant2num, obj.reactant2," -> ", obj.product1num,obj.product1," + ", obj.product2num,obj.product2)
-    elif (obj.reactant1num >= 1 and obj.reactant2num == 0 and obj.product1num >= 1 and obj.product2num >= 1):
-        print(str(count),": ",obj.reactant1num,obj.reactant1," -> ",obj.product1num, obj.product1," + ", obj.product2num, obj.product2)
-    elif (obj.reactant1num >= 1 and obj.reactant2num == 0 and obj.product1num >= 1 and obj.product2num == 0):
-        print(str(count),": ",obj.reactant1num,obj.reactant1," -> ", obj.product1num, obj.product1)
-    elif (obj.reactant1num >= 1 and obj.reactant2num >= 1 and obj.product1num >= 1 and obj.product2num == 0):
-        print(str(count),": ",obj.reactant1num,obj.reactant1," + ",obj.reactant2num, obj.reactant2," -> ", obj.product1num,obj.product1)
-    elif (obj.reactant1num == 0 and obj.product1num >= 1 and obj.product2num == 0):
-        print(str(count),": ","NULL"," -> ",obj.product1num, obj.product1)
-    elif (obj.reactant1num >= 1 and obj.reactant2num == 0 and obj.product1num == 0):
-        print(str(count),": ",obj.reactant1num, obj.reactant1," -> ", "NULL")
-    elif (obj.reactant1num >= 1 and obj.reactant2num >= 1 and obj.product1num == 0):
-        print(str(count),": ",obj.reactant1num,obj.reactant1," + ",obj.reactant2num,obj.reactant2," ->  NULL")
-    elif (obj.reactant1num == 0 and obj.product1num >= 1 and obj.product2num >= 1):
-        print(str(count),": ","NULL  -> ",obj.product1num,obj.product1," + ",obj.product2num,obj.product2)
+    if (obj.reactant1Num >= 1 and obj.reactant2Num >= 1 and obj.product1Num >= 1 and obj.product2Num >= 1):
+        print(str(count),": ",obj.reactant1Num,obj.reactant1," + ",obj.reactant2Num, obj.reactant2," -> ", obj.product1Num,obj.product1," + ", obj.product2Num,obj.product2)
+    elif (obj.reactant1Num >= 1 and obj.reactant2Num == 0 and obj.product1Num >= 1 and obj.product2Num >= 1):
+        print(str(count),": ",obj.reactant1Num,obj.reactant1," -> ",obj.product1Num, obj.product1," + ", obj.product2Num, obj.product2)
+    elif (obj.reactant1Num >= 1 and obj.reactant2Num == 0 and obj.product1Num >= 1 and obj.product2Num == 0):
+        print(str(count),": ",obj.reactant1Num,obj.reactant1," -> ", obj.product1Num, obj.product1)
+    elif (obj.reactant1Num >= 1 and obj.reactant2Num >= 1 and obj.product1Num >= 1 and obj.product2Num == 0):
+        print(str(count),": ",obj.reactant1Num,obj.reactant1," + ",obj.reactant2Num, obj.reactant2," -> ", obj.product1Num,obj.product1)
+    elif (obj.reactant1Num == 0 and obj.product1Num >= 1 and obj.product2Num == 0):
+        print(str(count),": ","NULL"," -> ",obj.product1Num, obj.product1)
+    elif (obj.reactant1Num >= 1 and obj.reactant2Num == 0 and obj.product1Num == 0):
+        print(str(count),": ",obj.reactant1Num, obj.reactant1," -> ", "NULL")
+    elif (obj.reactant1Num >= 1 and obj.reactant2Num >= 1 and obj.product1Num == 0):
+        print(str(count),": ",obj.reactant1Num,obj.reactant1," + ",obj.reactant2Num,obj.reactant2," ->  NULL")
+    elif (obj.reactant1Num == 0 and obj.product1Num >= 1 and obj.product2Num >= 1):
+        print(str(count),": ","NULL  -> ",obj.product1Num,obj.product1," + ",obj.product2Num,obj.product2)
 
 print("\n")
 spec = []
 
-for obj in Reactions: #adds all the species recorded in the reactions to a list
+for obj in  reactions: #adds all the species recorded in the reactions to a list
     if (obj.reactant1 not in spec and obj.reactant1 != ""):
         spec.append(obj.reactant1)
     if (obj.reactant2 not in spec and obj.reactant2 != ""):
@@ -105,1352 +112,806 @@ for obj in Reactions: #adds all the species recorded in the reactions to a list
     if (obj.product2 not in spec and obj.product2 != ""):
         spec.append(obj.product2)
 
-specieslist = []
+speciesList = []
 
 for obj in spec: #intial value of each species is asked for and recorded
     print("What is the initial value of", obj, "?")
     val = int(input())
-    specieslist.append(species(val, obj))
+    speciesList.append(Species(val, obj))
 
 print("The initial values reported are:")
 
-for obj in specieslist: #initial values reported are displayed
+for obj in speciesList: #initial values reported are displayed
     print(obj.name,"=",obj.value)
 
 print("\n")
 
-targetspecies = input("Which species is going to be monitored? ") #target species identified
-if(targetspecies not in spec):
+targetSpecies = input("Which species is going to be monitored? ") #target species identified
+if(targetSpecies not in spec):
     print("Error, species specified not found in the reactions reported please start over")
     exit()
-targetnum = input("What is the target number for this species? ") #target number also identified
+targetNum = input("What is the target number for this species? ") #target number also identified
 
-print("\n\nWhich option is your desired guard?\n\n","1:", targetspecies, ">=", targetnum, "\n 2:", targetspecies, ">", targetnum, "\n 3:", targetspecies, "<=", targetnum,"\n 4:", targetspecies, "<", targetnum,"\n 5:", targetspecies, "=", targetnum) 
+print("\n\nWhich option is your desired guard?\n\n","1:", targetSpecies, ">=", targetNum, "\n 2:", targetSpecies, ">", targetNum, "\n 3:", targetSpecies, "<=", targetNum,"\n 4:", targetSpecies, "<", targetNum,"\n 5:", targetSpecies, "=", targetNum) 
 
-upordown = input("\n\n(Please type an integer corresponding to your desired guard):  ")
+upOrDown = input("\n\n(Please type an integer corresponding to your desired guard):  ")
 
 #guard is chosen
 
-if upordown == "5":
-    for obj in specieslist:
-        if obj.name == targetspecies:
-            if obj.value > int(targetnum):
-                upordown = "3"
-            elif obj.value < int(targetnum):
-                upordown = "1"
-            elif obj.value == int(targetnum):
+if upOrDown == "5":
+    for obj in speciesList:
+        if obj.name == targetSpecies:
+            if obj.value > int(targetNum):
+                upOrDown = "3"
+            elif obj.value < int(targetNum):
+                upOrDown = "1"
+            elif obj.value == int(targetNum):
                 print("\nSpecified target is already achieved in target state, please start over")
                 exit()
 
-for obj in specieslist:
-    if obj.name == targetspecies:
-        if upordown == "1":
-            if obj.value >= int(targetnum):
+for obj in speciesList:
+    if obj.name == targetSpecies:
+        if upOrDown == "1":
+            if obj.value >= int(targetNum):
                 print("\nSpecified target is already achieved in target state, please start over")
                 exit()
-        elif upordown == "2":
-            if obj.value > int(targetnum):
+        elif upOrDown == "2":
+            if obj.value > int(targetNum):
                 print("\nSpecified target is already achieved in target state, please start over")
                 exit()
-        elif upordown == "3":
-            if obj.value <= int(targetnum):
+        elif upOrDown == "3":
+            if obj.value <= int(targetNum):
                 print("\nSpecified target is already achieved in target state, please start over")
                 exit()
-        elif upordown == "4":
-            if obj.value < int(targetnum):
+        elif upOrDown == "4":
+            if obj.value < int(targetNum):
                 print("\nSpecified target is already achieved in target state, please start over")
                 exit()
-            if targetnum == "0":
+            if targetNum == "0":
                 print("Error, no species can reach a value lower than zero")
                 exit()
         else:
             print("Problem with information entered (check make sure your answer you only entered a integer between 1 and 4 and there are no spaces)")
             exit()
 
-secondtargetlist = []
-if upordown == "1" or upordown == "2": #reactions that directly affect the target species have 10 added or subtracted from their priority
-    for obj in Reactions:
-        if obj.product1 == targetspecies or obj.product2 == targetspecies:
+secondTargetList = []
+if upOrDown == "1" or upOrDown == "2": #reactions that directly affect the target species have 10 added or subtracted from their priority
+    for obj in  reactions:
+        if obj.product1 == targetSpecies or obj.product2 == targetSpecies:
             obj.priority = obj.priority + 10
-        elif obj.reactant1 == targetspecies or obj.reactant2 == targetspecies:
+        elif obj.reactant1 == targetSpecies or obj.reactant2 == targetSpecies:
             obj.priority = obj.priority - 10
-elif upordown == "3" or upordown == "4":
-    for obj in Reactions:
-        if obj.product1 == targetspecies or obj.product2 == targetspecies:
+elif upOrDown == "3" or upOrDown == "4":
+    for obj in  reactions:
+        if obj.product1 == targetSpecies or obj.product2 == targetSpecies:
             obj.priority = obj.priority - 10
-        elif obj.reactant1 == targetspecies or obj.reactant2 == targetspecies:
+        elif obj.reactant1 == targetSpecies or obj.reactant2 == targetSpecies:
             obj.priority = obj.priority + 10
 
 
-for obj in Reactions:       #secondary target species identified and added to a list of secondary target species, also given min_amount value (amount needed for reaction to fire enough times to get to target state)
-    if upordown == "1" or upordown == "2":
+for obj in  reactions:       #secondary target species identified and added to a list of secondary target species, also given minAmount value (amount needed for reaction to fire enough times to get to target state)
+    if upOrDown == "1" or upOrDown == "2":
         if obj.priority >= 25:
             if obj.reactant1 != "" and obj.reactant2 != "":
-                if obj.reactant1 != targetspecies:
-                    if obj.product1 == targetspecies:
-                        for tar in specieslist:
-                            if tar.name == targetspecies:
-                                tarnumone = tar.value
-                                secondtargetlist.append(secondtarget(obj.reactant1, obj.reactant1num * abs(int(targetnum) - tar.value)/obj.product1num))
-                    elif obj.product2 == targetspecies:
-                        for tar in specieslist:
-                            if tar.name == targetspecies:
-                                tarnumone = tar.value
-                                secondtargetlist.append(secondtarget(obj.reactant1, obj.reactant1num * abs(int(targetnum) - tar.value)/obj.product2num))
-                if obj.reactant2 != targetspecies:    
-                    if obj.product1 == targetspecies:
-                        for tar in specieslist:
-                            if tar.name == targetspecies:
-                                tarnumone = tar.value
-                                secondtargetlist.append(secondtarget(obj.reactant2, obj.reactant2num * abs(int(targetnum) - tar.value)/obj.product1num))
-                    elif obj.product2 == targetspecies:
-                        for tar in specieslist:
-                            if tar.name == targetspecies:
-                                tarnumone = tar.value
-                                secondtargetlist.append(secondtarget(obj.reactant2, obj.reactant2num * abs(int(targetnum) - tar.value)/obj.product2num))
+                if obj.reactant1 != targetSpecies:
+                    if obj.product1 == targetSpecies:
+                        for tar in speciesList:
+                            if tar.name == targetSpecies:
+                                tarNumOne = tar.value
+                                secondTargetList.append(SecondTarget(obj.reactant1, obj.reactant1Num * abs(int(targetNum) - tar.value)/obj.product1Num))
+                    elif obj.product2 == targetSpecies:
+                        for tar in speciesList:
+                            if tar.name == targetSpecies:
+                                tarNumOne = tar.value
+                                secondTargetList.append(SecondTarget(obj.reactant1, obj.reactant1Num * abs(int(targetNum) - tar.value)/obj.product2Num))
+                if obj.reactant2 != targetSpecies:    
+                    if obj.product1 == targetSpecies:
+                        for tar in speciesList:
+                            if tar.name == targetSpecies:
+                                tarNumOne = tar.value
+                                secondTargetList.append(SecondTarget(obj.reactant2, obj.reactant2Num * abs(int(targetNum) - tar.value)/obj.product1Num))
+                    elif obj.product2 == targetSpecies:
+                        for tar in speciesList:
+                            if tar.name == targetSpecies:
+                                tarNumOne = tar.value
+                                secondTargetList.append(SecondTarget(obj.reactant2, obj.reactant2Num * abs(int(targetNum) - tar.value)/obj.product2Num))
             elif obj.reactant1 != "" and obj.reactant2 == "":
-                if obj.reactant1 != targetspecies:
-                    if obj.product1 == targetspecies:
-                        for tar in specieslist:
-                            if tar.name == targetspecies:
-                                tarnumone = tar.value
-                                secondtargetlist.append(secondtarget(obj.reactant1, obj.reactant1num * abs(int(targetnum) - tar.value)/obj.product1num))
-                    elif obj.product2 == targetspecies:
-                        for tar in specieslist:
-                            if tar.name == targetspecies:
-                                tarnumone = tar.value
-                                secondtargetlist.append(secondtarget(obj.reactant1, obj.reactant1num * abs(int(targetnum) - tar.value)/obj.product2num))
-    elif upordown == "3" or upordown== "4":
+                if obj.reactant1 != targetSpecies:
+                    if obj.product1 == targetSpecies:
+                        for tar in speciesList:
+                            if tar.name == targetSpecies:
+                                tarNumOne = tar.value
+                                secondTargetList.append(SecondTarget(obj.reactant1, obj.reactant1Num * abs(int(targetNum) - tar.value)/obj.product1Num))
+                    elif obj.product2 == targetSpecies:
+                        for tar in speciesList:
+                            if tar.name == targetSpecies:
+                                tarNumOne = tar.value
+                                secondTargetList.append(SecondTarget(obj.reactant1, obj.reactant1Num * abs(int(targetNum) - tar.value)/obj.product2Num))
+    elif upOrDown == "3" or upOrDown== "4":
         if obj.priority >= 25:
             if obj.reactant1 != "" and obj.reactant2 != "":
-                if obj.reactant1 != targetspecies:
-                    if obj.reactant2 == targetspecies:
-                        for tar in specieslist:
-                            if tar.name == targetspecies:
-                                tarnumone = tar.value
-                                secondtargetlist.append(secondtarget(obj.reactant1, obj.reactant1num * abs(int(targetnum) - tar.value)/obj.reactant2num))
-                if obj.reactant2 != targetspecies:    
-                    if obj.reactant1 == targetspecies:
-                        for tar in specieslist:
-                            if tar.name == targetspecies:
-                                tarnumone = tar.value
-                                secondtargetlist.append(secondtarget(obj.reactant2, obj.reactant2num * abs(int(targetnum) - tar.value)/obj.reactant1num))
+                if obj.reactant1 != targetSpecies:
+                    if obj.reactant2 == targetSpecies:
+                        for tar in speciesList:
+                            if tar.name == targetSpecies:
+                                tarNumOne = tar.value
+                                secondTargetList.append(SecondTarget(obj.reactant1, obj.reactant1Num * abs(int(targetNum) - tar.value)/obj.reactant2Num))
+                if obj.reactant2 != targetSpecies:    
+                    if obj.reactant1 == targetSpecies:
+                        for tar in speciesList:
+                            if tar.name == targetSpecies:
+                                tarNumOne = tar.value
+                                secondTargetList.append(SecondTarget(obj.reactant2, obj.reactant2Num * abs(int(targetNum) - tar.value)/obj.reactant1Num))
             
  
-for obj in Reactions:          #every reaction that consumes a secondary target has its priority modified
+for obj in  reactions:          #every reaction that consumes a secondary target has its priority modified
     if obj.priority < 25:
-        for tar in secondtargetlist:
-            for species in specieslist:
+        for tar in secondTargetList:
+            for species in speciesList:
                 if species.name == tar.name:
-                    if species.value >= (2*tar.min_amount):
+                    if species.value >= (2*tar.minAmount):
                         if obj.reactant1 == tar.name:
                             obj.priority = obj.priority - 1
                         if obj.reactant2 == tar.name:
                             obj.priority = obj.priority - 1
-                    elif species.value >= tar.min_amount:
+                    elif species.value >= tar.minAmount:
                         if obj.reactant1 == tar.name:
                             obj.priority = obj.priority - 2
                         if obj.reactant2 == tar.name:
                             obj.priority = obj.priority - 2
-                    elif species.value >= (tar.min_amount/2):
+                    elif species.value >= (tar.minAmount/2):
                         if obj.reactant1 == tar.name:
                             obj.priority = obj.priority - 3
                         if obj.reactant2 == tar.name:
                             obj.priority = obj.priority - 3
-                    elif species.value >= (tar.min_amount/4):
+                    elif species.value >= (tar.minAmount/4):
                         if obj.reactant1 == tar.name:
                             obj.priority = obj.priority - 4
                         if obj.reactant2 == tar.name:
                             obj.priority = obj.priority - 4
-                    elif species.value < (tar.min_amount/4):
+                    elif species.value < (tar.minAmount/4):
                         if obj.reactant1 == tar.name:
                             obj.priority = obj.priority - 5
                         if obj.reactant2 == tar.name:
                             obj.priority = obj.priority - 5
 
         
-for obj in Reactions:       #every reaction that produces a secondary target has its priority modified
+for obj in  reactions:       #every reaction that produces a secondary target has its priority modified
     if obj.priority < 25:
-        for tar in secondtargetlist:
-            for species in specieslist:
+        for tar in secondTargetList:
+            for species in speciesList:
                 if species.name == tar.name:
                     if obj.product1 == tar.name:
-                        if species.value >= (2*tar.min_amount):
+                        if species.value >= (2*tar.minAmount):
                             obj.priority = obj.priority + 1
-                        elif species.value >= tar.min_amount:
+                        elif species.value >= tar.minAmount:
                             obj.priority = obj.priority + 2
-                        elif species.value >= (tar.min_amount/2):
+                        elif species.value >= (tar.minAmount/2):
                             obj.priority = obj.priority + 3
-                        elif species.value >= (tar.min_amount/4):
+                        elif species.value >= (tar.minAmount/4):
                             obj.priority = obj.priority + 4
-                        elif species.value < (tar.min_amount/4):
+                        elif species.value < (tar.minAmount/4):
                             obj.priority = obj.priority + 5
                     elif obj.product2 == tar.name:
-                        if species.value >= (2*tar.min_amount):
+                        if species.value >= (2*tar.minAmount):
                             obj.priority = obj.priority + 1
-                        elif species.value >= tar.min_amount:
+                        elif species.value >= tar.minAmount:
                             obj.priority = obj.priority + 2
-                        elif species.value >= (tar.min_amount/2):
+                        elif species.value >= (tar.minAmount/2):
                             obj.priority = obj.priority + 3
-                        elif species.value >= (tar.min_amount/4):
+                        elif species.value >= (tar.minAmount/4):
                             obj.priority = obj.priority + 4
-                        elif species.value < (tar.min_amount/4):
+                        elif species.value < (tar.minAmount/4):
                             obj.priority = obj.priority + 5
 
 print("\n\nThe following priorities have been noted for the reactions: \n")
 
 count = 0
-for obj in Reactions: #each reactions priority is displayed
+for obj in  reactions: #each reactions priority is displayed
     count = count + 1
     print("reaction", str(count), ":", str(obj.priority))
 
-ivy_file = open("test_v2.ivy", "w") #an ivy model for the CRN is made to have assertion failure at first idling action
+ivyFile = open("test_temp.ivy", "w") #an ivy model for the CRN is made to have assertion failure at first idling action
 
-ivy_file.write("#lang ivy 1.7\n\nobject updater = {\n")
-ivy_file.write("\ttype num\n\tinterpret num -> bv[10]\n\ttype exec_var\n\tinterpret exec_var -> bv[8]\n\ttype exec_stage\n\tinterpret exec_stage -> bv[3]\n\n\taction incr(x:num) returns(y:num) = {\n\t\ty := x + 1\n\t}\n\n\taction decr(x:num) returns(y:num) = {\n\t\ty := x - 1\n\t}\n}")
-ivy_file.write("\n\nobject goal = {\n\taction achieved(v:updater.num)\n\tobject spec = {\n\t\tbefore achieved {\n\t\t\tassert v ")
-if upordown == "1":
-    ivy_file.write(">= ")
-elif upordown == "2":
-    ivy_file.write("> ")
-elif upordown == "3":
-    ivy_file.write("<= ")
-elif upordown == "4":
-    ivy_file.write("< ")
-ivy_file.write(targetnum)
-ivy_file.write(";\n\t\t\tprotocol.idle := 1\n\t\t}\n\t}\n}\n\n")
+ivyFile.write(f"""
+#lang ivy 1.7
 
-ivy_file.write("object enabled_checker = {\n\n\t")
+object updater = {o}
+    type num
+    interpret num -> bv[10]
+    type exec_var
+    interpret exec_var -> bv[8]
+    type exec_stage
+    interpret exec_stage -> bv[3]
+    
+    action incr(x:num) returns(y:num) = {o}
+        y := x + 1
+    {c}
+    
+    action decr(x:num) returns(y:num) = {o}
+        y := x - 1
+    {c}
+{c}
+
+""")
+
+if upOrDown == "1":
+    equality = ">= "
+elif upOrDown == "2":
+    equality = "> "
+elif upOrDown == "3":
+    equality = "<= "
+elif upOrDown == "4":
+    equality = "< "
+
+ivyFile.write(f"""
+object goal = {o}
+    action achieved(v:updater.num)
+    object spec = {o}
+        before achieved {o}
+            assert v {equality} {targetNum};
+            protocol.idle := 1
+        {c}
+    {c}
+{c}
+
+""")
+
+ivyFile.write("object enabled_checker = {\n\n\t")
 
 count = 0
-for obj in Reactions:
+for obj in  reactions:
     count += 1
     if obj.priority > 15:
-        ivy_file.write("action is_enabled_r") 
-        ivy_file.write(str(count))
-        if (Reactions[count-1].reactant1 == ""):
-            ivy_file.write(" returns(y:bool) = {\n\t\ty := true\n\t}\n\n\t")
-        elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 == ""):
-            ivy_file.write("(reactant1:updater.num) returns(y:bool) = {\n\t\tif reactant1 >= ")
-            ivy_file.write(str(obj.reactant1num))
-            ivy_file.write(" {\n\t\t\ty := true\n\t\t}\n\t\telse {\n\t\t\ty := false\n\t\t}\n\t}\n\n\t")
-        elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 != ""):
-            ivy_file.write("(reactant1:updater.num,reactant2:updater.num) returns(y:bool) = {\n\t\tif reactant1 >= ")
-            ivy_file.write(str(obj.reactant1num))
-            ivy_file.write(" & reactant2 >= ")
-            ivy_file.write(str(obj.reactant2num))
-            ivy_file.write(" {\n\t\t\ty := true\n\t\t}\n\t\telse {\n\t\t\ty := false\n\t\t}\n\t}\n\n\t")
-ivy_file.write("\n}\n\n")
-
-ivy_file.write("object inspector = {\n\t")
-count = 0
-for obj in Reactions:
-    count = count + 1
-    if obj.priority > 15:
-        ivy_file.write("action check_guard_r")
-        ivy_file.write(str(count))
-        if (Reactions[count-1].reactant1 == ""):
-            ivy_file.write("\n\tbefore check_guard_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\tassert true\n\t}\n\n\t")
-        elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 == ""):
-            ivy_file.write("(reactant1:updater.num)\n\tbefore check_guard_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\tassert reactant1 >= ")
-            ivy_file.write(str(obj.reactant1num))
-            ivy_file.write("\n\t}\n\n\t")
-        elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 != ""):
-            ivy_file.write("(reactant1:updater.num,reactant2:updater.num)\n\tbefore check_guard_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\tassert reactant1 >= ")
-            ivy_file.write(str(obj.reactant1num))
-            ivy_file.write(" & reactant2 >= ")
-            ivy_file.write(str(obj.reactant2num))
-            ivy_file.write("\n\t}\n\n\t")
-
+        ivyFile.write(f"action is_enabled_r{count}") 
+        if (reactions[count-1].reactant1 == ""):
+            ivyFile.write(f""" returns(y:bool) = {o}
+        y := true
+    {c}
+                
+    """)
+        elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 == ""):
+            ivyFile.write(f"""(reactant1:updater.num) returns(y:bool) = {o}
+        if reactant1 >= {obj.reactant1Num} {o}
+            y:= true
+        {c}
+        else {o}
+            y:= false
+            {c}
+        {c}
         
-ivy_file.write("\n}")
+    """)
+        elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 != ""):
+            ivyFile.write(f"""(reactant1:updater.num,reactant2:updater.num) returns(y:bool) = {o}
+        if reactant1 >= {obj.reactant1Num} & reactant2 >= {obj.reactant2Num} {o}
+            y := true
+        {c}
+        else {o}
+            y := false
+        {c}
+    {c}
+                    
+    """)
+ivyFile.write("\n}\n\n")
 
-ivy_file.write("\n\nobject selector = {\n\t")
+ivyFile.write("object inspector = {\n\t")
+count = 0
+for obj in  reactions:
+    count = count + 1
+    if obj.priority > 15:
+        ivyFile.write(f"action check_guard_r{count}")
+        if (reactions[count-1].reactant1 == ""):
+            ivyFile.write(f"""
+    before check_guard_r{count} {o}
+        assert true
+    {c}
+    
+    """)
+        elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 == ""):
+            ivyFile.write(f"""(reactant1:updater.num)\n\tbefore check_guard_r{count} {o}
+        assert reactant1 >= {obj.reactant1Num}
+    {c}
+    
+    """)
+        elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 != ""):
+            ivyFile.write(f"""(reactant1:updater.num,reactant2:updater.num)
+    before check_guard_r{count} {o}
+        assert reactant1 >= {obj.reactant1Num} & reactant2 >= {obj.reactant2Num}
+    {c}
+    
+    """)
+        
+ivyFile.write("\n}")
+
+ivyFile.write("\n\nobject selector = {\n\t")
 
 count = 0
 
-for obj in Reactions:
+for obj in  reactions:
     count = count + 1
     if obj.priority > 15:
-        ivy_file.write("individual r")
-        ivy_file.write(str(count))
-        ivy_file.write("_exec : updater.exec_var\n\t")
+        ivyFile.write(f"individual r{count}_exec : updater.exec_var\n\t")
 
-ivy_file.write("\n\t")
+ivyFile.write("\n\t")
 count = 0
 
-for obj in Reactions:
-    count = count + 1
+for obj in  reactions:
+    count += 1
     if obj.priority > 15:
-        ivy_file.write("individual r")
-        ivy_file.write(str(count))
-        ivy_file.write("_rate : updater.exec_var\n\t")
+        ivyFile.write(f"individual r{count}_rate : updater.exec_var\n\t")
 
-ivy_file.write("\n\t")
+ivyFile.write("\n\t")
 
 count = 0
-for obj in Reactions:
-    count = count + 1
+for obj in  reactions:
+    count += 1
     if obj.priority > 15:
-        ivy_file.write("individual r")
-        ivy_file.write(str(count))
-        ivy_file.write("_count : updater.exec_var\n\t")
+        ivyFile.write(f"individual r{count}_count : updater.exec_var\n\t")
 
-ivy_file.write("\n\t")
+ivyFile.write("\n\t")
 
 count = 0
-for obj in Reactions:
-    count = count + 1
+for obj in  reactions:
+    count += 1
     if obj.priority > 15:
-        ivy_file.write("individual r")
-        ivy_file.write(str(count))
-        ivy_file.write("_count_rate : updater.exec_var\n\t")
+        ivyFile.write(f"individual r{count}_count_rate : updater.exec_var\n\t")
 
-ivy_file.write("\n\t")
+ivyFile.write("\n\t")
 
 count = 0
-for obj in Reactions:
-    count = count + 1
+for obj in  reactions:
+    count += 1
     if obj.priority > 15:
-        ivy_file.write("individual r")
-        ivy_file.write(str(count))
-        ivy_file.write("_stage : updater.exec_stage\n\t")
+        ivyFile.write(f"individual r{count}_stage : updater.exec_stage\n\t")
 
-ivy_file.write("\n\n\tafter init {\n\t\t")
+ivyFile.write("\n\n\tafter init {\n\t\t")
 
 count = 0
-for obj in Reactions:
-    count = count + 1
+for obj in  reactions:
+    count += 1
     if obj.priority > 15:
-        ivy_file.write("r")
-        ivy_file.write(str(count))
-        ivy_file.write("_count := 0")
-        ivy_file.write(";\n\t\t")
+        ivyFile.write(f"r{count}_count := 0;\n\t\t")
 
-ivy_file.write("\n\n\t\t")
+ivyFile.write("\n\n\t\t")
 count = 0
-for obj in Reactions:
-    count = count + 1
+for obj in  reactions:
+    count += 1
     if obj.priority > 15:
-        ivy_file.write("r")
-        ivy_file.write(str(count))
-        ivy_file.write("_count_rate := 4")
-        ivy_file.write(";\n\t\t")
+        ivyFile.write(f"r{count}_count_rate := 4;\n\t\t")
 
-ivy_file.write("\n\t}\n\n\t")
+ivyFile.write("\n\t}\n\n\t")
 
 count = 0
-for obj in Reactions:
-    count = count + 1
+for obj in  reactions:
+    count += 1
     if obj.priority > 15:
-        ivy_file.write("action execute_r")
-        ivy_file.write(str(count))
-        ivy_file.write(" returns(y:bool) = {\n\t\tr")
-        ivy_file.write(str(count))
-        ivy_file.write("_exec := r")
-        ivy_file.write(str(count))
-        ivy_file.write("_exec + 1;\n\t\t")
-        ivy_file.write("if r")
-        ivy_file.write(str(count))
-        ivy_file.write("_exec >= r")
-        ivy_file.write(str(count))
-        ivy_file.write("_rate {\n\t\t\ty := true;\n\t\t\tr")
-        ivy_file.write(str(count))
-        ivy_file.write("_exec := 0;\n\t\t\tr")
-        ivy_file.write(str(count))
-        ivy_file.write("_count := r")
-        ivy_file.write(str(count))
-        ivy_file.write("_count + 1\n\t\t}\n\t\telse {\n\t\t\ty := false\n\t\t};\n\t\tif r")
-        ivy_file.write(str(count))
-        ivy_file.write("_count >= r")
-        ivy_file.write(str(count))
-        ivy_file.write("_count_rate {\n\t\t\tr")
-        ivy_file.write(str(count))
-        ivy_file.write("_stage := r")
-        ivy_file.write(str(count))
-        ivy_file.write("_stage + 1;\n\t\t\tr")
-        ivy_file.write(str(count))
-        ivy_file.write("_count := 0\n\t\t};\n\t\t")
+        ivyFile.write(f"""action execute_r{count} returns(y:bool) = {o}
+        r{count}_exec := r{count}_exec + 1;
+        if r{count}_exec >= r{count}_rate {o}
+            y := true;
+            r{count}_exec := 0;
+            r{count}_count := r{count}_count + 1
+        {c}
+        else {o}
+            y := false
+        {c};
+        if r{count}_count >= r{count}_count_rate {o}
+            r{count}_stage := r{count}_stage + 1;
+            r{count}_count := 0
+        {c};
+        """)
         if obj.priority >= 23:
-            ivy_file.write("if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 0 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 1 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 2 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 3 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 4 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 5 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 6 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 7 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\telse {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
+            ivyFile.write(f"""if r{count}_stage = 0 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 1 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 2 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 3 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 4 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 5 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 6 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 7 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else {o}
+            r{count}_stage := 0
+        {c}
+    {c}
+
+    """)
         elif obj.priority >= 21:
-            ivy_file.write("if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 0 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 1 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 2\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 2 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 3 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 2\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 4 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 5 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 2\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 6 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 7 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 2\n\t\t}\n\t\telse {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
+            ivyFile.write(f"""if r{count}_stage = 0 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 1 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 2
+        {c}
+        else if r{count}_stage = 2 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 3 {o}
+            r{count}_count_rate := 3;
+            r{count}_rate := 2
+        {c}
+        else if r{count}_stage = 4 {o}
+            r{count}_count_rate := 5;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 5 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 2
+        {c}
+        else if r{count}_stage = 6 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 7 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 2
+        {c}
+        else {o}
+            r{count}_stage := 0
+        {c}
+    {c}
+
+    """)
         elif obj.priority >= 19:
-            ivy_file.write("if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 0 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 4\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 1 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 5\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 2 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 6\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 3 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 4\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 4 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 3\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 5 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 4\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 6 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 1;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 3\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 7 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 5\n\t\t}\n\t\telse {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
+            ivyFile.write(f"""if r{count}_stage = 0 {o}
+            r{count}_count_rate := 3;
+            r{count}_rate := 3
+        {c}
+        else if r{count}_stage = 1 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 4
+        {c}
+        else if r{count}_stage = 2 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 3
+        {c}
+        else if r{count}_stage = 3 {o}
+            r{count}_count_rate := 3;
+            r{count}_rate := 4
+        {c}
+        else if r{count}_stage = 4 {o}
+            r{count}_count_rate := 3;
+            r{count}_rate := 3
+        {c}
+        else if r{count}_stage = 5 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 2
+        {c}
+        else if r{count}_stage = 6 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 3
+        {c}
+        else if r{count}_stage = 7 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 4
+        {c}
+        else {o}
+            r{count}_stage := 0
+        {c}
+    {c}
+
+    """)
         elif obj.priority == 18:
-            ivy_file.write("if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 0 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 30\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 1 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 28\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 2 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 34\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 3 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 9;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 25\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 4 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 36\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 5 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 29\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 6 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 30\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 7 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 1;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 34\n\t\t}\n\t\telse {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
+            ivyFile.write(f"""if r{count}_stage = 0 {o}
+            r{count}_count_rate := 5;
+            r{count}_rate := 30
+        {c}
+        else if r{count}_stage = 1 {o}
+            r{count}_count_rate := 3;
+            r{count}_rate := 28
+        {c}
+        else if r{count}_stage = 2 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 34
+        {c}
+        else if r{count}_stage = 3 {o}
+            r{count}_count_rate := 9;
+            r{count}_rate := 25
+        {c}
+        else if r{count}_stage = 4 {o}
+            r{count}_count_rate := 36;
+            r{count}_rate := 5
+        {c}
+        else if r{count}_stage = 5 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 29
+        {c}
+        else if r{count}_stage = 6 {o}
+            r{count}_count_rate := 5;
+            r{count}_rate := 30
+        {c}
+        else if r{count}_stage = 7 {o}
+            r{count}_count_rate := 1;
+            r{count}_rate := 34
+        {c}
+        else {o}
+            r{count}_stage := 0
+        {c}
+    {c}
+
+    """)
         elif obj.priority == 17:
-            ivy_file.write("if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 0 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 1;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 200\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 1 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 189\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 2 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 192\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 3 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 9;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 212\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 4 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 192\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 5 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 232\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 6 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 190\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 7 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 200\n\t\t}\n\t\telse {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
+            ivyFile.write(f"""if r{count}_stage = 0 {o}
+            r{count}_count_rate := 1;
+            r{count}_rate := 200
+        {c}
+        else if r{count}_stage = 1 {o}
+            r{count}_count_rate := 3;
+            r{count}_rate := 189
+        {c}
+        else if r{count}_stage = 2 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 192
+        {c}
+        else if r{count}_stage = 3 {o}
+            r{count}_count_rate := 9;
+            r{count}_rate := 212
+        {c}
+        else if r{count}_stage = 4 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 192
+        {c}
+        else if r{count}_stage = 5 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 232
+        {c}
+        else if r{count}_stage = 6 {o}
+            r{count}_count_rate := 5;
+            r{count}_rate := 190
+        {c}
+        else if r{count}_stage = 7 {o}
+            r{count}_count_rate := 3;
+            r{count}_rate := 200
+        {c}
+        else {o}
+            r{count}_stage := 0
+        {c}
+    {c}
+
+    """)
         elif obj.priority == 16:
-            ivy_file.write("if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 0 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1000\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 1 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 989\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 2 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1190\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 3 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 9;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1053\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 4 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 942\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 5 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1022\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 6 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 930\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 7 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 1;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1000\n\t\t}\n\t\telse {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
-        elif obj.priority <= 9 and obj.priority >= 7:
-            ivy_file.write("if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 0 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 50\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 1 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 56\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 2 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 62\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 3 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 9;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 48\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 4 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 63\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 5 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 52\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 6 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 58\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 7 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 1;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 82\n\t\t}\n\t\telse {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
-        elif obj.priority <= 6:
-            ivy_file.write("if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 0 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 250\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 1 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 250\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 2 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 250\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 3 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 9;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 250\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 4 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 250\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 5 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 250\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 6 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 250\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 7 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 1;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 250\n\t\t}\n\t\telse {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
+            ivyFile.write(f"""if r{count}_stage = 0 {o}
+            r{count}_count_rate := 5;
+            r{count}_rate := 1000
+        {c}
+        else if r{count}_stage = 1 {o}
+            r{count}_count_rate := 3;
+            r{count}_rate := 989
+        {c}
+        else if r{count}_stage = 2 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 1190
+        {c}
+        else if r{count}_stage = 3 {o}
+            r{count}_count_rate := 9;
+            r{count}_rate := 1050
+        {c}
+        else if r{count}_stage = 4 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 942
+        {c}
+        else if r{count}_stage = 5 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 1012
+        {c}
+        else if r{count}_stage = 6 {o}
+            r{count}_count_rate := 5;
+            r{count}_rate := 930
+        {c}
+        else if r{count}_stage = 7 {o}
+            r{count}_count_rate := 1;
+            r{count}_rate := 1000
+        {c}
+        else {o}
+            r{count}_stage := 0
+        {c}
+    {c}
 
+    """)
 
+ivyFile.write("\n}\n")
 
-ivy_file.write("\n}\n")
-
-ivy_file.write("\nobject protocol = {\n\n\ttype 2bit\n\tinterpret 2bit -> bv[1]\n\tindividual idle : 2bit\n\n")
+ivyFile.write("\nobject protocol = {\n\n\ttype 2bit\n\tinterpret 2bit -> bv[1]\n\tindividual idle : 2bit\n\n")
 
 for obj in spec:
-    ivy_file.write("\tindividual ")
-    ivy_file.write("r_")
-    ivy_file.write(obj)
-    ivy_file.write(" : updater.num\n")
+    ivyFile.write(f"\tindividual r_{obj} : updater.num\n")
 
-ivy_file.write("\n\tafter init {\n\t\t")
+ivyFile.write("\n\tafter init {\n\t\t")
 
-for obj in specieslist:
-    ivy_file.write("r_")
-    ivy_file.write(obj.name)
-    ivy_file.write(" := ")
-    ivy_file.write(str(obj.value))
-    ivy_file.write(";\n\t\t")
+for obj in speciesList:
+    ivyFile.write(f"r_{obj.name} := {obj.value};\n\t\t")
 
-ivy_file.write("idle := 0\n\t}\n\n\t")
+ivyFile.write("idle := 0\n\t}\n\n\t")
 
 count = 0
-for obj in Reactions:
-    count = count + 1
+for obj in  reactions:
+    count += 1
     if obj.priority > 15:
         if(obj.reactant1 == "" and obj.product1 != "" and obj.product2 == ""):
-            ivy_file.write("action update_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" = {\n\t\t")
-            ivy_file.write("if selector.execute_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
-            ivy_file.write(str(count))
-            for x in range(obj.product1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(" := updater.incr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(")")
+            ivyFile.write(f"""action update_r{count} =  {o}
+        if selector.execute_r{count} {o}
+            call inspector.check_guard_r{count}""")
+            for x in range(obj.product1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
             if obj.priority >= 25:
-                ivy_file.write(";\n\t\t")
-                ivy_file.write("\tif ")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                if upordown == "1":
-                    ivy_file.write(" >= ")
-                elif upordown == "2":
-                    ivy_file.write(" > ")
-                elif upordown == "3":
-                    ivy_file.write(" <= ")
-                elif upordown == "4":
-                    ivy_file.write(" < ")
-                ivy_file.write(str(targetnum))
-                ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                ivy_file.write(")\n\t\t\t}\n\t\t")
+                ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivy_file.write("\n\t\t")
-            ivy_file.write("}\n\t}\n\n\t")
+                ivyFile.write("\n\t\t")
+            ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 == "" and obj.product1 != "" and obj.product2 != ""):
-            ivy_file.write("action update_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" = {\n\t\t")
-            ivy_file.write("if selector.execute_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
-            ivy_file.write(str(count))
-            for x in range(obj.product1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(" := updater.incr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(")")
-            for x in range(obj.product2num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product2)
-                ivy_file.write(" := updater.incr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product2)
-                ivy_file.write(")")
+            ivyFile.write(f"""action update_r{count} = {o}
+        if selector.execute_r{count} {o}
+            call inspector.check_guard_r{count}""")
+            for x in range(obj.product1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
+            for x in range(obj.product2Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.product2} := updater.incr(r_{obj.product2})")
             if obj.priority >= 25:
-                ivy_file.write(";\n\t\t")
-                ivy_file.write("\tif ")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                if upordown == "1":
-                    ivy_file.write(" >= ")
-                elif upordown == "2":
-                    ivy_file.write(" > ")
-                elif upordown == "3":
-                    ivy_file.write(" <= ")
-                elif upordown == "4":
-                    ivy_file.write(" < ")
-                ivy_file.write(str(targetnum))
-                ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                ivy_file.write(")\n\t\t\t}\n\t\t")
+                ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivy_file.write("\n\t\t")
-            ivy_file.write("}\n\t}\n\n\t")
+                ivyFile.write("\n\t\t")
+            ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 == ""):
-            ivy_file.write("action update_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" = {\n\t\t")
-            ivy_file.write("if selector.execute_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
-            ivy_file.write(str(count))
-            ivy_file.write("(")
-            ivy_file.write("r_")
-            ivy_file.write(obj.reactant1)
-            ivy_file.write(")")
-            for x in range(obj.reactant1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(" := updater.decr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(")")
+            ivyFile.write(f"""action update_r{count} =  {o}
+        if selector.execute_r{count} {o}
+            call inspector.check_guard_r{count}(r_{obj.reactant1})""")
+            for x in range(obj.reactant1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
             if obj.priority >= 25:
-                ivy_file.write(";\n\t\t")
-                ivy_file.write("\tif ")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                if upordown == "1":
-                    ivy_file.write(" >= ")
-                elif upordown == "2":
-                    ivy_file.write(" > ")
-                elif upordown == "3":
-                    ivy_file.write(" <= ")
-                elif upordown == "4":
-                    ivy_file.write(" < ")
-                ivy_file.write(str(targetnum))
-                ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                ivy_file.write(")\n\t\t\t}\n\t\t")
+                ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivy_file.write("\n\t\t")
-            ivy_file.write("}\n\t}\n\n\t")
+                ivyFile.write("\n\t\t")
+            ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 != "" and obj.product2 == ""):
-            ivy_file.write("action update_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" = {\n\t\t")
-            ivy_file.write("if selector.execute_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
-            ivy_file.write(str(count))
-            ivy_file.write("(")
-            ivy_file.write("r_")
-            ivy_file.write(obj.reactant1)
-            ivy_file.write(")")
-            for x in range(obj.reactant1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(" := updater.decr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(")")
-            for x in range(obj.product1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(" := updater.incr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(")")
+            ivyFile.write(f"""action update_r{count} =  {o}
+        if selector.execute_r{count} {o}
+            call inspector.check_guard_r{count}(r_{obj.reactant1})""")
+            for x in range(obj.reactant1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
+            for x in range(obj.product1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
             if obj.priority >= 25:
-                ivy_file.write(";\n\t\t")
-                ivy_file.write("\tif ")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                if upordown == "1":
-                    ivy_file.write(" >= ")
-                elif upordown == "2":
-                    ivy_file.write(" > ")
-                elif upordown == "3":
-                    ivy_file.write(" <= ")
-                elif upordown == "4":
-                    ivy_file.write(" < ")
-                ivy_file.write(str(targetnum))
-                ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                ivy_file.write(")\n\t\t\t}\n\t\t")
+                ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivy_file.write("\n\t\t")
-            ivy_file.write("}\n\t}\n\n\t")
+                ivyFile.write("\n\t\t")
+            ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 != "" and obj.product2 != ""):
-            ivy_file.write("action update_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" = {\n\t\t")
-            ivy_file.write("if selector.execute_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
-            ivy_file.write(str(count))
-            ivy_file.write("(")
-            ivy_file.write("r_")
-            ivy_file.write(obj.reactant1)
-            ivy_file.write(")")
-            for x in range(obj.reactant1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(" := updater.decr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(")")
-            for x in range(obj.product1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(" := updater.incr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(")")
-            for x in range(obj.product2num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product2)
-                ivy_file.write(" := updater.incr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product2)
-                ivy_file.write(")")
+            ivyFile.write(f"""action update_r{count} =  {o}
+        if selector.execute_r{count} {o}
+            call inspector.check_guard_r{count}(r_{obj.reactant1})""")
+            for x in range(obj.reactant1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
+            for x in range(obj.product1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
+            for x in range(obj.product2Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.product2} := updater.incr(r_{obj.product2})")
             if obj.priority >= 25:
-                ivy_file.write(";\n\t\t")
-                ivy_file.write("\tif ")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                if upordown == "1":
-                    ivy_file.write(" >= ")
-                elif upordown == "2":
-                    ivy_file.write(" > ")
-                elif upordown == "3":
-                    ivy_file.write(" <= ")
-                elif upordown == "4":
-                    ivy_file.write(" < ")
-                ivy_file.write(str(targetnum))
-                ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                ivy_file.write(")\n\t\t\t}\n\t\t")
+                ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivy_file.write("\n\t\t")
-            ivy_file.write("}\n\t}\n\n\t")
+                ivyFile.write("\n\t\t")
+            ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 == ""):
-            ivy_file.write("action update_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" = {\n\t\t")
-            ivy_file.write("if selector.execute_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
-            ivy_file.write(str(count))
-            ivy_file.write("(")
-            ivy_file.write("r_")
-            ivy_file.write(obj.reactant1)
-            ivy_file.write(",")
-            ivy_file.write("r_")
-            ivy_file.write(obj.reactant2)
-            ivy_file.write(")")
-            for x in range(obj.reactant1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(" := updater.decr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(")")
-            for x in range(obj.reactant2num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant2)
-                ivy_file.write(" := updater.decr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant2)
-                ivy_file.write(")")
+            ivyFile.write(f"""action update_r{count} =  {o}
+        if selector.execute_r{count} {o}
+            call inspector.check_guard_r{count}(r_{obj.reactant1},r_{obj.reactant2})""")
+            for x in range(obj.reactant1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
+            for x in range(obj.reactant2Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant2} := updater.decr(r_{obj.reacant2})")
             if obj.priority >= 25:
-                ivy_file.write(";\n\t\t")
-                ivy_file.write("\tif ")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                if upordown == "1":
-                    ivy_file.write(" >= ")
-                elif upordown == "2":
-                    ivy_file.write(" > ")
-                elif upordown == "3":
-                    ivy_file.write(" <= ")
-                elif upordown == "4":
-                    ivy_file.write(" < ")
-                ivy_file.write(str(targetnum))
-                ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                ivy_file.write(")\n\t\t\t}\n\t\t")
+                ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivy_file.write("\n\t\t")
-            ivy_file.write("}\n\t}\n\n\t")
+                ivyFile.write("\n\t\t")
+            ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 != "" and obj.product2 == ""):
-            ivy_file.write("action update_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" = {\n\t\t")
-            ivy_file.write("if selector.execute_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
-            ivy_file.write(str(count))
-            ivy_file.write("(")
-            ivy_file.write("r_")
-            ivy_file.write(obj.reactant1)
-            ivy_file.write(",")
-            ivy_file.write("r_")
-            ivy_file.write(obj.reactant2)
-            ivy_file.write(")")
-            for x in range(obj.reactant1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(" := updater.decr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(")")
-            for x in range(obj.reactant2num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant2)
-                ivy_file.write(" := updater.decr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant2)
-                ivy_file.write(")")
-            for x in range(obj.product1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(" := updater.incr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(")")
+            ivyFile.write(f"""action update_r{count} =  {o}
+        if selector.execute_r{count} {o}
+            call inspector.check_guard_r{count}(r_{obj.reactant1},r_{obj.reactant2})""")
+            for x in range(obj.reactant1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
+            for x in range(obj.reactant2Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant2} := updater.decr(r_{obj.reacant2})")
+            for x in range(obj.product1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
             if obj.priority >= 25:
-                ivy_file.write(";\n\t\t")
-                ivy_file.write("\tif ")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                if upordown == "1":
-                    ivy_file.write(" >= ")
-                elif upordown == "2":
-                    ivy_file.write(" > ")
-                elif upordown == "3":
-                    ivy_file.write(" <= ")
-                elif upordown == "4":
-                    ivy_file.write(" < ")
-                ivy_file.write(str(targetnum))
-                ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                ivy_file.write(")\n\t\t\t}\n\t\t")
+                ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivy_file.write("\n\t\t")
-            ivy_file.write("}\n\t}\n\n\t")
+                ivyFile.write("\n\t\t")
+            ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 != "" and obj.product2 != ""):
-            ivy_file.write("action update_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" = {\n\t\t")
-            ivy_file.write("if selector.execute_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
-            ivy_file.write(str(count))
-            ivy_file.write("(")
-            ivy_file.write("r_")
-            ivy_file.write(obj.reactant1)
-            ivy_file.write(",")
-            ivy_file.write("r_")
-            ivy_file.write(obj.reactant2)
-            ivy_file.write(")")
-            for x in range(obj.reactant1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(" := updater.decr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(")")
-            for x in range(obj.reactant2num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant2)
-                ivy_file.write(" := updater.decr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant2)
-                ivy_file.write(")")
-            for x in range(obj.product1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(" := updater.incr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(")")
-            for x in range(obj.product2num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product2)
-                ivy_file.write(" := updater.incr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product2)
-                ivy_file.write(")")
+            ivyFile.write(f"""action update_r{count} =  {o}
+        if selector.execute_r{count} {o}
+            call inspector.check_guard_r{count}(r_{obj.reactant1},r_{obj.reactant2})""")
+            for x in range(obj.reactant1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reactant1})")
+            for x in range(obj.reactant2Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant2} := updater.decr(r_{obj.reactant2})")
+            for x in range(obj.product1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
+            for x in range(obj.product2Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.product2} := updater.incr(r_{obj.product2})")
             if obj.priority >= 25:
-                ivy_file.write(";\n\t\t")
-                ivy_file.write("\tif ")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                if upordown == "1":
-                    ivy_file.write(" >= ")
-                elif upordown == "2":
-                    ivy_file.write(" > ")
-                elif upordown == "3":
-                    ivy_file.write(" <= ")
-                elif upordown == "4":
-                    ivy_file.write(" < ")
-                ivy_file.write(str(targetnum))
-                ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                ivy_file.write(")\n\t\t\t}\n\t\t")
+                ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivy_file.write("\n\t\t")
-            ivy_file.write("}\n\t}\n\n\t")
+                ivyFile.write("\n\t\t")
+            ivyFile.write("}\n\t}\n\n\t")
 
-ivy_file.write("\n\n\taction idling = {}\n\n\t")
+ivyFile.write("\n\n\taction idling = {}\n\n\t")
+
 count = 0
-for obj in Reactions:
+for obj in  reactions:
+    count += 1
+    if obj.priority > 15:
+        ivyFile.write(f"before update_r{count}")
+        if (reactions[count-1].reactant1 == ""):
+            ivyFile.write(f" {o}\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r{count}")
+            if obj.priority <= 6:
+                ivyFile.write(";\n\t\tassert false")
+            ivyFile.write("\n\t}\n\t")
+        elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 == ""):
+            ivyFile.write(f" {o}\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r{count}(r_{obj.reactant1})")
+            if obj.priority <= 6:
+                ivyFile.write(";\n\t\tassert false")
+            ivyFile.write("\n\t}\n\t")
+        elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 != ""):
+            ivyFile.write(f" {o}\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r{count}(r_{obj.reactant1},{obj.reactant2})")
+            if obj.priority <= 6:
+                ivyFile.write(";\n\t\tassert false")
+            ivyFile.write("\n\t}\n\n\t")
+
+
+ivyFile.write("\n\n\tbefore idling {\n\t\tassert idle = 1\n\t}")
+
+ivyFile.write("\n\n\tafter idling {\n\t\tassert idle = 0\n\t}\n}\n") #this causes assertion failure for the first run
+
+count = 0
+for obj in  reactions:
     count = count + 1
     if obj.priority > 15:
-        ivy_file.write("before update_r")
-        ivy_file.write(str(count))
-        if (Reactions[count-1].reactant1 == ""):
-            ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r")
-            ivy_file.write(str(count))
-            if obj.priority <= 6:
-                ivy_file.write(";\n\t\tassert false")
-            ivy_file.write("\n\t}\n\t")
-        elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 == ""):
-            ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r")
-            ivy_file.write(str(count))
-            ivy_file.write("(")
-            ivy_file.write("r_")
-            ivy_file.write(Reactions[count-1].reactant1)
-            ivy_file.write(")")
-            if obj.priority <= 6:
-                ivy_file.write(";\n\t\tassert false")
-            ivy_file.write("\n\t}\n\t")
-        elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 != ""):
-            ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r")
-            ivy_file.write(str(count))
-            ivy_file.write("(")
-            ivy_file.write("r_")
-            ivy_file.write(Reactions[count-1].reactant1)
-            ivy_file.write(",")
-            ivy_file.write("r_")
-            ivy_file.write(Reactions[count-1].reactant2)
-            ivy_file.write(")")
-            if obj.priority <= 6:
-                ivy_file.write(";\n\t\tassert false")
-            ivy_file.write("\n\t}\n\n\t")
+        ivyFile.write("export protocol.update_r")
+        ivyFile.write(str(count))
+        ivyFile.write("\n")
 
 
-ivy_file.write("\n\n\tbefore idling {\n\t\tassert idle = 1\n\t}")#\n}\n")
-
-ivy_file.write("\n\n\tafter idling {\n\t\tassert idle = 0\n\t}\n}\n") #this causes assertion failure for the first run
+ivyFile.write("export protocol.idling\nimport goal.achieved\n")
 
 count = 0
-for obj in Reactions:
-    count = count + 1
-    if obj.priority > 15:
-        ivy_file.write("export protocol.update_r")
-        ivy_file.write(str(count))
-        ivy_file.write("\n")
-
-
-ivy_file.write("export protocol.idling\nimport goal.achieved\n")
-
-count = 0
-for obj in Reactions:
+for obj in  reactions:
     count= count + 1
     if obj.priority > 15:
-        ivy_file.write("import inspector.check_guard_r")
-        ivy_file.write(str(count))
-        ivy_file.write("\n")
+        ivyFile.write("import inspector.check_guard_r")
+        ivyFile.write(str(count))
+        ivyFile.write("\n")
 
-ivy_file.write("\nisolate iso_proto = protocol with enabled_checker, updater, goal, selector, inspector")
+ivyFile.write("\nisolate iso_proto = protocol with enabled_checker, updater, goal, selector, inspector")
 
-ivy_file.close()        #ivy model complete
+ivyFile.close()        #ivy model complete
 
 #quit = input("Should we be done now?")
 
@@ -1463,7 +924,7 @@ ivy_to_cpp_command = subprocess.Popen(["ivy_to_cpp", "isolate=iso_proto", "targe
 ivy_to_cpp_command.wait()
 import os
 print("starting to run initial test")
-os.system("./test_v2 seed=367 iters=10000000 runs=1 >test_v2.txt")
+os.system("./test_v2 seed=367 iters=10000 runs=1 >test_v2.txt")
 print("finished initial test") #test is run and results are stored in test_v2.txt
 
 first_iters = 0
@@ -1485,1320 +946,596 @@ if first_iters >= 10000:
 print("The iters recorded for this initial example is", first_iters)
 
 ######
-ivy_file = open("test_v2.ivy", "w") #another ivy model is created that will not have assertion failure
+ivyFile = open("test_temp.ivy", "w") #an ivy model for the CRN is made without assertion failure at first idling action
 
-ivy_file.write("#lang ivy 1.7\n\nobject updater = {\n")
-ivy_file.write("\ttype num\n\tinterpret num -> bv[10]\n\ttype exec_var\n\tinterpret exec_var -> bv[8]\n\ttype exec_stage\n\tinterpret exec_stage -> bv[3]\n\n\taction incr(x:num) returns(y:num) = {\n\t\ty := x + 1\n\t}\n\n\taction decr(x:num) returns(y:num) = {\n\t\ty := x - 1\n\t}\n}")
-ivy_file.write("\n\nobject goal = {\n\taction achieved(v:updater.num)\n\tobject spec = {\n\t\tbefore achieved {\n\t\t\tassert v ")
-if upordown == "1":
-    ivy_file.write(">= ")
-elif upordown == "2":
-    ivy_file.write("> ")
-elif upordown == "3":
-    ivy_file.write("<= ")
-elif upordown == "4":
-    ivy_file.write("< ")
-ivy_file.write(targetnum)
-ivy_file.write(";\n\t\t\tprotocol.idle := 1\n\t\t}\n\t}\n}\n\n")
+ivyFile.write(f"""
+#lang ivy 1.7
 
-ivy_file.write("object enabled_checker = {\n\n\t")
+object updater = {o}
+    type num
+    interpret num -> bv[10]
+    type exec_var
+    interpret exec_var -> bv[8]
+    type exec_stage
+    interpret exec_stage -> bv[3]
+    
+    action incr(x:num) returns(y:num) = {o}
+        y := x + 1
+    {c}
+    
+    action decr(x:num) returns(y:num) = {o}
+        y := x - 1
+    {c}
+{c}
+
+""")
+
+ivyFile.write(f"""
+object goal = {o}
+    action achieved(v:updater.num)
+    object spec = {o}
+        before achieved {o}
+            assert v {equality} {targetNum};
+            protocol.idle := 1
+        {c}
+    {c}
+{c}
+
+""")
+
+ivyFile.write("object enabled_checker = {\n\n\t")
 
 count = 0
-for obj in Reactions:
+for obj in  reactions:
     count += 1
     if obj.priority > 15:
-        ivy_file.write("action is_enabled_r") 
-        ivy_file.write(str(count))
-        if (Reactions[count-1].reactant1 == ""):
-            ivy_file.write(" returns(y:bool) = {\n\t\ty := true\n\t}\n\n\t")
-        elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 == ""):
-            ivy_file.write("(reactant1:updater.num) returns(y:bool) = {\n\t\tif reactant1 >= ")
-            ivy_file.write(str(obj.reactant1num))
-            ivy_file.write(" {\n\t\t\ty := true\n\t\t}\n\t\telse {\n\t\t\ty := false\n\t\t}\n\t}\n\n\t")
-        elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 != ""):
-            ivy_file.write("(reactant1:updater.num,reactant2:updater.num) returns(y:bool) = {\n\t\tif reactant1 >= ")
-            ivy_file.write(str(obj.reactant1num))
-            ivy_file.write(" & reactant2 >= ")
-            ivy_file.write(str(obj.reactant2num))
-            ivy_file.write(" {\n\t\t\ty := true\n\t\t}\n\t\telse {\n\t\t\ty := false\n\t\t}\n\t}\n\n\t")
-ivy_file.write("\n}\n\n")
-
-ivy_file.write("object inspector = {\n\t")
-count = 0
-for obj in Reactions:
-    count = count + 1
-    if obj.priority > 15:
-        ivy_file.write("action check_guard_r")
-        ivy_file.write(str(count))
-        if (Reactions[count-1].reactant1 == ""):
-            ivy_file.write("\n\tbefore check_guard_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\tassert true\n\t}\n\n\t")
-        elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 == ""):
-            ivy_file.write("(reactant1:updater.num)\n\tbefore check_guard_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\tassert reactant1 >= ")
-            ivy_file.write(str(obj.reactant1num))
-            ivy_file.write("\n\t}\n\n\t")
-        elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 != ""):
-            ivy_file.write("(reactant1:updater.num,reactant2:updater.num)\n\tbefore check_guard_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\tassert reactant1 >= ")
-            ivy_file.write(str(obj.reactant1num))
-            ivy_file.write(" & reactant2 >= ")
-            ivy_file.write(str(obj.reactant2num))
-            ivy_file.write("\n\t}\n\n\t")
-
+        ivyFile.write(f"action is_enabled_r{count}") 
+        if (reactions[count-1].reactant1 == ""):
+            ivyFile.write(f""" returns(y:bool) = {o}
+        y := true
+    {c}
+                
+    """)
+        elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 == ""):
+            ivyFile.write(f"""(reactant1:updater.num) returns(y:bool) = {o}
+        if reactant1 >= {obj.reactant1Num} {o}
+            y:= true
+        {c}
+        else {o}
+            y:= false
+            {c}
+        {c}
         
-ivy_file.write("\n}")
+    """)
+        elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 != ""):
+            ivyFile.write(f"""(reactant1:updater.num,reactant2:updater.num) returns(y:bool) = {o}
+        if reactant1 >= {obj.reactant1Num} & reactant2 >= {obj.reactant2Num} {o}
+            y := true
+        {c}
+        else {o}
+            y := false
+        {c}
+    {c}
+                    
+    """)
+ivyFile.write("\n}\n\n")
 
-ivy_file.write("\n\nobject selector = {\n\t")
+ivyFile.write("object inspector = {\n\t")
+count = 0
+for obj in  reactions:
+    count = count + 1
+    if obj.priority > 15:
+        ivyFile.write(f"action check_guard_r{count}")
+        if (reactions[count-1].reactant1 == ""):
+            ivyFile.write(f"""
+    before check_guard_r{count} {o}
+        assert true
+    {c}
+    
+    """)
+        elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 == ""):
+            ivyFile.write(f"""(reactant1:updater.num)\n\tbefore check_guard_r{count} {o}
+        assert reactant1 >= {obj.reactant1Num}
+    {c}
+    
+    """)
+        elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 != ""):
+            ivyFile.write(f"""(reactant1:updater.num,reactant2:updater.num)
+    before check_guard_r{count} {o}
+        assert reactant1 >= {obj.reactant1Num} & reactant2 >= {obj.reactant2Num}
+    {c}
+    
+    """)
+        
+ivyFile.write("\n}")
+
+ivyFile.write("\n\nobject selector = {\n\t")
 
 count = 0
 
-for obj in Reactions:
+for obj in  reactions:
     count = count + 1
     if obj.priority > 15:
-        ivy_file.write("individual r")
-        ivy_file.write(str(count))
-        ivy_file.write("_exec : updater.exec_var\n\t")
+        ivyFile.write(f"individual r{count}_exec : updater.exec_var\n\t")
 
-ivy_file.write("\n\t")
+ivyFile.write("\n\t")
 count = 0
 
-for obj in Reactions:
-    count = count + 1
+for obj in  reactions:
+    count += 1
     if obj.priority > 15:
-        ivy_file.write("individual r")
-        ivy_file.write(str(count))
-        ivy_file.write("_rate : updater.exec_var\n\t")
+        ivyFile.write(f"individual r{count}_rate : updater.exec_var\n\t")
 
-ivy_file.write("\n\t")
+ivyFile.write("\n\t")
 
 count = 0
-for obj in Reactions:
-    count = count + 1
+for obj in  reactions:
+    count += 1
     if obj.priority > 15:
-        ivy_file.write("individual r")
-        ivy_file.write(str(count))
-        ivy_file.write("_count : updater.exec_var\n\t")
+        ivyFile.write(f"individual r{count}_count : updater.exec_var\n\t")
 
-ivy_file.write("\n\t")
+ivyFile.write("\n\t")
 
 count = 0
-for obj in Reactions:
-    count = count + 1
+for obj in  reactions:
+    count += 1
     if obj.priority > 15:
-        ivy_file.write("individual r")
-        ivy_file.write(str(count))
-        ivy_file.write("_count_rate : updater.exec_var\n\t")
+        ivyFile.write(f"individual r{count}_count_rate : updater.exec_var\n\t")
 
-ivy_file.write("\n\t")
+ivyFile.write("\n\t")
 
 count = 0
-for obj in Reactions:
-    count = count + 1
+for obj in  reactions:
+    count += 1
     if obj.priority > 15:
-        ivy_file.write("individual r")
-        ivy_file.write(str(count))
-        ivy_file.write("_stage : updater.exec_stage\n\t")
+        ivyFile.write(f"individual r{count}_stage : updater.exec_stage\n\t")
 
-ivy_file.write("\n\n\tafter init {\n\t\t")
+ivyFile.write("\n\n\tafter init {\n\t\t")
 
 count = 0
-for obj in Reactions:
-    count = count + 1
+for obj in  reactions:
+    count += 1
     if obj.priority > 15:
-        ivy_file.write("r")
-        ivy_file.write(str(count))
-        ivy_file.write("_count := 0")
-        ivy_file.write(";\n\t\t")
+        ivyFile.write(f"r{count}_count := 0;\n\t\t")
 
-ivy_file.write("\n\n\t\t")
+ivyFile.write("\n\n\t\t")
 count = 0
-for obj in Reactions:
-    count = count + 1
+for obj in  reactions:
+    count += 1
     if obj.priority > 15:
-        ivy_file.write("r")
-        ivy_file.write(str(count))
-        ivy_file.write("_count_rate := 4")
-        ivy_file.write(";\n\t\t")
+        ivyFile.write(f"r{count}_count_rate := 4;\n\t\t")
 
-ivy_file.write("\n\t}\n\n\t")
+ivyFile.write("\n\t}\n\n\t")
 
 count = 0
-for obj in Reactions:
-    count = count + 1
+for obj in  reactions:
+    count += 1
     if obj.priority > 15:
-        ivy_file.write("action execute_r")
-        ivy_file.write(str(count))
-        ivy_file.write(" returns(y:bool) = {\n\t\tr")
-        ivy_file.write(str(count))
-        ivy_file.write("_exec := r")
-        ivy_file.write(str(count))
-        ivy_file.write("_exec + 1;\n\t\t")
-        ivy_file.write("if r")
-        ivy_file.write(str(count))
-        ivy_file.write("_exec >= r")
-        ivy_file.write(str(count))
-        ivy_file.write("_rate {\n\t\t\ty := true;\n\t\t\tr")
-        ivy_file.write(str(count))
-        ivy_file.write("_exec := 0;\n\t\t\tr")
-        ivy_file.write(str(count))
-        ivy_file.write("_count := r")
-        ivy_file.write(str(count))
-        ivy_file.write("_count + 1\n\t\t}\n\t\telse {\n\t\t\ty := false\n\t\t};\n\t\tif r")
-        ivy_file.write(str(count))
-        ivy_file.write("_count >= r")
-        ivy_file.write(str(count))
-        ivy_file.write("_count_rate {\n\t\t\tr")
-        ivy_file.write(str(count))
-        ivy_file.write("_stage := r")
-        ivy_file.write(str(count))
-        ivy_file.write("_stage + 1;\n\t\t\tr")
-        ivy_file.write(str(count))
-        ivy_file.write("_count := 0\n\t\t};\n\t\t")
+        ivyFile.write(f"""action execute_r{count} returns(y:bool) = {o}
+        r{count}_exec := r{count}_exec + 1;
+        if r{count}_exec >= r{count}_rate {o}
+            y := true;
+            r{count}_exec := 0;
+            r{count}_count := r{count}_count + 1
+        {c}
+        else {o}
+            y := false
+        {c};
+        if r{count}_count >= r{count}_count_rate {o}
+            r{count}_stage := r{count}_stage + 1;
+            r{count}_count := 0
+        {c};
+        """)
         if obj.priority >= 23:
-            ivy_file.write("if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 0 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 1 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 2 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 3 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 4 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 5 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 6 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 7 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\telse {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
+            ivyFile.write(f"""if r{count}_stage = 0 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 1 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 2 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 3 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 4 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 5 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 6 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 7 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else {o}
+            r{count}_stage := 0
+        {c}
+    {c}
+
+    """)
         elif obj.priority >= 21:
-            ivy_file.write("if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 0 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 1 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 2\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 2 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 3 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 2\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 4 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 5 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 2\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 6 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 7 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 2\n\t\t}\n\t\telse {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
+            ivyFile.write(f"""if r{count}_stage = 0 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 1 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 2
+        {c}
+        else if r{count}_stage = 2 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 3 {o}
+            r{count}_count_rate := 3;
+            r{count}_rate := 2
+        {c}
+        else if r{count}_stage = 4 {o}
+            r{count}_count_rate := 5;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 5 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 2
+        {c}
+        else if r{count}_stage = 6 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 1
+        {c}
+        else if r{count}_stage = 7 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 2
+        {c}
+        else {o}
+            r{count}_stage := 0
+        {c}
+    {c}
+
+    """)
         elif obj.priority >= 19:
-            ivy_file.write("if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 0 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 1 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 2\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 2 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 3\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 3 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 2\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 4 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 3\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 5 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 2\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 6 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 1;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 1\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 7 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 2\n\t\t}\n\t\telse {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
+            ivyFile.write(f"""if r{count}_stage = 0 {o}
+            r{count}_count_rate := 3;
+            r{count}_rate := 3
+        {c}
+        else if r{count}_stage = 1 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 4
+        {c}
+        else if r{count}_stage = 2 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 3
+        {c}
+        else if r{count}_stage = 3 {o}
+            r{count}_count_rate := 3;
+            r{count}_rate := 4
+        {c}
+        else if r{count}_stage = 4 {o}
+            r{count}_count_rate := 3;
+            r{count}_rate := 3
+        {c}
+        else if r{count}_stage = 5 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 2
+        {c}
+        else if r{count}_stage = 6 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 3
+        {c}
+        else if r{count}_stage = 7 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 4
+        {c}
+        else {o}
+            r{count}_stage := 0
+        {c}
+    {c}
+
+    """)
         elif obj.priority == 18:
-            ivy_file.write("if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 0 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 3\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 1 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 4\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 2 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 5\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 3 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 9;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 5\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 4 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 4\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 5 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 5\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 6 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 3\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 7 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 1;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 4\n\t\t}\n\t\telse {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
+            ivyFile.write(f"""if r{count}_stage = 0 {o}
+            r{count}_count_rate := 5;
+            r{count}_rate := 30
+        {c}
+        else if r{count}_stage = 1 {o}
+            r{count}_count_rate := 3;
+            r{count}_rate := 28
+        {c}
+        else if r{count}_stage = 2 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 34
+        {c}
+        else if r{count}_stage = 3 {o}
+            r{count}_count_rate := 9;
+            r{count}_rate := 25
+        {c}
+        else if r{count}_stage = 4 {o}
+            r{count}_count_rate := 36;
+            r{count}_rate := 5
+        {c}
+        else if r{count}_stage = 5 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 29
+        {c}
+        else if r{count}_stage = 6 {o}
+            r{count}_count_rate := 5;
+            r{count}_rate := 30
+        {c}
+        else if r{count}_stage = 7 {o}
+            r{count}_count_rate := 1;
+            r{count}_rate := 34
+        {c}
+        else {o}
+            r{count}_stage := 0
+        {c}
+    {c}
+
+    """)
         elif obj.priority == 17:
-            ivy_file.write("if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 0 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 13\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 1 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 11\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 2 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 15\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 3 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 9;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 12\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 4 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 14\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 5 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 12\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 6 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 15\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 7 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 10\n\t\t}\n\t\telse {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
+            ivyFile.write(f"""if r{count}_stage = 0 {o}
+            r{count}_count_rate := 1;
+            r{count}_rate := 200
+        {c}
+        else if r{count}_stage = 1 {o}
+            r{count}_count_rate := 3;
+            r{count}_rate := 189
+        {c}
+        else if r{count}_stage = 2 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 192
+        {c}
+        else if r{count}_stage = 3 {o}
+            r{count}_count_rate := 9;
+            r{count}_rate := 212
+        {c}
+        else if r{count}_stage = 4 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 192
+        {c}
+        else if r{count}_stage = 5 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 232
+        {c}
+        else if r{count}_stage = 6 {o}
+            r{count}_count_rate := 5;
+            r{count}_rate := 190
+        {c}
+        else if r{count}_stage = 7 {o}
+            r{count}_count_rate := 3;
+            r{count}_rate := 200
+        {c}
+        else {o}
+            r{count}_stage := 0
+        {c}
+    {c}
+
+    """)
         elif obj.priority == 16:
-            ivy_file.write("if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 0 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 30\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 1 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 28\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 2 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 34\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 3 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 9;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 25\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 4 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 36\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 5 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 29\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 6 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 30\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 7 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 1;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 34\n\t\t}\n\t\telse {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
-        elif obj.priority <= 9 and obj.priority >= 7:
-            ivy_file.write("if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 0 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 50\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 1 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 56\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 2 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 62\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 3 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 9;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 48\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 4 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 63\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 5 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 52\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 6 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 58\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 7 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 1;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 82\n\t\t}\n\t\telse {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
-        elif obj.priority <= 6:
-            ivy_file.write("if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 0 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 250\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 1 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 3;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 250\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 2 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 250\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 3 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 9;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 250\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 4 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 4;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 250\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 5 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 2;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 250\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 6 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 5;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 250\n\t\t}\n\t\t")
-            ivy_file.write("else if r")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage = 7 {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_count_rate := 1;\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_rate := 250\n\t\t}\n\t\telse {\n\t\t\tr")
-            ivy_file.write(str(count))
-            ivy_file.write("_stage := 0\n\t\t}\n\t}\n\n\t")
+            ivyFile.write(f"""if r{count}_stage = 0 {o}
+            r{count}_count_rate := 5;
+            r{count}_rate := 1000
+        {c}
+        else if r{count}_stage = 1 {o}
+            r{count}_count_rate := 3;
+            r{count}_rate := 989
+        {c}
+        else if r{count}_stage = 2 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 1190
+        {c}
+        else if r{count}_stage = 3 {o}
+            r{count}_count_rate := 9;
+            r{count}_rate := 1050
+        {c}
+        else if r{count}_stage = 4 {o}
+            r{count}_count_rate := 4;
+            r{count}_rate := 942
+        {c}
+        else if r{count}_stage = 5 {o}
+            r{count}_count_rate := 2;
+            r{count}_rate := 1012
+        {c}
+        else if r{count}_stage = 6 {o}
+            r{count}_count_rate := 5;
+            r{count}_rate := 930
+        {c}
+        else if r{count}_stage = 7 {o}
+            r{count}_count_rate := 1;
+            r{count}_rate := 1000
+        {c}
+        else {o}
+            r{count}_stage := 0
+        {c}
+    {c}
 
+    """)
 
+ivyFile.write("\n}\n")
 
-ivy_file.write("\n}\n")
-
-ivy_file.write("\nobject protocol = {\n\n\ttype 2bit\n\tinterpret 2bit -> bv[1]\n\tindividual idle : 2bit\n\n")
+ivyFile.write("\nobject protocol = {\n\n\ttype 2bit\n\tinterpret 2bit -> bv[1]\n\tindividual idle : 2bit\n\n")
 
 for obj in spec:
-    ivy_file.write("\tindividual ")
-    ivy_file.write("r_")
-    ivy_file.write(obj)
-    ivy_file.write(" : updater.num\n")
+    ivyFile.write(f"\tindividual r_{obj} : updater.num\n")
+
+ivyFile.write("\n\tafter init {\n\t\t")
+
+for obj in speciesList:
+    ivyFile.write(f"r_{obj.name} := {obj.value};\n\t\t")
+
+ivyFile.write("idle := 0\n\t}\n\n\t")
 
 count = 0
-for obj in Reactions:
-    count = count + 1
-    if obj.priority > 15:
-        ivy_file.write("\tindividual r")
-        ivy_file.write(str(count))
-        ivy_file.write("_executions : updater.num\n")
-
-ivy_file.write("\n\tafter init {\n\t\t")
-
-for obj in specieslist:
-    ivy_file.write("r_")
-    ivy_file.write(obj.name)
-    ivy_file.write(" := ")
-    ivy_file.write(str(obj.value))
-    ivy_file.write(";\n\t\t")
-
-count = 0
-for obj in Reactions:
-    count = count + 1
-    if obj.priority > 15:
-        ivy_file.write("r")
-        ivy_file.write(str(count))
-        ivy_file.write("_executions := 0;\n\t\t")
-
-ivy_file.write("idle := 0\n\t}\n\n\t")
-
-count = 0
-for obj in Reactions:
-    count = count + 1
+for obj in  reactions:
+    count += 1
     if obj.priority > 15:
         if(obj.reactant1 == "" and obj.product1 != "" and obj.product2 == ""):
-            ivy_file.write("action update_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" = {\n\t\t")
-            ivy_file.write("if selector.execute_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
-            ivy_file.write(str(count))
-            for x in range(obj.product1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(" := updater.incr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(")")
+            ivyFile.write(f"""action update_r{count} =  {o}
+        if selector.execute_r{count} {o}
+            call inspector.check_guard_r{count}""")
+            for x in range(obj.product1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
             if obj.priority >= 25:
-                ivy_file.write(";\n\t\t")
-                ivy_file.write("\tif ")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                if upordown == "1":
-                    ivy_file.write(" >= ")
-                elif upordown == "2":
-                    ivy_file.write(" > ")
-                elif upordown == "3":
-                    ivy_file.write(" <= ")
-                elif upordown == "4":
-                    ivy_file.write(" < ")
-                ivy_file.write(str(targetnum))
-                ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                ivy_file.write(")\n\t\t\t}\n\t\t")
+                ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivy_file.write(";\n\t\t\tr")
-                ivy_file.write(str(count))
-                ivy_file.write("_executions := updater.incr(r")
-                ivy_file.write(str(count))
-                ivy_file.write("_executions)")
-                ivy_file.write("\n\t\t")
-            ivy_file.write("}\n\t}\n\n\t")
+                ivyFile.write("\n\t\t")
+            ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 == "" and obj.product1 != "" and obj.product2 != ""):
-            ivy_file.write("action update_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" = {\n\t\t")
-            ivy_file.write("if selector.execute_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
-            ivy_file.write(str(count))
-            for x in range(obj.product1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(" := updater.incr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(")")
-            for x in range(obj.product2num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product2)
-                ivy_file.write(" := updater.incr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product2)
-                ivy_file.write(")")
+            ivyFile.write(f"""action update_r{count} = {o}
+        if selector.execute_r{count} {o}
+            call inspector.check_guard_r{count}""")
+            for x in range(obj.product1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
+            for x in range(obj.product2Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.product2} := updater.incr(r_{obj.product2})")
             if obj.priority >= 25:
-                ivy_file.write(";\n\t\t")
-                ivy_file.write("\tif ")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                if upordown == "1":
-                    ivy_file.write(" >= ")
-                elif upordown == "2":
-                    ivy_file.write(" > ")
-                elif upordown == "3":
-                    ivy_file.write(" <= ")
-                elif upordown == "4":
-                    ivy_file.write(" < ")
-                ivy_file.write(str(targetnum))
-                ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                ivy_file.write(")\n\t\t\t}\n\t\t")
+                ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivy_file.write(";\n\t\t\tr")
-                ivy_file.write(str(count))
-                ivy_file.write("_executions := updater.incr(r")
-                ivy_file.write(str(count))
-                ivy_file.write("_executions)")
-                ivy_file.write("\n\t\t")
-            ivy_file.write("}\n\t}\n\n\t")
+                ivyFile.write("\n\t\t")
+            ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 == ""):
-            ivy_file.write("action update_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" = {\n\t\t")
-            ivy_file.write("if selector.execute_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
-            ivy_file.write(str(count))
-            ivy_file.write("(")
-            ivy_file.write("r_")
-            ivy_file.write(obj.reactant1)
-            ivy_file.write(")")
-            for x in range(obj.reactant1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(" := updater.decr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(")")
+            ivyFile.write(f"""action update_r{count} =  {o}
+        if selector.execute_r{count} {o}
+            call inspector.check_guard_r{count}(r_{obj.reactant1})""")
+            for x in range(obj.reactant1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
             if obj.priority >= 25:
-                ivy_file.write(";\n\t\t")
-                ivy_file.write("\tif ")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                if upordown == "1":
-                    ivy_file.write(" >= ")
-                elif upordown == "2":
-                    ivy_file.write(" > ")
-                elif upordown == "3":
-                    ivy_file.write(" <= ")
-                elif upordown == "4":
-                    ivy_file.write(" < ")
-                ivy_file.write(str(targetnum))
-                ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                ivy_file.write(")\n\t\t\t}\n\t\t")
+                ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivy_file.write(";\n\t\t\tr")
-                ivy_file.write(str(count))
-                ivy_file.write("_executions := updater.incr(r")
-                ivy_file.write(str(count))
-                ivy_file.write("_executions)")
-                ivy_file.write("\n\t\t")
-            ivy_file.write("}\n\t}\n\n\t")
+                ivyFile.write("\n\t\t")
+            ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 != "" and obj.product2 == ""):
-            ivy_file.write("action update_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" = {\n\t\t")
-            ivy_file.write("if selector.execute_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
-            ivy_file.write(str(count))
-            ivy_file.write("(")
-            ivy_file.write("r_")
-            ivy_file.write(obj.reactant1)
-            ivy_file.write(")")
-            for x in range(obj.reactant1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(" := updater.decr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(")")
-            for x in range(obj.product1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(" := updater.incr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(")")
+            ivyFile.write(f"""action update_r{count} =  {o}
+        if selector.execute_r{count} {o}
+            call inspector.check_guard_r{count}(r_{obj.reactant1})""")
+            for x in range(obj.reactant1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
+            for x in range(obj.product1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
             if obj.priority >= 25:
-                ivy_file.write(";\n\t\t")
-                ivy_file.write("\tif ")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                if upordown == "1":
-                    ivy_file.write(" >= ")
-                elif upordown == "2":
-                    ivy_file.write(" > ")
-                elif upordown == "3":
-                    ivy_file.write(" <= ")
-                elif upordown == "4":
-                    ivy_file.write(" < ")
-                ivy_file.write(str(targetnum))
-                ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                ivy_file.write(")\n\t\t\t}\n\t\t")
+                ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivy_file.write(";\n\t\t\tr")
-                ivy_file.write(str(count))
-                ivy_file.write("_executions := updater.incr(r")
-                ivy_file.write(str(count))
-                ivy_file.write("_executions)")
-                ivy_file.write("\n\t\t")
-            ivy_file.write("}\n\t}\n\n\t")
+                ivyFile.write("\n\t\t")
+            ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 == "" and obj.product1 != "" and obj.product2 != ""):
-            ivy_file.write("action update_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" = {\n\t\t")
-            ivy_file.write("if selector.execute_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
-            ivy_file.write(str(count))
-            ivy_file.write("(")
-            ivy_file.write("r_")
-            ivy_file.write(obj.reactant1)
-            ivy_file.write(")")
-            for x in range(obj.reactant1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(" := updater.decr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(")")
-            for x in range(obj.product1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(" := updater.incr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(")")
-            for x in range(obj.product2num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product2)
-                ivy_file.write(" := updater.incr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product2)
-                ivy_file.write(")")
+            ivyFile.write(f"""action update_r{count} =  {o}
+        if selector.execute_r{count} {o}
+            call inspector.check_guard_r{count}(r_{obj.reactant1})""")
+            for x in range(obj.reactant1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
+            for x in range(obj.product1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
+            for x in range(obj.product2Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.product2} := updater.incr(r_{obj.product2})")
             if obj.priority >= 25:
-                ivy_file.write(";\n\t\t")
-                ivy_file.write("\tif ")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                if upordown == "1":
-                    ivy_file.write(" >= ")
-                elif upordown == "2":
-                    ivy_file.write(" > ")
-                elif upordown == "3":
-                    ivy_file.write(" <= ")
-                elif upordown == "4":
-                    ivy_file.write(" < ")
-                ivy_file.write(str(targetnum))
-                ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                ivy_file.write(")\n\t\t\t}\n\t\t")
+                ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivy_file.write(";\n\t\t\tr")
-                ivy_file.write(str(count))
-                ivy_file.write("_executions := updater.incr(r")
-                ivy_file.write(str(count))
-                ivy_file.write("_executions)")
-                ivy_file.write("\n\t\t")
-            ivy_file.write("}\n\t}\n\n\t")
+                ivyFile.write("\n\t\t")
+            ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 == ""):
-            ivy_file.write("action update_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" = {\n\t\t")
-            ivy_file.write("if selector.execute_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
-            ivy_file.write(str(count))
-            ivy_file.write("(")
-            ivy_file.write("r_")
-            ivy_file.write(obj.reactant1)
-            ivy_file.write(",")
-            ivy_file.write("r_")
-            ivy_file.write(obj.reactant2)
-            ivy_file.write(")")
-            for x in range(obj.reactant1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(" := updater.decr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(")")
-            for x in range(obj.reactant2num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant2)
-                ivy_file.write(" := updater.decr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant2)
-                ivy_file.write(")")
+            ivyFile.write(f"""action update_r{count} =  {o}
+        if selector.execute_r{count} {o}
+            call inspector.check_guard_r{count}(r_{obj.reactant1},r_{obj.reactant2})""")
+            for x in range(obj.reactant1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
+            for x in range(obj.reactant2Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant2} := updater.decr(r_{obj.reacant2})")
             if obj.priority >= 25:
-                ivy_file.write(";\n\t\t")
-                ivy_file.write("\tif ")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                if upordown == "1":
-                    ivy_file.write(" >= ")
-                elif upordown == "2":
-                    ivy_file.write(" > ")
-                elif upordown == "3":
-                    ivy_file.write(" <= ")
-                elif upordown == "4":
-                    ivy_file.write(" < ")
-                ivy_file.write(str(targetnum))
-                ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                ivy_file.write(")\n\t\t\t}\n\t\t")
+                ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivy_file.write(";\n\t\t\tr")
-                ivy_file.write(str(count))
-                ivy_file.write("_executions := updater.incr(r")
-                ivy_file.write(str(count))
-                ivy_file.write("_executions)")
-                ivy_file.write("\n\t\t")
-            ivy_file.write("}\n\t}\n\n\t")
+                ivyFile.write("\n\t\t")
+            ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 != "" and obj.product2 == ""):
-            ivy_file.write("action update_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" = {\n\t\t")
-            ivy_file.write("if selector.execute_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
-            ivy_file.write(str(count))
-            ivy_file.write("(")
-            ivy_file.write("r_")
-            ivy_file.write(obj.reactant1)
-            ivy_file.write(",")
-            ivy_file.write("r_")
-            ivy_file.write(obj.reactant2)
-            ivy_file.write(")")
-            for x in range(obj.reactant1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(" := updater.decr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(")")
-            for x in range(obj.reactant2num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant2)
-                ivy_file.write(" := updater.decr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant2)
-                ivy_file.write(")")
-            for x in range(obj.product1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(" := updater.incr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(")")
+            ivyFile.write(f"""action update_r{count} =  {o}
+        if selector.execute_r{count} {o}
+            call inspector.check_guard_r{count}(r_{obj.reactant1},r_{obj.reactant2})""")
+            for x in range(obj.reactant1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
+            for x in range(obj.reactant2Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant2} := updater.decr(r_{obj.reacant2})")
+            for x in range(obj.product1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
             if obj.priority >= 25:
-                ivy_file.write(";\n\t\t")
-                ivy_file.write("\tif ")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                if upordown == "1":
-                    ivy_file.write(" >= ")
-                elif upordown == "2":
-                    ivy_file.write(" > ")
-                elif upordown == "3":
-                    ivy_file.write(" <= ")
-                elif upordown == "4":
-                    ivy_file.write(" < ")
-                ivy_file.write(str(targetnum))
-                ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                ivy_file.write(")\n\t\t\t}\n\t\t")
+                ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivy_file.write(";\n\t\t\tr")
-                ivy_file.write(str(count))
-                ivy_file.write("_executions := updater.incr(r")
-                ivy_file.write(str(count))
-                ivy_file.write("_executions)")
-                ivy_file.write("\n\t\t")
-            ivy_file.write("}\n\t}\n\n\t")
+                ivyFile.write("\n\t\t")
+            ivyFile.write("}\n\t}\n\n\t")
         elif(obj.reactant1 != "" and obj.reactant2 != "" and obj.product1 != "" and obj.product2 != ""):
-            ivy_file.write("action update_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" = {\n\t\t")
-            ivy_file.write("if selector.execute_r")
-            ivy_file.write(str(count))
-            ivy_file.write(" {\n\t\t\tcall inspector.check_guard_r")
-            ivy_file.write(str(count))
-            ivy_file.write("(")
-            ivy_file.write("r_")
-            ivy_file.write(obj.reactant1)
-            ivy_file.write(",")
-            ivy_file.write("r_")
-            ivy_file.write(obj.reactant2)
-            ivy_file.write(")")
-            for x in range(obj.reactant1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(" := updater.decr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant1)
-                ivy_file.write(")")
-            for x in range(obj.reactant2num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant2)
-                ivy_file.write(" := updater.decr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.reactant2)
-                ivy_file.write(")")
-            for x in range(obj.product1num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(" := updater.incr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product1)
-                ivy_file.write(")")
-            for x in range(obj.product2num):
-                ivy_file.write(";\n\t\t\t")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product2)
-                ivy_file.write(" := updater.incr(")
-                ivy_file.write("r_")
-                ivy_file.write(obj.product2)
-                ivy_file.write(")")
+            ivyFile.write(f"""action update_r{count} =  {o}
+        if selector.execute_r{count} {o}
+            call inspector.check_guard_r{count}(r_{obj.reactant1},r_{obj.reactant2})""")
+            for x in range(obj.reactant1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reactant1})")
+            for x in range(obj.reactant2Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant2} := updater.decr(r_{obj.reactant2})")
+            for x in range(obj.product1Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
+            for x in range(obj.product2Num):
+                ivyFile.write(f";\n\t\t\tr_{obj.product2} := updater.incr(r_{obj.product2})")
             if obj.priority >= 25:
-                ivy_file.write(";\n\t\t")
-                ivy_file.write("\tif ")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                if upordown == "1":
-                    ivy_file.write(" >= ")
-                elif upordown == "2":
-                    ivy_file.write(" > ")
-                elif upordown == "3":
-                    ivy_file.write(" <= ")
-                elif upordown == "4":
-                    ivy_file.write(" < ")
-                ivy_file.write(str(targetnum))
-                ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
-                ivy_file.write("r_")
-                ivy_file.write(targetspecies)
-                ivy_file.write(")\n\t\t\t}\n\t\t")
+                ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
-                ivy_file.write(";\n\t\t\tr")
-                ivy_file.write(str(count))
-                ivy_file.write("_executions := updater.incr(r")
-                ivy_file.write(str(count))
-                ivy_file.write("_executions)")
-                ivy_file.write("\n\t\t")
-            ivy_file.write("}\n\t}\n\n\t")
+                ivyFile.write("\n\t\t")
+            ivyFile.write("}\n\t}\n\n\t")
 
-ivy_file.write("\n\n\taction idling = {}\n\n\t")
+ivyFile.write("\n\n\taction idling = {}\n\n\t")
+
 count = 0
-for obj in Reactions:
+for obj in  reactions:
+    count += 1
+    if obj.priority > 15:
+        ivyFile.write(f"before update_r{count}")
+        if (reactions[count-1].reactant1 == ""):
+            ivyFile.write(f" {o}\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r{count}")
+            if obj.priority <= 6:
+                ivyFile.write(";\n\t\tassert false")
+            ivyFile.write("\n\t}\n\t")
+        elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 == ""):
+            ivyFile.write(f" {o}\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r{count}(r_{obj.reactant1})")
+            if obj.priority <= 6:
+                ivyFile.write(";\n\t\tassert false")
+            ivyFile.write("\n\t}\n\t")
+        elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 != ""):
+            ivyFile.write(f" {o}\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r{count}(r_{obj.reactant1},{obj.reactant2})")
+            if obj.priority <= 6:
+                ivyFile.write(";\n\t\tassert false")
+            ivyFile.write("\n\t}\n\n\t")
+
+
+ivyFile.write("\n\n\tbefore idling {\n\t\tassert idle = 1\n\t}")
+
+count = 0
+for obj in  reactions:
     count = count + 1
     if obj.priority > 15:
-        ivy_file.write("before update_r")
-        ivy_file.write(str(count))
-        if (Reactions[count-1].reactant1 == ""):
-            ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r")
-            ivy_file.write(str(count))
-            count1 = 0
-            count2 = 0
-            if obj.priority <= 17:
-                ivy_file.write(";\n\t\tassert false")
-            if obj.priority < 25:
-                for y in Reactions:
-                    count1 += 1
-                    if y.priority > 15 and y.priority < 25:
-                        count2 += 1
-                        if count2 == 1:
-                            ivy_file.write(";\n\t\tassert (r")
-                            ivy_file.write(str(count1))
-                            ivy_file.write("_executions")
-                            ivy_file.write(" * ")
-                            for x in secondtargetlist:
-                                if y.product1 == x.name:
-                                    ivy_file.write(str(y.product1num))
-                                elif y.product2 == x.name:
-                                    ivy_file.write(str(y.product2num))
-                        if count2 >= 2:
-                            ivy_file.write(" + r")
-                            ivy_file.write(str(count1))
-                            ivy_file.write("_executions")
-                            ivy_file.write(" * ")
-                            for x in secondtargetlist:
-                                if y.product1 == x.name:
-                                    ivy_file.write(str(y.product1num))
-                                elif y.product2 == x.name:
-                                    ivy_file.write(str(y.product2num))
-                    if count1 == numofreactions:
-                        ivy_file.write(") < ")
-                        for tar in secondtargetlist:
-                            if tar.name == obj.product1 or tar.name == obj.product2:
-                                for tar2 in specieslist:
-                                    if tar2.name == tar.name:
-                                        needed_amount = tar.min_amount - tar2.value
-                                        ivy_file.write(str(needed_amount)) #this needs to modified to be universal
-                if obj.priority <= 17:
-                    ivy_file.write(";\n\t\tassert false")
-            ivy_file.write("\n\t}\n\t")
-        elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 == ""):
-            ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r")
-            ivy_file.write(str(count))
-            ivy_file.write("(")
-            ivy_file.write("r_")
-            ivy_file.write(Reactions[count-1].reactant1)
-            ivy_file.write(")")
-            count1 = 0
-            count2 = 0
-            if obj.priority <= 17:
-                ivy_file.write(";\n\t\tassert false")
-            if obj.priority < 25:
-                for y in Reactions:
-                    count1 += 1
-                    if y.priority > 15 and y.priority < 25:
-                        count2 += 1
-                        if count2 == 1:
-                            ivy_file.write(";\n\t\tassert (r")
-                            ivy_file.write(str(count1))
-                            ivy_file.write("_executions")
-                            ivy_file.write(" * ")
-                            for x in secondtargetlist:
-                                if y.product1 == x.name:
-                                    ivy_file.write(str(y.product1num))
-                                elif y.product2 == x.name:
-                                    ivy_file.write(str(y.product2num))
-                        if count2 >= 2:
-                            ivy_file.write(" + r")
-                            ivy_file.write(str(count1))
-                            ivy_file.write("_executions")
-                            ivy_file.write(" * ")
-                            for x in secondtargetlist:
-                                if y.product1 == x.name:
-                                    ivy_file.write(str(y.product1num))
-                                elif y.product2 == x.name:
-                                    ivy_file.write(str(y.product2num))
-                    if count1 == numofreactions:
-                        ivy_file.write(") < ")
-                        for tar in secondtargetlist:
-                            if tar.name == obj.product1 or tar.name == obj.product2:
-                                for tar2 in specieslist:
-                                    if tar2.name == tar.name:
-                                        needed_amount = tar.min_amount - tar2.value
-                                        ivy_file.write(str(needed_amount)) #this needs to modified to be universal
-                if obj.priority <= 17:
-                    ivy_file.write(";\n\t\tassert false")
-            ivy_file.write("\n\t}\n\t")
-        elif(Reactions[count-1].reactant1 != "" and Reactions[count-1].reactant2 != ""):
-            ivy_file.write(" {\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r")
-            ivy_file.write(str(count))
-            ivy_file.write("(")
-            ivy_file.write("r_")
-            ivy_file.write(Reactions[count-1].reactant1)
-            ivy_file.write(",")
-            ivy_file.write("r_")
-            ivy_file.write(Reactions[count-1].reactant2)
-            ivy_file.write(")")
-            count1 = 0
-            count2 = 0
-            if obj.priority <= 17:
-                ivy_file.write(";\n\t\tassert false")
-            if obj.priority < 25:
-                for y in Reactions:
-                    count1 += 1
-                    if y.priority > 15 and y.priority < 25:
-                        count2 += 1
-                        if count2 == 1:
-                            ivy_file.write(";\n\t\tassert (r")
-                            ivy_file.write(str(count1))
-                            ivy_file.write("_executions")
-                            ivy_file.write(" * ")
-                            for x in secondtargetlist:
-                                if y.product1 == x.name:
-                                    ivy_file.write(str(y.product1num))
-                                elif y.product2 == x.name:
-                                    ivy_file.write(str(y.product2num))
-                        if count2 >= 2:
-                            ivy_file.write(" + r")
-                            ivy_file.write(str(count1))
-                            ivy_file.write("_executions")
-                            ivy_file.write(" * ")
-                            for x in secondtargetlist:
-                                if y.product1 == x.name:
-                                    ivy_file.write(str(y.product1num))
-                                elif y.product2 == x.name:
-                                    ivy_file.write(str(y.product2num))
-                    if count1 == numofreactions:
-                        ivy_file.write(") < ")
-                        for tar in secondtargetlist:
-                            if tar.name == obj.product1 or tar.name == obj.product2:
-                                for tar2 in specieslist:
-                                    if tar2.name == tar.name:
-                                        needed_amount = tar.min_amount - tar2.value
-                                        ivy_file.write(str(needed_amount)) #this needs to modified to be universal
-                if obj.priority <= 17:
-                    ivy_file.write(";\n\t\tassert false")
-            ivy_file.write("\n\t}\n\n\t")
+        ivyFile.write("export protocol.update_r")
+        ivyFile.write(str(count))
+        ivyFile.write("\n")
 
 
-ivy_file.write("\n\n\tbefore idling {\n\t\tassert idle = 1\n\t}\n}\n")
-
-#ivy_file.write("\n\n\tafter idling {\n\t\tassert idle = 0\n\t}\n}\n") #this causes assertion failure for the first run
+ivyFile.write("export protocol.idling\nimport goal.achieved\n")
 
 count = 0
-for obj in Reactions:
-    count = count + 1
-    if obj.priority > 15:
-        ivy_file.write("export protocol.update_r")
-        ivy_file.write(str(count))
-        ivy_file.write("\n")
-
-
-ivy_file.write("export protocol.idling\nimport goal.achieved\n")
-
-count = 0
-for obj in Reactions:
+for obj in  reactions:
     count= count + 1
     if obj.priority > 15:
-        ivy_file.write("import inspector.check_guard_r")
-        ivy_file.write(str(count))
-        ivy_file.write("\n")
+        ivyFile.write("import inspector.check_guard_r")
+        ivyFile.write(str(count))
+        ivyFile.write("\n")
 
-ivy_file.write("\nisolate iso_proto = protocol with enabled_checker, updater, goal, selector, inspector")
+ivyFile.write("\nisolate iso_proto = protocol with enabled_checker, updater, goal, selector, inspector")
 
-ivy_file.close()        #ivy model complete
+ivyFile.close()        #ivy model complete
 
 import subprocess
 
@@ -2821,7 +1558,7 @@ print("finished randomized testing")#More tests run with twice the amount of ite
 
 reaction_exec_count = []
 
-for x in range(numofreactions):
+for x in range(numOfReactions):
     reaction_exec_count.append(0)
 
 
@@ -2868,7 +1605,7 @@ with open("test_v2.txt", "r") as f:
             transitionmap.write("\nNumber of transitions: ")
             transitionmap.write(str(transitions))
             count2 = 0
-            for x in range(numofreactions):
+            for x in range(numOfReactions):
                 transitionmap.write("\nr")
                 transitionmap.write(str(x+1))
                 transitionmap.write("executions: ")
@@ -2889,14 +1626,14 @@ Totaltran = 0
 Totaliter = 0
 Total = []
 
-for x in range(numofreactions):
+for x in range(numOfReactions):
     Total.append(0)
 
 Totaliterlist = []
 Totaltranlist = []
 
 iterations = []
-for x in range(numofreactions):
+for x in range(numOfReactions):
     iterations.append([])
 
 with open("reaction_list.txt", "r") as f:
@@ -2911,7 +1648,7 @@ with open("reaction_list.txt", "r") as f:
         elif line[0] == "I":
             Totaliter = Totaliter + int(line[38:41])
             Totaliterlist.append(int(line[38:41]))
-        for x in range(numofreactions):
+        for x in range(numOfReactions):
             stringnum = str(x+1)
             stringreact = "r" + stringnum
             if line[0:2] == stringreact:
@@ -2929,7 +1666,7 @@ print("\n\nAverage number of iterations needed in a trace is:", Totaliter/int(ru
 print("\nThe biggest number of iterations needed for a trace was:", max(Totaliterlist))
 print("\nThe smallest number of iterations needed for a trace was:", min(Totaliterlist))
 
-for x in range(numofreactions):
+for x in range(numOfReactions):
     print("\n\nAverage number of reaction", x+1, "executions in a trace is:", Total[x]/int(runswanted))
     print("\nThe biggest number of reaction", x+1, "executions recorded in a trace is:", max(iterations[x]))
     print("\nThe smallest number of reaction", x+1, "executions recorded in a trace is:", min(iterations[x]))

@@ -127,34 +127,34 @@ targetnum = input("What is the target number for this species? ")
 
 print("\n\nWhich option is your desired guard?\n\n","1:", targetspecies, ">=", targetnum, "\n 2:", targetspecies, ">", targetnum, "\n 3:", targetspecies, "<=", targetnum,"\n 4:", targetspecies, "<", targetnum,"\n 5:", targetspecies, "=", targetnum) 
 
-upordown = input("\n\n(Please type an integer corresponding to your desired guard):  ")
+upOrDown = input("\n\n(Please type an integer corresponding to your desired guard):  ")
 
-if upordown == "5":
+if upOrDown == "5":
     for obj in specieslist:
         if obj.name == targetspecies:
             if obj.value > int(targetnum):
-                upordown = "3"
+                upOrDown = "3"
             elif obj.value < int(targetnum):
-                upordown = "1"
+                upOrDown = "1"
             elif obj.value == int(targetnum):
                 print("\nSpecified target is already achieved in target state, please start over")
                 exit()
 
 for obj in specieslist:
     if obj.name == targetspecies:
-        if upordown == "1":
+        if upOrDown == "1":
             if obj.value >= int(targetnum):
                 print("\nSpecified target is already achieved in target state, please start over")
                 exit()
-        elif upordown == "2":
+        elif upOrDown == "2":
             if obj.value > int(targetnum):
                 print("\nSpecified target is already achieved in target state, please start over")
                 exit()
-        elif upordown == "3":
+        elif upOrDown == "3":
             if obj.value <= int(targetnum):
                 print("\nSpecified target is already achieved in target state, please start over")
                 exit()
-        elif upordown == "4":
+        elif upOrDown == "4":
             if obj.value < int(targetnum):
                 print("\nSpecified target is already achieved in target state, please start over")
                 exit()
@@ -166,13 +166,13 @@ for obj in specieslist:
             exit()
 
 secondtargetlist = []
-if upordown == "1" or upordown == "2":
+if upOrDown == "1" or upOrDown == "2":
     for obj in Reactions:
         if obj.product1 == targetspecies or obj.product2 == targetspecies:
             obj.priority = obj.priority + 10
         elif obj.reactant1 == targetspecies or obj.reactant2 == targetspecies:
             obj.priority = obj.priority - 10
-elif upordown == "3" or upordown == "4":
+elif upOrDown == "3" or upOrDown == "4":
     for obj in Reactions:
         if obj.product1 == targetspecies or obj.product2 == targetspecies:
             obj.priority = obj.priority - 10
@@ -181,7 +181,7 @@ elif upordown == "3" or upordown == "4":
 
 
 for obj in Reactions:
-    if upordown == "1" or upordown == "2":
+    if upOrDown == "1" or upOrDown == "2":
         if obj.priority >= 25:
             if obj.reactant1 != "" and obj.reactant2 != "":
                 if obj.reactant1 != targetspecies:
@@ -218,7 +218,7 @@ for obj in Reactions:
                             if tar.name == targetspecies:
                                 tarnumone = tar.value
                                 secondtargetlist.append(secondtarget(obj.reactant1, obj.reactant1num * abs(int(targetnum) - tar.value)/obj.product2num))
-    elif upordown == "3" or upordown== "4":
+    elif upOrDown == "3" or upOrDown== "4":
         if obj.priority >= 25:
             if obj.reactant1 != "" and obj.reactant2 != "":
                 if obj.reactant1 != targetspecies:
@@ -307,13 +307,13 @@ ivy_file = open("test_v2.ivy", "w")
 ivy_file.write("#lang ivy 1.7\n\nobject updater = {\n")
 ivy_file.write("\ttype num\n\tinterpret num -> bv[10]\n\ttype exec_var\n\tinterpret exec_var -> bv[8]\n\ttype exec_stage\n\tinterpret exec_stage -> bv[3]\n\n\taction incr(x:num) returns(y:num) = {\n\t\ty := x + 1\n\t}\n\n\taction decr(x:num) returns(y:num) = {\n\t\ty := x - 1\n\t}\n}")
 ivy_file.write("\n\nobject goal = {\n\taction achieved(v:updater.num)\n\tobject spec = {\n\t\tbefore achieved {\n\t\t\tassert v ")
-if upordown == "1":
+if upOrDown == "1":
     ivy_file.write(">= ")
-elif upordown == "2":
+elif upOrDown == "2":
     ivy_file.write("> ")
-elif upordown == "3":
+elif upOrDown == "3":
     ivy_file.write("<= ")
-elif upordown == "4":
+elif upOrDown == "4":
     ivy_file.write("< ")
 ivy_file.write(targetnum)
 ivy_file.write(";\n\t\t\tprotocol.idle := 1\n\t\t}\n\t}\n}\n\n")
@@ -985,13 +985,13 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetspecies)
-            if upordown == "1":
+            if upOrDown == "1":
                 ivy_file.write(" >= ")
-            elif upordown == "2":
+            elif upOrDown == "2":
                 ivy_file.write(" > ")
-            elif upordown == "3":
+            elif upOrDown == "3":
                 ivy_file.write(" <= ")
-            elif upordown == "4":
+            elif upOrDown == "4":
                 ivy_file.write(" < ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
@@ -1030,13 +1030,13 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetspecies)
-            if upordown == "1":
+            if upOrDown == "1":
                 ivy_file.write(" >= ")
-            elif upordown == "2":
+            elif upOrDown == "2":
                 ivy_file.write(" > ")
-            elif upordown == "3":
+            elif upOrDown == "3":
                 ivy_file.write(" <= ")
-            elif upordown == "4":
+            elif upOrDown == "4":
                 ivy_file.write(" < ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
@@ -1071,13 +1071,13 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetspecies)
-            if upordown == "1":
+            if upOrDown == "1":
                 ivy_file.write(" >= ")
-            elif upordown == "2":
+            elif upOrDown == "2":
                 ivy_file.write(" > ")
-            elif upordown == "3":
+            elif upOrDown == "3":
                 ivy_file.write(" <= ")
-            elif upordown == "4":
+            elif upOrDown == "4":
                 ivy_file.write(" < ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
@@ -1120,13 +1120,13 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetspecies)
-            if upordown == "1":
+            if upOrDown == "1":
                 ivy_file.write(" >= ")
-            elif upordown == "2":
+            elif upOrDown == "2":
                 ivy_file.write(" > ")
-            elif upordown == "3":
+            elif upOrDown == "3":
                 ivy_file.write(" <= ")
-            elif upordown == "4":
+            elif upOrDown == "4":
                 ivy_file.write(" < ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
@@ -1177,13 +1177,13 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetspecies)
-            if upordown == "1":
+            if upOrDown == "1":
                 ivy_file.write(" >= ")
-            elif upordown == "2":
+            elif upOrDown == "2":
                 ivy_file.write(" > ")
-            elif upordown == "3":
+            elif upOrDown == "3":
                 ivy_file.write(" <= ")
-            elif upordown == "4":
+            elif upOrDown == "4":
                 ivy_file.write(" < ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
@@ -1229,13 +1229,13 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetspecies)
-            if upordown == "1":
+            if upOrDown == "1":
                 ivy_file.write(" >= ")
-            elif upordown == "2":
+            elif upOrDown == "2":
                 ivy_file.write(" > ")
-            elif upordown == "3":
+            elif upOrDown == "3":
                 ivy_file.write(" <= ")
-            elif upordown == "4":
+            elif upOrDown == "4":
                 ivy_file.write(" < ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
@@ -1289,13 +1289,13 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetspecies)
-            if upordown == "1":
+            if upOrDown == "1":
                 ivy_file.write(" >= ")
-            elif upordown == "2":
+            elif upOrDown == "2":
                 ivy_file.write(" > ")
-            elif upordown == "3":
+            elif upOrDown == "3":
                 ivy_file.write(" <= ")
-            elif upordown == "4":
+            elif upOrDown == "4":
                 ivy_file.write(" < ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
@@ -1357,13 +1357,13 @@ for obj in Reactions:
             ivy_file.write("\tif ")
             ivy_file.write("r_")
             ivy_file.write(targetspecies)
-            if upordown == "1":
+            if upOrDown == "1":
                 ivy_file.write(" >= ")
-            elif upordown == "2":
+            elif upOrDown == "2":
                 ivy_file.write(" > ")
-            elif upordown == "3":
+            elif upOrDown == "3":
                 ivy_file.write(" <= ")
-            elif upordown == "4":
+            elif upOrDown == "4":
                 ivy_file.write(" < ")
             ivy_file.write(str(targetnum))
             ivy_file.write(" {\n\t\t\t\tcall goal.achieved(")
