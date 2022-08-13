@@ -1513,7 +1513,7 @@ for obj in  reactions:
             elif obj.priority < 25:
                 for y in reactions:
                     count1 += 1
-                    if y.priority > 15 and y.prioirty < 25:
+                    if y.priority > 15 and y.priority < 25:
                         count2 += 1
                         if count2 == 1:
                             ivyFile.write(f";\n\t\tassert (r{count1}_executions * ")
@@ -1547,7 +1547,7 @@ for obj in  reactions:
             elif obj.priority < 25:
                 for y in reactions:
                     count1 += 1
-                    if y.priority > 15 and y.prioirty < 25:
+                    if y.priority > 15 and y.priority < 25:
                         count2 += 1
                         if count2 == 1:
                             ivyFile.write(f";\n\t\tassert (r{count1}_executions * ")
@@ -1581,7 +1581,7 @@ for obj in  reactions:
             elif obj.priority < 25:
                 for y in reactions:
                     count1 += 1
-                    if y.priority > 15 and y.prioirty < 25:
+                    if y.priority > 15 and y.priority < 25:
                         count2 += 1
                         if count2 == 1:
                             ivyFile.write(f";\n\t\tassert (r{count1}_executions * ")
