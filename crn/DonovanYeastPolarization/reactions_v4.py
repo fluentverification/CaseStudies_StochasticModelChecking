@@ -311,7 +311,7 @@ for obj in  reactions: #each reactions priority is displayed
     count = count + 1
     print("reaction", str(count), ":", str(obj.priority))
 
-ivyFile = open("test_temp.ivy", "w") #an ivy model for the CRN is made to have assertion failure at first idling action
+ivyFile = open("test_v2.ivy", "w") #an ivy model for the CRN is made to have assertion failure at first idling action
 
 ivyFile.write(f"""
 #lang ivy 1.7
@@ -946,7 +946,7 @@ if first_iters >= 10000:
 print("The iters recorded for this initial example is", first_iters)
 
 ######
-ivyFile = open("test_temp.ivy", "w") #an ivy model for the CRN is made without assertion failure at first idling action
+ivyFile = open("test_v2.ivy", "w") #an ivy model for the CRN is made without assertion failure at first idling action
 
 ivyFile.write(f"""
 #lang ivy 1.7
