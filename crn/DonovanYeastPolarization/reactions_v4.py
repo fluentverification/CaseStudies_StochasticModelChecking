@@ -944,7 +944,7 @@ if first_iters >= 10000:
 print("The iters recorded for this initial example is", first_iters)
 
 ######
-ivyFile = open("test_v2.ivy", "w") #an ivy model for the CRN is made without assertion failure at first idling action
+ivyFile = open("test_v3.ivy", "w") #an ivy model for the CRN is made without assertion failure at first idling action
 
 ivyFile.write(f"""#lang ivy 1.7
 
@@ -1509,7 +1509,7 @@ for obj in  reactions:
             ivyFile.write("\n\t}\n\n\t")
 
 
-ivyFile.write("\n\n\tbefore idling {\n\t\tassert idle = 1\n\t}\n")
+ivyFile.write("\n\n\tbefore idling {\n\t\tassert idle = 1\n\t}\n}")
 
 count = 0
 for obj in  reactions:
@@ -1534,16 +1534,16 @@ ivyFile.write("\nisolate iso_proto = protocol with enabled_checker, updater, goa
 
 ivyFile.close()        #ivy model complete
 
-ivy_to_cpp_command = subprocess.Popen(["ivy_to_cpp", "isolate=iso_proto", "target=test", "build=true", "test_v2.ivy"])
+ivy_to_cpp_command = subprocess.Popen(["ivy_to_cpp", "isolate=iso_proto", "target=test", "build=true", "test_v3.ivy"])
 ivy_to_cpp_command.wait()
 
 runswanted = input("How many traces do you want to the target specified? (Type an integer greater than 0): ") #Amount of traces desired is recorded
 
 print("starting to run rest of tests")
-firsthalf = "./test_v2 iters="
+firsthalf = "./test_v3 iters="
 middle = str(first_iters*1.25)
 middle2 = " runs="
-secondhalf = " >test_v2.txt"
+secondhalf = " >test_v3.txt"
 firstpart = firsthalf + middle + middle2 + runswanted
 fullstring = firstpart + secondhalf
 print(fullstring)
@@ -1566,7 +1566,7 @@ transitionmap = open("reaction_list.txt", "w")  #The traces and additional infor
 
 count3 = 0
 
-with open("test_v2.txt", "r") as f:
+with open("test_v3.txt", "r") as f:
     count = 0
     while True:
         count3 += 1
