@@ -313,8 +313,7 @@ for obj in  reactions: #each reactions priority is displayed
 
 ivyFile = open("test_v2.ivy", "w") #an ivy model for the CRN is made to have assertion failure at first idling action
 
-ivyFile.write(f"""
-#lang ivy 1.7
+ivyFile.write(f"""#lang ivy 1.7
 
 object updater = {o}
     type num
@@ -948,8 +947,7 @@ print("The iters recorded for this initial example is", first_iters)
 ######
 ivyFile = open("test_v2.ivy", "w") #an ivy model for the CRN is made without assertion failure at first idling action
 
-ivyFile.write(f"""
-#lang ivy 1.7
+ivyFile.write(f"""#lang ivy 1.7
 
 object updater = {o}
     type num
