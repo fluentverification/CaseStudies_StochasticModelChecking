@@ -863,6 +863,8 @@ for obj in  reactions:
 
 ivyFile.write("\n\n\taction idling = {}\n\n\t")
 
+ivyFile.write("\n\n\taction fail_test = {}\n\n\t")
+
 count = 0
 for obj in  reactions:
     count += 1
@@ -887,7 +889,28 @@ for obj in  reactions:
 
 ivyFile.write("\n\n\tbefore idling {\n\t\tassert idle = 1\n\t}\n")
 
-ivyFile.write("\n\n\tafter idling {\n\t\tassert idle = 0\n\t}\n}\n") #this causes assertion failure for the first run
+ivyFile.write("\n\n\tafter idling {\n\t\tassert idle = 0\n\t}\n\n") #this causes assertion failure for the first run
+
+ivyFile.write("\n\n\tbefore fail_test {\n\t\tassert idle = 0;\n\t\tassert (")
+
+count = 0
+count1 = 0
+for obj in reactions:
+    count += 1
+    if obj.priority > 15:
+        count1 += 1
+        if count1 != 1:
+            ivyFile.write(" & ")
+        if obj.reactant1 == "":
+            ivyFile.write(f"enabled_checker.is_enabled_r{count} = false")
+        if obj.reactant1 != "" and obj.reactant2 == "":
+            ivyFile.write(f"enabled_checker.is_enabled_r{count}(r_{obj.reactant1}) = false")
+        if obj.reactant1 != "" and obj.reactant2 != "":
+            ivyFile.write(f"enabled_checker.is_enabled_r{count}(r_{obj.reactant1},r_{obj.reactant2}) = false")
+    if count == numOfReactions:
+        ivyFile.write(")\n\t}")
+    
+ivyFile.write("\n\n\tafter fail_test {\n\t\tassert idle = 1\n\t}\n\n}\n\n")
 
 count = 0
 for obj in  reactions:
@@ -1499,6 +1522,8 @@ for obj in  reactions:
 
 ivyFile.write("\n\n\taction idling = {}\n\n\t")
 
+ivyFile.write("\n\n\taction fail_test = {}\n\n\t")
+
 count = 0
 for obj in  reactions:
     count += 1
@@ -1608,7 +1633,57 @@ for obj in  reactions:
             ivyFile.write("\n\t}\n\n\t")
 
 
-ivyFile.write("\n\n\tbefore idling {\n\t\tassert idle = 1\n\t}\n}")
+ivyFile.write("\n\n\tbefore idling {\n\t\tassert idle = 1\n\t}\n")
+
+ivyFile.write("\n\n\tbefore fail_test {\n\t\tassert idle = 0;\n\t\tassert (")
+
+count = 0
+count1 = 0
+count2 = 0
+count3 = 0
+for obj in reactions:
+    count += 1
+    if obj.priority > 15:
+        count1 += 1
+        if count1 != 1:
+            ivyFile.write(" & ")
+        if obj.reactant1 == "":
+            ivyFile.write(f"enabled_checker.is_enabled_r{count} = false")
+        if obj.reactant1 != "" and obj.reactant2 == "":
+            ivyFile.write(f"enabled_checker.is_enabled_r{count}(r_{obj.reactant1}) = false")
+        if obj.reactant1 != "" and obj.reactant2 != "":
+            ivyFile.write(f"enabled_checker.is_enabled_r{count}(r_{obj.reactant1},r_{obj.reactant2}) = false")
+    if count == numOfReactions:
+        ivyFile.write(") | ((")
+        for y in reactions:
+            count2 += 1
+            if y.priority > 15 and y.priority < 25:
+                count3 += 1
+                if count3 == 1:
+                    ivyFile.write(f"r{count2}_executions * ")
+                    for x in secondTargetList:
+                        if y.product1 == x.name:
+                            ivyFile.write(str(y.product1Num))
+                        elif y.product2 == x.name:
+                            ivyFile.write(str(y.product2Num))
+                if count3 >= 2:
+                    ivyFile.write(f" + r{count2}_executions * ")
+                    for x in secondTargetList:
+                        if y.product1 == x.name:
+                            ivyFile.write(str(y.product1Num))
+                        elif y.product2 == x.name:
+                            ivyFile.write(str(y.product2Num))
+            if count2 == numOfReactions:
+                ivyFile.write(") >= ")
+                for tar in secondTargetList:
+                    if tar.name == obj.product1 or tar.name == obj.product2:
+                        for tar2 in speciesList:
+                            if tar2.name == tar.name:
+                                needed_amount = round(tar.minAmount - tar2.value)
+                                ivyFile.write(f"{needed_amount})\n\t{c}\n\n")
+
+    
+ivyFile.write("\n\n\tafter fail_test {\n\t\tassert idle = 1\n\t}\n\n}\n")
 
 count = 0
 for obj in  reactions:
