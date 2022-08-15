@@ -1759,6 +1759,9 @@ with open("test_v3.txt", "r") as f:
                 iters += 1
                 if iters == math.floor(first_iters * 1.25):
                     print("Error!\tRun", count+1, "did not reach the target state\n")
+                if line[11:20] == "fail_test":
+                    print("Error occurred during randomized testing!")
+                    exit(1)
         if line[0] == "<":
             if line[2] == "i":
                 transitions += 1
