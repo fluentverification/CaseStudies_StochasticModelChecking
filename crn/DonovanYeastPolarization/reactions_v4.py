@@ -961,6 +961,8 @@ with open("test_v2.txt", "r") as f: #The amount of iters needed to reach the goa
         if line[0] == ">":
             if line[11:17] != "idling":
                 first_iters += 1
+        if line[11:20] == "fail_test":
+            print("Error occurred during randomized testing!") #We need to decide what we want to do at this point
 
 if first_iters >= 10000:
     print("Trace not found to specified target from randomized testing")
