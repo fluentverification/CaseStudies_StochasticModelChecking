@@ -1,5 +1,5 @@
 import subprocess
-
+import math
 import os
 
 class Reaction:
@@ -910,7 +910,9 @@ for obj in reactions:
     if count == numOfReactions:
         ivyFile.write(")\n\t}")
     
-ivyFile.write("\n\n\tafter fail_test {\n\t\tassert idle = 1\n\t}\n\n}\n\n")
+ivyFile.write("\n\n\tafter fail_test {\n\t\tassert idle = 1\n\t}\n\n}\n")
+
+ivyFile.write("\nexport protocol.fail_test\n")
 
 count = 0
 for obj in  reactions:
@@ -962,7 +964,7 @@ with open("test_v2.txt", "r") as f: #The amount of iters needed to reach the goa
 
 if first_iters >= 10000:
     print("Trace not found to specified target from randomized testing")
-    exit()
+    exit(1)
 
 print("The iters recorded for this initial example is", first_iters)
 
@@ -1684,6 +1686,7 @@ for obj in reactions:
 
     
 ivyFile.write("\n\n\tafter fail_test {\n\t\tassert idle = 1\n\t}\n\n}\n")
+ivyFile.write("\nexport protocol.fail_test\n")
 
 count = 0
 for obj in  reactions:
@@ -1754,7 +1757,7 @@ with open("test_v3.txt", "r") as f:
         if line[0] == ">":
             if line[11:17] != "idling":
                 iters += 1
-                if iters == first_iters * 2:
+                if iters == math.floor(first_iters * 1.25):
                     print("Error!\tRun", count+1, "did not reach the target state\n")
         if line[0] == "<":
             if line[2] == "i":
