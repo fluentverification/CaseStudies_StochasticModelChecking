@@ -24,6 +24,11 @@ class SecondTarget:
         self.name = name
         self.minAmount = minAmount
 
+class TargetReaction:
+    def __init__(self, reaction, secondTargets):
+        self.reaction = reaction
+        self.secondTargets = secondTargets
+
 numOfReactions = int(input("Number of reactions: "))
 
 o = "{"
@@ -189,7 +194,7 @@ elif upOrDown == "3" or upOrDown == "4":
             obj.priority = obj.priority + 10
 
 
-for obj in  reactions:       #secondary target species identified and added to a list of secondary target species, also given minAmount value (amount needed for reaction to fire enough times to get to target state)
+for obj in reactions:       #secondary target species identified and added to a list of secondary target species, also given minAmount value (amount needed for reaction to fire enough times to get to target state)
     if upOrDown == "1" or upOrDown == "2":
         if obj.priority >= 25:
             if obj.reactant1 != "" and obj.reactant2 != "":
@@ -242,6 +247,9 @@ for obj in  reactions:       #secondary target species identified and added to a
                             if tar.name == targetSpecies:
                                 tarNumOne = tar.value
                                 secondTargetList.append(SecondTarget(obj.reactant2, obj.reactant2Num * abs(int(targetNum) - tar.value)/obj.reactant1Num))
+
+for obj in secondTargetList:
+    print(f"{obj.name}, {obj.minAmount}\n")
             
  
 for obj in  reactions:          #every reaction that consumes a secondary target has its priority modified
@@ -781,7 +789,7 @@ for obj in  reactions:
         if selector.execute_r{count} {o}
             call inspector.check_guard_r{count}(r_{obj.reactant1})""")
             for x in range(obj.reactant1Num):
-                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reactant1})")
             if obj.priority >= 25:
                 ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
@@ -792,7 +800,7 @@ for obj in  reactions:
         if selector.execute_r{count} {o}
             call inspector.check_guard_r{count}(r_{obj.reactant1})""")
             for x in range(obj.reactant1Num):
-                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reactant1})")
             for x in range(obj.product1Num):
                 ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
             if obj.priority >= 25:
@@ -805,7 +813,7 @@ for obj in  reactions:
         if selector.execute_r{count} {o}
             call inspector.check_guard_r{count}(r_{obj.reactant1})""")
             for x in range(obj.reactant1Num):
-                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reactant1})")
             for x in range(obj.product1Num):
                 ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
             for x in range(obj.product2Num):
@@ -820,9 +828,9 @@ for obj in  reactions:
         if selector.execute_r{count} {o}
             call inspector.check_guard_r{count}(r_{obj.reactant1},r_{obj.reactant2})""")
             for x in range(obj.reactant1Num):
-                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reactant1})")
             for x in range(obj.reactant2Num):
-                ivyFile.write(f";\n\t\t\tr_{obj.reactant2} := updater.decr(r_{obj.reacant2})")
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant2} := updater.decr(r_{obj.reactant2})")
             if obj.priority >= 25:
                 ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
@@ -833,9 +841,9 @@ for obj in  reactions:
         if selector.execute_r{count} {o}
             call inspector.check_guard_r{count}(r_{obj.reactant1},r_{obj.reactant2})""")
             for x in range(obj.reactant1Num):
-                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reactant1})")
             for x in range(obj.reactant2Num):
-                ivyFile.write(f";\n\t\t\tr_{obj.reactant2} := updater.decr(r_{obj.reacant2})")
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant2} := updater.decr(r_{obj.reactant2})")
             for x in range(obj.product1Num):
                 ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
             if obj.priority >= 25:
@@ -1444,7 +1452,7 @@ for obj in  reactions:
         if selector.execute_r{count} {o}
             call inspector.check_guard_r{count}(r_{obj.reactant1})""")
             for x in range(obj.reactant1Num):
-                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reactant1})")
             if obj.priority >= 25:
                 ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
@@ -1455,7 +1463,7 @@ for obj in  reactions:
         if selector.execute_r{count} {o}
             call inspector.check_guard_r{count}(r_{obj.reactant1})""")
             for x in range(obj.reactant1Num):
-                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reactant1})")
             for x in range(obj.product1Num):
                 ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
             if obj.priority >= 25:
@@ -1468,7 +1476,7 @@ for obj in  reactions:
         if selector.execute_r{count} {o}
             call inspector.check_guard_r{count}(r_{obj.reactant1})""")
             for x in range(obj.reactant1Num):
-                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reactant1})")
             for x in range(obj.product1Num):
                 ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
             for x in range(obj.product2Num):
@@ -1483,9 +1491,9 @@ for obj in  reactions:
         if selector.execute_r{count} {o}
             call inspector.check_guard_r{count}(r_{obj.reactant1},r_{obj.reactant2})""")
             for x in range(obj.reactant1Num):
-                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reactant1})")
             for x in range(obj.reactant2Num):
-                ivyFile.write(f";\n\t\t\tr_{obj.reactant2} := updater.decr(r_{obj.reacant2})")
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant2} := updater.decr(r_{obj.reactant2})")
             if obj.priority >= 25:
                 ivyFile.write(f";\n\t\t\tif r_{targetSpecies} {equality} {targetNum} {o}\n\t\t\t\tcall goal.achieved(r_{targetSpecies})\n\t\t\t{c}\n\t\t")
             else:
@@ -1496,9 +1504,9 @@ for obj in  reactions:
         if selector.execute_r{count} {o}
             call inspector.check_guard_r{count}(r_{obj.reactant1},r_{obj.reactant2})""")
             for x in range(obj.reactant1Num):
-                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reacant1})")
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reactant1})")
             for x in range(obj.reactant2Num):
-                ivyFile.write(f";\n\t\t\tr_{obj.reactant2} := updater.decr(r_{obj.reacant2})")
+                ivyFile.write(f";\n\t\t\tr_{obj.reactant2} := updater.decr(r_{obj.reactant2})")
             for x in range(obj.product1Num):
                 ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
             if obj.priority >= 25:
