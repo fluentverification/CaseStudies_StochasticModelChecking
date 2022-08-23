@@ -904,14 +904,18 @@ count = 0
 for obj in reactions:
     count += 1
     if obj.priority != -1:
-        ivyFile.write(f"\tr{count}_executions : updater.num\n")
+        ivyFile.write(f"\tindividual r{count}_executions : updater.num\n")
 
 ivyFile.write("\n\tafter init {\n\t\t")
 
 for obj in speciesList:
     ivyFile.write(f"r_{obj.name} := {obj.value};\n\t\t")
 
-ivyFile.write(f"r{count}_executions := 0;\n\t\t")
+count = 0
+for obj in reactions:
+    count += 1
+    if obj.priority != -1:
+        ivyFile.write(f"r{count}_executions := 0;\n\t\t")
 
 ivyFile.write("idle := 0\n\t}\n\n\t")
 
