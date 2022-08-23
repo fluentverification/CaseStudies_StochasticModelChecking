@@ -900,10 +900,18 @@ ivyFile.write("\nobject protocol = {\n\n\ttype 2bit\n\tinterpret 2bit -> bv[1]\n
 for obj in spec:
     ivyFile.write(f"\tindividual r_{obj} : updater.num\n")
 
+count = 0
+for obj in reactions:
+    count += 1
+    if obj.priority != -1:
+        ivyFile.write(f"\tr{count}_executions : updater.num\n")
+
 ivyFile.write("\n\tafter init {\n\t\t")
 
 for obj in speciesList:
     ivyFile.write(f"r_{obj.name} := {obj.value};\n\t\t")
+
+ivyFile.write(f"r{count}_executions := 0;\n\t\t")
 
 ivyFile.write("idle := 0\n\t}\n\n\t")
 
@@ -915,6 +923,7 @@ for obj in  reactions:
             ivyFile.write(f"""action update_r{count} =  {o}
         if selector.execute_r{count} {o}
             call inspector.check_guard_r{count}""")
+            ivyFile.write(f";\n\t\t\tr{count}_executions := updater.incr(r{count}_executions)\n\t\t")
             for x in range(obj.product1Num):
                 ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
             if obj.priority == 0:
@@ -926,6 +935,7 @@ for obj in  reactions:
             ivyFile.write(f"""action update_r{count} = {o}
         if selector.execute_r{count} {o}
             call inspector.check_guard_r{count}""")
+            ivyFile.write(f";\n\t\t\tr{count}_executions := updater.incr(r{count}_executions)\n\t\t")
             for x in range(obj.product1Num):
                 ivyFile.write(f";\n\t\t\tr_{obj.product1} := updater.incr(r_{obj.product1})")
             for x in range(obj.product2Num):
@@ -939,6 +949,7 @@ for obj in  reactions:
             ivyFile.write(f"""action update_r{count} =  {o}
         if selector.execute_r{count} {o}
             call inspector.check_guard_r{count}(r_{obj.reactant1})""")
+            ivyFile.write(f";\n\t\t\tr{count}_executions := updater.incr(r{count}_executions)\n\t\t")
             for x in range(obj.reactant1Num):
                 ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reactant1})")
             if obj.priority == 0:
@@ -950,6 +961,7 @@ for obj in  reactions:
             ivyFile.write(f"""action update_r{count} =  {o}
         if selector.execute_r{count} {o}
             call inspector.check_guard_r{count}(r_{obj.reactant1})""")
+            ivyFile.write(f";\n\t\t\tr{count}_executions := updater.incr(r{count}_executions)\n\t\t")
             for x in range(obj.reactant1Num):
                 ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reactant1})")
             for x in range(obj.product1Num):
@@ -963,6 +975,7 @@ for obj in  reactions:
             ivyFile.write(f"""action update_r{count} =  {o}
         if selector.execute_r{count} {o}
             call inspector.check_guard_r{count}(r_{obj.reactant1})""")
+            ivyFile.write(f";\n\t\t\tr{count}_executions := updater.incr(r{count}_executions)\n\t\t")
             for x in range(obj.reactant1Num):
                 ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reactant1})")
             for x in range(obj.product1Num):
@@ -978,6 +991,7 @@ for obj in  reactions:
             ivyFile.write(f"""action update_r{count} =  {o}
         if selector.execute_r{count} {o}
             call inspector.check_guard_r{count}(r_{obj.reactant1},r_{obj.reactant2})""")
+            ivyFile.write(f";\n\t\t\tr{count}_executions := updater.incr(r{count}_executions)\n\t\t")
             for x in range(obj.reactant1Num):
                 ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reactant1})")
             for x in range(obj.reactant2Num):
@@ -991,6 +1005,7 @@ for obj in  reactions:
             ivyFile.write(f"""action update_r{count} =  {o}
         if selector.execute_r{count} {o}
             call inspector.check_guard_r{count}(r_{obj.reactant1},r_{obj.reactant2})""")
+            ivyFile.write(f";\n\t\t\tr{count}_executions := updater.incr(r{count}_executions)\n\t\t")
             for x in range(obj.reactant1Num):
                 ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reactant1})")
             for x in range(obj.reactant2Num):
@@ -1006,6 +1021,7 @@ for obj in  reactions:
             ivyFile.write(f"""action update_r{count} =  {o}
         if selector.execute_r{count} {o}
             call inspector.check_guard_r{count}(r_{obj.reactant1},r_{obj.reactant2})""")
+            ivyFile.write(f";\n\t\t\tr{count}_executions := updater.incr(r{count}_executions)\n\t\t")
             for x in range(obj.reactant1Num):
                 ivyFile.write(f";\n\t\t\tr_{obj.reactant1} := updater.decr(r_{obj.reactant1})")
             for x in range(obj.reactant2Num):
