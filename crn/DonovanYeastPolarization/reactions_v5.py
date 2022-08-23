@@ -1044,22 +1044,6 @@ ivyFile.write("\n\n\taction idling = {}\n\n\t")
 
 ivyFile.write("\n\n\taction fail_test = {}\n\n\t")
 
-"""
-count = 0
-for obj in  reactions:
-    count += 1
-    if obj.priority != -1:
-        ivyFile.write(f"before update_r{count}")
-        if (reactions[count-1].reactant1 == ""):
-            ivyFile.write(f" {o}\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r{count}")
-            ivyFile.write("\n\t}\n\t")
-        elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 == ""):
-            ivyFile.write(f" {o}\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r{count}(r_{obj.reactant1})")
-            ivyFile.write("\n\t}\n\t")
-        elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 != ""):
-            ivyFile.write(f" {o}\n\t\tassert idle = 0;\n\t\tassert enabled_checker.is_enabled_r{count}(r_{obj.reactant1},r_{obj.reactant2})")
-            ivyFile.write("\n\t}\n\n\t")
-"""
 count = 0
 for obj in  reactions:
     count += 1
@@ -1124,8 +1108,6 @@ for obj in  reactions:
 
 
 ivyFile.write("\n\n\tbefore idling {\n\t\tassert idle = 1\n\t}\n")
-
-ivyFile.write("\n\n\tafter idling {\n\t\tassert idle = 0\n\t}\n\n") #this causes assertion failure for the first run
 
 ivyFile.write("\n\n\tbefore fail_test {\n\t\tassert idle = 0;\n\t\tassert (")
 
