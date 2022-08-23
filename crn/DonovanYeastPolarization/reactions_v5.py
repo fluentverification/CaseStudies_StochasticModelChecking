@@ -690,13 +690,13 @@ object updater = {o}
 """)
 
 if upOrDown == "1":
-    equality = ">= "
+    equality = ">="
 elif upOrDown == "2":
-    equality = "> "
+    equality = ">"
 elif upOrDown == "3":
-    equality = "<= "
+    equality = "<="
 elif upOrDown == "4":
-    equality = "< "
+    equality = "<"
 
 ivyFile.write(f"""
 object goal = {o}
