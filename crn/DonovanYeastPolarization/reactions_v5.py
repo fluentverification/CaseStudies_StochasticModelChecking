@@ -2,6 +2,14 @@ import subprocess
 import math
 import os
 import depgraph
+import sys
+
+class Options:
+    """
+Static class for various options. These options can be accessed via `Options.option_name`
+    """
+    outputFileName = "test_v2.ivy"
+    inputFileName = "8reaction_input.txt"
 
 class Reaction:
     def __init__(self, reactant1, reactant1Num, reactant2, reactant2Num, product1, product1Num, product2, product2Num, priority, executions):
@@ -36,8 +44,8 @@ class TargetReaction:
 o = "{"
 c = "}"
 
-infile = "8reaction_input.txt"
-reactions1 = depgraph.makeDepGraph(infile)
+# This variable name should be more descriptive
+reactions1 = depgraph.makeDepGraph(Options.inputFileName)
 
 reactions = []
 count = 0
@@ -79,7 +87,7 @@ for obj in reactions1:
 numOfReactions = count
 
 count = 0
-for obj in  reactions: #Prints each of the reactions that have been recorded
+for obj in reactions: #Prints each of the reactions that have been recorded
     count = count + 1
     if (obj.reactant1Num >= 1 and obj.reactant2Num >= 1 and obj.product1Num >= 1 and obj.product2Num >= 1):
         print(str(count),": ",obj.reactant1Num,obj.reactant1," + ",obj.reactant2Num, obj.reactant2," -> ", obj.product1Num,obj.product1," + ", obj.product2Num,obj.product2)
@@ -101,7 +109,7 @@ for obj in  reactions: #Prints each of the reactions that have been recorded
 print("\n")
 spec = []
 
-for obj in  reactions: #adds all the species recorded in the reactions to a list
+for obj in reactions: #adds all the species recorded in the reactions to a list
     if (obj.reactant1 not in spec and obj.reactant1 != ""):
         spec.append(obj.reactant1)
     if (obj.reactant2 not in spec and obj.reactant2 != ""):
@@ -112,17 +120,16 @@ for obj in  reactions: #adds all the species recorded in the reactions to a list
         spec.append(obj.product2)
 
 speciesList = []
-###
 
 chemicals = [] # Stores string names of chemicals
 initials = [] # Stores initial values of chemicals
 targets = [] # Stores target values of chemicals
 
-with open(infile, 'r') as inpt:
+with open(Options.inputFileName, 'r') as inpt:
     # Read the line of chemical names
     line = inpt.readline().strip()
     if not line or line == "":
-        print("ERROR! CANNOT READ FIRST LINE")
+        print("ERROR! CANNOT READ FIRST LINE", file=sys.stderr)
         quit()
     for chem in line.split():
         chemicals.append(str(chem).strip())
@@ -130,7 +137,7 @@ with open(infile, 'r') as inpt:
     # Read the line of initial values
     line = inpt.readline().strip()
     if not line or line == "":
-        print("ERROR! CANNOT READ SECOND LINE")
+        print("ERROR! CANNOT READ SECOND LINE", file=sys.stderr)
         quit()
     for val in line.split():
         initials.append(int(val))
@@ -138,7 +145,7 @@ with open(infile, 'r') as inpt:
     # Read the line of target values (-1 is don't care)
     line = inpt.readline().strip()
     if not line or line == "":
-        print("ERROR! CANNOT READ THIRD LINE")
+        print("ERROR! CANNOT READ THIRD LINE", file=sys.stderr)
         quit()
     for val in line.split():
         targets.append(int(val))
@@ -214,7 +221,7 @@ for obj in  reactions: #each reactions priority is displayed
     count += 1
     print("reaction", str(count), ":", str(obj.priority))
 
-ivyFile = open("test_v2.ivy", "w") #an ivy model for the CRN is made to have assertion failure at first idling action
+ivyFile = open(Options.outputFileName, "w") #an ivy model for the CRN is made to have assertion failure at first idling action
 
 ivyFile.write(f"""#lang ivy 1.7
 
@@ -225,11 +232,11 @@ object updater = {o}
     interpret exec_var -> bv[8]
     type exec_stage
     interpret exec_stage -> bv[3]
-    
+
     action incr(x:num) returns(y:num) = {o}
         y := x + 1
     {c}
-    
+
     action decr(x:num) returns(y:num) = {o}
         y := x - 1
     {c}
@@ -265,12 +272,12 @@ count = 0
 for obj in  reactions:
     count += 1
     if obj.priority != -1:
-        ivyFile.write(f"action is_enabled_r{count}") 
+        ivyFile.write(f"action is_enabled_r{count}")
         if (reactions[count-1].reactant1 == ""):
             ivyFile.write(f""" returns(y:bool) = {o}
         y := true
     {c}
-                
+
     """)
         elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 == ""):
             ivyFile.write(f"""(reactant1:updater.num) returns(y:bool) = {o}
@@ -281,7 +288,7 @@ for obj in  reactions:
             y:= false
             {c}
         {c}
-        
+
     """)
         elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 != ""):
             ivyFile.write(f"""(reactant1:updater.num,reactant2:updater.num) returns(y:bool) = {o}
@@ -292,7 +299,7 @@ for obj in  reactions:
             y := false
         {c}
     {c}
-                    
+
     """)
 ivyFile.write("\n}\n\n")
 
@@ -307,22 +314,22 @@ for obj in  reactions:
     before check_guard_r{count} {o}
         assert true
     {c}
-    
+
     """)
         elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 == ""):
             ivyFile.write(f"""(reactant1:updater.num)\n\tbefore check_guard_r{count} {o}
         assert reactant1 >= {obj.reactant1Num}
     {c}
-    
+
     """)
         elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 != ""):
             ivyFile.write(f"""(reactant1:updater.num,reactant2:updater.num)
     before check_guard_r{count} {o}
         assert reactant1 >= {obj.reactant1Num} & reactant2 >= {obj.reactant2Num}
     {c}
-    
+
     """)
-        
+
 ivyFile.write("\n}")
 
 ivyFile.write("\n\nobject selector = {\n\t")
@@ -610,7 +617,7 @@ for obj in reactions:
             ivyFile.write(f"enabled_checker.is_enabled_r{count}(r_{obj.reactant1},r_{obj.reactant2}) = false")
     if count == numOfReactions:
         ivyFile.write(")\n\t}")
-    
+
 ivyFile.write("\n\n\tafter fail_test {\n\t\tassert false\n\t}\n\n}\n")
 
 ivyFile.write("\nexport protocol.fail_test\n")
@@ -638,12 +645,12 @@ ivyFile.write("\nisolate iso_proto = protocol with enabled_checker, updater, goa
 
 ivyFile.close()        #ivy model complete
 
-ivy_to_cpp_command = subprocess.Popen(["ivy_to_cpp", "isolate=iso_proto", "target=test", "build=true", "test_v2.ivy"])
+ivy_to_cpp_command = subprocess.Popen(["ivy_to_cpp", "isolate=iso_proto", "target=test", "build=true", Options.inputFileName])
 ivy_to_cpp_command.wait()
 
-print("starting to run initial test")
+print("starting to run initial test", file=sys.stderr)
 os.system("./test_v2 seed=367 iters=10000 runs=1 >test_v2.txt")
-print("finished initial test") #test is run and results are stored in test_v2.txt
+print("finished initial test", file=sys.stderr) #test is run and results are stored in test_v2.txt
 
 first_iters = 0
 
@@ -677,11 +684,11 @@ object updater = {o}
     interpret exec_var -> bv[8]
     type exec_stage
     interpret exec_stage -> bv[3]
-    
+
     action incr(x:num) returns(y:num) = {o}
         y := x + 1
     {c}
-    
+
     action decr(x:num) returns(y:num) = {o}
         y := x - 1
     {c}
@@ -717,12 +724,12 @@ count = 0
 for obj in  reactions:
     count += 1
     if obj.priority != -1:
-        ivyFile.write(f"action is_enabled_r{count}") 
+        ivyFile.write(f"action is_enabled_r{count}")
         if (reactions[count-1].reactant1 == ""):
             ivyFile.write(f""" returns(y:bool) = {o}
         y := true
     {c}
-                
+
     """)
         elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 == ""):
             ivyFile.write(f"""(reactant1:updater.num) returns(y:bool) = {o}
@@ -733,7 +740,7 @@ for obj in  reactions:
             y:= false
             {c}
         {c}
-        
+
     """)
         elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 != ""):
             ivyFile.write(f"""(reactant1:updater.num,reactant2:updater.num) returns(y:bool) = {o}
@@ -744,7 +751,7 @@ for obj in  reactions:
             y := false
         {c}
     {c}
-                    
+
     """)
 ivyFile.write("\n}\n\n")
 
@@ -759,22 +766,22 @@ for obj in  reactions:
     before check_guard_r{count} {o}
         assert true
     {c}
-    
+
     """)
         elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 == ""):
             ivyFile.write(f"""(reactant1:updater.num)\n\tbefore check_guard_r{count} {o}
         assert reactant1 >= {obj.reactant1Num}
     {c}
-    
+
     """)
         elif(reactions[count-1].reactant1 != "" and reactions[count-1].reactant2 != ""):
             ivyFile.write(f"""(reactant1:updater.num,reactant2:updater.num)
     before check_guard_r{count} {o}
         assert reactant1 >= {obj.reactant1Num} & reactant2 >= {obj.reactant2Num}
     {c}
-    
+
     """)
-        
+
 ivyFile.write("\n}")
 
 ivyFile.write("\n\nobject selector = {\n\t")
@@ -1180,8 +1187,8 @@ for obj in reactions:
                 ivyFile.write(") >= ")
                 ivyFile.write(f"{y.executions})")
         ivyFile.write(f")\n\t{c}\n\n")
-        
-    
+
+
 ivyFile.write("\n\n\tafter fail_test {\n\t\tassert false\n\t}\n\n}\n")
 
 ivyFile.write("\nexport protocol.fail_test\n")
