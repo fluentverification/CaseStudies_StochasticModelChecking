@@ -1,0 +1,21 @@
+# Files created by OS
+.DS_Store
+desktop.ini
+.directory
+
+# Things visual studio code creates
+.vscode
+
+# Some editors create a yourfile.name~ file as a backup file
+.py~
+.ivy~
+.sm~
+.prism~
+.csl~
+.xml~
+.bak
+
+# Python distribution files
+.Python
+__pycache__/
+
