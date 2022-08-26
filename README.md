@@ -1,10 +1,5 @@
 # Stochastic Model Case Studies
 
-It is always good to have a readme in your repository, so I have created one. I suggest you edit this Bryant to your liking.
-
-Signed,
-Josh
-
 Within this repository are several case studies and scripts used to create and catalog models for various types of stochastic model checking. These models are mostly in the PRISM language and can be used in PRISM, STORM, or [STAMINA](https://github.com/fluentverification/stamina-cplusplus). Additionally, there are models for the IVy model checker as well as Python scripts used to generate such models. The models are organized into the following folders:
 
 ## `./SBML` folder
@@ -21,7 +16,7 @@ This folder contains several scripts to generate yeast polarization models in IV
 
 ### `./crn/KuwaharaEnzyme` subfolder
 
-Contains PRISM and IVy files, as well as a Python script relevant to, the reaction of the Kuwahara Enzyme. TODO: what is the Kuwahara Enzyme? Josh doesn't know because he doesn't work mainly on this project. Ask Landon, Bryant, or Lukas, or if all else fails, Chris Meyers.
+Contains PRISM and IVy files for the reaction of the Kuwahara Enzyme.
 
 ## `./prism` folder
 
