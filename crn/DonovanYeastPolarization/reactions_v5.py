@@ -645,7 +645,7 @@ ivyFile.write("\nisolate iso_proto = protocol with enabled_checker, updater, goa
 
 ivyFile.close()        #ivy model complete
 
-ivy_to_cpp_command = subprocess.Popen(["ivy_to_cpp", "isolate=iso_proto", "target=test", "build=true", Options.inputFileName])
+ivy_to_cpp_command = subprocess.Popen(["ivy_to_cpp", "isolate=iso_proto", "target=test", "build=true", Options.outputFileName])
 ivy_to_cpp_command.wait()
 
 print("starting to run initial test", file=sys.stderr)
