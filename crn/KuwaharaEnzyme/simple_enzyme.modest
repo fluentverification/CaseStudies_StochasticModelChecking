@@ -1,0 +1,156 @@
+﻿option "ctmc";
+
+impatient action R1;
+impatient action R2;
+impatient action R3;
+impatient action R4;
+impatient action R5;
+impatient action R6;
+
+const int THETA = 40;
+
+int(0..200) S1 = 1;
+int(0..200) S2 = 50;
+int(0..200) S3 = 0;
+int(0..200) S4 = 1;
+int(0..200) S5 = 50;
+int(0..200) S6 = 0;
+
+property "1" = filter(values, Pmin(<>[T <= 100] (S5 == THETA)), initial);
+property Importance = S5;
+
+process S1()
+{
+   process l()
+   {
+      alt {
+      :: when(S1 > 0) rate(1) R1 {= S1 = S1 - 1 =};
+         l()
+      :: when(S1 <= 199) rate(1) R2 {= S1 = S1 + 1 =};
+         l()
+      :: when(S1 <= 199) rate(1) R3 {= S1 = S1 + 1 =};
+         l()
+      }
+   }
+
+   l()
+}
+
+process S2()
+{
+   process l()
+   {
+      alt {
+      :: when(S2 > 0) rate(1) R1 {= S2 = S2 - 1 =};
+         l()
+      :: when(S2 <= 199) rate(1) R2 {= S2 = S2 + 1 =};
+         l()
+      :: when(S2 <= 199) rate(1) R6 {= S2 = S2 + 1 =};
+         l()
+      }
+   }
+
+   l()
+}
+
+process S3()
+{
+   process l()
+   {
+      alt {
+      :: when(S3 <= 199) rate(1) R1 {= S3 = S3 + 1 =};
+         l()
+      :: when(S3 > 0) rate(1) R2 {= S3 = S3 - 1 =};
+         l()
+      :: when(S3 > 0) rate(1) R3 {= S3 = S3 - 1 =};
+         l()
+      }
+   }
+
+   l()
+}
+
+process S4()
+{
+   process l()
+   {
+      alt {
+      :: when(S4 > 0) rate(1) R4 {= S4 = S4 - 1 =};
+         l()
+      :: when(S4 <= 199) rate(1) R5 {= S4 = S4 + 1 =};
+         l()
+      :: when(S4 <= 199) rate(1) R6 {= S4 = S4 + 1 =};
+         l()
+      }
+   }
+
+   l()
+}
+
+process S5()
+{
+   process l()
+   {
+      alt {
+      :: when(S5 <= 199) rate(1) R3 {= S5 = S5 + 1 =};
+         l()
+      :: when(S5 > 0) rate(1) R4 {= S5 = S5 - 1 =};
+         l()
+      :: when(S5 <= 199) rate(1) R5 {= S5 = S5 + 1 =};
+         l()
+      }
+   }
+
+   l()
+}
+
+process S6()
+{
+   process l()
+   {
+      alt {
+      :: when(S6 <= 199) rate(1) R4 {= S6 = S6 + 1 =};
+         l()
+      :: when(S6 > 0) rate(1) R5 {= S6 = S6 - 1 =};
+         l()
+      :: when(S6 > 0) rate(1) R6 {= S6 = S6 - 1 =};
+         l()
+      }
+   }
+
+   l()
+}
+
+process reactionRates()
+{
+   process l()
+   {
+      alt {
+      :: when(1 * S1 * S2 > 0) rate(1 * S1 * S2) R1;
+         l()
+      :: when(1 * S3 > 0) rate(1 * S3) R2;
+         l()
+      :: when(0.1 * S3 > 0) rate(0.1 * S3) R3;
+         l()
+      :: when(1 * S4 * S5 > 0) rate(1 * S4 * S5) R4;
+         l()
+      :: when(1 * S6 > 0) rate(1 * S6) R5;
+         l()
+      :: when(0.1 * S6 > 0) rate(0.1 * S6) R6;
+         l()
+      }
+   }
+
+   l()
+}
+
+par {
+ R1, R2, R3, R4, R5, R6 } {
+:R1, R2, R3, -, -, -: S1()
+:R1, R2, -, -, -, R6: S2()
+:R1, R2, R3, -, -, -: S3()
+:-, -, -, R4, R5, R6: S4()
+:-, -, R3, R4, R5, -: S5()
+:-, -, -, R4, R5, R6: S6()
+:R1, R2, R3, R4, R5, R6: reactionRates()
+}
