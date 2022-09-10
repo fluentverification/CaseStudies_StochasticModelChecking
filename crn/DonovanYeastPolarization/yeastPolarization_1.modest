@@ -17,7 +17,7 @@ int(0..150) G_bg = 0;
 int(0..150) G_d = 0;
 
 property "1" = filter(values, Pmin(<>[T <= 20] (G_bg >= 50)), initial);
-
+property Importance = G_bg;
 process R_def()
 {
    process l()
