@@ -18,13 +18,13 @@ Case studies of genetic designs represented in the _Systems Biology Markup Langu
 
 This circuit is part of the genetic circuits designed by the software tool Cello [1]. The circuit has three input arguments IPTG, aTc, and Ara and one output argument YFP.
 
-![Figure1](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/Original.png "Figure 1")
+![Figure1](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/0x8E_Original.png "Figure 1")
 
 In the laboratory, circuit 0x8E showed an unexpected, glitching behavior. Further analysis resulted in two more designs of the circuit as well as the analysis of its glitching behavior [2].
 
-![Figure2](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/LogicHazardFree.png "Figure 2")
+![Figure2](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/0x8E_LogicHazardFree.png "Figure 2")
 
-![Figure3](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/TwoInverter.png "Figure 3")
+![Figure3](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/0x8E_TwoInverter.png "Figure 3")
 
 There are two types of glitches. In one type, the output should remain in a low state during an input transition (Zero Glitch). In the other type, the output should remain at a high state (One Glitch) during an input transition. More information can be found in [1-2].
 
