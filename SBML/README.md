@@ -50,7 +50,11 @@ The repressilator consists of three promoters each with a repressor gene. It is 
 
 ![Figure8](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/Repressilator.PNG "Repressilator")
 
-### Dual Feedback Osciallator
+### Dual Feedback Oscillator
+
+This design is an improved version of the repressilator [6].
+
+![Figure9](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/DualFeedback.png "Dual Feedback Oscillator")
 
 ### References
 
@@ -63,3 +67,5 @@ The repressilator consists of three promoters each with a repressor gene. It is 
 4. Gardner, T. S.; Cantor, C. R.; Collins, J. J. Construction of a Genetic Toggle Switch in Escherichia Coli. Nature 2000, 403 (6767), 339–342. https://doi.org/10.1038/35002131.
 
 5. Elowitz, M. B.; Leibler, S. A Synthetic Oscillatory Network of Transcriptional Regulators. Nature 2000, 403 (6767), 335–338. https://doi.org/10.1038/35002125.
+
+6. Stricker, J., Cookson, S., Bennett, M. et al. A fast, robust and tunable synthetic gene oscillator. Nature 456, 516–519 (2008). https://doi.org/10.1038/nature07389.
