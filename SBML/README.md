@@ -12,8 +12,11 @@ This circuit is part of the genetic circuits designed by the software tool Cello
 
 In the laboratory, circuit 0x8E showed an unexpected, glitching behavior. Further analysis resulted in two more designs of the circuit as well as the analysis of its glitching behavior [2].
 
+![Figure2](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/LogicHazardFree.png "Figure 2")
 
-There are two types of glitches. In one type, the output should remain in a low state during an input transition (Zero Glitch). In the other type, the output should remain at a high state (One Glitch) during an input transition.
+![Figure3](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/TwoInverter.png "Figure 3")
+
+There are two types of glitches. In one type, the output should remain in a low state during an input transition (Zero Glitch). In the other type, the output should remain at a high state (One Glitch) during an input transition. More information can be found in [1-2].
 
 ### Muller C Element
 
