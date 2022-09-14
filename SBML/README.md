@@ -48,7 +48,7 @@ The toggle switch is a state holding gate and consists of two promoters each fol
 
 The repressilator consists of three promoters each with a repressor gene. It is a cyclic negative-feedback loop, periodically inducing the synthesis of green fluorescent proteins [5].
 
-![Figure8](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/Repressilator.png "Repressilator")
+![Figure8](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/Repressilator.PNG "Repressilator")
 
 ### Dual Feedback Osciallator
 
