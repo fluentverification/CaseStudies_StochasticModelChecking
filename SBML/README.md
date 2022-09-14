@@ -4,6 +4,14 @@ Case studies of genetic designs represented in the _Systems Biology Markup Langu
 
 ## Naming Convention
 
+* 10_10: Production and degradation of molecules in steps of 10
+
+* RBA: Reaction-based abstraction (remove irrelevant or rapid reactions)
+
+* G0: Static zero glitch
+
+* G1: Static one glitch
+
 ## Genetic Circuits
 
 ### Circuit0x8E
@@ -22,7 +30,7 @@ There are two types of glitches. In one type, the output should remain in a low 
 
 ### Muller C-element
 
-This genetic circuit implements a state-holding gate called Muller C-element. If both inputs are high, its output goes high. If both inputs are low, the output is low. If the inputs are mixed, it retains its previous state. The three designs are the Majority, Speed_Independent, and Toggle Switch design.
+This genetic circuit implements a state-holding gate called Muller C-element. If both inputs are high, its output goes high. If both inputs are low, the output is low. If the inputs are mixed, it retains its previous state. The three designs are the Majority, Speed_Independent, and Toggle Switch design [3].
 
 ![Figure4](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/Majority.png "Majority Design")
 
@@ -30,11 +38,17 @@ This genetic circuit implements a state-holding gate called Muller C-element. If
 
 ![Figure6](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/Toggle.png "Toggle-Switch")
 
-
-
 ### Toggle Switch
 
+The toggle switch is a state holding gate and consists of two promoters each followed by a coding sequence. Each promoter is repressed by the protein transcribed by the other promoter [4].
+
+![Figure7](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/ToggleSwitch.png "Toggle-Switch")
+
 ### Repressilator
+
+The repressilator consists of three promoters each with a repressor gene. It is a cyclic negative-feedback loop, periodically inducing the synthesis of green fluorescent proteins [5].
+
+![Figure8](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/Repressilator.png "Repressilator")
 
 ### Dual Feedback Osciallator
 
