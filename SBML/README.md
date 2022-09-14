@@ -4,11 +4,11 @@
 
 ## Genetic Circuits
 
-###Circuit0x8E
+### Circuit0x8E
 
 This circuit is part of the genetic circuits designed by the software tool Cello [1]. The circuit has three input arguments IPTG, aTc, and Ara and one output argument YFP.
 
-
+![Figure1](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/Original.png "Figure 1")
 
 In the laboratory, circuit 0x8E showed an unexpected, glitching behavior. Further analysis resulted in two more designs of the circuit as well as the analysis of its glitching behavior [2].
 
