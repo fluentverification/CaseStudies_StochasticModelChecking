@@ -1,0 +1,2 @@
+// Probability that the toggle switch changes state erroneously within T time units.
+"change_state" : P=? [ F<=2100 ((S2 > 80) & (S3 < 20))]
