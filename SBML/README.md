@@ -1,5 +1,7 @@
 # SBML Case Studies
 
+Case studies of genetic designs represented in the _Systems Biology Markup Language_ (SBML) are stored in this directory. SBML encodes mathmatical models of biological processes.
+
 ## Naming Convention
 
 ## Genetic Circuits
@@ -18,7 +20,17 @@ In the laboratory, circuit 0x8E showed an unexpected, glitching behavior. Furthe
 
 There are two types of glitches. In one type, the output should remain in a low state during an input transition (Zero Glitch). In the other type, the output should remain at a high state (One Glitch) during an input transition. More information can be found in [1-2].
 
-### Muller C Element
+### Muller C-element
+
+This genetic circuit implements a state-holding gate called Muller C-element. If both inputs are high, its output goes high. If both inputs are low, the output is low. If the inputs are mixed, it retains its previous state. The three designs are the Majority, Speed_Independent, and Toggle Switch design.
+
+![Figure4](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/Majority.png "Majority Design")
+
+![Figure5](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/Speed_Independent.png "Speed-Speed_Independent")
+
+![Figure6](https://github.com/fluentverification/CaseStudies_StochasticModelChecking/blob/refactor/Figures/Toggle.png "Toggle-Switch")
+
+
 
 ### Toggle Switch
 
