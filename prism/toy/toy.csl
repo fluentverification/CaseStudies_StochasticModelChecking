@@ -1,0 +1,5 @@
+//const double T;
+
+P=? [ true U[0,2000] ((TetR > 8) & (LacI < 2)) ]
+
+//P=? [ ((TetR < 2) & (LacI > 8)) U[0,200000] ((TetR > 5) & (LacI < 5)) ]
