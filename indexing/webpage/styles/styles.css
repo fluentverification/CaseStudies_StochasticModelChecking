@@ -48,7 +48,41 @@ body {
 }
 
 #results, .results {
-	background-color: #eeeeee;
+	border: 1px solid #7d7d7d;
 	padding: 10px;
 	border-radius: 5px;
+}
+
+.result {
+/* 	background-color: #eeeeee; */
+	display: inline-block;
+	width: calc(100% - 40px);
+	border: 1px solid #7d7d7d;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+.result .result-title {
+	display: inline-block;
+	width: 100%;
+	font-weight: bold;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.tag {
+	display: inline-block;
+	border-radius: 20px;
+	background-color: #1370c1;
+	color: white;
+	padding-left: 20px;
+	padding-right: 20px;
+	transition: all 200ms ease;
+	cursor: pointer;
+}
+
+.tag:hover {
+	color: #1370c1;
+	border: 1px solid #1370c1;
+	background-color: white;
 }
