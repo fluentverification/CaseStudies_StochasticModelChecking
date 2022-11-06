@@ -51,6 +51,7 @@ body {
 	border: 1px solid #7d7d7d;
 	padding: 10px;
 	border-radius: 5px;
+	height: 80%;
 }
 
 .result {
@@ -85,4 +86,16 @@ body {
 	color: #1370c1;
 	border: 1px solid #1370c1;
 	background-color: white;
+}
+
+#footer {
+	background-color: #cccccc;
+	position: absolute;
+	display: block;
+	left: 0px;
+	margin: 0px;
+	margin-top: 30px;
+	padding: 50px;
+	width: calc(100% - 100px);
+	font-size: 9pt;
 }
