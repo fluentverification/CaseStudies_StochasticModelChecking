@@ -21,7 +21,7 @@ def getFormat(fileName):
         return Formats.PRISM
     elif fileName.endswith(".ivy"):
         return Formats.IVY
-    elif fileName.endswith(".sbml"):
+    elif fileName.endswith(".sbml") or fileName.endswith(".xml"):
         return Formats.SBML
     elif fileName.endswith(".jani"):
         return Formats.JANI

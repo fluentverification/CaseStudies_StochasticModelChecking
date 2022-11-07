@@ -265,7 +265,7 @@
 		"name":"Repressilator.xml"
 		, "type":"file"
 		, "tags":[]
-		, "format":"Unknown"
+		, "format":"SBML"
 	}
 	{
 		"name":"Circuit_0x8E"
@@ -275,217 +275,217 @@
 			"name":"Circuit0x8E_100to010_G0_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_LHF_111to100_G0_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_LHF_011to101_G1_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_TI_100to010_G0_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_000to101_G1_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_011to101_G1_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_LHF_101to000_G1_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_TI_101to011_G1_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_TI_111to010_G0_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_LHF_101to011_G1_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_TI_101to000_G1_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_TI_010to100_G0_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_TI_011to101_G1_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_LHF_100to111_G0_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_000to011_G1_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_TI_010to111_G0_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_010to111_G0_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_TI_000to101_G1_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_LHF_010to100_G0_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_101to000_G1_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_TI_111to100_G0_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_LHF_011to000_G1_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_LHF_111to010_G0_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_011to000_G1_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_010to100_G0_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_TI_011to000_G1_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_LHF_000to011_G1_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_LHF_100to010_G0_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_TI_100to111_G0_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_101to011_G1_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_LHF_010to111_G0_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_100to111_G0_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_111to100_G0_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_TI_000to011_G1_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_LHF_000to101_G1_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Circuit0x8E_111to010_G0_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		] 
 	}
@@ -493,19 +493,19 @@
 		"name":"Toggle_Switch_RBA.xml"
 		, "type":"file"
 		, "tags":[]
-		, "format":"Unknown"
+		, "format":"SBML"
 	}
 	, {
 		"name":"Dual_Feedback_Oscillator.xml"
 		, "type":"file"
 		, "tags":[]
-		, "format":"Unknown"
+		, "format":"SBML"
 	}
 	, {
 		"name":"Toggle_Switch.xml"
 		, "type":"file"
 		, "tags":[]
-		, "format":"Unknown"
+		, "format":"SBML"
 	}
 	{
 		"name":"Muller_C_Element"
@@ -515,37 +515,37 @@
 			"name":"Majority_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Majority.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Speed_Independent_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Speed_Independent.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Toggle_10_10.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		, {
 			"name":"Toggle.xml"
 			, "type":"file"
 			, "tags":[]
-			, "format":"Unknown"
+			, "format":"SBML"
 		}
 		] 
 	}
@@ -709,7 +709,7 @@
 					"name":"Circuit0x8E_TI_111to010.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_TI_100to111.sm"
@@ -721,7 +721,7 @@
 					"name":"Circuit0x8E_TI_010to100.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_TI_100to010.sm"
@@ -733,13 +733,13 @@
 					"name":"Circuit0x8E_TI_100to111.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_TI_100to010.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_TI_010to111.sm"
@@ -751,7 +751,7 @@
 					"name":"Circuit0x8E_TI_010to111.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				{
 					"name":"Unbounded"
@@ -859,7 +859,7 @@
 					"name":"Circuit0x8E_TI_111to100.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_TI_111to100.sm"
@@ -883,19 +883,19 @@
 					"name":"Circuit0x8E_TI_101to011.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_TI_000to101.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_TI_011to000.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_TI_000to011.sm"
@@ -907,13 +907,13 @@
 					"name":"Circuit0x8E_TI_011to101.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_TI_101to000.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_TI_101to000.sm"
@@ -925,7 +925,7 @@
 					"name":"Circuit0x8E_TI_000to011.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_TI_011to000.sm"
@@ -1433,7 +1433,7 @@
 						"name":"Circuit0x8E_100to010.xml"
 						, "type":"file"
 						, "tags":[]
-						, "format":"Unknown"
+						, "format":"SBML"
 					}
 					, {
 						"name":"Circuit0x8E_100to010.sm"
@@ -1463,19 +1463,19 @@
 						"name":"Circuit0x8E_111to100.xml"
 						, "type":"file"
 						, "tags":[]
-						, "format":"Unknown"
+						, "format":"SBML"
 					}
 					, {
 						"name":"Circuit0x8E_100to111.xml"
 						, "type":"file"
 						, "tags":[]
-						, "format":"Unknown"
+						, "format":"SBML"
 					}
 					, {
 						"name":"Circuit0x8E_010to111.xml"
 						, "type":"file"
 						, "tags":[]
-						, "format":"Unknown"
+						, "format":"SBML"
 					}
 					{
 						"name":"Unbounded"
@@ -1577,7 +1577,7 @@
 						"name":"Circuit0x8E_010to100.xml"
 						, "type":"file"
 						, "tags":[]
-						, "format":"Unknown"
+						, "format":"SBML"
 					}
 					, {
 						"name":"Circuit0x8E_111to100.sm"
@@ -1595,7 +1595,7 @@
 						"name":"Circuit0x8E_111to010.xml"
 						, "type":"file"
 						, "tags":[]
-						, "format":"Unknown"
+						, "format":"SBML"
 					}
 					] 
 				}
@@ -1607,7 +1607,7 @@
 						"name":"Circuit0x8E_101to011.xml"
 						, "type":"file"
 						, "tags":[]
-						, "format":"Unknown"
+						, "format":"SBML"
 					}
 					{
 						"name":"Unbound"
@@ -1739,7 +1739,7 @@
 						"name":"Circuit0x8E_011to000.xml"
 						, "type":"file"
 						, "tags":[]
-						, "format":"Unknown"
+						, "format":"SBML"
 					}
 					, {
 						"name":"Circuit0x8E_101to011.sm"
@@ -1751,7 +1751,7 @@
 						"name":"Circuit0x8E_101to000.xml"
 						, "type":"file"
 						, "tags":[]
-						, "format":"Unknown"
+						, "format":"SBML"
 					}
 					, {
 						"name":"Circuit0x8E_011to000.sm"
@@ -1769,7 +1769,7 @@
 						"name":"Circuit0x8E_000to011.xml"
 						, "type":"file"
 						, "tags":[]
-						, "format":"Unknown"
+						, "format":"SBML"
 					}
 					, {
 						"name":"Circuit0x8E_000to011_test.sm"
@@ -1781,7 +1781,7 @@
 						"name":"Circuit0x8E_000to101.xml"
 						, "type":"file"
 						, "tags":[]
-						, "format":"Unknown"
+						, "format":"SBML"
 					}
 					, {
 						"name":"Circuit0x8E_000to011.sm"
@@ -1799,7 +1799,7 @@
 						"name":"Circuit0x8E_011to101.xml"
 						, "type":"file"
 						, "tags":[]
-						, "format":"Unknown"
+						, "format":"SBML"
 					}
 					, {
 						"name":"results.txt"
@@ -1837,7 +1837,7 @@
 					"name":"Circuit0x8E_LHF_111to100.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"err.txt"
@@ -1855,7 +1855,7 @@
 					"name":"Circuit0x8E_LHF_010to100.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_LHF_010to111.sm"
@@ -1963,13 +1963,13 @@
 					"name":"Circuit0x8E_LHF_111to010.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_LHF_100to111.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_LHF_100to010.sm"
@@ -1981,7 +1981,7 @@
 					"name":"Circuit0x8E_LHF_100to010.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_LHF_100to111.sm"
@@ -1993,7 +1993,7 @@
 					"name":"Circuit0x8E_LHF_010to111.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_LHF_111to010.sm"
@@ -2011,13 +2011,13 @@
 					"name":"Circuit0x8E_LHF_000to101.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_LHF_011to101.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_LHF_000to011.sm"
@@ -2029,7 +2029,7 @@
 					"name":"Circuit0x8E_LHF_011to000.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_LHF_000to101.sm"
@@ -2041,7 +2041,7 @@
 					"name":"Circuit0x8E_LHF_000to011.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_LHF_101to000.sm"
@@ -2149,7 +2149,7 @@
 					"name":"Circuit0x8E_LHF_101to011.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"Circuit0x8E_LHF_101to011.sm"
@@ -2167,7 +2167,7 @@
 					"name":"Circuit0x8E_LHF_101to000.xml"
 					, "type":"file"
 					, "tags":[]
-					, "format":"Unknown"
+					, "format":"SBML"
 				}
 				, {
 					"name":"pro1.csl"
