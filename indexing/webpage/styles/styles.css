@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
 body {
-	font-family: sans-serif;
+	font-family: 'Quicksand', sans-serif;
 }
 
 #navbar {
@@ -37,13 +39,18 @@ body {
 }
 
 #search input[type="text"], #search select {
-	width: calc(100% - 45px);
-	border: 1px solid #7d7d7d;
+	border: none;
+	border-bottom: 1px solid #7d7d7d;
 	padding: 10px;
-	border-radius: 20px;
+/* 	border-radius: 20px; */
 	padding-left: 30px;
+	padding-right: 30px;
 	margin-bottom: 20px;
 	background-color: white;
+}
+
+#search input[type="text"] {
+	width: calc(100% - 65px);
 }
 
 #contents {
@@ -107,7 +114,7 @@ body {
 	font-size: 9pt;
 }
 
-label {
+label.hidden {
 	display: none;
 }
 
@@ -145,4 +152,90 @@ label {
 
 #advanced.visible {
 	height: auto;
+}
+
+/* Checkbox stuff */
+input[type=checkbox] {
+	visibility: hidden;
+}
+.checkbox-styled {
+	width: 45px;
+	height: 15px;
+	border: 1px solid #888888;
+	margin: 20px 10px;
+	position: relative;
+	border-radius: 12px;
+	display: inline-block;
+}
+.checkbox-styled label {
+	display: block;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	transition: all .5s ease;
+	cursor: pointer;
+	position: absolute;
+	top: -5px;
+	left: -3px;
+	background: #888888;
+}
+.checkbox-styled input[type=checkbox]:checked + label {
+	left: 27px;
+	background: #1370c1;
+}
+
+.check-label {
+	display: inline-block;
+	width: calc(100% - 100px);
+}
+
+.column-half {
+	display: inline-block;
+	width: 49%;
+	position: relative;
+	top: 0px;
+}
+
+/* Search suggestions */
+
+.suggestions {
+	border: 1px solid #cccccc;
+	border-top: 1px solid white;
+/* 	box-shadow: 0px 5px 5px #888888; */
+	padding-left: 30px;
+	padding-right: 30px;
+	position: absolute;
+	top: 200px;
+	background-color: white;
+	z-index: 5;
+	width: 70%
+}
+
+.suggestion {
+	padding: 10px;
+	cursor: pointer;
+	color: #444444;
+}
+
+.suggestion:hover {
+	border-bottom: 1px solid #1370c1;
+}
+
+/*.search-button {
+	position: absolute;
+	top: 170px;
+	left: 200px;
+}*/
+.search-button:hover, .icon-overlay:hover {
+	color: #1370c1;
+}
+
+.icon-overlay, .search-button {
+	cursor: pointer;
+	display: block !important;
+	position: relative;
+	z-index: 2;
+	top: -50px;
+	width: 20px;
+	margin-left: 5px;
 }
