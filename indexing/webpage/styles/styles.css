@@ -24,7 +24,8 @@ body {
 }
 
 #navbar a:hover {
-	border-bottom: 4px solid #ffffff;
+	border-bottom: 4px solid #abe6ff;
+	color: #abe6ff;
 }
 
 #logo {
@@ -36,7 +37,7 @@ body {
 }
 
 #search input[type="text"], #search select {
-	width: 100%;
+	width: calc(100% - 45px);
 	border: 1px solid #7d7d7d;
 	padding: 10px;
 	border-radius: 20px;

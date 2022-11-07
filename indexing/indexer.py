@@ -2,6 +2,12 @@
 
 import os
 
+class Formats:
+    PRISM = 0
+    IVY = 1
+    SBML = 2
+    JANI = 3
+
 o = '{'
 c = '}'
 
