@@ -1,9 +1,11 @@
-<DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html>
 <head>
 	<title>FLUENT Verification Case Studies</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./styles/styles.css">
+	<script src="./scripts/indexReader.js"></script>
+	<script src="./scripts/scripts.js"></script>
 </head>
 <body>
 	<div id=navbar>
@@ -16,7 +18,19 @@
 	<div id=contents>
 		<div id=top-buffer>&nbsp;</div>
 		<form id=search>
-			<input type=text>
+			<h1 id="search-header">Search for Case Studies:</h1>
+			<label for="query">Search Query:</label>
+			<input type=text name="query" placeholder="Search Query">
+			<span id="toggle-advanced" onclick=toggleAdvanced()>Advanced Search</span>
+			<div id="advanced">
+				<input type=text name="tags" placeholder="Tags">
+				<select placeholder="Format">
+					<option name="any" value="any">Any Format</option>
+					<option name="prism" value="prism">PRISM</option>
+					<option name="sbml" value="sbml">SBML</option>
+					<option name="ivy" value="ivy">IVy</option>
+				</select>
+			</div>
 		</form>
 		<div id=results>
 			<div class="result">
