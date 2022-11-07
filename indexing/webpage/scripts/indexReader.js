@@ -1,8 +1,10 @@
+// TODO: this suggestions array needs to be populated with actual suggestions
 let suggestions = [
 	"foo"
 	, "bar"
 	, "baz"
 	, "foobar"
+	, "foobaz"
 	, "fun"
 	, "zedd"
 	, "case"
@@ -25,7 +27,7 @@ function showSuggestions() {
 	if (currentQuery.length == 0) { return; }
 	suggestions.forEach(s => {
 		let locationIndex = s.indexOf(currentQuery)
-		if (locationIndex >= 0) {
+		if (locationIndex >= 0 && s != currentQuery) {
 			querySuggestions.innerHTML += "<div class=suggestion onclick=\"acceptSuggestion('" + s + "')\">" + s + "</div>";
 			// console.log(s);
 		}
