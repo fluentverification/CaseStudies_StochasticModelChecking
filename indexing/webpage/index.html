@@ -21,9 +21,11 @@
 		<form id=search>
 			<h1 id="search-header">Search for Case Studies:</h1>
 			<label for="query" class="hidden">Search Query:</label>
-			<input type=text name="query" placeholder="Search Query">
+			<input type=text name="query" placeholder="Search Query" id=query oninput="showSuggestions()">
 			<i class="icon icon_edit-find search-button"></i>
 			<div id="query-suggestions" class=suggestions>
+<!--				<div class="suggestion">Hazard Circuit</div>
+				<div class="suggestion">No Hazard Circuit</div>-->
 			</div>
 			<span id="toggle-advanced" onclick=toggleAdvanced()>Advanced Search</span>
 			<div id="advanced">

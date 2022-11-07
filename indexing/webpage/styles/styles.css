@@ -40,7 +40,7 @@ body {
 
 #search input[type="text"], #search select {
 	border: none;
-	border-bottom: 1px solid #7d7d7d;
+	border-bottom: 1px solid #cccccc;
 	padding: 10px;
 /* 	border-radius: 20px; */
 	padding-left: 30px;
@@ -82,6 +82,10 @@ body {
 	width: 100%;
 	font-weight: bold;
 	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.result-info {
 	padding-top: 10px;
 }
 
