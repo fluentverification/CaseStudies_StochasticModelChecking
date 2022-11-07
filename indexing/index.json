@@ -1889,3 +1889,3791 @@
 		{ "name":"results.txt"
 		, "type":"file"
 		, "tags":]}] }] }]
+[
+{
+	"name":"crn"
+	, "type":"folder"
+	, "contents":[
+	{
+		"name":"KuwaharaEnzyme"
+		, "type":"folder"
+		, "contents":[
+		, {
+			"name":"simple_enzyme.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"simple_enzyme.modest"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"simple_enzyme.jani"
+			, "type":"file"
+			, "tags":[]
+			, "format":"JANI"
+		}
+		, {
+			"name":"simple_enzyme.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"simple_enzyme_11.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		] 
+	}
+	{
+		"name":"DonovanYeastPolarization"
+		, "type":"folder"
+		, "contents":[
+		, {
+			"name":"layered_yeast_variant2.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"yeastPolarization.modest"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"yeastPolarization.dot"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"controlled_model_short_v4.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"layered_yeast_v2.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"controlled_model_short_3and5_v3.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"controlled_model_short_v2.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"yeastPolarization.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"bank.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"layered_yeast_variant3.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"yeastPolarization.jani"
+			, "type":"file"
+			, "tags":[]
+			, "format":"JANI"
+		}
+		, {
+			"name":"yeastPolarization.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"controlled_model_short_v3.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"fifth_other.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"assertion_test_yeast1.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"controlled_model_short_3and5_v03.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"controlled_model.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"chem_obj_fifth_iso_variant.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"yeastPolarization.png"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"yeastPolarization_1.modest"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"chem_obj_fifth_iso.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"controlled_model_variant1.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"yeast1.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"controlled_model_short_v5.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"controlled_model_short_v03.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"layered_yeast_variant.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"layered_yeast.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"fifth_reaction_isolate.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"controlled_model_short_3and5_v02.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"controlled_model_short_v02.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"controlled_model_short_3and5_v2.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"test_fifth_isolate_yeast1.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"fifth_reaction_isolate_variant.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		, {
+			"name":"controlled_model_separated.ivy"
+			, "type":"file"
+			, "tags":[]
+			, "format":"IVy"
+		}
+		] 
+	}
+	] 
+}
+, {
+	"name":".gitignore"
+	, "type":"file"
+	, "tags":[]
+	, "format":"Unknown"
+}
+{
+	"name":"SBML"
+	, "type":"folder"
+	, "contents":[
+	, {
+		"name":"Repressilator.xml"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Unknown"
+	}
+	{
+		"name":"Circuit_0x8E"
+		, "type":"folder"
+		, "contents":[
+		, {
+			"name":"Circuit0x8E_100to010_G0_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_111to100_G0_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_011to101_G1_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_TI_100to010_G0_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_000to101_G1_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_011to101_G1_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_101to000_G1_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_TI_101to011_G1_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_TI_111to010_G0_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_101to011_G1_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_TI_101to000_G1_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_TI_010to100_G0_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_TI_011to101_G1_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_100to111_G0_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_000to011_G1_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_TI_010to111_G0_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_010to111_G0_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_TI_000to101_G1_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_010to100_G0_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_101to000_G1_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_TI_111to100_G0_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_011to000_G1_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_111to010_G0_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_011to000_G1_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_010to100_G0_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_TI_011to000_G1_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_000to011_G1_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_100to010_G0_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_TI_100to111_G0_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_101to011_G1_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_010to111_G0_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_100to111_G0_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_111to100_G0_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_TI_000to011_G1_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_000to101_G1_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_111to010_G0_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		] 
+	}
+	, {
+		"name":"Toggle_Switch_RBA.xml"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Unknown"
+	}
+	, {
+		"name":"Dual_Feedback_Oscillator.xml"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Unknown"
+	}
+	, {
+		"name":"Toggle_Switch.xml"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Unknown"
+	}
+	{
+		"name":"Muller_C_Element"
+		, "type":"folder"
+		, "contents":[
+		, {
+			"name":"Majority_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Majority.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Speed_Independent_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Speed_Independent.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Toggle_10_10.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Toggle.xml"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		] 
+	}
+	] 
+}
+{
+	"name":"Figures"
+	, "type":"folder"
+	, "contents":[
+	, {
+		"name":"ToggleSwitch.png"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Unknown"
+	}
+	, {
+		"name":"Majority.png"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Unknown"
+	}
+	, {
+		"name":"Repressilator.PNG"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Unknown"
+	}
+	, {
+		"name":"Speed_Independent.png"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Unknown"
+	}
+	, {
+		"name":"0x8E_LogicHazardFree.png"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Unknown"
+	}
+	, {
+		"name":"0x8E_TwoInverter.png"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Unknown"
+	}
+	, {
+		"name":"DualFeedback.png"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Unknown"
+	}
+	, {
+		"name":"0x8E_Original.png"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Unknown"
+	}
+	, {
+		"name":"Toggle.png"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Unknown"
+	}
+	] 
+}
+, {
+	"name":"README.md"
+	, "type":"file"
+	, "tags":[]
+	, "format":"Unknown"
+}
+{
+	"name":"indexing"
+	, "type":"folder"
+	, "contents":[
+	, {
+		"name":"indexer.py"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Unknown"
+	}
+	{
+		"name":"webpage"
+		, "type":"folder"
+		, "contents":[
+		{
+			"name":"scripts"
+			, "type":"folder"
+			, "contents":[
+			, {
+				"name":"scripts.js"
+				, "type":"file"
+				, "tags":[]
+				, "format":"Unknown"
+			}
+			, {
+				"name":"indexReader.js"
+				, "type":"file"
+				, "tags":[]
+				, "format":"Unknown"
+			}
+			] 
+		}
+		, {
+			"name":"index.html"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		{
+			"name":"styles"
+			, "type":"folder"
+			, "contents":[
+			, {
+				"name":"styles.css"
+				, "type":"file"
+				, "tags":[]
+				, "format":"Unknown"
+			}
+			] 
+		}
+		] 
+	}
+	, {
+		"name":"index.json"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Unknown"
+	}
+	] 
+}
+{
+	"name":"prism"
+	, "type":"folder"
+	, "contents":[
+	{
+		"name":"HazardCct"
+		, "type":"folder"
+		, "contents":[
+		{
+			"name":"Circuit0x8E_Two_Inverter"
+			, "type":"folder"
+			, "contents":[
+			{
+				"name":"Glitch Zero"
+				, "type":"folder"
+				, "contents":[
+				, {
+					"name":"Circuit0x8E_TI_111to010.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"pro.csl"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_TI_111to010.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_TI_100to111.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"Circuit0x8E_TI_010to100.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_TI_100to010.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"Circuit0x8E_TI_100to111.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_TI_100to010.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_TI_010to111.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"Circuit0x8E_TI_010to111.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				{
+					"name":"Unbounded"
+					, "type":"folder"
+					, "contents":[
+					, {
+						"name":"pro.csl"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"Circuit0x8E_TI_010to100_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_TI_100to010_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					{
+						"name":"FinalResults"
+						, "type":"folder"
+						, "contents":[
+						, {
+							"name":"Circuit0x8E_TI_100to010_unbounded.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_TI_111to100_unbounded.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_TI_010to100_unbounded.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_TI_010to111_unbounded.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_TI_111to010_unbounded.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_TI_100to111_unbounded.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						] 
+					}
+					, {
+						"name":"Circuit0x8E_TI_111to010_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_TI_111to100_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_TI_100to111_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_TI_010to111_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					] 
+				}
+				, {
+					"name":"Circuit0x8E_TI_010to100.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"results.txt"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_TI_111to100.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_TI_111to100.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				] 
+			}
+			{
+				"name":"Glitch One"
+				, "type":"folder"
+				, "contents":[
+				, {
+					"name":"Circuit0x8E_TI_011to101.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"Circuit0x8E_TI_101to011.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_TI_000to101.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_TI_011to000.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_TI_000to011.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"Circuit0x8E_TI_011to101.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_TI_101to000.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_TI_101to000.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"Circuit0x8E_TI_000to011.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_TI_011to000.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				{
+					"name":"Unbounded"
+					, "type":"folder"
+					, "contents":[
+					, {
+						"name":"Circuit0x8E_TI_000to101_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_TI_011to000_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_TI_101to011_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_TI_011to101_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					{
+						"name":"FinalResults"
+						, "type":"folder"
+						, "contents":[
+						, {
+							"name":"Circuit0x8E_TI_011to101_unbounded.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_TI_101to000_unbounded.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_TI_000to011_unbounded.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_TI_011to000_unbounded.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_TI_101to011_unbounded.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_TI_000to101_unbounded.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						] 
+					}
+					, {
+						"name":"Circuit0x8E_TI_000to011_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_TI_101to000_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"pro1.csl"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					] 
+				}
+				, {
+					"name":"Circuit0x8E_TI_000to101.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"pro1.csl"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"results.txt"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_TI_101to011.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				] 
+			}
+			] 
+		}
+		{
+			"name":"Circuit0x8E_original"
+			, "type":"folder"
+			, "contents":[
+			{
+				"name":"Reaction_based_abstraction"
+				, "type":"folder"
+				, "contents":[
+				, {
+					"name":"Circuit0x8E_flat_10.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"hazard.csl"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				{
+					"name":"deprecated"
+					, "type":"folder"
+					, "contents":[
+					, {
+						"name":"degradeBy10.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Top.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0xE8_no_abs.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0xE8_max50_no_abs.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					] 
+				}
+				, {
+					"name":"README.md"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				{
+					"name":"Glitch-One"
+					, "type":"folder"
+					, "contents":[
+					, {
+						"name":"Circuit0x8E_flat_10_011to000_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_011to101_bounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_011to101_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_000to011_bounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_000to011_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_000to101_bounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_101to000_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_101to000_bounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_101to011_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_011to000_bounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_000to101_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_101to011_bounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"hazard_glitch_one.csl"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					{
+						"name":"stamina_results"
+						, "type":"folder"
+						, "contents":[
+						, {
+							"name":"stamina_results_101to000.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"stamina_results_101to011.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"stamina_results_000to011_greater_eq_30.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"stamina_results_000to011_less_eq_30.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"stamina_results_000to011.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"stamina_results_000to101.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"stamina_results_011to101.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"stamina_results_011to000.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						] 
+					}
+					] 
+				}
+				{
+					"name":"Glitch-Zero"
+					, "type":"folder"
+					, "contents":[
+					, {
+						"name":"Circuit0x8E_flat_10_111to100_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_100to111_bounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_010to100_bounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_010to111_bounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"hazard_glitch_zero_invertUntil.csl"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_010to111_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_100to010_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_100to010_bounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_111to010_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"hazard_glitch_zero.csl"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_111to100_bounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"test.txt"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"results.txt"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_100to111_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_010to100_unbounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_flat_10_111to010_bounded.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					{
+						"name":"stamina_results"
+						, "type":"folder"
+						, "contents":[
+						, {
+							"name":"stamina_results_010to100.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"stamina_results_111to010.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						{
+							"name":"incomplete"
+							, "type":"folder"
+							, "contents":[
+							, {
+								"name":"stamina_results_100to111.txt"
+								, "type":"file"
+								, "tags":[]
+								, "format":"Unknown"
+							}
+							, {
+								"name":"stamina_results_010to111.txt"
+								, "type":"file"
+								, "tags":[]
+								, "format":"Unknown"
+							}
+							] 
+						}
+						, {
+							"name":"stamina_results_111to100.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"stamina_results_100to010.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"stamina_results_010to111_errPminPmax.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"stamina_results_010to111.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						] 
+					}
+					] 
+				}
+				] 
+			}
+			{
+				"name":"No_abstraction"
+				, "type":"folder"
+				, "contents":[
+				{
+					"name":"Glitch_Zero"
+					, "type":"folder"
+					, "contents":[
+					, {
+						"name":"pro.csl"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"Circuit0x8E_111to010.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_100to010.xml"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"Circuit0x8E_100to010.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_010to100.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_Zero_Glitches"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"Circuit0x8E_010to111.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_111to100.xml"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"Circuit0x8E_100to111.xml"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"Circuit0x8E_010to111.xml"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					{
+						"name":"Unbounded"
+						, "type":"folder"
+						, "contents":[
+						, {
+							"name":"pro.csl"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_111to100_unb.sm"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Prism"
+						}
+						, {
+							"name":"Circuit0x8E_100to010_unb.sm"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Prism"
+						}
+						{
+							"name":"FinalResults"
+							, "type":"folder"
+							, "contents":[
+							, {
+								"name":"Circuit0x8E_100to111_unb.txt"
+								, "type":"file"
+								, "tags":[]
+								, "format":"Unknown"
+							}
+							, {
+								"name":"Circuit0x8E_111to010_unb.txt"
+								, "type":"file"
+								, "tags":[]
+								, "format":"Unknown"
+							}
+							, {
+								"name":"Circuit0x8E_100to010_unb.txt"
+								, "type":"file"
+								, "tags":[]
+								, "format":"Unknown"
+							}
+							, {
+								"name":"Circuit0x8E_111to100_unb.txt"
+								, "type":"file"
+								, "tags":[]
+								, "format":"Unknown"
+							}
+							, {
+								"name":"010to111.txt"
+								, "type":"file"
+								, "tags":[]
+								, "format":"Unknown"
+							}
+							, {
+								"name":"Circuit0x8E_010to100_unb.txt"
+								, "type":"file"
+								, "tags":[]
+								, "format":"Unknown"
+							}
+							] 
+						}
+						, {
+							"name":"Circuit0x8E_010to111_unb.sm"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Prism"
+						}
+						, {
+							"name":"Circuit0x8E_100to111_unb.sm"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Prism"
+						}
+						, {
+							"name":"results.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_111to010_unb.sm"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Prism"
+						}
+						, {
+							"name":"Circuit0x8E_010to100_unb.sm"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Prism"
+						}
+						] 
+					}
+					, {
+						"name":"Circuit0x8E_010to100.xml"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"Circuit0x8E_111to100.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_100to111.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_111to010.xml"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					] 
+				}
+				{
+					"name":"Glitch_One"
+					, "type":"folder"
+					, "contents":[
+					, {
+						"name":"Circuit0x8E_101to011.xml"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					{
+						"name":"Unbound"
+						, "type":"folder"
+						, "contents":[
+						, {
+							"name":"000to011_combined"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_011to000_unb.sm"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Prism"
+						}
+						, {
+							"name":"Circuit0x8E_011to101_unb.sm"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Prism"
+						}
+						, {
+							"name":"Circuit0x8E_000to011_unb_test.sm"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Prism"
+						}
+						{
+							"name":"FinalResults"
+							, "type":"folder"
+							, "contents":[
+							, {
+								"name":"Circuit0x8E_101to000_unb.txt"
+								, "type":"file"
+								, "tags":[]
+								, "format":"Unknown"
+							}
+							, {
+								"name":"Circuit0x8E_000to101_unb.txt"
+								, "type":"file"
+								, "tags":[]
+								, "format":"Unknown"
+							}
+							, {
+								"name":"Circuit0x8E_011to000_unb.txt"
+								, "type":"file"
+								, "tags":[]
+								, "format":"Unknown"
+							}
+							, {
+								"name":"Circuit0x8E_101to011_unb.txt"
+								, "type":"file"
+								, "tags":[]
+								, "format":"Unknown"
+							}
+							, {
+								"name":"Circuit0x8E_000to011_unb.txt"
+								, "type":"file"
+								, "tags":[]
+								, "format":"Unknown"
+							}
+							, {
+								"name":"Circuit0x8E_011to101_unb.txt"
+								, "type":"file"
+								, "tags":[]
+								, "format":"Unknown"
+							}
+							] 
+						}
+						, {
+							"name":"Circuit0x8E_101to011_unb.sm"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Prism"
+						}
+						, {
+							"name":"Circuit0x8E_000to101_unb.sm"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Prism"
+						}
+						, {
+							"name":"Circuit0x8E_101to000_unb.sm"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Prism"
+						}
+						, {
+							"name":"pro1.csl"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_000to011_unb.sm"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Prism"
+						}
+						, {
+							"name":"results.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"000to011_merged.sm"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Prism"
+						}
+						] 
+					}
+					, {
+						"name":"Circuit0x8E_000to101.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_101to000.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_011to000.xml"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"Circuit0x8E_101to011.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_101to000.xml"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"Circuit0x8E_011to000.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_011to101.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_000to011.xml"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"Circuit0x8E_000to011_test.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_000to101.xml"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"Circuit0x8E_000to011.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"pro1.csl"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"Circuit0x8E_011to101.xml"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"results.txt"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					] 
+				}
+				] 
+			}
+			] 
+		}
+		, {
+			"name":"README.md"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		{
+			"name":"Circuit0x8E_LogicHazardFree"
+			, "type":"folder"
+			, "contents":[
+			{
+				"name":"Glitch Zero"
+				, "type":"folder"
+				, "contents":[
+				, {
+					"name":"pro.csl"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_111to100.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"err.txt"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_010to100.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_010to100.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_010to111.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				{
+					"name":"Unbounded"
+					, "type":"folder"
+					, "contents":[
+					, {
+						"name":"pro.csl"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"Circuit0x8E_LHF_111to010_unb.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_LHF_010to100_unb.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					{
+						"name":"FinalResults"
+						, "type":"folder"
+						, "contents":[
+						, {
+							"name":"Circuit0x8E_LHF_010to111_unb.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_LHF_111to100_unb.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_LHF_100to010_unb.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_LHF_010to100_unb.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_LHF_100to111_unb.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_LHF_111to010_unb.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						] 
+					}
+					, {
+						"name":"Circuit0x8E_LHF_100to111_unb.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_LHF_010to111_unb.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_LHF_100to010_unb.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_LHF_111to100_unb.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					] 
+				}
+				, {
+					"name":"Circuit0x8E_LHF_111to100.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_111to010.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_100to111.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_100to010.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_100to010.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_100to111.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_010to111.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_111to010.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				] 
+			}
+			{
+				"name":"Glitch One"
+				, "type":"folder"
+				, "contents":[
+				, {
+					"name":"Circuit0x8E_LHF_000to101.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_011to101.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_000to011.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_011to000.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_000to101.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_000to011.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_101to000.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_011to000.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				{
+					"name":"Unbounded"
+					, "type":"folder"
+					, "contents":[
+					, {
+						"name":"Circuit0x8E_LHF_000to011_unb.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_LHF_101to011_unb.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					{
+						"name":"FinalResults"
+						, "type":"folder"
+						, "contents":[
+						, {
+							"name":"Circuit0x8E_LHF_101to011_unb.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_LHF_101to000_unb.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_LHF_000to101_unb.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_LHF_000to011_unb.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_LHF_011to000_unb.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						, {
+							"name":"Circuit0x8E_LHF_011to101_unb.txt"
+							, "type":"file"
+							, "tags":[]
+							, "format":"Unknown"
+						}
+						] 
+					}
+					, {
+						"name":"Circuit0x8E_LHF_101to000_unb.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_LHF_011to101_unb.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Circuit0x8E_LHF_011to000_unb.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"pro1.csl"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Unknown"
+					}
+					, {
+						"name":"Circuit0x8E_LHF_000to101_unb.sm"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					] 
+				}
+				, {
+					"name":"Circuit0x8E_LHF_101to011.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_101to011.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_011to101.sm"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Prism"
+				}
+				, {
+					"name":"Circuit0x8E_LHF_101to000.xml"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				, {
+					"name":"pro1.csl"
+					, "type":"file"
+					, "tags":[]
+					, "format":"Unknown"
+				}
+				] 
+			}
+			] 
+		}
+		] 
+	}
+	{
+		"name":"Circuit0x8E"
+		, "type":"folder"
+		, "contents":[
+		, {
+			"name":"Circuit0x8E_LHF_G1.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_010to100_G0_10_10_RBA.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_101to000_G1_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_000to101_G1_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_011to101_G1_10_10_RBA.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_011to101_G1_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_100to010_G0_10_10_RBA_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_111to100_G0_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_000to101_G1_10_10_RBA.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_010to111_G0_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_011to101_G1_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_100to010_G0_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_111to010_G0_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_101to000_G1_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_010to100_G0_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_010to100_G0_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_100to111_G0_10_10_RBA.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_111to010_G0_10_10_RBA.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_G1_unb.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_000to101_G1_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_G0csl.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_100to111_G0_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_011to000_G1_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_100to010_G0_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_101to011_G1_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_101to011_G1_10_10_RBA.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_101to000_G1_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_010to111_G0_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_100to111_G0_10_10_RBA_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_000to011_G1_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_000to101_G1_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_000to011_G1_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_G0_unb.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_100to111_G0_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_010to111_G0_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_010to111_G0_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_011to101_G1_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_011to000_G1_10_10_RBA.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_101to011_G1_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_100to010_G0_10_10_RBA.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_101to000_G1_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_G1_RBA.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_101to000_G1_10_10_RBA_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_000to101_G1_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_101to011_G1_10_10_RBA_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_000to011_G1_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_100to111_G0_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_G1_unb.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_011to101_G1_10_10_RBA_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_011to000_G1_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_111to010_G0_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_100to111_G0_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_101to000_G1_10_10_RBA.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_011to000_G1_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_111to010_G0_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_010to111_G0_10_10_RBA.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_000to011_G1_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_011to000_G1_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_101to000_G1_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_100to010_G0_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_G1.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_011to000_G1_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_111to100_G0_10_10_RBA_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_011to000_G1_10_10_RBA_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_010to100_G0_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_000to011_G1_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_011to101_G1_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_011to101_G1_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_011to000_G1_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_G0_RBA.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_TI_101to000_G1_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_000to011_G1_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_111to100_G0_10_10_RBA.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_111to100_G0_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_000to011_G1_10_10_RBA.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_000to101_G1_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_010to100_G0_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_111to100_G0_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_G1.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_TI_010to100_G0_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_111to010_G0_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_111to010_G0_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_G0.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_100to010_G0_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_101to011_G1_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_100to010_G0_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_G0_unb.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_111to010_G0_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_101to011_G1_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_010to111_G0_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_G1_unb.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_000to011_G1_10_10_RBA_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_G0_unb.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_TI_100to010_G0_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_111to100_G0_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_011to101_G1_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_111to100_G0_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_010to100_G0_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_100to111_G0_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_101to011_G1_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_000to101_G1_10_10_RBA_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_010to111_G0_10_10_RBA_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_LHF_111to100_G0_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_000to101_G1_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_100to111_G0_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_010to111_G0_10_10_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_111to010_G0_10_10_RBA_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_TI_101to011_G1_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Circuit0x8E_G0.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Circuit0x8E_010to100_G0_10_10_RBA_unb.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		] 
+	}
+	{
+		"name":"RobotWorld"
+		, "type":"folder"
+		, "contents":[
+		, {
+			"name":"robot_n_32.prism"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"robot_n_32.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"robot_n_64.prism"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"robot_n_64.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		] 
+	}
+	{
+		"name":"Jackson"
+		, "type":"folder"
+		, "contents":[
+		, {
+			"name":"jackson_lambda_5_N_5.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"jackson_lambda_5_N_4.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"jackson_lambda_5_N_5.prism"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"jackson_lambda_5_N_4.prism"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		] 
+	}
+	{
+		"name":"toy"
+		, "type":"folder"
+		, "contents":[
+		, {
+			"name":"toy2_combined4.prism"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"toy.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"toy1_separate.prism"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"toy2_separate.prism"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"toy1_combined.prism"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"toy2_combined3.prism"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"toy2_combined2.prism"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"toy2_combined.prism"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		] 
+	}
+	{
+		"name":"Tandem"
+		, "type":"folder"
+		, "contents":[
+		, {
+			"name":"tandem_c_2047_T_0.25.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"tandem_c_2047_T_0.25.prism"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"tandem_c_4095_T_0.25.prism"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"tandem_c_4095_T_0.25.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		] 
+	}
+	, {
+		"name":"Dual_Feedback_Oscillator.sm"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Prism"
+	}
+	, {
+		"name":"README.md"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Unknown"
+	}
+	{
+		"name":"Polling"
+		, "type":"folder"
+		, "contents":[
+		, {
+			"name":"polling_T_10_N_20.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"polling_T_10_N_20.prism"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"polling_T_10_N_16.prism"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"polling_T_10_N_16.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"polling_T_10_N_12.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"polling_T_10_N_12.prism"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		] 
+	}
+	, {
+		"name":"Toggle_Switch_RBA.sm"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Prism"
+	}
+	, {
+		"name":"Repressilator.sm"
+		, "type":"file"
+		, "tags":[]
+		, "format":"Prism"
+	}
+	{
+		"name":"Muller_C_Element"
+		, "type":"folder"
+		, "contents":[
+		, {
+			"name":"Speed_Independent_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Toggle_10_10.props"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Majority.props"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Majority.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Speed_Independent.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Majority_10_10.props"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		{
+			"name":"C-Element_w_Tolerances"
+			, "type":"folder"
+			, "contents":[
+			{
+				"name":"OldStyle"
+				, "type":"folder"
+				, "contents":[
+				{
+					"name":"majority"
+					, "type":"folder"
+					, "contents":[
+					, {
+						"name":"majority0.50.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.15.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.20.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.65.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.85.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.25.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.75.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.30.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.35.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.95.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.55.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.10.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.60.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.80.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.70.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.05.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.90.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.40.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.00.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority1.00.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"majority0.45.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					] 
+				}
+				{
+					"name":"toggle"
+					, "type":"folder"
+					, "contents":[
+					, {
+						"name":"toggle0.55.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.70.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.45.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.35.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.75.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.20.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.40.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.50.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.60.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.85.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.95.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.00.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.15.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.80.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.05.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.65.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle1.00.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.90.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.30.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.10.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"toggle0.25.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					] 
+				}
+				{
+					"name":"speed-ind"
+					, "type":"folder"
+					, "contents":[
+					, {
+						"name":"speed0.20.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.90.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.00.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.65.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.45.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.05.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.50.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.60.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.70.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.55.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.25.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.30.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed1.00.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.85.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.10.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.15.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.40.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.35.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.95.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.75.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"speed0.80.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					] 
+				}
+				] 
+			}
+			{
+				"name":"SynchronizedStyle"
+				, "type":"folder"
+				, "contents":[
+				{
+					"name":"Majority"
+					, "type":"folder"
+					, "contents":[
+					, {
+						"name":"Majority_0p10.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Majority_0p20.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Majority_0p40.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Majority_0p90.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Majority_0p80.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Majority_0p60.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Majority_0p70.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Majority_1p00.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Majority_0p50.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Majority_0p30.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					] 
+				}
+				{
+					"name":"Speed-ind"
+					, "type":"folder"
+					, "contents":[
+					, {
+						"name":"Speed-Ind_1p00.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Speed-Ind_0p70.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Speed-Ind_0p40.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Speed-Ind_0p20.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Speed-Ind_0p50.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Speed-Ind_0p90.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Speed-Ind_0p80.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Speed-Ind_0p30.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Speed-Ind_0p10.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Speed-Ind_0p60.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					] 
+				}
+				{
+					"name":"Toggle"
+					, "type":"folder"
+					, "contents":[
+					, {
+						"name":"Toggle_0p90.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Toggle_0p80.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Toggle_0p10.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Toggle_0p20.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Toggle_0p30.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Toggle_0p50.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Toggle_1p00.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Toggle_0p70.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Toggle_0p40.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					, {
+						"name":"Toggle_0p60.prism"
+						, "type":"file"
+						, "tags":[]
+						, "format":"Prism"
+					}
+					] 
+				}
+				] 
+			}
+			] 
+		}
+		, {
+			"name":"Toggle.props"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Toggle_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Majority_10_10.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Speed_Independent_10_10.props"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"Toggle.sm"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"Speed_Independent.props"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		] 
+	}
+	{
+		"name":"Toggle"
+		, "type":"folder"
+		, "contents":[
+		, {
+			"name":"toggle_IPTG_100.prism"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"toggle_IPTG_0.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"toggle_IPTG_0.prism"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Prism"
+		}
+		, {
+			"name":"toggle_IPTG_100.csl"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		, {
+			"name":"results.txt"
+			, "type":"file"
+			, "tags":[]
+			, "format":"Unknown"
+		}
+		] 
+	}
+	] 
+}
+]
