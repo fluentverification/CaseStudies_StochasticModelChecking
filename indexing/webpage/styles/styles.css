@@ -264,3 +264,15 @@ input[type=checkbox] {
 	content: '🗙';
 	padding-right: 10px;
 }
+
+#clear-tags:hover {
+/* 	width: 100px; */
+	font-family: 'Quicksand', sans-serif;
+/* 	color: white; */
+/* 	color: #c10541; */
+/* 	padding: 10px; */
+}
+
+#clear-tags:hover:before {
+	content: '🗙';
+}

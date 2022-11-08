@@ -99,13 +99,14 @@ function tagKeyPressHandler(event) {
 }
 
 function createTag(suggestion) {
+	let tagText = document.getElementById('tags');
+	tagText.value = "";
 	if (usedTags.has(suggestion)) {
+		// alert("Tag '" + suggestion +  "' exists!");
 		hideAllSuggestions();
 		return;
 	}
 	usedTags.add(suggestion);
-	let tagText = document.getElementById('tags');
-	tagText.value = "";
 	let tagList = document.getElementById('tags-box');
 	tagList.innerHTML += "<span class=\"tag deletable\" id=tag-" + suggestion + " onclick=deleteTag('" + suggestion + "')>" + suggestion + "</span>";
 	showTagSuggestions();
@@ -125,4 +126,10 @@ function queryKeyPressHandler(event) {
 function search() {
 	alert("Search not implemented yet!");
 	// TODO
+}
+
+function clearAllTags() {
+	let tagList = document.getElementById('tags-box');
+	tagList.innerHTML = "";
+	usedTags.clear();
 }
