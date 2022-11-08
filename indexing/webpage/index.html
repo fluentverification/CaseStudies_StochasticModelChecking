@@ -31,8 +31,14 @@
 			<div id="advanced">
 				<label for="tags" class="hidden">Tags</label>
 <!-- 				<span class=search-button style=><i class="icon icon_tag"></i></span> -->
-				<input type=text name="tags" placeholder="Tags">
+				<input type=text name="tags" id=tags placeholder="Tags" oninput="showTagSuggestions()">
+				<div id="tag-suggestions" class=suggestions>
+<!--					<div class="suggestion">Hazard Circuit</div>
+					<div class="suggestion">No Hazard Circuit</div>-->
+				</div>
 				<i class="icon icon_tag icon-overlay"></i>
+				<div id="tags-box">
+				</div>
 				<div class=column-half>
 					<div class="checkbox-styled">
 						<input type="checkbox" value="1" id="must-have-tags">
