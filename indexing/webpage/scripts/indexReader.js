@@ -31,8 +31,14 @@ let tagSuggestionsArray = [
 	, "up"
 ];
 
-function createTag() {
-	// TODO
+function hideAllSuggestions() {
+	console.log("hiding all suggestions");
+	let querySuggestions = document.getElementById('query-suggestions');
+	let tagSuggestions = document.getElementById('tag-suggestions');
+	querySuggestions.innerHTML = "";
+	tagSuggestions.innerHTML = "";
+	querySuggestions.style.display = "None";
+	tagSuggestions.style.display = "None";
 }
 
 /* Query Suggestions */
@@ -76,12 +82,18 @@ function showTagSuggestions() {
 	tagSuggestionsArray.forEach(s => {
 		let locationIndex = s.indexOf(currentTag)
 		if (locationIndex >= 0 && s != currentTag) {
-			tagSuggestions.innerHTML += "<div class=suggestion onclick=\"acceptSuggestionTag('" + s + "')\">" + s + "</div>";
+			tagSuggestions.innerHTML += "<div class=suggestion onclick=\"createTag('" + s + "')\">" + s + "</div>";
 		}
 	});
 }
 
-function acceptSuggestionTag(suggestion) {
+function tagKeyPressHandler(event) {
+	if (event.keyCode == 13) {
+		createTag(document.getElementById('tags').value);
+	}
+}
+
+function createTag(suggestion) {
 	let tagText = document.getElementById('tags');
 	tagText.value = "";
 	let tagList = document.getElementById('tags-box');
@@ -91,4 +103,15 @@ function acceptSuggestionTag(suggestion) {
 
 function deleteTag(tag) {
 	document.getElementById('tag-' + tag).remove();
+}
+
+function queryKeyPressHandler(event) {
+	if (event.keyCode == 13) {
+		search();
+	}
+}
+
+function search() {
+	alert("Search not implemented yet!");
+	// TODO
 }

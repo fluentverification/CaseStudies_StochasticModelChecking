@@ -8,7 +8,7 @@
 	<script src="./scripts/scripts.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
 </head>
-<body>
+<body onclick="hideAllSuggestions()">
 	<div id=navbar>
 		<a href=index.html id=logo>FLUENT Case Studies</a>
 		<a href=index.html>Home</a>
@@ -21,8 +21,9 @@
 		<form id=search>
 			<h1 id="search-header">Search for Case Studies:</h1>
 			<label for="query" class="hidden">Search Query:</label>
-			<input type=text name="query" placeholder="Search Query" id=query oninput="showSuggestions()">
-			<i class="icon icon_edit-find search-button"></i>
+<!-- 			<input type="submit" value="Search"> -->
+			<input type=text name="query" placeholder="Search Query" id=query oninput="showSuggestions()" onkeypress="queryKeyPressHandler(event)">
+			<i class="icon icon_edit-find search-button" onclick="search()"></i>
 			<div id="query-suggestions" class=suggestions>
 <!--				<div class="suggestion">Hazard Circuit</div>
 				<div class="suggestion">No Hazard Circuit</div>-->
@@ -31,7 +32,7 @@
 			<div id="advanced">
 				<label for="tags" class="hidden">Tags</label>
 <!-- 				<span class=search-button style=><i class="icon icon_tag"></i></span> -->
-				<input type=text name="tags" id=tags placeholder="Tags" oninput="showTagSuggestions()">
+				<input type=text name="tags" id=tags placeholder="Tags" oninput="showTagSuggestions()" onkeypress="tagKeyPressHandler(event)">
 				<div id="tag-suggestions" class=suggestions>
 <!--					<div class="suggestion">Hazard Circuit</div>
 					<div class="suggestion">No Hazard Circuit</div>-->
