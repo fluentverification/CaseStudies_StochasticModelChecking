@@ -31,8 +31,10 @@ let tagSuggestionsArray = [
 	, "up"
 ];
 
+const usedTags = new Set();
+
 function hideAllSuggestions() {
-	console.log("hiding all suggestions");
+	// console.log("hiding all suggestions");
 	let querySuggestions = document.getElementById('query-suggestions');
 	let tagSuggestions = document.getElementById('tag-suggestions');
 	querySuggestions.innerHTML = "";
@@ -80,6 +82,9 @@ function showTagSuggestions() {
 	if (currentTag.length == 0) { return; }
 	if (suggestions.length > 0) { tagSuggestions.style.display = "Block"; }
 	tagSuggestionsArray.forEach(s => {
+		if (usedTags.has(s)) {
+			return;
+		}
 		let locationIndex = s.indexOf(currentTag)
 		if (locationIndex >= 0 && s != currentTag) {
 			tagSuggestions.innerHTML += "<div class=suggestion onclick=\"createTag('" + s + "')\">" + s + "</div>";
@@ -94,6 +99,11 @@ function tagKeyPressHandler(event) {
 }
 
 function createTag(suggestion) {
+	if (usedTags.has(suggestion)) {
+		hideAllSuggestions();
+		return;
+	}
+	usedTags.add(suggestion);
 	let tagText = document.getElementById('tags');
 	tagText.value = "";
 	let tagList = document.getElementById('tags-box');
@@ -103,6 +113,7 @@ function createTag(suggestion) {
 
 function deleteTag(tag) {
 	document.getElementById('tag-' + tag).remove();
+	usedTags.delete(tag);
 }
 
 function queryKeyPressHandler(event) {
