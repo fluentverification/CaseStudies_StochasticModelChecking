@@ -1,7 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
 
+:root {
+	--accent: #1370c1;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--background: #ffffff;
+		--color: #444444;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #212121;
+		--color: #eeeeee;
+	}
+}
+
+
 body {
 	font-family: 'Quicksand', sans-serif;
+	color: var(--color);
+	background-color: var(--background);
 }
 
 #navbar {
@@ -10,8 +31,8 @@ body {
 	display: block;
 	top: 0px;
 	left: 0px;
-	background-color: #1370c1;
-	color: white;
+	background-color: var(--accent);
+	color: var(--background);;
 	z-index: 500;
 }
 
@@ -20,8 +41,8 @@ body {
 	text-decoration: none;
 	padding: 15px;
 	display: inline-block;
-	border-bottom: 4px solid #1370c1;
-	border-top: 4px solid #1370c1;
+	border-bottom: 4px solid var(--accent);
+	border-top: 4px solid var(--accent);
 	transition: all 200ms ease;
 }
 
@@ -46,7 +67,8 @@ body {
 	padding-left: 30px;
 	padding-right: 30px;
 	margin-bottom: 20px;
-	background-color: white;
+	background-color: var(--background);;
+	color: var(--color);
 }
 
 #search input[type="text"] {
@@ -68,7 +90,7 @@ body {
 }
 
 .result {
-	background-color: #eeeeee;
+	background-color: var(--background);
 	display: inline-block;
 	width: calc(100% - 40px);
 /* 	border: 1px solid #7d7d7d; */
@@ -92,7 +114,7 @@ body {
 .tag {
 	display: inline-block;
 /* 	border-radius: 20px; */
-	background-color: #1370c1;
+	background-color: var(--accent);
 	color: white;
 	padding: 3px;
 /*	padding-left: 20px;
@@ -106,13 +128,13 @@ body {
 }
 
 .tag:hover {
-	color: #1370c1;
-	border: 1px solid #1370c1;
-	background-color: white;
+	color: var(--accent);
+	border: 1px solid var(--accent);
+	background-color: var(--background);;
 }
 
 #footer {
-	background-color: #cccccc;
+	background-color: #cccccc22;
 	position: absolute;
 	display: block;
 	left: 0px;
@@ -132,7 +154,7 @@ label.hidden {
 #toggle-advanced {
 	display: block;
 /* 	width: 100%; */
-/* 	border-bottom: 2px solid #1370c1; */
+/* 	border-bottom: 2px solid var(--accent); */
 	margin-bottom: 10px;
 /* 	margin-left: 20px; */
 	padding: 0px 10px 0px 10px;
@@ -144,11 +166,11 @@ label.hidden {
 #toggle-advanced:before {
 	content: '⮟';
 	padding-right: 10px;
-	color: #1370c1;
+	color: var(--accent);
 }
 
 #toggle-advanced:hover {
-	color: #1370c1;
+	color: var(--accent);
 }
 
 #toggle-advanced.toggled:before {
@@ -192,7 +214,7 @@ input[type=checkbox] {
 }
 .checkbox-styled input[type=checkbox]:checked + label {
 	left: 27px;
-	background: #1370c1;
+	background: var(--accent);
 }
 
 .check-label {
@@ -211,13 +233,13 @@ input[type=checkbox] {
 
 .suggestions {
 	display: none;
-/* 	border: 1px solid #cccccc; */
-	border-top: 1px solid white;
-	box-shadow: 0px 8px 7px #ebebeb;
+	border: 1px solid #cccccc;
+	border-top: 1px solid var(--background);
+/* 	box-shadow: 0px 8px 7px var(--background); ALT: #ebebeb55; */
 	padding-left: 30px;
 	padding-right: 30px;
 	position: absolute;
-	background-color: #ffffff;
+	background-color: var(--background);
 	z-index: 5;
 	width: 70%;
 /* 	border-radius: 0px 0px 20px 20px; */
@@ -226,11 +248,13 @@ input[type=checkbox] {
 .suggestion {
 	padding: 10px;
 	cursor: pointer;
-	color: #444444;
+	color: var(--color);
+	border-bottom: 1px solid var(--background);
 }
 
 .suggestion:hover {
-	border-bottom: 1px solid #1370c1;
+	border-bottom: 1px solid var(--accent);
+	color: var(--accent);
 }
 
 #query-suggestions {
@@ -247,7 +271,7 @@ input[type=checkbox] {
 	left: 200px;
 }*/
 .search-button:hover, .icon-overlay:hover {
-	color: #1370c1;
+	color: var(--accent);
 }
 
 .icon-overlay, .search-button {
@@ -268,11 +292,43 @@ input[type=checkbox] {
 #clear-tags:hover {
 /* 	width: 100px; */
 	font-family: 'Quicksand', sans-serif;
-/* 	color: white; */
+/* 	color: var(--background);; */
 /* 	color: #c10541; */
 /* 	padding: 10px; */
 }
 
 #clear-tags:hover:before {
 	content: '🗙';
+}
+
+/* Navbar adaptivity */
+
+.navlink, .full-width {
+	cursor: pointer;
+	transition: all 300ms ease;
+	color: var(--color);
+}
+
+#navbar .full-width {
+/* 	float: right; */
+	width: 100%;
+	display: none;
+}
+
+
+@media screen and (max-width: 900px) {
+	#navbar .navlink {
+		display: none;
+		height: 0px;
+		width: 100%;
+	}
+
+	#navbar .navlink-expanded {
+		display: block !important;
+		height: auto;
+	}
+
+	#navbar .full-width {
+		display: inline-block;
+	}
 }
