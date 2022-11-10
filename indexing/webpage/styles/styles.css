@@ -164,7 +164,7 @@ label.hidden {
 }
 
 #toggle-advanced:before {
-	content: '⮟';
+	content: '\2B9F';
 	padding-right: 10px;
 	color: var(--accent);
 }
@@ -174,7 +174,7 @@ label.hidden {
 }
 
 #toggle-advanced.toggled:before {
-	content: '⮝';
+	content: '\2B9D';
 }
 
 #advanced {
@@ -285,7 +285,7 @@ input[type=checkbox] {
 }
 
 .deletable:before {
-	content: '🗙';
+	content: '\1F5D9';
 	padding-right: 10px;
 }
 
@@ -298,7 +298,7 @@ input[type=checkbox] {
 }
 
 #clear-tags:hover:before {
-	content: '🗙';
+	content: '\1F5D9';
 }
 
 /* Navbar adaptivity */
@@ -307,6 +307,7 @@ input[type=checkbox] {
 	cursor: pointer;
 	transition: all 300ms ease;
 	color: var(--color);
+	text-align: center;
 }
 
 #navbar .full-width {
