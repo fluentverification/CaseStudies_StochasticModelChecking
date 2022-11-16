@@ -33,3 +33,9 @@ function setDarkMode() {
 	rt.style.setProperty("--background", "#212121");
 
 }
+
+function setLightMode() {
+	var rt = document.querySelector(":root");
+	rt.style.setProperty("--color", "#444444");
+	rt.style.setProperty("--background", "#ffffff");
+}
