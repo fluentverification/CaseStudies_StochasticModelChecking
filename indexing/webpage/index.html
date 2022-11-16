@@ -109,6 +109,18 @@
 		<p><b>Model Credits:</b> Chris Myers, Chris Winstead, Lukas Buecherl, Mohommad Amandi, Zhen Zhang, Chris Winstead, Landon Taylor (TODO: Add whoever else has models)</p>
 		Developed by FLUENT Verification (Utah State University, University of Utah, University of Southern Florida, University of Colorado Boulder)
 		<p style="font-size: 9pt;">This website uses the <a href="https://develop.kde.org/frameworks/breeze-icons/">Breeze Icons</a> from KDE licensed under the GPL3.</p>
+		<div class="checkbox-styled">
+			<input type="checkbox" value="1" id="dark-light" onchange=setDarkOrLightMode()>
+			<label for="dark-light"></label>
+		</div>
+		Dark Mode
+<script>
+var darkMode = (document.cookie.includes("color-scheme=dark")) || window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+if (darkMode) {
+	document.getElementById("dark-light").checked = true;
+	setDarkMode();
+}
+</script>
 	</div>
 </body>
 </html>

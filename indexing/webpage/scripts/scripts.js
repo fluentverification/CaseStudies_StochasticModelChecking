@@ -39,3 +39,13 @@ function setLightMode() {
 	rt.style.setProperty("--color", "#444444");
 	rt.style.setProperty("--background", "#ffffff");
 }
+
+function setDarkOrLightMode() {
+	var darkMode = document.getElementById("dark-light").checked;
+	if (darkMode) {
+		setDarkMode();
+	}
+	else {
+		setLightMode();
+	}
+}

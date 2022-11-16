@@ -23,6 +23,7 @@ body {
 	font-family: 'Quicksand', sans-serif;
 	color: var(--color);
 	background-color: var(--background);
+	transition: all 200ms ease; 
 }
 
 #navbar {
