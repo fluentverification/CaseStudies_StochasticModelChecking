@@ -1,0 +1,227 @@
+#lang ivy1.7
+
+#attribute method = mc
+
+type num
+interpret num -> bv[10] #lowering this lowers execution time
+
+#var r   : num
+#var l   : num
+#var rl  : num
+#var g   : num
+#var ga  : num
+#var gbg : num
+#var gd  : num
+
+#after init {
+ # r   := 50;
+  #l   :=  2;
+  #rl  :=  0;
+  #g   := 50;
+  #ga  :=  0;
+  #gbg :=  0;
+  #gd  :=  0;
+#}
+
+object intf = {
+	action r8
+	action r7
+	action r6
+	action r4
+	action r3
+	action r5
+
+}
+
+object spec = {
+	individual r   : num
+	individual l   : num
+	individual rl  : num
+	individual g   : num
+	individual ga  : num
+	individual gbg : num
+	individual gd  : num
+
+	after init {
+		r := 50;
+		l := 2;
+		rl := 0;
+		g := 50;
+		ga := 0;
+		gbg := 0;
+		gd := 0		
+	}
+	before intf.r8 {
+		require true;
+		rl := rl + 1		
+	}
+	before intf.r7 {
+		require gd >= 1 & gbg >= 1;
+		g := g + 1;
+		gd := gd - 1;
+		gbg := gbg - 1
+	}
+	before intf.r6 {
+		require ga >= 1;
+		ga := ga - 1;
+		gd := gd + 1
+	}
+	before intf.r4 {
+		require rl >= 1;
+		rl := rl - 1
+	}
+	before intf.r3 {
+		require l >= 1 & r >= 1;
+		r := r - 1;
+		l := l - 1;
+		rl := rl + 1;
+		l := l + 1
+	}
+	before intf.r5 {
+		require rl >= 1 & g >= 1;
+		rl := rl - 1;
+		g := g - 1;
+		ga := ga + 1;
+		gbg := gbg + 1
+	}
+}
+
+object other_reactions = {
+	
+	individual local_r   : num
+	individual local_l   : num
+	individual local_rl  : num
+	individual local_g   : num
+	individual local_ga  : num
+	individual local_gbg : num
+	individual local_gd  : num
+
+	
+	after init {
+		local_r := 50;
+		local_l := 2;
+		local_rl := 0;
+		local_g := 50;
+		local_ga := 0;
+		local_gbg := 0;
+		local_gd := 0
+	}
+
+	action r1_local = {
+		#call intf.r1;
+	  	local_r := local_r + 1
+	}
+	
+	action r2_local = {
+		if local_r >= 1 {
+			#call intf.r2;
+			local_r := local_r - 1
+		}
+	}
+
+	action r3_local = {
+		if local_l >= 1 & local_r >= 1 {
+			call intf.r3;
+			local_r := local_r - 1;
+			local_l := local_l - 1;
+			local_rl := local_rl + 1;
+			local_l := local_l + 1
+		}
+
+	}
+	action r4_local = {
+		if local_rl >= 1 {
+			call intf.r4;
+			local_rl := local_rl - 1;
+			local_r := local_r + 1
+		}
+	
+	}
+	action r6_local = {
+		if local_ga >= 1 {
+			call intf.r6;
+			local_ga := local_ga - 1;
+			local_gd := local_gd + 1
+		}
+
+	}
+	action r7_local = {
+		if local_gd >= 1 & local_gbg >= 1 {
+			call intf.r7;
+			local_gd := local_gd - 1;
+			local_gbg := local_gbg - 1;
+			local_g := local_g + 1
+		}
+	}
+	action r8_local = {
+		call intf.r8;
+		local_rl := local_rl + 1
+	}
+	implement intf.r5 {
+		local_rl := local_rl - 1;
+		local_g := local_g - 1;
+		local_ga := local_ga + 1;
+		local_gbg := local_gbg + 1
+	}	
+}
+
+object fifth_reaction = {
+   		
+	#individual local_r   : num
+	#individual local_l   : num
+	individual local_rl  : num
+	individual local_g   : num
+	individual local_ga  : num
+	individual local_gbg : num
+	#individual local_gd  : num
+
+	after init {
+		#local_r := 50;
+		#local_l := 2;
+		local_rl := 0;
+		local_g := 50;
+		local_ga := 0;
+		local_gbg := 0
+		#local_gd := 0;
+	}
+	action r5_local = {
+		if local_rl >= 1 & local_g >= 1 {
+		  call intf.r5;	
+		  local_rl := local_rl - 1;
+		  local_g := local_g - 1;
+		  local_ga := local_ga + 1;
+		  local_gbg := local_gbg + 1
+		}
+	}
+	implement intf.r8 {
+		local_rl := local_rl + 1
+	}
+	implement intf.r7 {
+		local_gbg := local_gbg - 1;
+		local_g := local_g + 1
+	}
+	implement intf.r6 {
+		local_ga := local_ga - 1
+	}
+	implement intf.r4 {
+		local_rl := local_rl - 1
+	}
+	implement intf.r3 {
+		local_rl := local_rl + 1
+	}
+}
+
+
+export fifth_reaction.r5_local
+export other_reactions.r1_local
+export other_reactions.r2_local
+export other_reactions.r3_local
+export other_reactions.r4_local
+export other_reactions.r6_local
+export other_reactions.r7_local
+export other_reactions.r8_local
+
+isolate iso_fifth = fifth_reaction with spec
+isolate iso_other = other_reactions with spec
+
+#invariant (gbg ~= 50)
