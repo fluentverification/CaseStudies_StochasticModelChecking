@@ -1,0 +1,106 @@
+STAMINA
+=====
+Version: 1.1
+
+PRISM
+=====
+
+Version: 4.5
+Date: Thu Nov 26 08:25:41 MST 2020
+Hostname: el176-deeplearning
+Memory limits: cudd=1g, java(heap)=120g
+
+Type:        CTMC
+Modules:     HlyIIR_protein BetI_protein PhlF_protein AmtR_protein YFP_protein BM3R1_protein topModel_BetIpart_module_sub__pTet topModel_BetIpart_module_sub__pHlyIIR topModel_AmtRpart_module_sub__pBM3R1 topModel_AmtRpart_module_sub__pBAD topModel_Inverter2_module_sub__Inverter2_fc topModel_YFPpart_module_sub__pBetI topModel_YFPpart_module_sub__pPhlF topModel_Inverter1_module_sub__Inverter1_fc topModel_PhlFpart_module_sub__pTac topModel_PhlFpart_module_sub__pAmtR reaction_rates 
+Variables:   HlyIIR_protein BetI_protein PhlF_protein AmtR_protein YFP_protein BM3R1_protein topModel_BetIpart_module_sub__pTet topModel_BetIpart_module_sub__pHlyIIR topModel_AmtRpart_module_sub__pBM3R1 topModel_AmtRpart_module_sub__pBAD topModel_Inverter2_module_sub__Inverter2_fc topModel_YFPpart_module_sub__pBetI topModel_YFPpart_module_sub__pPhlF topModel_Inverter1_module_sub__Inverter1_fc topModel_PhlFpart_module_sub__pTac topModel_PhlFpart_module_sub__pAmtR 
+
+Generator:   stamina.InfCTMCModelGenerator
+Type:        CTMC
+
+========================================================================
+Approximation<1> : kappa = 1.0
+========================================================================
+
+---------------------------------------------------------------------
+
+Building model...
+
+Warning: Model contains one or more unbounded variables: model construction may not terminate
+
+Computing reachable states...
+Warning: Infinite State system: Reachability analysis based on reachabilityThreshold=1.0
+ 64829 129549 180351 238313 270945 328939 359695 388762 430005 476350 502459 536682 580094 603250 627106 653099 683601 719974 744529 767880 790870 817725 843907 867733 884687 905784 928713 951214 976001 1000599 1024013 1042931 1061661 1082147 1101882 1123562 1145879 1168721 1185221 1203982 1220796 1240210 1258730 1278071 1296932 1316987 1338830 1353449 1370033 1386446 1402823 1420261 1436770 1454166 1471659 1488355 1508545 1524205 1539440 1555089 1569394 1583734 1600489 1616719 1632866 1648155 1664193 1683763 1699123 1713732 1729366 1744737 1759088 1773262 1788512 1804217 1818419 1833059 1847224 1866166 1880711 1895630 1909180 1923534 1937773 1951708 1966015 1979245 1993080 2006552 2020427 2032911 2049872 2054958 states
+ 1 154123 289621 438370 579749 719239 844899 984501 1123092 1262413 1396208 1539295 1678693 1818890 1959441 2054958 states
+Reachable states exploration and model construction done in 323.826 secs.
+Sorting reachable states list...
+
+Time for model construction: 326.175 seconds.
+
+Type:        CTMC
+States:      2054958 (1 initial)
+Transitions: 19822716
+
+---------------------------------------------------------------------
+
+Verifying Prob .....
+
+Starting transient probability computation...
+
+Uniformisation: q.t = 1.02 x 1000.0 = 1020.0
+Fox-Glynn (1.25E-7): left = 794, right = 1293
+Transient probability computation took 1294 iters and 833.691 seconds.
+
+Time for model checking: 833.746 seconds.
+
+Result: 0.6899788397137332 (minimum bound)
+
+Result: 0.7008126179591727 (maximum bound)
+
+========================================================================
+Approximation<2> : kappa = 3.725290298461914E-9
+========================================================================
+
+---------------------------------------------------------------------
+
+Building model...
+
+Warning: Model contains one or more unbounded variables: model construction may not terminate
+
+Computing reachable states...
+Warning: Infinite State system: Reachability analysis based on reachabilityThreshold=3.725290298461914E-9
+ 2067813 2080889 2094738 2108239 2121442 2133831 2146984 2158899 2168808 2179288 2192065 2204167 2216126 2228890 2244435 2258563 2271685 2283952 2296076 2308335 2321257 2332747 2344693 2356951 2368974 2380269 2392285 2403746 2414724 2426547 2440543 2454783 2466278 2478388 2490656 2501747 2513372 2525207 2535931 2546888 2557390 2568107 2579277 2590214 2599949 2610786 2621003 2633200 2647489 states
+ 1 152743 293924 434369 573831 702373 849364 988797 1119345 1257143 1403148 1541908 1679299 1807543 1949452 2094303 2234615 2377873 2521765 2647489 states
+Reachable states exploration and model construction done in 203.212 secs.
+Sorting reachable states list...
+
+Time for model construction: 205.977 seconds.
+
+Type:        CTMC
+States:      2647489 (1 initial)
+Transitions: 25198365
+
+---------------------------------------------------------------------
+
+Verifying Prob .....
+
+Starting transient probability computation...
+
+Uniformisation: q.t = 1.02 x 1000.0 = 1020.0
+Fox-Glynn (1.25E-7): left = 794, right = 1293
+Transient probability computation took 1294 iters and 1165.204 seconds.
+
+Time for model checking: 1165.278 seconds.
+
+Result: 0.6901058673765695 (minimum bound)
+
+Result: 0.6909280294416837 (maximum bound)
+
+========================================================================
+
+Property: P=? [ true U[0,1000] (YFP_protein>=30) ]
+
+ProbMin: 0.6901058673765695 (minimum bound)
+
+ProbMax: 0.6909280294416837 (maximum bound)
+
+========================================================================

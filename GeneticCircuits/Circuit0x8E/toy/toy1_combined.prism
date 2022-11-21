@@ -1,0 +1,45 @@
+ctmc
+
+const int aTc = 0;
+const int IPTG = 0;
+const int MAX_AMOUNT = 10;
+
+formula p_t = 0.099/(0.25*(LacI/(0.0496277915632754*IPTG + 1))*(LacI/(0.0496277915632754*IPTG + 1)) + 1.99);
+formula p_l = 0.099/(0.25*(TetR/(0.0496277915632754*aTc + 1))*(TetR/(0.0496277915632754*aTc + 1)) + 1.99);
+
+module TetR_def
+
+	TetR : [0..MAX_AMOUNT] init 0;
+
+	//[] TetR=0 -> p_t : (TetR'=TetR+2);
+	//[] TetR>0 & TetR<9 -> p_t : (TetR'=TetR+2) + 0.0075*TetR:(TetR'=TetR-1);
+	//[] TetR>=9 -> 0.0075*TetR:(TetR'=TetR-1);
+
+	[repress_TetR_combined] (TetR>=0 & TetR<9) -> (TetR'=TetR+2);
+	[degrade_TetR] TetR>0 -> (TetR'=TetR-1);
+	
+	
+endmodule
+
+module LacI_def
+
+	LacI : [0..MAX_AMOUNT] init MAX_AMOUNT;
+
+	//[] LacI=0 -> p_t : (LacI'=LacI+2);
+	//[] LacI>0 & LacI<9 -> p_l : (LacI'=LacI+2) + 0.0075*LacI:(LacI'=LacI-1);
+	//[] LacI=9 | LacI=10 -> 0.0075*LacI:(LacI'=LacI-1);
+
+	[repress_LacI] (LacI>=0 & LacI<9) -> (LacI'=LacI+2);
+	[degrade_LacI] LacI>0 -> (LacI'=LacI-1);
+
+
+endmodule
+
+module reaction_rates
+
+       [repress_TetR_combined] (TetR>=0 & TetR<9) -> (p_t + p_t/3): true; // sum the rates
+       [degrade_TetR] TetR>0 -> 0.0075*TetR : true;
+       [repress_LacI] (LacI>=0 & LacI<9) -> p_l : true;
+       [degrade_LacI] LacI>0 -> 0.0075*LacI : true;
+
+endmodule

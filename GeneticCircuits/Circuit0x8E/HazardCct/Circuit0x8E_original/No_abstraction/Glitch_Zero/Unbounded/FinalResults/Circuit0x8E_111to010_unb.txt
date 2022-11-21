@@ -1,0 +1,106 @@
+STAMINA
+=====
+Version: 1.1
+
+PRISM
+=====
+
+Version: 4.5
+Date: Tue Nov 24 18:09:37 MST 2020
+Hostname: el176-deeplearning
+Memory limits: cudd=1g, java(heap)=120g
+
+Type:        CTMC
+Modules:     AmtR_protein BetI_protein HlyIIR_protein PhlF_protein YFP_protein topModel_AmtRpart_module_sub__pBAD topModel_AmtRpart_module_sub__pHlyIIR topModel_YFPpart_module_sub__pPhlF topModel_YFPpart_module_sub__pBetI topModel_BetIpart_module_sub__pHlyIIR topModel_BetIpart_module_sub__pTet topModel_PhlFpart_module_sub__pTac topModel_PhlFpart_module_sub__pAmtR topModel_HlyIIRpart_module_sub__pTet topModel_HlyIIRpart_module_sub__pBAD reaction_rates 
+Variables:   AmtR_protein BetI_protein HlyIIR_protein PhlF_protein YFP_protein topModel_AmtRpart_module_sub__pBAD topModel_AmtRpart_module_sub__pHlyIIR topModel_YFPpart_module_sub__pPhlF topModel_YFPpart_module_sub__pBetI topModel_BetIpart_module_sub__pHlyIIR topModel_BetIpart_module_sub__pTet topModel_PhlFpart_module_sub__pTac topModel_PhlFpart_module_sub__pAmtR topModel_HlyIIRpart_module_sub__pTet topModel_HlyIIRpart_module_sub__pBAD 
+
+Generator:   stamina.InfCTMCModelGenerator
+Type:        CTMC
+
+========================================================================
+Approximation<1> : kappa = 1.0
+========================================================================
+
+---------------------------------------------------------------------
+
+Building model...
+
+Warning: Model contains one or more unbounded variables: model construction may not terminate
+
+Computing reachable states...
+Warning: Infinite State system: Reachability analysis based on reachabilityThreshold=1.0
+ 55149 100351 131750 163731 194019 218673 238898 262598 285003 304365 322857 338016 355659 372548 states
+ 1 177119 349069 372548 states
+Reachable states exploration and model construction done in 48.241 secs.
+Sorting reachable states list...
+
+Time for model construction: 48.553 seconds.
+
+Type:        CTMC
+States:      372548 (1 initial)
+Transitions: 2983080
+
+---------------------------------------------------------------------
+
+Verifying Prob .....
+
+Starting transient probability computation...
+
+Uniformisation: q.t = 1.02 x 1000.0 = 1020.0
+Fox-Glynn (1.25E-7): left = 794, right = 1293
+Transient probability computation took 1294 iters and 139.14 seconds.
+
+Time for model checking: 139.171 seconds.
+
+Result: 0.6940810349612819 (minimum bound)
+
+Result: 0.7302348679103067 (maximum bound)
+
+========================================================================
+Approximation<2> : kappa = 1.4901161193847656E-8
+========================================================================
+
+---------------------------------------------------------------------
+
+Building model...
+
+Warning: Model contains one or more unbounded variables: model construction may not terminate
+
+Computing reachable states...
+Warning: Infinite State system: Reachability analysis based on reachabilityThreshold=1.4901161193847656E-8
+ 387949 397896 413795 427698 443836 457845 472874 485949 497596 505409 states
+ 1 180388 353884 505409 states
+Reachable states exploration and model construction done in 36.71 secs.
+Sorting reachable states list...
+
+Time for model construction: 37.284 seconds.
+
+Type:        CTMC
+States:      505409 (1 initial)
+Transitions: 3978304
+
+---------------------------------------------------------------------
+
+Verifying Prob .....
+
+Starting transient probability computation...
+
+Uniformisation: q.t = 1.02 x 1000.0 = 1020.0
+Fox-Glynn (1.25E-7): left = 794, right = 1293
+Transient probability computation took 1294 iters and 189.745 seconds.
+
+Time for model checking: 189.747 seconds.
+
+Result: 0.6946462411208174 (minimum bound)
+
+Result: 0.6955208941456495 (maximum bound)
+
+========================================================================
+
+Property: P=? [ true U[0,1000] (YFP_protein>=30) ]
+
+ProbMin: 0.6946462411208174 (minimum bound)
+
+ProbMax: 0.6955208941456495 (maximum bound)
+
+========================================================================

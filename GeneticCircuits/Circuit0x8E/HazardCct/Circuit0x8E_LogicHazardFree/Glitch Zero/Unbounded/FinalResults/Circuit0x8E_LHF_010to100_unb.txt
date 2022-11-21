@@ -1,0 +1,106 @@
+STAMINA
+=====
+Version: 1.1
+
+PRISM
+=====
+
+Version: 4.5
+Date: Wed Nov 25 22:09:11 MST 2020
+Hostname: el176-deeplearning
+Memory limits: cudd=1g, java(heap)=120g
+
+Type:        CTMC
+Modules:     HlyIIR_protein BetI_protein PhlF_protein AmtR_protein YFP_protein BM3R1_protein topModel_BetIpart_module_sub__pTet topModel_BetIpart_module_sub__pHlyIIR topModel_AmtRpart_module_sub__pBM3R1 topModel_AmtRpart_module_sub__pBAD topModel_Inverter2_module_sub__Inverter2_fc topModel_YFPpart_module_sub__pBetI topModel_YFPpart_module_sub__pPhlF topModel_Inverter1_module_sub__Inverter1_fc topModel_PhlFpart_module_sub__pTac topModel_PhlFpart_module_sub__pAmtR reaction_rates 
+Variables:   HlyIIR_protein BetI_protein PhlF_protein AmtR_protein YFP_protein BM3R1_protein topModel_BetIpart_module_sub__pTet topModel_BetIpart_module_sub__pHlyIIR topModel_AmtRpart_module_sub__pBM3R1 topModel_AmtRpart_module_sub__pBAD topModel_Inverter2_module_sub__Inverter2_fc topModel_YFPpart_module_sub__pBetI topModel_YFPpart_module_sub__pPhlF topModel_Inverter1_module_sub__Inverter1_fc topModel_PhlFpart_module_sub__pTac topModel_PhlFpart_module_sub__pAmtR 
+
+Generator:   stamina.InfCTMCModelGenerator
+Type:        CTMC
+
+========================================================================
+Approximation<1> : kappa = 1.0
+========================================================================
+
+---------------------------------------------------------------------
+
+Building model...
+
+Warning: Model contains one or more unbounded variables: model construction may not terminate
+
+Computing reachable states...
+Warning: Infinite State system: Reachability analysis based on reachabilityThreshold=1.0
+ 39686 72144 102059 125696 132936 states
+ 1 132936 states
+Reachable states exploration and model construction done in 14.82 secs.
+Sorting reachable states list...
+
+Time for model construction: 15.075 seconds.
+
+Type:        CTMC
+States:      132936 (1 initial)
+Transitions: 1146092
+
+---------------------------------------------------------------------
+
+Verifying Prob .....
+
+Starting transient probability computation...
+
+Uniformisation: q.t = 1.02 x 1000.0 = 1020.0
+Fox-Glynn (1.25E-7): left = 794, right = 1293
+Transient probability computation took 1294 iters and 72.912 seconds.
+
+Time for model checking: 72.934 seconds.
+
+Result: 0.014493248710132408 (minimum bound)
+
+Result: 0.025705315499266725 (maximum bound)
+
+========================================================================
+Approximation<2> : kappa = 2.9802322387695312E-8
+========================================================================
+
+---------------------------------------------------------------------
+
+Building model...
+
+Warning: Model contains one or more unbounded variables: model construction may not terminate
+
+Computing reachable states...
+Warning: Infinite State system: Reachability analysis based on reachabilityThreshold=2.9802322387695312E-8
+ 154600 176930 197156 states
+ 1 173087 197156 states
+Reachable states exploration and model construction done in 12.086 secs.
+Sorting reachable states list...
+
+Time for model construction: 12.298 seconds.
+
+Type:        CTMC
+States:      197156 (1 initial)
+Transitions: 1705773
+
+---------------------------------------------------------------------
+
+Verifying Prob .....
+
+Starting transient probability computation...
+
+Uniformisation: q.t = 1.02 x 1000.0 = 1020.0
+Fox-Glynn (1.25E-7): left = 794, right = 1293
+Transient probability computation took 1294 iters and 106.642 seconds.
+
+Time for model checking: 106.644 seconds.
+
+Result: 0.015529165355658193 (minimum bound)
+
+Result: 0.016269864953495795 (maximum bound)
+
+========================================================================
+
+Property: P=? [ true U[0,1000] (YFP_protein>=30) ]
+
+ProbMin: 0.015529165355658193 (minimum bound)
+
+ProbMax: 0.016269864953495795 (maximum bound)
+
+========================================================================

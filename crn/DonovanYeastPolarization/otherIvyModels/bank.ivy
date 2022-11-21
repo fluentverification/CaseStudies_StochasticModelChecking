@@ -1,0 +1,39 @@
+#lang ivy 1.6
+
+
+object proto = {
+	type num
+ 	
+	individual x : bool
+
+	interpret num -> bv[10]
+	individual x_count : num	
+	individual money : num
+
+	action transaction(v:num) = {
+		x_count := x_count + 1;
+		if x_count > 5 {
+			x := ~x;
+			x_count := 0	
+		};
+		if x {
+			money := money + 1
+		}
+		else {
+			money := money + 250
+		}
+	}
+
+	before transaction {
+		assert v = money
+	}
+
+#	after transaction {
+#		assert money < 275
+#	}
+
+}
+
+export proto.transaction
+
+isolate iso_proto = proto

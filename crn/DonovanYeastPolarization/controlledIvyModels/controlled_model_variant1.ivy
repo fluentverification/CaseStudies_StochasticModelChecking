@@ -1,0 +1,482 @@
+#lang ivy 1.7
+
+
+object chem = {
+	type num
+	
+	interpret num -> bv[10]
+
+	type exec_var
+
+	interpret exec_var -> bv[8]	
+
+	action incr(x:num) returns(y:num) = {
+		y := x + 1
+	}
+
+	action decr(x:num) returns(y:num) = {
+		y := x - 1
+	}
+}
+
+
+object goal = {
+
+	action achieved(v:chem.num)
+
+	object spec = {
+		before achieved {
+			assert v >= 50;
+			proto.idle := 1
+		}
+	}
+}
+
+object enabled = {
+
+	action r1(r_1:chem.num) returns(y:bool) = {
+		#y := false
+		y := true
+	}
+
+	action r2(r_1:chem.num) returns(y:bool) = {
+		if r_1 >= 1 {
+			#y := false
+			y := true
+		}
+		else {
+			y := false
+		}
+	}
+	
+	action r3(r_1:chem.num,l_1:chem.num) returns(y:bool) = {
+		if r_1 >= 1 & l_1 >= 1 {
+			#y := false
+			y := true
+		}
+		else {
+			y := false
+		}
+	}
+
+	action r4(rl_1:chem.num) returns(y:bool) = {
+		if rl_1 >= 1 {
+			#y := false
+			y := true
+		}
+		else {
+			y := false
+		}
+	}
+
+	action r5(rl_1:chem.num,g_1:chem.num) returns(y:bool) = {
+		if rl_1 >= 1 & g_1 >= 1 {
+			y := true
+		}
+		else {
+			y := false
+		}
+	}
+
+	action r6(ga_1:chem.num) returns(y:bool) = {
+		if ga_1 >= 1 {
+			#y := false
+			y := true
+		}
+		else {
+			y := false
+		}
+	}
+
+	action r7(gbg_1:chem.num,gd_1:chem.num) returns(y:bool) = {
+		if gbg_1 >= 1 & gd_1 >= 1 {
+			#y := false
+			y := true
+		}
+		else {
+			y := false
+		}
+	}
+
+	action r8(rl_1:chem.num) returns(y:bool) = {
+		#y := false
+		y := true
+	}
+}
+
+object reactions = {
+	action r1(r_1:chem.num) = {}
+	action r2(r_1:chem.num) = {}
+	action r3(r_1:chem.num,l_1:chem.num,rl_1:chem.num) = {}
+	action r4(rl_1:chem.num,r_1:chem.num) = {}
+	action r5(rl_1:chem.num,g_1:chem.num,ga_1:chem.num,gbg_1:chem.num) = {}
+	action r6(ga_1:chem.num,gd_1:chem.num) = {}
+	action r7(gbg_1:chem.num,gd_1:chem.num,g_1:chem.num) = {}
+	action r8(rl_1:chem.num) = {}
+
+	before r1 {
+		assert true
+	}
+
+	before r2 {
+		assert r_1 >= 1
+	}
+
+	before r3 {
+		assert r_1 >= 1 & l_1 >= 1
+	}
+
+	before r4 {
+		assert rl_1 >= 1
+	}
+
+	before r5 {
+		assert rl_1 >= 1 & g_1 >= 1
+	}
+
+	before r6 {
+		assert ga_1 >= 1
+	}
+
+	before r7 {
+		assert gbg_1 >= 1 & gd_1 >= 1
+	}
+
+	before r8 {
+		assert true
+	}
+}
+
+object executer = {
+	individual r1_exec : chem.exec_var
+	individual r2_exec : chem.exec_var
+	individual r3_exec : chem.exec_var	
+	individual r4_exec : chem.exec_var	
+	individual r5_exec : chem.exec_var	
+	individual r6_exec : chem.exec_var	
+	individual r7_exec : chem.exec_var	
+	individual r8_exec : chem.exec_var
+
+	individual r1_rate : chem.exec_var
+	individual r2_rate : chem.exec_var
+	individual r3_rate : chem.exec_var
+	individual r4_rate : chem.exec_var
+	individual r5_rate : chem.exec_var
+	individual r6_rate : chem.exec_var
+	individual r7_rate : chem.exec_var
+	individual r8_rate : chem.exec_var
+
+	after init {
+		r1_exec := 1;
+		r2_exec := 0;
+		r3_exec := 1;
+		r4_exec := 0;
+		r5_exec := 0;
+		r6_exec := 0;
+		r7_exec := 0;
+		r8_exec := 0;
+
+		r1_rate := 2;
+		r2_rate := 4;
+		r3_rate := 2;
+		r4_rate := 6;
+		r5_rate := 1;
+		r6_rate := 8;
+		r7_rate := 3;
+		r8_rate := 2;
+	}
+
+	action r1_execution returns(y:bool) = {
+		# r1_exec := *;
+		# if(r1_exec >= 3) {
+		# 	y := true
+		# }
+		# else {
+		# 	y := false
+	        # }
+	        if * {
+	            y := true
+	        }
+	        else {
+	           y := false
+	        }
+		# r1_exec := r1_exec + 1;
+		# if r1_exec >= r1_rate {
+		# 	y := true;
+		# 	r1_exec := 0
+		# }
+		# else {
+		# 	y := false
+		# }
+	}
+
+
+	action r2_execution returns(y:bool) = {
+#		r2_exec := *;
+#		if(r1_exec >= 3) {
+#			y := true
+#		}
+#		else {
+#			y := false
+#		}
+		r2_exec := r2_exec + 1;
+		if r2_exec >= r2_rate {
+			y := true;
+			r2_exec := 0
+		}
+		else {
+			y := false
+		}
+	}
+
+
+	action r3_execution returns(y:bool) = {
+#		r3_exec := *;
+#		if(r1_exec >= 3) {
+#			y := true
+#		}
+#		else {
+#			y := false
+#		}
+	
+		r3_exec := r3_exec + 1;
+		if r3_exec >= r3_rate {
+			y := true;
+			r3_exec := 0
+		}
+		else {
+			y := false
+		}
+	}
+
+	
+	action r4_execution returns(y:bool) = {
+#		r4_exec := *;
+#		if(r1_exec >= 3) {
+#			y := true
+#		}
+#		else {
+#			y := false
+#		}
+		
+		r4_exec := r4_exec + 1;
+		if r4_exec >= r4_rate {
+			y := true;
+			r4_exec := 0
+		}
+		else {
+			y := false
+		}
+	}
+
+
+	action r5_execution returns(y:bool) = {
+#		r5_exec := *;
+#		if(r1_exec >= 3) {
+#			y := true
+#		}
+#		else {
+#			y := false
+#		}
+		
+		r5_exec := r5_exec + 1;
+		if r5_exec >= r5_rate {
+			y := true;
+			r5_exec := 0
+		}
+		else {
+			y := false
+		}
+	}
+
+
+	action r6_execution returns(y:bool) = {
+#		r6_exec := *;
+#		if(r1_exec >= 3) {
+#			y := true
+#		}
+#		else {
+#			y := false
+#		}
+		
+		r6_exec := r6_exec + 1;
+		if r6_exec >= r6_rate {
+			y := true;
+			r6_exec := 0
+		}
+		else {
+			y := false
+		}
+	}
+
+
+	action r7_execution returns(y:bool) = {
+#		r7_exec := *;
+#		if(r1_exec >= 3) {
+#			y := true
+#		}
+#		else {
+#			y := false
+#		}
+		
+		r7_exec := r7_exec + 1;
+		if r7_exec >= r7_rate {
+			y := true;
+			r7_exec := 0
+		}
+		else {
+			y := false
+		}
+	}
+
+
+	action r8_execution returns(y:bool) = {
+#		r8_exec := *;
+#		if(r1_exec >= 3) {
+#			y := true
+#		}
+#		else {
+#			y := false
+#		}
+		
+		r8_exec := r8_exec + 1;
+		if r8_exec >= r8_rate {
+			y := true;
+			r8_exec := 0
+		}
+		else {
+			y := false
+		}
+	}
+
+}
+
+object proto = {
+
+	type 2bit
+
+	interpret 2bit -> bv[1]
+
+	individual idle : 2bit
+
+#	type endgoal
+	
+#	interpret endgoal -> int 
+
+	individual goal_gbg : chem.num
+
+	individual r : chem.num
+	individual l : chem.num
+	individual rl : chem.num
+	individual g : chem.num
+	individual ga : chem.num
+	individual gbg : chem.num
+	individual gd : chem.num
+
+	after init {
+		r := 50;
+		l := 2;
+		rl := 0;
+		g := 50;
+		ga := 0;
+		gbg := 0;
+		gd := 0;
+		goal_gbg := 50;
+		idle := 0 
+	}
+
+	action updating = {
+		if enabled.r1(r) & idle = 0 {
+			if executer.r1_execution {
+				call reactions.r1(r);
+				r := chem.incr(r)
+			}
+		}
+
+		if enabled.r2(r) & idle = 0 {
+			if executer.r2_execution {
+				call reactions.r2(r);
+				r := chem.decr(r)
+			}
+		}
+
+		if enabled.r3(r,l) & idle = 0 {
+			if executer.r3_execution {
+				call reactions.r3(r,l,rl);
+				r:= chem.decr(r);
+				rl := chem.incr(rl)
+			}
+		}
+
+		if enabled.r4(rl) & idle = 0 {
+			if executer.r4_execution {
+				call reactions.r4(rl,r);
+				rl := chem.decr(rl);
+				r := chem.incr(r)
+			}
+		}
+
+		if enabled.r5(rl,g) & idle = 0 {
+			if executer.r5_execution {
+				call reactions.r5(rl,g,ga,gbg);
+				rl := chem.decr(rl);
+				g := chem.decr(g);
+				ga := chem.incr(ga);
+				gbg := chem.incr(gbg);
+				if gbg >= goal_gbg {
+					call goal.achieved(gbg)
+				}
+			}
+		}
+	
+		if enabled.r6(ga) & idle = 0 {
+			if executer.r6_execution {
+				call reactions.r6(ga,gd);
+				ga := chem.decr(ga);
+				gd := chem.incr(gd);
+			}
+		}
+
+		if enabled.r7(gbg,gd) & idle = 0 {
+			if executer.r7_execution {
+				call reactions.r7(gbg,gd,g);
+				gbg := chem.decr(gbg);
+				gd := chem.decr(gd);
+				g := chem.incr(g);
+
+			}
+		}
+
+		if enabled.r8(rl) & idle = 0 {
+			if executer.r8_execution {
+				call reactions.r8(rl);
+				rl := chem.incr(rl);
+			}
+		}
+	}
+
+	action idling = {}
+
+	before updating {
+		assert idle = 0
+	}
+
+	before idling {
+		assert idle = 1 
+	}
+
+}
+
+export proto.updating
+export proto.idling
+import goal.achieved
+import reactions.r1
+import reactions.r2
+import reactions.r3
+import reactions.r4
+import reactions.r5
+import reactions.r6
+import reactions.r7
+import reactions.r8
+
+isolate iso_proto = proto with enabled, chem, goal, executer, reactions

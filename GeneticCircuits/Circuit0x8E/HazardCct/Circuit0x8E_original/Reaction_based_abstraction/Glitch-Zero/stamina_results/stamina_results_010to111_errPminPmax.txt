@@ -1,0 +1,91 @@
+STAMINA
+=====
+Version: 1.1
+
+PRISM
+=====
+
+Version: 4.5
+Date: Sat May 30 18:38:31 MDT 2020
+Hostname: el176-deeplearning
+Memory limits: cudd=1g, java(heap)=120g
+
+Type:        CTMC
+Modules:     YFP_protein BetI_protein PhlF_protein HlyIIR_protein AmtR_protein Circuit10_10_AmtR_module_sub__pBAD Circuit10_10_AmtR_module_sub__pHlyIIR Circuit10_10_PhIF_module_sub__pAmtR Circuit10_10_PhIF_module_sub__pTac Circuit10_10_BetI_module_sub__pHlyIIR Circuit10_10_BetI_module_sub__pTet Circuit10_10_YFP_module_sub__pBetI Circuit10_10_YFP_module_sub__pPhlF Circuit10_10_HIyIIR_module_sub__pTet Circuit10_10_HIyIIR_module_sub__pBAD reaction_rates 
+Variables:   YFP_protein BetI_protein PhlF_protein HlyIIR_protein AmtR_protein Circuit10_10_AmtR_module_sub__pBAD Circuit10_10_AmtR_module_sub__pHlyIIR Circuit10_10_PhIF_module_sub__pAmtR Circuit10_10_PhIF_module_sub__pTac Circuit10_10_BetI_module_sub__pHlyIIR Circuit10_10_BetI_module_sub__pTet Circuit10_10_YFP_module_sub__pBetI Circuit10_10_YFP_module_sub__pPhlF Circuit10_10_HIyIIR_module_sub__pTet Circuit10_10_HIyIIR_module_sub__pBAD 
+
+Generator:   stamina.InfCTMCModelGenerator
+Type:        CTMC
+
+========================================================================
+Approximation<1> : kappa = 1.0E-30
+========================================================================
+
+---------------------------------------------------------------------
+
+Building model...
+
+Warning: Model contains one or more unbounded variables: model construction may not terminate
+
+Computing reachable states...
+Warning: Infinite State system: Reachability analysis based on reachabilityThreshold=1.0E-30
+ 122456 211217 297453 401229 486160 591198 678973 689949 701705 712927 724289 735489 748028 760579 773251 784085 792070 795381 798426 801316 804256 808916 813584 817936 818852 819762 820691 821557 822481 823394 824557 825722 825965 826404 826905 827314 827800 828319 828945 829481 829818 830116 830464 830755 831069 831405 831809 832043 832232 832447 832626 832792 832958 833172 833404 833483 833588 833698 833808 833923 834033 834152 834264 states
+ 1 171727 316298 480178 638493 740074 834264 states
+Reachable states exploration and model construction done in 206.911 secs.
+Sorting reachable states list...
+
+Time for model construction: 207.87 seconds.
+
+Type:        CTMC
+States:      834264 (1 initial)
+Transitions: 7424753
+
+---------------------------------------------------------------------
+
+Verifying Lower Bound for Prob_min .....
+
+---------------------------------------------------------------------
+
+Model checking: "Prob_min": P=? [ G[0,1000] (!(YFP_protein>30&(!YFP_protein=-1))) ]
+
+Starting backwards transient probability computation...
+
+Uniformisation: q.t = 1.1863942121996691 x 1000.0 = 1186.394212199669
+Fox-Glynn (1.25E-7): left = 942, right = 1480
+Backwards transient probability computation took 1481 iters and 316.62 seconds.
+
+Value in the initial state: 0.9999995245132023
+
+Time for model checking: 316.765 seconds.
+
+Result: 0.9999995245132023 (value in the initial state)
+
+---------------------------------------------------------------------
+
+Verifying Upper Bound for Prob_max .....
+
+---------------------------------------------------------------------
+
+Model checking: "Prob_max": P=? [ G[0,1000] (!(YFP_protein>30|(YFP_protein=-1))) ]
+
+Starting backwards transient probability computation...
+
+Uniformisation: q.t = 1.1863942121996691 x 1000.0 = 1186.394212199669
+Fox-Glynn (1.25E-7): left = 942, right = 1480
+Backwards transient probability computation took 1481 iters and 318.236 seconds.
+
+Value in the initial state: 2.886579864025407E-15
+
+Time for model checking: 318.298 seconds.
+
+Result: 2.886579864025407E-15 (value in the initial state)
+
+========================================================================
+
+Property: P=? [ G[0,1000] (!(YFP_protein>30)) ]
+
+ProbMin: 0.9999995245132023 (value in the initial state)
+
+ProbMax: 2.886579864025407E-15 (value in the initial state)
+
+========================================================================

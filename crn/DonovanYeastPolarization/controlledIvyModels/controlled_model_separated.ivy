@@ -1,0 +1,811 @@
+#lang ivy 1.7
+
+object updater = {
+	type num
+	
+	interpret num -> bv[10]
+
+	type exec_var
+
+	interpret exec_var -> bv[8]
+
+	type exec_stage
+	
+	interpret exec_stage -> bv[3]	
+
+	action incr(x:num) returns(y:num) = {
+		y := x + 1
+	}
+
+	action decr(x:num) returns(y:num) = {
+		y := x - 1
+	}
+}
+
+
+object goal = {
+
+	action achieved(v:updater.num)
+
+	object spec = {
+		before achieved {
+			assert v >= 50;
+			protocol.idle := 1
+		}
+	}
+}
+
+object enabled_checker = {
+
+	action is_enabled_r1(r_1:updater.num) returns(y:bool) = {
+		#y := false
+		y := true
+	}
+
+	action is_enabled_r2(r_1:updater.num) returns(y:bool) = {
+		if r_1 >= 1 {
+			#y := false
+			y := true
+		}
+		else {
+			y := false
+		}
+	}
+	
+	action is_enabled_r3(r_1:updater.num,l_1:updater.num) returns(y:bool) = {
+		if r_1 >= 1 & l_1 >= 1 {
+			#y := false
+			y := true
+		}
+		else {
+			y := false
+		}
+	}
+
+	action is_enabled_r4(rl_1:updater.num) returns(y:bool) = {
+		if rl_1 >= 1 {
+			#y := false
+			y := true
+		}
+		else {
+			y := false
+		}
+	}
+
+	action is_enabled_r5(rl_1:updater.num,g_1:updater.num) returns(y:bool) = {
+		if rl_1 >= 1 & g_1 >= 1 {
+			y := true
+		}
+		else {
+			y := false
+		}
+	}
+
+	action is_enabled_r6(ga_1:updater.num) returns(y:bool) = {
+		if ga_1 >= 1 {
+			#y := false
+			y := true
+		}
+		else {
+			y := false
+		}
+	}
+
+	action is_enabled_r7(gbg_1:updater.num,gd_1:updater.num) returns(y:bool) = {
+		if gbg_1 >= 1 & gd_1 >= 1 {
+			#y := false
+			y := true
+		}
+		else {
+			y := false
+		}
+	}
+
+	action is_enabled_r8(rl_1:updater.num) returns(y:bool) = {
+		#y := false
+		y := true
+	}
+}
+
+object inspector = {
+	action check_guard_r1(r_1:updater.num)
+	action check_guard_r2(r_1:updater.num)
+	action check_guard_r3(r_1:updater.num,l_1:updater.num,rl_1:updater.num)
+	action check_guard_r4(rl_1:updater.num,r_1:updater.num)
+	action check_guard_r5(rl_1:updater.num,g_1:updater.num,ga_1:updater.num,gbg_1:updater.num)
+	action check_guard_r6(ga_1:updater.num,gd_1:updater.num)
+	action check_guard_r7(gbg_1:updater.num,gd_1:updater.num,g_1:updater.num)
+	action check_guard_r8(rl_1:updater.num)
+
+	before check_guard_r1 {
+		assert true
+	}
+
+	before check_guard_r2 {
+		assert r_1 >= 1
+	}
+
+	before check_guard_r3 {
+		assert r_1 >= 1 & l_1 >= 1
+	}
+
+	before check_guard_r4 {
+		assert rl_1 >= 1
+	}
+
+	before check_guard_r5 {
+		assert rl_1 >= 1 & g_1 >= 1
+	}
+
+	before check_guard_r6 {
+		assert ga_1 >= 1
+	}
+
+	before check_guard_r7 {
+		assert gbg_1 >= 1 & gd_1 >= 1
+	}
+
+	before check_guard_r8 {
+		assert true
+	}
+
+}
+
+object selector = {
+	individual r1_exec : updater.exec_var
+	individual r2_exec : updater.exec_var
+	individual r3_exec : updater.exec_var	
+	individual r4_exec : updater.exec_var	
+	individual r5_exec : updater.exec_var	
+	individual r6_exec : updater.exec_var	
+	individual r7_exec : updater.exec_var	
+	individual r8_exec : updater.exec_var
+
+	individual r1_rate : updater.exec_var
+	individual r2_rate : updater.exec_var
+	individual r3_rate : updater.exec_var
+	individual r4_rate : updater.exec_var
+	individual r5_rate : updater.exec_var
+	individual r6_rate : updater.exec_var
+	individual r7_rate : updater.exec_var
+	individual r8_rate : updater.exec_var
+
+	individual r1_count : updater.exec_var
+	individual r2_count : updater.exec_var
+	individual r3_count : updater.exec_var
+	individual r4_count : updater.exec_var
+	individual r5_count : updater.exec_var
+	individual r6_count : updater.exec_var
+	individual r7_count : updater.exec_var
+	individual r8_count : updater.exec_var
+
+	individual r1_count_rate : updater.exec_var
+	individual r2_count_rate : updater.exec_var
+	individual r3_count_rate : updater.exec_var
+	individual r4_count_rate : updater.exec_var
+	individual r5_count_rate : updater.exec_var
+	individual r6_count_rate : updater.exec_var
+	individual r7_count_rate : updater.exec_var
+	individual r8_count_rate : updater.exec_var
+
+	individual r1_stage : updater.exec_stage
+	individual r2_stage : updater.exec_stage
+	individual r3_stage : updater.exec_stage
+	individual r4_stage : updater.exec_stage
+	individual r5_stage : updater.exec_stage
+	individual r6_stage : updater.exec_stage
+	individual r7_stage : updater.exec_stage
+	individual r8_stage : updater.exec_stage
+
+
+	after init {
+		r1_count := 0;
+		r2_count := 0;
+		r3_count := 0;
+		r4_count := 0;
+		r5_count := 0;
+		r6_count := 0;
+		r7_count := 0;
+		r8_count := 0;
+
+		r1_count_rate := 4;
+		r2_count_rate := 4;
+		r3_count_rate := 4;
+		r4_count_rate := 4;
+		r5_count_rate := 4;
+		r6_count_rate := 4;
+		r7_count_rate := 4;
+		r8_count_rate := 4;
+	}
+
+	action execute_r1 returns(y:bool) = {
+		r1_exec := r1_exec + 1;
+		if r1_exec >= r1_rate {
+			y := true;
+			r1_exec := 0;
+			r1_count := r1_count + 1
+		}
+		else {
+			y := false
+		};
+		if r1_count >= r1_count_rate {
+			r1_stage := r1_stage + 1;
+			r1_count := 0
+		};
+		if r1_stage = 0 {
+			r1_count_rate := 3;
+			r1_rate := 3
+		}
+		else if r1_stage = 1 {
+			r1_count_rate := 4;
+			r1_rate := 3
+		}
+
+		else if r1_stage = 2 {
+			r1_count_rate := 3;
+			r1_rate := 2
+		}
+		else if r1_stage = 3 {
+			r1_count_rate := 9;
+			r1_rate := 5
+		}
+		else if r1_stage = 4 {
+			r1_count_rate := 5;
+			r1_rate := 1
+		}
+		else if r1_stage = 5 {
+			r1_count_rate := 4;
+			r1_rate := 2
+		}
+		else if r1_stage = 6 {
+			r1_count_rate := 5;
+			r1_rate := 3
+		}
+		else if r1_stage = 7 {
+			r1_count_rate := 3;
+			r1_rate := 1
+		}
+		else {
+			r1_stage := 0
+		}
+	}
+
+	action execute_r2 returns(y:bool) = {
+		r2_exec := r2_exec + 1;
+		if r2_exec >= r2_rate {
+			y := true;
+			r2_exec := 0;
+			r2_count := r2_count + 1
+		}
+		else {
+			y := false
+		};
+		if r2_count >= r2_count_rate {
+			r2_stage := r2_stage + 1;
+			r2_count := 0
+		};
+		if r2_stage = 0 {
+			r2_count_rate := 3;
+			r2_rate := 3
+		}
+		else if r2_stage = 1 {
+			r2_count_rate := 4;
+			r2_rate := 3
+		}
+
+		else if r2_stage = 2 {
+			r2_count_rate := 3;
+			r2_rate := 2
+		}
+		else if r2_stage = 3 {
+			r2_count_rate := 9;
+			r2_rate := 5
+		}
+		else if r2_stage = 4 {
+			r2_count_rate := 5;
+			r2_rate := 1
+		}
+		else if r2_stage = 5 {
+			r2_count_rate := 4;
+			r2_rate := 2
+		}
+		else if r2_stage = 6 {
+			r2_count_rate := 5;
+			r2_rate := 3
+		}
+		else if r2_stage = 7 {
+			r2_count_rate := 3;
+			r2_rate := 1
+		}
+		else {
+			r2_stage := 0
+		}
+	}
+
+	action execute_r3 returns(y:bool) = {
+		r3_exec := r3_exec + 1;
+		if r3_exec >= r3_rate {
+			y := true;
+			r3_exec := 0;
+			r3_count := r3_count + 1
+		}
+		else {
+			y := false
+		};
+		if r3_count >= r3_count_rate {
+			r3_stage := r3_stage + 1;
+			r3_count := 0
+		};
+		if r3_stage = 0 {
+			r3_count_rate := 3;
+			r3_rate := 3
+		}
+		else if r3_stage = 1 {
+			r3_count_rate := 4;
+			r3_rate := 3
+		}
+
+		else if r3_stage = 2 {
+			r3_count_rate := 3;
+			r3_rate := 2
+		}
+		else if r3_stage = 3 {
+			r3_count_rate := 9;
+			r3_rate := 5
+		}
+		else if r3_stage = 4 {
+			r3_count_rate := 5;
+			r3_rate := 1
+		}
+		else if r3_stage = 5 {
+			r3_count_rate := 4;
+			r3_rate := 2
+		}
+		else if r3_stage = 6 {
+			r3_count_rate := 5;
+			r3_rate := 3
+		}
+		else if r3_stage = 7 {
+			r3_count_rate := 3;
+			r3_rate := 1
+		}
+		else {
+			r3_stage := 0
+		}
+	}
+
+	action execute_r4 returns(y:bool) = {
+		r4_exec := r4_exec + 1;
+		if r4_exec >= r4_rate {
+			y := true;
+			r4_exec := 0;
+			r4_count := r4_count + 1
+		}
+		else {
+			y := false
+		};
+		if r4_count >= r4_count_rate {
+			r4_stage := r4_stage + 1;
+			r4_count := 0
+		};
+		if r4_stage = 0 {
+			r4_count_rate := 3;
+			r4_rate := 3
+		}
+		else if r4_stage = 1 {
+			r4_count_rate := 4;
+			r4_rate := 3
+		}
+
+		else if r4_stage = 2 {
+			r4_count_rate := 3;
+			r4_rate := 2
+		}
+		else if r4_stage = 3 {
+			r4_count_rate := 9;
+			r4_rate := 5
+		}
+		else if r4_stage = 4 {
+			r4_count_rate := 5;
+			r4_rate := 1
+		}
+		else if r4_stage = 5 {
+			r4_count_rate := 4;
+			r4_rate := 2
+		}
+		else if r4_stage = 6 {
+			r4_count_rate := 5;
+			r4_rate := 3
+		}
+		else if r4_stage = 7 {
+			r4_count_rate := 3;
+			r4_rate := 1
+		}
+		else {
+			r4_stage := 0
+		}
+	}
+
+	action execute_r5 returns(y:bool) = {
+		r5_exec := r5_exec + 1;
+		if r5_exec >= r5_rate {
+			y := true;
+			r5_exec := 0;
+			r5_count := r5_count + 1
+		}
+		else {
+			y := false
+		};
+		if r5_count >= r5_count_rate {
+			r5_stage := r5_stage + 1;
+			r5_count := 0
+		};
+		if r5_stage = 0 {
+			r5_count_rate := 3;
+			r5_rate := 1
+		}
+		else if r5_stage = 1 {
+			r5_count_rate := 4;
+			r5_rate := 1
+		}
+
+		else if r5_stage = 2 {
+			r5_count_rate := 3;
+			r5_rate := 1
+		}
+		else if r5_stage = 3 {
+			r5_count_rate := 9;
+			r5_rate := 1
+		}
+		else if r5_stage = 4 {
+			r5_count_rate := 5;
+			r5_rate := 1
+		}
+		else if r5_stage = 5 {
+			r5_count_rate := 4;
+			r5_rate := 1
+		}
+		else if r5_stage = 6 {
+			r5_count_rate := 5;
+			r5_rate := 1
+		}
+		else if r5_stage = 7 {
+			r5_count_rate := 3;
+			r5_rate := 1
+		}
+		else {
+			r5_stage := 0
+		}
+	}
+
+	action execute_r6 returns(y:bool) = {
+		r6_exec := r6_exec + 1;
+		if r6_exec >= r6_rate {
+			y := true;
+			r6_exec := 0;
+			r6_count := r6_count + 1
+		}
+		else {
+			y := false
+		};
+		if r6_count >= r6_count_rate {
+			r6_stage := r6_stage + 1;
+			r6_count := 0
+		};
+		if r6_stage = 0 {
+			r6_count_rate := 3;
+			r6_rate := 3
+		}
+		else if r6_stage = 1 {
+			r6_count_rate := 4;
+			r6_rate := 3
+		}
+
+		else if r6_stage = 2 {
+			r6_count_rate := 3;
+			r6_rate := 2
+		}
+		else if r6_stage = 3 {
+			r6_count_rate := 9;
+			r6_rate := 5
+		}
+		else if r6_stage = 4 {
+			r6_count_rate := 5;
+			r6_rate := 1
+		}
+		else if r6_stage = 5 {
+			r6_count_rate := 4;
+			r6_rate := 2
+		}
+		else if r6_stage = 6 {
+			r6_count_rate := 5;
+			r6_rate := 3
+		}
+		else if r6_stage = 7 {
+			r6_count_rate := 3;
+			r6_rate := 1
+		}
+		else {
+			r6_stage := 0
+		}
+	}
+
+	action execute_r7 returns(y:bool) = {
+		r7_exec := r7_exec + 1;
+		if r7_exec >= r7_rate {
+			y := true;
+			r7_exec := 0;
+			r7_count := r7_count + 1
+		}
+		else {
+			y := false
+		};
+		if r7_count >= r7_count_rate {
+			r7_stage := r7_stage + 1;
+			r7_count := 0
+		};
+		if r7_stage = 0 {
+			r7_count_rate := 3;
+			r7_rate := 25
+		}
+		else if r7_stage = 1 {
+			r7_count_rate := 4;
+			r7_rate := 25
+		}
+
+		else if r7_stage = 2 {
+			r7_count_rate := 3;
+			r7_rate := 25
+		}
+		else if r7_stage = 3 {
+			r7_count_rate := 9;
+			r7_rate := 25
+		}
+		else if r7_stage = 4 {
+			r7_count_rate := 5;
+			r7_rate := 25
+		}
+		else if r7_stage = 5 {
+			r7_count_rate := 4;
+			r7_rate := 25
+		}
+		else if r7_stage = 6 {
+			r7_count_rate := 5;
+			r7_rate := 25
+		}
+		else if r7_stage = 7 {
+			r7_count_rate := 3;
+			r7_rate := 25
+		}
+		else {
+			r7_stage := 0
+		}
+	}
+
+	action execute_r8 returns(y:bool) = {
+		r8_exec := r8_exec + 1;
+		if r8_exec >= r8_rate {
+			y := true;
+			r8_exec := 0;
+			r8_count := r8_count + 1
+		}
+		else {
+			y := false
+		};
+		if r8_count >= r8_count_rate {
+			r8_stage := r8_stage + 1;
+			r8_count := 0
+		};
+		if r8_stage = 0 {
+			r8_count_rate := 3;
+			r8_rate := 1
+		}
+		else if r8_stage = 1 {
+			r8_count_rate := 4;
+			r8_rate := 1
+		}
+
+		else if r8_stage = 2 {
+			r8_count_rate := 3;
+			r8_rate := 1
+		}
+		else if r8_stage = 3 {
+			r8_count_rate := 9;
+			r8_rate := 1
+		}
+		else if r8_stage = 4 {
+			r8_count_rate := 5;
+			r8_rate := 1
+		}
+		else if r8_stage = 5 {
+			r8_count_rate := 4;
+			r8_rate := 1
+		}
+		else if r8_stage = 6 {
+			r8_count_rate := 5;
+			r8_rate := 1
+		}
+		else if r8_stage = 7 {
+			r8_count_rate := 3;
+			r8_rate := 1
+		}
+		else {
+			r8_stage := 0
+		}
+	}
+
+}
+
+object protocol = {
+
+	type 2bit
+
+	interpret 2bit -> bv[1]
+
+	individual idle : 2bit
+
+	individual r : updater.num
+	individual l : updater.num
+	individual rl : updater.num
+	individual g : updater.num
+	individual ga : updater.num
+	individual gbg : updater.num
+	individual gd : updater.num
+
+	individual r3_executions: updater.num
+	individual r8_executions: updater.num
+
+	after init {
+		r := 50;
+		l := 2;
+		rl := 0;
+		g := 50;
+		ga := 0;
+		gbg := 0;
+		gd := 0;
+
+		r3_executions = 0;
+		r8_executions = 0;
+
+		idle := 0 
+	}
+
+	action update_r1 = {
+		if selector.execute_r1 {
+			call inspector.check_guard_r1(r);
+			r := updater.incr(r)
+		}
+	}
+
+	action update_r2 = {
+		if selector.execute_r2 {
+			call inspector.check_guard_r2(r);
+			r := updater.decr(r)
+		}
+	}
+
+	action update_r3 = {
+		if selector.execute_r3 {
+			call inspector.check_guard_r3(r,l,rl);
+			r3_executions := updater.incr(r3_executions);
+			r := updater.decr(r);
+			l := updater.decr(l);
+			rl := updater.incr(rl);
+			l := updater.incr(l)
+		}
+	}
+
+	action update_r4 = {
+		if selector.execute_r4 {
+			call inspector.check_guard_r4(rl,r);
+			rl := updater.decr(rl);
+			r := updater.incr(r)
+		}
+	}
+
+	action update_r5 = {
+		if selector.execute_r5 {
+			call inspector.check_guard_r5(rl,g,ga,gbg);
+			rl := updater.decr(rl);
+			g := updater.decr(g);
+			ga := updater.incr(ga);
+			gbg := updater.incr(gbg);
+			if gbg >= 50 {
+				call goal.achieved(gbg)
+			}
+		}
+	}
+
+	action update_r6 = {
+		if selector.execute_r6 {
+			call inspector.check_guard_r6(ga,gd);
+			ga := updater.decr(ga);
+			gd := updater.incr(gd)
+		}
+	}
+
+	action update_r7 = {
+		if selector.execute_r7 {
+			call inspector.check_guard_r7(gbg,gd,g);
+			gbg := updater.decr(gbg);
+			gd := updater.decr(gd);
+			g := updater.incr(g)
+		}
+	}
+
+	action update_r8 = {
+		if selector.execute_r8 {
+			call inspector.check_guard_r8(rl);
+			r8_executions := updater.incr(r8_executions);
+			rl := updater.incr(rl)
+		}
+	}
+
+	action idling = {}
+
+	before update_r1 {
+		assert idle = 0;
+		assert enabled_checker.is_enabled_r1(r);
+	}
+
+	before update_r2 {
+		assert idle = 0;
+		assert enabled_checker.is_enabled_r2(r);
+	}
+
+	before update_r3 {
+		assert idle = 0;
+		assert enabled_checker.is_enabled_r3(r,l);
+	}
+
+	before update_r4 {
+		assert idle = 0;
+		assert enabled_checker.is_enabled_r4(rl);
+	}
+
+	before update_r5 {
+		assert idle = 0;
+		assert enabled_checker.is_enabled_r5(rl,g);
+	}
+
+	before update_r6 {
+		assert idle = 0;
+		assert enabled_checker.is_enabled_r6(ga);
+	}
+
+	before update_r7 {
+		assert idle = 0;
+		assert enabled_checker.is_enabled_r7(gbg,gd);
+	}
+
+	before update_r8 {
+		assert idle = 0;
+		assert enabled_checker.is_enabled_r8(rl);
+	}
+
+	before idling {
+		assert idle = 1 
+	}
+	
+}
+
+export protocol.update_r1
+export protocol.update_r2
+export protocol.update_r3
+export protocol.update_r4
+export protocol.update_r5
+export protocol.update_r6
+export protocol.update_r7
+export protocol.update_r8
+export protocol.idling
+import goal.achieved
+import inspector.check_guard_r1
+import inspector.check_guard_r2
+import inspector.check_guard_r3
+import inspector.check_guard_r4
+import inspector.check_guard_r5
+import inspector.check_guard_r6
+import inspector.check_guard_r7
+import inspector.check_guard_r8
+
+isolate iso_proto = protocol with enabled_checker, updater, goal, selector, inspector
