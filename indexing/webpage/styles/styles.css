@@ -2,6 +2,7 @@
 
 :root {
 	--accent: #1370c1;
+	--accent-light: #40aef3;
 }
 
 @media (prefers-color-scheme: light) {
@@ -24,6 +25,15 @@ body {
 	color: var(--color);
 	background-color: var(--background);
 	transition: all 200ms ease; 
+}
+
+a {
+	text-decoration: none;
+	color: var(--accent);
+}
+
+a:hover {
+	color: var(--accent-light);
 }
 
 #navbar {
