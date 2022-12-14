@@ -1,0 +1,5 @@
+// Hazard for transition (Ara, IPTG, aTc) = (H, H, H) to (L, H, L): the probability that YFP reaches 30 or above molecules up to 5000 time units.
+
+// P=? [ true U[0,1000] (YFP_protein >= 30) ] // STAMINA reports one initial state with Pmin=1.
+
+P=? [ true U[0,1000] (YFP_protein >= 30) ]

@@ -1,4 +1,3 @@
-
 ### Genetic Toggle Switch
 This genetic circuit model for the toggle switch has two inputs aTc and IPTG. It can be set to the OFF state by supplying it with aTc and set to ON state by supplying IPTG. Two important properties for a toggle switch circuit are the response time and failure rate. The CSL property is given by "P=? [true U<=2100 (TetR>40 &  LacI<20)]".
 
@@ -12,4 +11,7 @@ A Jackson Queuing Network (JQN) consists of $N$ interconnected nodes (queues) wi
 This case study taken from the PRISM's benchmark suite. It is based on a cyclic server attending N stations. For model checking, we consider the probability that station one is polled within 10 time units, described by the CSL formula "P=? [true U<=10 (s=1 &  a=0)]".
 
 ### Tandem Queuing Network
+
+#### Taken from [PRISM Benchmarks](https://github.com/prismmodelchecker/prism-benchmarks) and licensed under the GPLv2
+
 Tandem queuing network is the simplest interconnected queuing network with two queues with one server each. Customers join the first queue and enters the second queue immediately after completing the service. We consider both queues with capacity c. In this paper we consider the probability that, first queue becomes full in 0.25 time units given by CSL property "P_{=?} [true U<=T sc=c]".
