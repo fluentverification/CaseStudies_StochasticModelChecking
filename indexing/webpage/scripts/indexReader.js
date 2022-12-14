@@ -1,4 +1,29 @@
+const indexLocation = "../../index.json"
+
+// Get the index
+let index = require(indexLocation);
+
+function loadSuggestions() {
+	let suggestions = [];
+	// Suggestions are all of the names
+	index.forEach(el => {
+		suggestions[suggestions.length] = el["name"];
+	})
+	return suggestions;
+}
+
+function loadTags() {
+	let tags = [];
+	index.forEach(el => {
+		el["tags"].forEach(tag => {
+			tags[tags.length] = tag;
+		});
+	});
+	return tags;
+}
+
 // TODO: this suggestions array needs to be populated with actual suggestions
+
 let suggestions = [
 	"foo"
 	, "bar"
