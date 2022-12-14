@@ -1,15 +1,16 @@
 const indexLocation = "../../index.json"
 
 // Get the index
-let index = require(indexLocation);
+// let index = require(indexLocation);
+let index = [];
 
 function loadSuggestions() {
-	let suggestions = [];
+	let mySuggestions = [];
 	// Suggestions are all of the names
 	index.forEach(el => {
-		suggestions[suggestions.length] = el["name"];
+		mySuggestions[mySuggestions.length] = el["name"];
 	})
-	return suggestions;
+	return mySuggestions;
 }
 
 function loadTags() {
