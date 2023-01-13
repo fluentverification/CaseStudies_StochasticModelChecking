@@ -1,5 +1,12 @@
 # Repository Specifications
 
+## Minimum Information Required In the Annotation of Models [(MIRIAM)](https://en.wikipedia.org/wiki/Minimum_information_required_in_the_annotation_of_models)
+
+- Model must have a name
+- Must identify the author(s), including contact information
+- Creation and last modified dates must be included
+- Licensing information
+
 ## File Structure
 
 ```
@@ -16,7 +23,7 @@
 |   |   ├── meta.json                   # Model metadata for all versions (required)
 |   |   └── <version>
 |   |       ├── README.md               # Version specific model details (optional)
-|   |       ├── meta.json               # Version specific model metadata (optional)
+|   |       ├── meta.json               # Version specific model metadata (required)
 |   |       ├── results.txt             # Pre-calculated, expected results (required)
 |   |       ├── <Model Name>.<ext1>     # Model file (required)
 |   |       ├── <Model Name>.<ext2>     # Model file in alternate format (optional)
@@ -49,8 +56,17 @@ Example:
 ```json
 {
     "model": {
+        "authors": [
+            "John Doe": {
+                "email": "john.doe@example.com",
+            },
+        ],
+        "created": "2022-12-01",
+        "modified": "2023-01-12",
+        "license": "GPLv3",
         "tags": [
-            "...",
+            "contrived",
+            "unbounded",
         ],
     },
 }
