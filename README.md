@@ -80,6 +80,38 @@ This design is an improved version of the repressilator [6].
 
 ![Figure9](./Figures/DualFeedback.png "Dual Feedback Oscillator")
 
+## Chemical Reaction Networks
+
+### Reversible Isomerization
+
+The reversible isomerization model represents a single chemical species transitioning between two potential conformational isomers [7].
+
+![Figure10](./Figures/twoState.png "Reversible Isomerization")
+
+### Single Species Production-Degradation
+
+The single species production-degradation model represents the constitutive production and degradation of a single chemical species [8].
+
+![Figure11](./Figures/prodDeg.png "Single Species Production-Degradation")
+
+### Enzymatic Futile Cycle
+
+The enzymatic futile cycle model represents the futile cycle motif, which appears naturally in many pathways including GTPase cycles, MAPK cascades, and glucose mobilization [9]. 
+
+![Figure12](./Figures/futileCycle.png "Enzymatic Futile Cycle")
+
+### Modified Yeast Polarization
+
+The modified yeast polarization model represents the pheromone induced G-protein cycle in _Saccharomyces cerevisia_ [10].
+
+![Figure13](./Figures/yeastPolarization.png "Modified Yeast Polarization")
+
+### Simplified Motility Regulation
+
+The simplified motility regulation model represents the gene regulatory network which regulates flagella formation in _Bacillus subtilis_ [9].
+
+![Figure14](./Figures/motilReg.png "Simplified Motility Regulation")
+
 ### References
 
 1. Nielsen, A. A. K.; Der, B. S.; Shin, J.; Vaidyanathan, P.; Paralanov, V.; Strychalski, E. A.; Ross, D.; Densmore, D.; Voigt, C. A. Genetic Circuit Design Automation. Science 2016, 352 (6281), aac7341–aac7341. https://doi.org/10.1126/science.aac7341.
@@ -92,4 +124,12 @@ This design is an improved version of the repressilator [6].
 
 5. Elowitz, M. B.; Leibler, S. A Synthetic Oscillatory Network of Transcriptional Regulators. Nature 2000, 403 (6767), 335–338. https://doi.org/10.1038/35002125.
 
-6. Stricker, J., Cookson, S., Bennett, M. et al. A fast, robust and tunable synthetic gene oscillator. Nature 456, 516–519 (2008). https://doi.org/10.1038/nature07389.
+6. Stricker, J.; Cookson, S.; Bennett, M. et al. A Fast, Robust and Tunable Synthetic Gene Oscillator. Nature 456, 516–519 (2008). https://doi.org/10.1038/nature07389.
+
+7. Roh, M. K.; Daigle, B. J., Jr.; Gillespie, D. T.; Petzold, L. R. State-dependent Double Weighted Stochastic Simulation Algorithm for Automatic Characterization of Stochastic Biochemical Rare Events. J. Chem. Phys. 135, 234108 (2011). https://doi.org/10.1063/1.3668100
+
+8. Kuwahara, H.; Mura, I. An Efficient and Exact Stochastic Simulation Method to Analyze Rare Events in Biochemical Systems. J. Chem. Phys. 129, 165101 (2008). https://doi.org/10.1063/1.2987701
+
+9. Ahmadi, M.; Thomas, P. J.; Buecherl, L. et al. A Comparison of Weighted Stochastic Simulation Methods for the Analysis of Genetic Circuits. ACS Synthetic Biology, Article ASAP (2022). https://doi.org/10.1021/acssynbio.2c00553
+
+10. Drawert, B.; Hellander, S.; Trogdon, M. et al. A Framework for Discrete Stochastic Simulation on 3D Moving Boundary Domains. J. Chem. Phys. 145, 184113 (2016). https://doi.org/10.1063/1.4967338
