@@ -39,6 +39,25 @@
   - Shall be of the format `<version_tag>_v<version.number>`, e.g. `n100_m10_v1.1.3`.
   - Should be lowercase, unless there is reasoning otherwise.
 
+## File Formats
+
+### Readme
+
+### meta.json
+
+Example:
+```json
+{
+    "model": {
+        "tags": [
+            "...",
+        ],
+    },
+}
+```
+
+### results.txt
+
 ## Specification Data
 ```json
 {
