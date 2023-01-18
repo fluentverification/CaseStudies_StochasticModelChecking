@@ -14,8 +14,11 @@
 ├── README.md                           # Quick start information
 ├── spec.md                             # This file. Repository structure details
 ├── Tools
+|   └── README.md                       # Tools user guide (required)
+├── Scripts
+|   ├── README.md                       # Scripts user guide (required)
 |   ├── download.py                     # Download script
-|   └── manage.py                       # Management script
+|   └── manager.py                       # Management script
 ├── <Model Category>
 |   ├── README.md                       # Category description (required)
 |   ├── <Model Name>
