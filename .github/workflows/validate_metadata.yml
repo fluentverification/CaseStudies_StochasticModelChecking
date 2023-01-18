@@ -34,5 +34,3 @@ jobs:
 
       - name: Run metadata validation script
         run: ./Scripts/manager.py validate
-        ref: # branch
-          spec
