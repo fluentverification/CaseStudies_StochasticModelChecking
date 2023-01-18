@@ -17,8 +17,8 @@
 |   └── README.md                       # Tools user guide (required)
 ├── Scripts
 |   ├── README.md                       # Scripts user guide (required)
-|   ├── download.py                     # Download script
-|   └── manager.py                       # Management script
+|   ├── downloader.py                   # Download script
+|   └── manager.py                      # Management script
 ├── <Model Category>
 |   ├── README.md                       # Category description (required)
 |   ├── <Model Name>
