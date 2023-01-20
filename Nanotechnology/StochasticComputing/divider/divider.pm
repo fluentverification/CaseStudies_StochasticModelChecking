@@ -1,9 +1,12 @@
-// Unipolar stochastic divider circuit
-  
+// Unipolar stochastic divider circuit  
 dtmc
 
-const double epsilon0;
-const double epsilon1;
+const double a;
+const double b;
+const int T;
+
+// Saturation level for up-down counter
+const int MAXCOUNT=63;
 
 //------------------
 // Signal Sources
@@ -11,40 +14,36 @@ const double epsilon1;
 module Source0
   inA : [0..1] init 0;
 
-  [event] (inA=0 | inA=1) -> epsilon0:(inA'=1) + (1-epsilon0):(inA'=0);
+  [event] (inA=0 | inA=1) -> a:(inA'=1) + (1-a):(inA'=0);
 endmodule
 
 // Second signal source:
-module Source1 = Source0 [ inA=inB, epsilon0=epsilon1 ] endmodule
-
+module Source1 = Source0 [ inA=inB, a=b ] endmodule
 
 
 // AND gate
 module AND0
-
   AB : [0..1] init 0;
 
   [event] (inB=1)&(Q=1)  ->  (AB' = 1);
   [event] !(inB=1 & Q=1) ->  (AB' = 0);
-
 endmodule
 
 
 // Up-Down Counter
 module UDC0
+   c0: [-MAXCOUNT..MAXCOUNT] init 0;
 
-   c0: [-63..63] init 0;
-
-   [event] (c0 > -63) & (c0 < 63) -> 1:(c0' = c0 + inA - AB);
-   [event] (c0 = -63) -> 1:(c0' = c0 + inA);
-   [event] (c0 = 63)  -> 1:(c0' = c0 - AB);
-  
+   [event] (c0 > -MAXCOUNT) & (c0 < MAXCOUNT) -> 1:(c0' = c0 + inA - AB);
+   [event] (c0 = -MAXCOUNT) -> 1:(c0' = c0 + inA);
+   [event] (c0 = MAXCOUNT)  -> 1:(c0' = c0 - AB);  
 endmodule
 
-// Feedback
+// Output and Feedback
+formula q=(c0+MAXCOUNT+1)/(2*(MAXCOUNT+1));
 module FB0
    Q: [0..1] init 0;
 
-   [event]  (c0 >= -63) & (c0 <= 63) ->  ((c0+64)/128):(Q' = 1) + (1-(c0+64)/128):(Q'=0); 
+   [event]  (c0 >= -MAXCOUNT) & (c0 <= MAXCOUNT) ->  q:(Q' = 1) + (1-q):(Q'=0); 
 endmodule
 
