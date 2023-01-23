@@ -14,7 +14,7 @@ two stochastic inputs, $A(t)$ and $B(t)$, and produces a
 single output $Q(t)$. Ideally $Q$ should arrive at a 
 steady-state probability $Q(t)=q=a/b$. 
 
-![../../../Media/StochasticUnaryDivider.png]
+![Unary divider schematic](../../../Media/StochasticUnaryDivider.png)
 
 The principle of operation is as follows. The signed up/down
 counter (UDC) reaches equilibrium when its inputs have equal 
