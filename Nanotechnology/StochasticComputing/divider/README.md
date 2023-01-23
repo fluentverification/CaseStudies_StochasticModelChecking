@@ -7,10 +7,31 @@ unipolar format, a signal $x$ is a real number between
 $X(t)$. At any time $t$, the signal $X(t)=1$ with 
 probability $x$, and $X(t)=0$ with probability $1-x$.
 
-The divider circuit accepts two stochastic inputs, 
-$A(t)$ and $B(t)$, and produces a single output 
-$Q(t)$. Ideally $Q$ should arrive at a steady-state 
-probability $Q(t)=q=a/b$. 
+## Description of the Circuit
+
+The divider circuit shematic is shown below. It accepts 
+two stochastic inputs, $A(t)$ and $B(t)$, and produces a 
+single output $Q(t)$. Ideally $Q$ should arrive at a 
+steady-state probability $Q(t)=q=a/b$. 
+
+![../../../Media/StochasticUnaryDivider.png]
+
+The principle of operation is as follows. The signed up/down
+counter (UDC) reaches equilibrium when its inputs have equal 
+probability. The module R emits a bit stream with probability 
+equal to the counter value C, scaled to the range (0,1).
+The AND gate acts as a probability multiplier, so it emits bits 
+with probability $qb$. Due to the feedback connection, at 
+steady state we expect $qb=a$ and therefore $q=a/b$.
+
+Reference:
+
+* C. Winstead, "Tutorial on Stochastic Computation," 
+  Chapter 2 in *Stochastic Computing: Techniques and Applications*, 
+  ed. Gaudet and Gross, Springer, 2019.
+
+
+## PRISM Model
 
 The PRISM model for this circuit is provided in 
 `divider.pm`. The input probabilities are given 

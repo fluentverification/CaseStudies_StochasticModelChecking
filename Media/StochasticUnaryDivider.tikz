@@ -1,0 +1,25 @@
+\begin{tikzpicture}[
+  input/.style={anchor=east},
+  output/.style={anchor=west},
+  Rmodule/.style={anchor=west,draw,minimum width=0.5cm,minimum height=0.5cm,inner sep=0},
+  udc/.style={flipflop, flipflop def={t1=+, t3=-, t6=C}}
+]
+
+  \node[input] at (0,0) (inB) {B};
+  \node[ieeestd and port,anchor=in 1] at ($(inB.east)+(1,0)$) (and1) {};
+  \node[udc, anchor=pin 3] at ($(and1.out)+(1,0)$) (udc1) {\tiny UDC};
+
+  \node[input] at (udc1.pin 1 -| inB.east) (inA) {A};
+  \node[Rmodule] at ($(udc1.pin 6)+(1,0)$) (r1) {\small R};
+
+  \draw (inA) -- (udc1.pin 1)
+  (inB) -- (and1.in 1)
+  (and1.out) -- (udc1.pin 3)
+  (udc1.pin 6) -- (r1.west)
+  (r1.east) -- ++(1,0) node[anchor=west]{Q}
+  (r1.east) ++(0.5,0) coordinate (fb) to[short,*-] (fb |- udc1.down) -- ++(0,-0.5) coordinate (fb)
+  (fb) -| (and1.in 2);
+
+  \node[anchor=west] at (udc1.pin 6) (slash) {/};
+  \node[anchor=south] at (slash.north) {\small $N$};
+\end{tikzpicture}
