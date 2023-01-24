@@ -1,0 +1,167 @@
+﻿option "ctmc";
+impatient action R1;
+impatient action R2;
+impatient action R3;
+impatient action R4;
+impatient action R5;
+impatient action R6;
+impatient action R7;
+impatient action R8;
+
+int(0..150) R_ = 50;
+int(0..150) L = 2;
+int(0..150) RL = 0;
+int(0..150) G_ = 50;
+int(0..150) G_a = 0;
+int(0..150) G_bg = 0;
+int(0..150) G_d = 0;
+
+property "1" = filter(values, Pmin(<>[T <= 20] (G_bg >= 50)), initial);
+property Importance = G_bg;
+process R_def()
+{
+   process l()
+   {
+      alt {
+      :: when(R_ <= 149) rate(1) R1 {= R_ = R_ + 1 =};
+         l()
+      :: when(R_ > 0) rate(1) R2 {= R_ = R_ - 1 =};
+         l()
+      :: when(R_ > 0) rate(1) R3 {= R_ = R_ - 1 =};
+         l()
+      :: when(R_ <= 149) rate(1) R4 {= R_ = R_ + 1 =};
+         l()
+      }
+   }
+
+   l()
+}
+
+process L()
+{
+   process l()
+   {
+      when(L <= 149) rate(1) R3 {= L = L =};
+      l()
+   }
+
+   l()
+}
+
+process RL()
+{
+   process l()
+   {
+      alt {
+      :: when(RL <= 149) rate(1) R3 {= RL = RL + 1 =};
+         l()
+      :: when(RL > 0) rate(1) R4 {= RL = RL - 1 =};
+         l()
+      :: when(RL > 0) rate(1) R5 {= RL = RL - 1 =};
+         l()
+      :: when(RL <= 149) rate(1) R8 {= RL = RL + 1 =};
+         l()
+      }
+   }
+
+   l()
+}
+
+process G_def()
+{
+   process l()
+   {
+      alt {
+      :: when(G_ > 0) rate(1) R5 {= G_ = G_ - 1 =};
+         l()
+      :: when(G_ <= 149) rate(1) R7 {= G_ = G_ + 1 =};
+         l()
+      }
+   }
+
+   l()
+}
+
+process G_a()
+{
+   process l()
+   {
+      alt {
+      :: when(G_a <= 149) rate(1) R5 {= G_a = G_a + 1 =};
+         l()
+      :: when(G_a > 0) rate(1) R6 {= G_a = G_a - 1 =};
+         l()
+      }
+   }
+
+   l()
+}
+
+process G_bg()
+{
+   process l()
+   {
+      alt {
+      :: when(G_bg <= 149) rate(1) R5 {= G_bg = G_bg + 1 =};
+         l()
+      :: when(G_bg > 0) rate(1) R7 {= G_bg = G_bg - 1 =};
+         l()
+      }
+   }
+
+   l()
+}
+
+process G_d()
+{
+   process l()
+   {
+      alt {
+      :: when(G_d <= 149) rate(1) R6 {= G_d = G_d + 1 =};
+         l()
+      :: when(G_d > 0) rate(1) R7 {= G_d = G_d - 1 =};
+         l()
+      }
+   }
+
+   l()
+}
+
+process reactionRates()
+{
+   process l()
+   {
+      alt {
+      :: rate(0.0038) R1;
+         l()
+      :: when(0.0004 * R_ > 0) rate(0.0004 * R_) R2;
+         l()
+      :: when(0.042 * R_ * L > 0) rate(0.042 * R_ * L) R3;
+         l()
+      :: when(0.01 * RL > 0) rate(0.01 * RL) R4;
+         l()
+      :: when(0.011 * RL * G_ > 0) rate(0.011 * RL * G_) R5;
+         l()
+      :: when(0.1 * G_a > 0) rate(0.1 * G_a) R6;
+         l()
+      :: when(1050 * G_bg * G_d > 0) rate(1050 * G_bg * G_d) R7;
+         l()
+      :: rate(3.21) R8;
+         l()
+      }
+   }
+
+   l()
+}
+
+par {
+ R1, R2, R3, R4, R5, R6, R7, R8 } {
+:R1, R2, R3, R4, -, -, -, -: R_def()
+:-, -, R3, -, -, -, -, -: L()
+:-, -, R3, R4, R5, -, -, R8: RL()
+:-, -, -, -, R5, -, R7, -: G_def()
+:-, -, -, -, R5, R6, -, -: G_a()
+:-, -, -, -, R5, -, R7, -: G_bg()
+:-, -, -, -, -, R6, R7, -: G_d()
+:R1, R2, R3, R4, R5, R6, R7, R8: reactionRates()
+}

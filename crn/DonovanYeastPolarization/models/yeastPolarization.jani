@@ -1,0 +1,1400 @@
+{
+    "actions": [
+        {
+            "name": "R1"
+        },
+        {
+            "name": "R2"
+        },
+        {
+            "name": "R3"
+        },
+        {
+            "name": "R4"
+        },
+        {
+            "name": "R5"
+        },
+        {
+            "name": "R6"
+        },
+        {
+            "name": "R7"
+        },
+        {
+            "name": "R8"
+        }
+    ],
+    "automata": [
+        {
+            "edges": [
+                {
+                    "action": "R1",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R_ <- (R_ + 1)",
+                                    "ref": "R_",
+                                    "value": {
+                                        "left": "R_",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(R_ <= (150 - 1))",
+                        "exp": {
+                            "left": "R_",
+                            "op": "≤",
+                            "right": 149
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R2",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R_ <- (R_ - 1)",
+                                    "ref": "R_",
+                                    "value": {
+                                        "left": "R_",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(R_ > 0)",
+                        "exp": {
+                            "left": "R_",
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R3",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R_ <- (R_ - 1)",
+                                    "ref": "R_",
+                                    "value": {
+                                        "left": "R_",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(R_ > 0)",
+                        "exp": {
+                            "left": "R_",
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R4",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R_ <- (R_ + 1)",
+                                    "ref": "R_",
+                                    "value": {
+                                        "left": "R_",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(R_ <= (150 - 1))",
+                        "exp": {
+                            "left": "R_",
+                            "op": "≤",
+                            "right": 149
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "R_def",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "R3",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "L <- L",
+                                    "ref": "L",
+                                    "value": "L"
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(L <= (150 - 1))",
+                        "exp": {
+                            "left": "L",
+                            "op": "≤",
+                            "right": 149
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "L",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "R3",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RL <- (RL + 1)",
+                                    "ref": "RL",
+                                    "value": {
+                                        "left": "RL",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(RL <= (150 - 1))",
+                        "exp": {
+                            "left": "RL",
+                            "op": "≤",
+                            "right": 149
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R4",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RL <- (RL - 1)",
+                                    "ref": "RL",
+                                    "value": {
+                                        "left": "RL",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(RL > 0)",
+                        "exp": {
+                            "left": "RL",
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R5",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RL <- (RL - 1)",
+                                    "ref": "RL",
+                                    "value": {
+                                        "left": "RL",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(RL > 0)",
+                        "exp": {
+                            "left": "RL",
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R8",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RL <- (RL + 1)",
+                                    "ref": "RL",
+                                    "value": {
+                                        "left": "RL",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(RL <= (150 - 1))",
+                        "exp": {
+                            "left": "RL",
+                            "op": "≤",
+                            "right": 149
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "RL",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "R5",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "G_ <- (G_ - 1)",
+                                    "ref": "G_",
+                                    "value": {
+                                        "left": "G_",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(G_ > 0)",
+                        "exp": {
+                            "left": "G_",
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R7",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "G_ <- (G_ + 1)",
+                                    "ref": "G_",
+                                    "value": {
+                                        "left": "G_",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(G_ <= (150 - 1))",
+                        "exp": {
+                            "left": "G_",
+                            "op": "≤",
+                            "right": 149
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "G_def",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "R5",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "G_a <- (G_a + 1)",
+                                    "ref": "G_a",
+                                    "value": {
+                                        "left": "G_a",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(G_a <= (150 - 1))",
+                        "exp": {
+                            "left": "G_a",
+                            "op": "≤",
+                            "right": 149
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R6",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "G_a <- (G_a - 1)",
+                                    "ref": "G_a",
+                                    "value": {
+                                        "left": "G_a",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(G_a > 0)",
+                        "exp": {
+                            "left": "G_a",
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "G_a",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "R5",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "G_bg <- (G_bg + 1)",
+                                    "ref": "G_bg",
+                                    "value": {
+                                        "left": "G_bg",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(G_bg <= (150 - 1))",
+                        "exp": {
+                            "left": "G_bg",
+                            "op": "≤",
+                            "right": 149
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R7",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "G_bg <- (G_bg - 1)",
+                                    "ref": "G_bg",
+                                    "value": {
+                                        "left": "G_bg",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(G_bg > 0)",
+                        "exp": {
+                            "left": "G_bg",
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "G_bg",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "R6",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "G_d <- (G_d + 1)",
+                                    "ref": "G_d",
+                                    "value": {
+                                        "left": "G_d",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(G_d <= (150 - 1))",
+                        "exp": {
+                            "left": "G_d",
+                            "op": "≤",
+                            "right": 149
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R7",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "G_d <- (G_d - 1)",
+                                    "ref": "G_d",
+                                    "value": {
+                                        "left": "G_d",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(G_d > 0)",
+                        "exp": {
+                            "left": "G_d",
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "G_d",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "R1",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "(19/5000 / 19/5000)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(19/5000 > 0)",
+                        "exp": true
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "19/5000",
+                        "exp": 0.0038
+                    }
+                },
+                {
+                    "action": "R2",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((1/2500 * R_) / (1/2500 * R_))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.0004,
+                                        "op": "*",
+                                        "right": "R_"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.0004,
+                                        "op": "*",
+                                        "right": "R_"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((1/2500 * R_) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.0004,
+                                "op": "*",
+                                "right": "R_"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(1/2500 * R_)",
+                        "exp": {
+                            "left": 0.0004,
+                            "op": "*",
+                            "right": "R_"
+                        }
+                    }
+                },
+                {
+                    "action": "R3",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "(((21/500 * R_) * L) / ((21/500 * R_) * L))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": 0.042,
+                                            "op": "*",
+                                            "right": "R_"
+                                        },
+                                        "op": "*",
+                                        "right": "L"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.042,
+                                            "op": "*",
+                                            "right": "R_"
+                                        },
+                                        "op": "*",
+                                        "right": "L"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(((21/500 * R_) * L) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": 0.042,
+                                    "op": "*",
+                                    "right": "R_"
+                                },
+                                "op": "*",
+                                "right": "L"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "((21/500 * R_) * L)",
+                        "exp": {
+                            "left": {
+                                "left": 0.042,
+                                "op": "*",
+                                "right": "R_"
+                            },
+                            "op": "*",
+                            "right": "L"
+                        }
+                    }
+                },
+                {
+                    "action": "R4",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((1/100 * RL) / (1/100 * RL))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.01,
+                                        "op": "*",
+                                        "right": "RL"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.01,
+                                        "op": "*",
+                                        "right": "RL"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((1/100 * RL) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.01,
+                                "op": "*",
+                                "right": "RL"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(1/100 * RL)",
+                        "exp": {
+                            "left": 0.01,
+                            "op": "*",
+                            "right": "RL"
+                        }
+                    }
+                },
+                {
+                    "action": "R5",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "(((11/1000 * RL) * G_) / ((11/1000 * RL) * G_))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": 0.011,
+                                            "op": "*",
+                                            "right": "RL"
+                                        },
+                                        "op": "*",
+                                        "right": "G_"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.011,
+                                            "op": "*",
+                                            "right": "RL"
+                                        },
+                                        "op": "*",
+                                        "right": "G_"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(((11/1000 * RL) * G_) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": 0.011,
+                                    "op": "*",
+                                    "right": "RL"
+                                },
+                                "op": "*",
+                                "right": "G_"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "((11/1000 * RL) * G_)",
+                        "exp": {
+                            "left": {
+                                "left": 0.011,
+                                "op": "*",
+                                "right": "RL"
+                            },
+                            "op": "*",
+                            "right": "G_"
+                        }
+                    }
+                },
+                {
+                    "action": "R6",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((1/10 * G_a) / (1/10 * G_a))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.1,
+                                        "op": "*",
+                                        "right": "G_a"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.1,
+                                        "op": "*",
+                                        "right": "G_a"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((1/10 * G_a) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.1,
+                                "op": "*",
+                                "right": "G_a"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(1/10 * G_a)",
+                        "exp": {
+                            "left": 0.1,
+                            "op": "*",
+                            "right": "G_a"
+                        }
+                    }
+                },
+                {
+                    "action": "R7",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "(((1050 * G_bg) * G_d) / ((1050 * G_bg) * G_d))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": 1050,
+                                            "op": "*",
+                                            "right": "G_bg"
+                                        },
+                                        "op": "*",
+                                        "right": "G_d"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": 1050,
+                                            "op": "*",
+                                            "right": "G_bg"
+                                        },
+                                        "op": "*",
+                                        "right": "G_d"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(((1050 * G_bg) * G_d) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": 1050,
+                                    "op": "*",
+                                    "right": "G_bg"
+                                },
+                                "op": "*",
+                                "right": "G_d"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "((1050 * G_bg) * G_d)",
+                        "exp": {
+                            "left": {
+                                "left": 1050,
+                                "op": "*",
+                                "right": "G_bg"
+                            },
+                            "op": "*",
+                            "right": "G_d"
+                        }
+                    }
+                },
+                {
+                    "action": "R8",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "(321/100 / 321/100)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(321/100 > 0)",
+                        "exp": true
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "321/100",
+                        "exp": 3.21
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "reactionRates",
+            "variables": []
+        }
+    ],
+    "constants": [
+        {
+            "name": "k1",
+            "type": "real",
+            "value": 0.0038
+        },
+        {
+            "name": "k2",
+            "type": "real",
+            "value": 0.0004
+        },
+        {
+            "name": "k3",
+            "type": "real",
+            "value": 0.042
+        },
+        {
+            "name": "k4",
+            "type": "real",
+            "value": 0.01
+        },
+        {
+            "name": "k5",
+            "type": "real",
+            "value": 0.011
+        },
+        {
+            "name": "k6",
+            "type": "real",
+            "value": 0.1
+        },
+        {
+            "name": "k7",
+            "type": "real",
+            "value": 1050
+        },
+        {
+            "name": "k8",
+            "type": "real",
+            "value": 3.21
+        },
+        {
+            "name": "MAX_AMOUNT",
+            "type": "int",
+            "value": 150
+        }
+    ],
+    "features": [
+        "derived-operators"
+    ],
+    "jani-version": 1,
+    "name": "yeastPolarization",
+    "properties": [
+        {
+            "expression": {
+                "fun": "values",
+                "op": "filter",
+                "states": {
+                    "op": "initial"
+                },
+                "values": {
+                    "exp": {
+                        "left": true,
+                        "op": "U",
+                        "right": {
+                            "left": "G_bg",
+                            "op": "≥",
+                            "right": 50
+                        },
+                        "time-bounds": {
+                            "upper": 20,
+                            "upper-exclusive": false
+                        }
+                    },
+                    "op": "Pmin"
+                }
+            },
+            "name": "1"
+        }
+    ],
+    "restrict-initial": {
+        "exp": true
+    },
+    "system": {
+        "elements": [
+            {
+                "automaton": "R_def"
+            },
+            {
+                "automaton": "L"
+            },
+            {
+                "automaton": "RL"
+            },
+            {
+                "automaton": "G_def"
+            },
+            {
+                "automaton": "G_a"
+            },
+            {
+                "automaton": "G_bg"
+            },
+            {
+                "automaton": "G_d"
+            },
+            {
+                "automaton": "reactionRates"
+            }
+        ],
+        "syncs": [
+            {
+                "result": "R1",
+                "synchronise": [
+                    "R1",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "R1"
+                ]
+            },
+            {
+                "result": "R2",
+                "synchronise": [
+                    "R2",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "R2"
+                ]
+            },
+            {
+                "result": "R3",
+                "synchronise": [
+                    "R3",
+                    "R3",
+                    "R3",
+                    null,
+                    null,
+                    null,
+                    null,
+                    "R3"
+                ]
+            },
+            {
+                "result": "R4",
+                "synchronise": [
+                    "R4",
+                    null,
+                    "R4",
+                    null,
+                    null,
+                    null,
+                    null,
+                    "R4"
+                ]
+            },
+            {
+                "result": "R5",
+                "synchronise": [
+                    null,
+                    null,
+                    "R5",
+                    "R5",
+                    "R5",
+                    "R5",
+                    null,
+                    "R5"
+                ]
+            },
+            {
+                "result": "R6",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    "R6",
+                    null,
+                    "R6",
+                    "R6"
+                ]
+            },
+            {
+                "result": "R7",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    "R7",
+                    null,
+                    "R7",
+                    "R7",
+                    "R7"
+                ]
+            },
+            {
+                "result": "R8",
+                "synchronise": [
+                    null,
+                    null,
+                    "R8",
+                    null,
+                    null,
+                    null,
+                    null,
+                    "R8"
+                ]
+            }
+        ]
+    },
+    "type": "ctmc",
+    "variables": [
+        {
+            "initial-value": 50,
+            "name": "R_",
+            "type": {
+                "base": "int",
+                "kind": "bounded",
+                "lower-bound": 0,
+                "upper-bound": 150
+            }
+        },
+        {
+            "initial-value": 2,
+            "name": "L",
+            "type": {
+                "base": "int",
+                "kind": "bounded",
+                "lower-bound": 0,
+                "upper-bound": 150
+            }
+        },
+        {
+            "initial-value": 0,
+            "name": "RL",
+            "type": {
+                "base": "int",
+                "kind": "bounded",
+                "lower-bound": 0,
+                "upper-bound": 150
+            }
+        },
+        {
+            "initial-value": 50,
+            "name": "G_",
+            "type": {
+                "base": "int",
+                "kind": "bounded",
+                "lower-bound": 0,
+                "upper-bound": 150
+            }
+        },
+        {
+            "initial-value": 0,
+            "name": "G_a",
+            "type": {
+                "base": "int",
+                "kind": "bounded",
+                "lower-bound": 0,
+                "upper-bound": 150
+            }
+        },
+        {
+            "initial-value": 0,
+            "name": "G_bg",
+            "type": {
+                "base": "int",
+                "kind": "bounded",
+                "lower-bound": 0,
+                "upper-bound": 150
+            }
+        },
+        {
+            "initial-value": 0,
+            "name": "G_d",
+            "type": {
+                "base": "int",
+                "kind": "bounded",
+                "lower-bound": 0,
+                "upper-bound": 150
+            }
+        }
+    ]
+}
