@@ -1,5 +1,7 @@
 ctmc
 
+// Tags: Toggle Switch, Unbounded, Infinite, TetR, LacI
+
 const int aTc = 0;
 
 const int IPTG = 0;
