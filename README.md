@@ -1,27 +1,17 @@
 # Stochastic Model Case Studies
 
-Within this repository are several case studies and scripts used to create and catalog models for various types of stochastic model checking. These models are mostly in the PRISM language and can be used in PRISM, STORM, or [STAMINA](https://github.com/fluentverification/stamina-cplusplus). Additionally, there are models for the IVy model checker as well as Python scripts used to generate such models. The models are organized into the following folders:
+Stochastic models are well-suited to studying systems in emerging fields such as nanotechnology, computational chemistry, and synthetic biology. However, the kinds of stochastic models which arise in these emerging fields tend to have infinite state space which cannot be analyzed by most existing tools. It is therefore prudent that tools be developed to verify infinite state space stochastic models. Likewise, there does not exist a collection of case studies for analyzing the performance of infinite state space stochastic model checking tools. Here, such a collection is developed and presented. The collection includes case studies from nanotechnology, computational chemistry, and synthetic biology which vary in complexity from toy models to practical designs encoded in the PRISM language. The models can be used in [PRISM](https://www.prismmodelchecker.org), [STORM](https://www.stormchecker.org), or [STAMINA](https://github.com/fluentverification/stamina-cplusplus) or any other tool that uses the PRISM language. The case-study repository presented here is intended to be a living document, so community contributions and recommendations are welcome.
 
 ## Repository structure
 
-### `./SBML` folder
+### Benchmarks
 
-Case studies of genetic designs represented in the _Systems Biology Markup Language_ (SBML) are stored in this directory. SBML encodes mathmatical models of biological processes.
+### Chemical Reaction Networks
 
-### `./crn` Folder
+### Genetic Designs
 
-Mostly contains IVy files for one of the following two types of models:
+### Nanotechnology
 
-#### `./crn/DonovanYeastPolarization` subfolder
-
-This folder contains several scripts to generate yeast polarization models in IVy, as well as some of those IVy files and their results. There is even a relevant PRISM file. *Yeast Polarization* occurs during yeast growth and is important in the budding process. These polarizations can be modelled using stochastic systems.
-
-#### `./crn/KuwaharaEnzyme` subfolder
-
-Contains PRISM and IVy files for the reaction of the Kuwahara Enzyme.
-
-### `./prism` folder
-
-Various relevant PRISM models (mostly conversions of the SBML files in `./SBML`) that can be used to model certain properties of systems. Can be run in STORM, PRISM, or STAMINA.
+## Naming Convention
 
 
