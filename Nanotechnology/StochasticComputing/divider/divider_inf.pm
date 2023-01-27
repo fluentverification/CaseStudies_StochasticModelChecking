@@ -3,10 +3,7 @@ dtmc
 
 const double a;
 const double b;
-const int T;
-
-// Saturation level for up-down counter
-const int MAXCOUNT=63;
+const int    T;
 
 //------------------
 // Signal Sources
@@ -32,18 +29,26 @@ endmodule
 
 // Up-Down Counter
 module UDC0
-   c0: [-MAXCOUNT..MAXCOUNT] init 0;
+   c0: int init 0;
 
-   [event] (c0 > -MAXCOUNT) & (c0 < MAXCOUNT) -> 1:(c0' = c0 + inA - QB);
-   [event] (c0 = -MAXCOUNT) -> 1:(c0' = c0 + inA);
-   [event] (c0 = MAXCOUNT)  -> 1:(c0' = c0 - QB);  
+   [event] (true) -> 1:(c0' = c0 + inA - QB);
 endmodule
 
+// Clock Timer
+module clockTimer
+   N: int init 1;
+   M: int init 1;
+
+   [event] (true) -> 1:(N'=N+1)&(M'=1+round(log(N,2)));
+endmodule
+
+
 // Output and Feedback
-formula q=(c0+MAXCOUNT+1)/(2*(MAXCOUNT+1));
+formula q=(c0+M+1)/(2*(M+1));
 module FB0
    Q: [0..1] init 0;
 
-   [event]  (c0 >= -MAXCOUNT) & (c0 <= MAXCOUNT) ->  q:(Q' = 1) + (1-q):(Q'=0); 
+   [event]  (c0 >= -M) & (c0 <= M) ->  q:(Q' = 1) + (1-q):(Q'=0); 
+
 endmodule
 

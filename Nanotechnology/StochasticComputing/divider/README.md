@@ -7,6 +7,24 @@ unipolar format, a signal $x$ is a real number between
 $X(t)$. At any time $t$, the signal $X(t)=1$ with 
 probability $x$, and $X(t)=0$ with probability $1-x$.
 
+Two models are provided:
+
+* `divider.pm` is a finite-state model.
+* `divider_inf.pm` is an intinite-state model.
+
+Both models rely on a finite up-down counter to 
+estimate the average probability of a unary stochastic 
+bitstream. The finite counter saturates at `MAX_COUNT`, 
+which is a fixed constant in the model.
+
+In the infinite-state model, the counter's limit is 
+variable, initially +/-1 and increasing logarithmically
+with respect to the elapsed clock cycles. This approach 
+improves accuracy for calculations with small probabilities,
+e.g. below 0.01, however the state complexity becomes 
+unbounded in this model.
+
+
 ## Description of the Circuit
 
 The divider circuit shematic is shown below. It accepts 
@@ -33,10 +51,8 @@ Reference:
 
 ## PRISM Model
 
-The PRISM model for this circuit is provided in 
-`divider.pm`. The input probabilities are given 
-via constants `a` and `b`. Internally, the stochastic 
-input signals are `inA` and `inB`, and the output 
+The input probabilities are given via constants `a` and `b`. Internally, 
+the stochastic input signals are `inA` and `inB`, and the output 
 signal is `Q`.
 
 Two example properties are given in `divider.props`:
@@ -48,7 +64,7 @@ is an integer.
 * `S=? [ Q = 1 ]` evaluates the steady-state probability
 that Q=1. 
 
-## Example results:
+## Example results (finite state model):
 
 ### `a=0.1`, `b=0.3`, and `T=100` 
 
@@ -92,3 +108,19 @@ For the second property (steady state) PRISM returns:
 Result: 0.9881554646304057
 ```
 
+
+## Example results (infinite state model):
+
+### `a=0.001`, `b=0.1`
+
+In this case PRISM is best used to simulate a path with 
+10,000 clock cycles. The output bitstream `Q` is reported in 
+column 9 of the output trace.
+
+```
+prism -simpath time=10000 data -const a=0.001 -const b=0.1 -const T=1000 divider_inf.pm
+```
+
+In this model PRISM is unable to provide the requested path length,
+so it is not possible to compute the long-term transient behavior 
+or the steady-state output probability using PRISM.
