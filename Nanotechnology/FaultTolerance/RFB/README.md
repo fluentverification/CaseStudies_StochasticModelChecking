@@ -11,8 +11,15 @@ upsets with better reliability than Majority TMR. RFB is able
 to suppress multiple momentary faults when the feedback is
 active.
 
+There are two RFB models provided:
 
-## Description of the Circuit
+* `rfb.pm` -- a PRISM model for a binary-valued RFB circuit with finite state complexity.
+  Properties are given in `rfb.props`.
+* `rfb_inf.pm` -- a PRISM model for a multiple-valued RFB circuit with infinite state complexity.
+  Properties are given in `rfb_inf.props`.
+
+
+## Description of the Binary RFB Circuit
 
 The RFB circuit is based on a modified Muller C-element gate. 
 The classical C-element is a binary-valued latch with behavior 
@@ -67,7 +74,7 @@ Reference:
   *J. of Multiple Valued Logic and Soft Computing*, Vol. 23, pp. 337, 2014.
 
 
-## PRISM Model
+### PRISM Model for the Binary RFB Circuit
 
 The PRISM model for this circuit is provided in 
 `rfb.pm`. The input signals are assumed to be 0 (when correct),
@@ -101,14 +108,14 @@ that a non-correctable error state exists in the circuit's
 output.
 
 
-## Example results:
+### Example results:
 
 The results given here are informative in comparison to the classical
 TMR model located in `../TMR`, demonstrating that RFB is more
 reliable for a system with the indicated parameters.
 
 
-### `T=0`, `initialErrors=1`
+#### `T=0`, `initialErrors=1`
 
 This case models the initial error probability before activating
 restorative feedback. Since there is initially only one error,
@@ -130,7 +137,7 @@ For the second property (steady state) PRISM returns:
 Result: [1.272254163993728E-6,1.272254163993728E-6]
 ```
 
-### `T=1.0`, `initialErrors=1`
+#### `T=1.0`, `initialErrors=1`
 
 This case models the error probability 1.0 time units after
 activating restorative feedback. This case provides
@@ -150,5 +157,86 @@ For the second property (steady state) PRISM returns:
 
 ```
 Result: [1.272254163993728E-6,1.272254163993728E-6]
+```
+
+
+## Description of the Multiple-Valued RFB Circuit
+
+One of the motivations for the RFB method is to apply TMR 
+to systems with non-binary signals. Classical TMR relies on 
+Majority logic that requires two of the three signals be 
+equal. In systems with multiple-valued signals, all three 
+signals may differ, so there is no majority. In that situation, 
+the C-element's latching behavior provides a solution.
+
+The multiple-valued C-Element and RFB circuit have the same 
+design as the binary case, except that the signals are allowed 
+to be arbitrary discrete levels. The upset processes are now 
+also multiple-valued, requiring more complex models.
+
+
+### PRISM Model for the Multiple-Valued RFB Circuit
+
+The PRISM model for this circuit is provided in 
+`rfb_inf.pm`. The input signals are assumed to be 0 (when correct).
+The momentary upset rate is specified via constant `epsilon`, and 
+the signal recovery rate is `Rc`. Since the signal values are non-binary, 
+the upset amplitude is modeled by a "noise" signal with rate `Rn`. 
+The noise amplitude distribution is:
+
+* n=1 with rate `Rn`
+* n=2 with rate `Rn/2`
+* n=3 with rate `Rn/4`
+* n=4 with rate `Rn/8`
+
+This example noise process is not based on any specific physical model, 
+but is similar to "random telegraph noise" known to affect various FET 
+and memristor devices.
+
+There is also a latch upset rate `alpha` which affects the C-element memory.
+Here the latch upset is identical to the binary-valued circuit. Latch upsets
+always have amplitude 1, i.e. the C-element output drifts to an adjacent 
+signal level.
+
+Initial values for this model are given explicitly via integer constants 
+`i1`, `i2`, and `i3`, so a single initial state is specified (the binary-
+valued circuit allowed specifying an ensemble of initial states, but that 
+is not possible here).
+
+Property definitions are more challenging for the multiple-valued circuit
+compared to the binary case. Steady-state properties are not available 
+due to the model's unbounded state complexity. One property is provided 
+in `rfb_inf.props`:
+
+* `P=? [ F[T,T] y1+y2+y3!=0 ]`
+
+This evaluates the probability that the output signals are error-free at 
+time `T`. 
+
+### Example Results for the Multiple-Valued Circuit
+
+#### `i1=0`, `i2=3`, `i3=1`, `T=20`
+
+```
+prism -sim -const i1=0 -const i2=3 -const i3=1 -const T=20 rfb_inf.pm rfb_inf.props
+```
+
+The result reported by PRISM is
+
+```
+Result: 0.051 (+/- 0.017928853962181267 with probability 0.99; rel err 0.3515461561212013)
+```
+
+
+#### `i1=0`, `i2=0`, `i3=1`, `T=20`
+
+```
+prism -sim -const i1=0 -const i2=0 -const i3=1 -const T=20 rfb_inf.pm rfb_inf.props
+```
+
+The result reported by PRISM is
+
+```
+Result: 0.024 (+/- 0.012472826037899055 with probability 0.99; rel err 0.5197010849124606)
 ```
 
