@@ -1,5 +1,5 @@
 ## SBML Benchmark Suite
-The first benchmark suite is adapted from the systems biology markup language (SBML) [1,2] stochastic test suite [3] accessible at https://github.com/sbmlteam/sbml-test-suite/tree/release/cases/stochastic. SBML is an XML-based data format encoding models of biological systems. The test suite is designed for testing software for analyzing SBML models and has been converted into the PRISM language to also allow the testing of software for stochastic model checking.
+The first benchmark suite is adapted from the systems biology markup language (SBML) [1,2] stochastic test suite [3] accessible at https://github.com/sbmlteam/sbml-test-suite/tree/release/cases/stochastic. SBML is an XML-based data format encoding models of biological systems. The test suite is designed for testing software for analyzing SBML models and has been converted into the PRISM language to also allow the testing of software for stochastic model checking. From the 100 cases provided by the SBML test suite, three were not included since the SBML-to-PRISM converter currently does not support rules or events.
 
 
 ## PRISM Benchmark Suite
