@@ -5,7 +5,7 @@
 // Stamina Probabilty: Error
 ctmc
 
-const int MAX_AMOUNT = 130;
+// const int MAX_AMOUNT = 130;
 
 // Compartment size
 const double Cell = 1.0;
@@ -113,178 +113,192 @@ const double topModel_PhlFpart_module_sub__np = 10; // topModel_PhlFpart_module_
 const double topModel_PhlFpart_module_sub__ka = 0.25; // topModel_PhlFpart_module_sub__ka
 
 // Species HlyIIR_protein
-const int HlyIIR_protein_MAX = MAX_AMOUNT;
+// const int HlyIIR_protein_MAX = MAX_AMOUNT;
 module HlyIIR_protein
 
-	HlyIIR_protein : [0..HlyIIR_protein_MAX] init 0; // Initial amount 0
+	// HlyIIR_protein : [0..HlyIIR_protein_MAX] init 0; // Initial amount 0
+	HlyIIR_protein : int init 0;
 
 	// HlyIIR_degradation_interaction
 	[HlyIIR_degradation_interaction] HlyIIR_protein > 9 -> (HlyIIR_protein'=HlyIIR_protein-10);
 	// topModel_Inverter1_module_sub__HlyIIR_protein_interaction
-	[topModel_Inverter1_module_sub__HlyIIR_protein_interaction]  HlyIIR_protein <= HlyIIR_protein_MAX-10 -> (HlyIIR_protein'=HlyIIR_protein+10);
+	// [topModel_Inverter1_module_sub__HlyIIR_protein_interaction]  HlyIIR_protein <= HlyIIR_protein_MAX-10 -> (HlyIIR_protein'=HlyIIR_protein+10);
+	[topModel_Inverter1_module_sub__HlyIIR_protein_interaction]  HlyIIR_protein >= 0 -> (HlyIIR_protein'=HlyIIR_protein+10);
 
 endmodule
 
 // Species BetI_protein
-const int BetI_protein_MAX = MAX_AMOUNT;
+// const int BetI_protein_MAX = MAX_AMOUNT;
 module BetI_protein
 
-	BetI_protein : [0..BetI_protein_MAX] init 130; // Initial amount 130
+	// BetI_protein : [0..BetI_protein_MAX] init 130; // Initial amount 130
+	BetI_protein : int init 130;
 
 	// BetI_degradation_interaction
 	[BetI_degradation_interaction] BetI_protein > 9 -> (BetI_protein'=BetI_protein-10);
 	// topModel_BetIpart_module_sub__BetI_protein_interaction_0
-	[topModel_BetIpart_module_sub__BetI_protein_interaction_0]  BetI_protein <= BetI_protein_MAX-10 -> (BetI_protein'=BetI_protein+10);
+	// [topModel_BetIpart_module_sub__BetI_protein_interaction_0]  BetI_protein <= BetI_protein_MAX-10 -> (BetI_protein'=BetI_protein+10);
+	[topModel_BetIpart_module_sub__BetI_protein_interaction_0]  BetI_protein >= 0 -> (BetI_protein'=BetI_protein+10);
 	// topModel_BetIpart_module_sub__BetI_protein_interaction_1
-	[topModel_BetIpart_module_sub__BetI_protein_interaction_1]  BetI_protein <= BetI_protein_MAX-10 -> (BetI_protein'=BetI_protein+10);
+	// [topModel_BetIpart_module_sub__BetI_protein_interaction_1]  BetI_protein <= BetI_protein_MAX-10 -> (BetI_protein'=BetI_protein+10);
+	[topModel_BetIpart_module_sub__BetI_protein_interaction_1]  BetI_protein >= 0 -> (BetI_protein'=BetI_protein+10);
 
 endmodule
 
 // Species PhlF_protein
-const int PhlF_protein_MAX = MAX_AMOUNT;
+// const int PhlF_protein_MAX = MAX_AMOUNT;
 module PhlF_protein
 
-	PhlF_protein : [0..PhlF_protein_MAX] init 70; // Initial amount 70
+	// PhlF_protein : [0..PhlF_protein_MAX] init 70; // Initial amount 70
+	PhlF_protein : int init 70;
 
 	// PhlF_degradation_interaction
 	[PhlF_degradation_interaction] PhlF_protein > 9 -> (PhlF_protein'=PhlF_protein-10);
 	// topModel_PhlFpart_module_sub__PhlF_protein_interaction_0
-	[topModel_PhlFpart_module_sub__PhlF_protein_interaction_0]  PhlF_protein <= PhlF_protein_MAX-10 -> (PhlF_protein'=PhlF_protein+10);
+	// [topModel_PhlFpart_module_sub__PhlF_protein_interaction_0]  PhlF_protein <= PhlF_protein_MAX-10 -> (PhlF_protein'=PhlF_protein+10);
+	[topModel_PhlFpart_module_sub__PhlF_protein_interaction_0]  PhlF_protein >= 0 -> (PhlF_protein'=PhlF_protein+10);
 	// topModel_PhlFpart_module_sub__PhlF_protein_interaction_1
-	[topModel_PhlFpart_module_sub__PhlF_protein_interaction_1]  PhlF_protein <= PhlF_protein_MAX-10 -> (PhlF_protein'=PhlF_protein+10);
+	// [topModel_PhlFpart_module_sub__PhlF_protein_interaction_1]  PhlF_protein <= PhlF_protein_MAX-10 -> (PhlF_protein'=PhlF_protein+10);
+	[topModel_PhlFpart_module_sub__PhlF_protein_interaction_1]  PhlF_protein >= 0 -> (PhlF_protein'=PhlF_protein+10);
 
 endmodule
 
 // Species AmtR_protein
-const int AmtR_protein_MAX = MAX_AMOUNT;
+// const int AmtR_protein_MAX = MAX_AMOUNT;
 module AmtR_protein
 
-	AmtR_protein : [0..AmtR_protein_MAX] init 0; // Initial amount 0
+	// AmtR_protein : [0..AmtR_protein_MAX] init 0; // Initial amount 0
+	AmtR_protein : int init 0;
 
 	// topModel_AmtRpart_module_sub__AmtR_protein_interaction_0
-	[topModel_AmtRpart_module_sub__AmtR_protein_interaction_0]  AmtR_protein <= AmtR_protein_MAX-10 -> (AmtR_protein'=AmtR_protein+10);
+	// [topModel_AmtRpart_module_sub__AmtR_protein_interaction_0]  AmtR_protein <= AmtR_protein_MAX-10 -> (AmtR_protein'=AmtR_protein+10);
+	[topModel_AmtRpart_module_sub__AmtR_protein_interaction_0]  AmtR_protein >= 0 -> (AmtR_protein'=AmtR_protein+10);
 	// topModel_AmtRpart_module_sub__AmtR_protein_interaction_1
-	[topModel_AmtRpart_module_sub__AmtR_protein_interaction_1]  AmtR_protein <= AmtR_protein_MAX-10 -> (AmtR_protein'=AmtR_protein+10);
+	// [topModel_AmtRpart_module_sub__AmtR_protein_interaction_1]  AmtR_protein <= AmtR_protein_MAX-10 -> (AmtR_protein'=AmtR_protein+10);
+	[topModel_AmtRpart_module_sub__AmtR_protein_interaction_1]  AmtR_protein >= 0 -> (AmtR_protein'=AmtR_protein+10);
 	// AmtR_degradation_interaction
 	[AmtR_degradation_interaction] AmtR_protein > 9 -> (AmtR_protein'=AmtR_protein-10);
-
 endmodule
 
 // Species YFP_protein
-const int YFP_protein_MAX = MAX_AMOUNT;
+// const int YFP_protein_MAX = MAX_AMOUNT;
 module YFP_protein
 
-	YFP_protein : [0..YFP_protein_MAX] init 0; // Initial amount 0
+	// YFP_protein : [0..YFP_protein_MAX] init 0; // Initial amount 0
+	YFP_protein : int init 0;
 
 	// YFP_degradation_interaction
 	[YFP_degradation_interaction] YFP_protein > 9 -> (YFP_protein'=YFP_protein-10);
 	// topModel_YFPpart_module_sub__YFP_protein_interaction_0
-	[topModel_YFPpart_module_sub__YFP_protein_interaction_0]  YFP_protein <= YFP_protein_MAX-10 -> (YFP_protein'=YFP_protein+10);
+	// [topModel_YFPpart_module_sub__YFP_protein_interaction_0]  YFP_protein <= YFP_protein_MAX-10 -> (YFP_protein'=YFP_protein+10);
+	[topModel_YFPpart_module_sub__YFP_protein_interaction_0]  YFP_protein >= 0 -> (YFP_protein'=YFP_protein+10);
 	// topModel_YFPpart_module_sub__YFP_protein_interaction_1
-	[topModel_YFPpart_module_sub__YFP_protein_interaction_1]  YFP_protein <= YFP_protein_MAX-10 -> (YFP_protein'=YFP_protein+10);
+	// [topModel_YFPpart_module_sub__YFP_protein_interaction_1]  YFP_protein <= YFP_protein_MAX-10 -> (YFP_protein'=YFP_protein+10);
+	[topModel_YFPpart_module_sub__YFP_protein_interaction_1]  YFP_protein >= 0 -> (YFP_protein'=YFP_protein+10);
 
 endmodule
 
 // Species BM3R1_protein
-const int BM3R1_protein_MAX = MAX_AMOUNT;
+// const int BM3R1_protein_MAX = MAX_AMOUNT;
 module BM3R1_protein
 
-	BM3R1_protein : [0..BM3R1_protein_MAX] init 70; // Initial amount 70
+	// BM3R1_protein : [0..BM3R1_protein_MAX] init 70; // Initial amount 70
+	BM3R1_protein : int init 70;
 
 	// BM3R1_degradation_interaction
 	[BM3R1_degradation_interaction] BM3R1_protein > 9 -> (BM3R1_protein'=BM3R1_protein-10);
 	// topModel_Inverter2_module_sub__BM3R1_protein_interaction
-	[topModel_Inverter2_module_sub__BM3R1_protein_interaction]  BM3R1_protein <= BM3R1_protein_MAX-10 -> (BM3R1_protein'=BM3R1_protein+10);
-
+	// [topModel_Inverter2_module_sub__BM3R1_protein_interaction]  BM3R1_protein <= BM3R1_protein_MAX-10 -> (BM3R1_protein'=BM3R1_protein+10);
+	[topModel_Inverter2_module_sub__BM3R1_protein_interaction]  BM3R1_protein >= 0 -> (BM3R1_protein'=BM3R1_protein+10);
 endmodule
 
 // Species topModel_BetIpart_module_sub__pTet
-const int topModel_BetIpart_module_sub__pTet_MAX = MAX_AMOUNT;
+// const int topModel_BetIpart_module_sub__pTet_MAX = MAX_AMOUNT;
 module topModel_BetIpart_module_sub__pTet
 
-	topModel_BetIpart_module_sub__pTet : [0..topModel_BetIpart_module_sub__pTet_MAX] init 2; // Initial amount 2
-
+	// topModel_BetIpart_module_sub__pTet : [0..topModel_BetIpart_module_sub__pTet_MAX] init 2; // Initial amount 2
+	topModel_BetIpart_module_sub__pTet : int init 2;
 
 endmodule
 
 // Species topModel_BetIpart_module_sub__pHlyIIR
-const int topModel_BetIpart_module_sub__pHlyIIR_MAX = MAX_AMOUNT;
+// const int topModel_BetIpart_module_sub__pHlyIIR_MAX = MAX_AMOUNT;
 module topModel_BetIpart_module_sub__pHlyIIR
 
-	topModel_BetIpart_module_sub__pHlyIIR : [0..topModel_BetIpart_module_sub__pHlyIIR_MAX] init 2; // Initial amount 2
-
+	// topModel_BetIpart_module_sub__pHlyIIR : [0..topModel_BetIpart_module_sub__pHlyIIR_MAX] init 2; // Initial amount 2
+	topModel_BetIpart_module_sub__pHlyIIR : int init 2;
 
 endmodule
 
 // Species topModel_AmtRpart_module_sub__pBM3R1
-const int topModel_AmtRpart_module_sub__pBM3R1_MAX = MAX_AMOUNT;
+// const int topModel_AmtRpart_module_sub__pBM3R1_MAX = MAX_AMOUNT;
 module topModel_AmtRpart_module_sub__pBM3R1
 
-	topModel_AmtRpart_module_sub__pBM3R1 : [0..topModel_AmtRpart_module_sub__pBM3R1_MAX] init 2; // Initial amount 2
-
+	// topModel_AmtRpart_module_sub__pBM3R1 : [0..topModel_AmtRpart_module_sub__pBM3R1_MAX] init 2; // Initial amount 2
+	topModel_AmtRpart_module_sub__pBM3R1 : int init 2;
 
 endmodule
 
 // Species topModel_AmtRpart_module_sub__pBAD
-const int topModel_AmtRpart_module_sub__pBAD_MAX = MAX_AMOUNT;
+// const int topModel_AmtRpart_module_sub__pBAD_MAX = MAX_AMOUNT;
 module topModel_AmtRpart_module_sub__pBAD
 
-	topModel_AmtRpart_module_sub__pBAD : [0..topModel_AmtRpart_module_sub__pBAD_MAX] init 2; // Initial amount 2
-
+	// topModel_AmtRpart_module_sub__pBAD : [0..topModel_AmtRpart_module_sub__pBAD_MAX] init 2; // Initial amount 2
+	topModel_AmtRpart_module_sub__pBAD : int init 2;
 
 endmodule
 
 // Species topModel_Inverter2_module_sub__Inverter2_fc
-const int topModel_Inverter2_module_sub__Inverter2_fc_MAX = MAX_AMOUNT;
+// const int topModel_Inverter2_module_sub__Inverter2_fc_MAX = MAX_AMOUNT;
 module topModel_Inverter2_module_sub__Inverter2_fc
 
-	topModel_Inverter2_module_sub__Inverter2_fc : [0..topModel_Inverter2_module_sub__Inverter2_fc_MAX] init 2; // Initial amount 2
-
+	// topModel_Inverter2_module_sub__Inverter2_fc : [0..topModel_Inverter2_module_sub__Inverter2_fc_MAX] init 2; // Initial amount 2
+	topModel_Inverter2_module_sub__Inverter2_fc : int init 2;
 
 endmodule
 
 // Species topModel_YFPpart_module_sub__pBetI
-const int topModel_YFPpart_module_sub__pBetI_MAX = MAX_AMOUNT;
+// const int topModel_YFPpart_module_sub__pBetI_MAX = MAX_AMOUNT;
 module topModel_YFPpart_module_sub__pBetI
 
-	topModel_YFPpart_module_sub__pBetI : [0..topModel_YFPpart_module_sub__pBetI_MAX] init 2; // Initial amount 2
-
+	// topModel_YFPpart_module_sub__pBetI : [0..topModel_YFPpart_module_sub__pBetI_MAX] init 2; // Initial amount 2
+	topModel_YFPpart_module_sub__pBetI : int init 2;
 
 endmodule
 
 // Species topModel_YFPpart_module_sub__pPhlF
-const int topModel_YFPpart_module_sub__pPhlF_MAX = MAX_AMOUNT;
+// const int topModel_YFPpart_module_sub__pPhlF_MAX = MAX_AMOUNT;
 module topModel_YFPpart_module_sub__pPhlF
 
-	topModel_YFPpart_module_sub__pPhlF : [0..topModel_YFPpart_module_sub__pPhlF_MAX] init 2; // Initial amount 2
-
+	// topModel_YFPpart_module_sub__pPhlF : [0..topModel_YFPpart_module_sub__pPhlF_MAX] init 2; // Initial amount 2
+	topModel_YFPpart_module_sub__pPhlF : int init 2;
 
 endmodule
 
 // Species topModel_Inverter1_module_sub__Inverter1_fc
-const int topModel_Inverter1_module_sub__Inverter1_fc_MAX = MAX_AMOUNT;
+// const int topModel_Inverter1_module_sub__Inverter1_fc_MAX = MAX_AMOUNT;
 module topModel_Inverter1_module_sub__Inverter1_fc
 
-	topModel_Inverter1_module_sub__Inverter1_fc : [0..topModel_Inverter1_module_sub__Inverter1_fc_MAX] init 2; // Initial amount 2
-
+	// topModel_Inverter1_module_sub__Inverter1_fc : [0..topModel_Inverter1_module_sub__Inverter1_fc_MAX] init 2; // Initial amount 2
+	topModel_Inverter1_module_sub__Inverter1_fc : int init 2;
 
 endmodule
 
 // Species topModel_PhlFpart_module_sub__pTac
-const int topModel_PhlFpart_module_sub__pTac_MAX = MAX_AMOUNT;
+// const int topModel_PhlFpart_module_sub__pTac_MAX = MAX_AMOUNT;
 module topModel_PhlFpart_module_sub__pTac
 
-	topModel_PhlFpart_module_sub__pTac : [0..topModel_PhlFpart_module_sub__pTac_MAX] init 2; // Initial amount 2
-
+	// topModel_PhlFpart_module_sub__pTac : [0..topModel_PhlFpart_module_sub__pTac_MAX] init 2; // Initial amount 2
+	topModel_PhlFpart_module_sub__pTac : int init 2;
 
 endmodule
 
 // Species topModel_PhlFpart_module_sub__pAmtR
-const int topModel_PhlFpart_module_sub__pAmtR_MAX = MAX_AMOUNT;
+// const int topModel_PhlFpart_module_sub__pAmtR_MAX = MAX_AMOUNT;
 module topModel_PhlFpart_module_sub__pAmtR
 
-	topModel_PhlFpart_module_sub__pAmtR : [0..topModel_PhlFpart_module_sub__pAmtR_MAX] init 2; // Initial amount 2
-
+	// topModel_PhlFpart_module_sub__pAmtR : [0..topModel_PhlFpart_module_sub__pAmtR_MAX] init 2; // Initial amount 2
+	topModel_PhlFpart_module_sub__pAmtR :  int init 2;
 
 endmodule
 
