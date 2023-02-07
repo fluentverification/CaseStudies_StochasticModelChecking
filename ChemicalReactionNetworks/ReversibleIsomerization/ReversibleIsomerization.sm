@@ -27,14 +27,14 @@ module S1
   S1  :  int init 0;
 
 		// R0
-		[R0] S1 > 0 -> (S1' = S1 + 1);
+		[R0] S0 > 0 -> (S1' = S1 + 1);
 
 endmodule
 
 // Reaction rates
 module reaction_rates
 
-		// R0:  ->  S0 -> S1
+		// R0: S0 -> S1
 		[R0] ((local_kf_0 * S0) - (local_kr_0 * S1)) > 0 -> ((local_kf_0 * S0) - (local_kr_0 * S1)) : true;
 
 endmodule
