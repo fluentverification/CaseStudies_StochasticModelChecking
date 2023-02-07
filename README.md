@@ -11,7 +11,3 @@ Stochastic models are well-suited to studying systems in emerging fields such as
 ### Genetic Designs
 
 ### Nanotechnology
-
-## Naming Convention
-
-
