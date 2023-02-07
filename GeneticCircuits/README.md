@@ -11,6 +11,6 @@ Genetic design is part of synthetic biology, a research field combining engineer
 
 * G1: Static one glitch
 
-* unb: unbound prsim models
+* bound: bounded prsim models
 
 [1] Buecherl, Lukas, Riley Roberts, Pedro Fontanarrosa, Payton J. Thomas, Jeanet Mante, Zhen Zhang, and Chris J. Myers. "Stochastic Hazard Analysis of Genetic Circuits in iBioSim and STAMINA." ACS synthetic biology 10, no. 10 (2021): 2532-2540.
