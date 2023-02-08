@@ -10,7 +10,7 @@ In the laboratory, circuit 0x8E showed an unexpected, glitching behavior. Furthe
 
 ![Figure3](../../Media/0x8E_TwoInverter.png)
 
-There are two types of glitches. In one type, the output should remain in a low state during an input transition (Zero Glitch). In the other type, the output should remain at a high state (One Glitch) during an input transition. More information can be found in [1-2].
+There are two types of glitches. In one type, the output should remain in a low state during an input transition (Zero Glitch). In the other type, the output should remain at a high state (One Glitch) during an input transition. More information can be found in [1-2]. The prism models in this repository have been built using the prism sbml-to-prism converter found [here](http://www.prismmodelchecker.org/sbml/).  
 
 1. Nielsen, A. A. K.; Der, B. S.; Shin, J.; Vaidyanathan, P.; Paralanov, V.; Strychalski, E. A.; Ross, D.; Densmore, D.; Voigt, C. A. Genetic Circuit Design Automation. Science 2016, 352 (6281), aac7341–aac7341. https://doi.org/10.1126/science.aac7341.
 
