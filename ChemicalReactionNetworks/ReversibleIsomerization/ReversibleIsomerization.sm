@@ -17,7 +17,7 @@ module S0
   S0  :  int init 100;
 
 		// R0
-		[R0] S0 > 0 -> (S0' = S0 - 1);
+		[R0] S0 >= 0 -> (S0' = S0 - 1);
 
 endmodule
 
@@ -27,7 +27,7 @@ module S1
   S1  :  int init 0;
 
 		// R0
-		[R0] S0 > 0 -> (S1' = S1 + 1);
+		[R0] S0 >= 0 -> (S1' = S1 + 1);
 
 endmodule
 
