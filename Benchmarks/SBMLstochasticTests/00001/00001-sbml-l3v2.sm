@@ -7,8 +7,8 @@ ctmc
 // Compartment size
 
 // Model parameters
-const double Lambda = 0.1; // 
-const double Mu = 0.11; // 
+const double Lambda = 0.1; //
+const double Mu = 0.11; //
 
 // Species _X
 module _X
@@ -16,7 +16,7 @@ module _X
   _X  :  int init 100;
 
 		// Birth
-		[Birth] _X > 0 -> (_X' = _X + 1);
+		[Birth] _X >= 0 -> (_X' = _X + 1);
 		// Death
 		[Death] _X > 0 -> (_X' = _X - 1);
 
@@ -28,7 +28,7 @@ module reaction_rates
 		// Birth:  ->  _X -> _X
 		[Birth] (Lambda * _X) > 0 -> (Lambda * _X) : true;
 
-		// Death:  ->  _X -> 
+		// Death:  ->  _X ->
 		[Death] (Mu * _X) > 0 -> (Mu * _X) : true;
 
 endmodule

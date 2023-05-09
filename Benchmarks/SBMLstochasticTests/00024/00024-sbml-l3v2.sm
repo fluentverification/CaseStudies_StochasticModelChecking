@@ -7,8 +7,8 @@ ctmc
 // Compartment size
 
 // Model parameters
-const double Alpha = 10.0; // 
-const double Mu = 0.1; // 
+const double Alpha = 10.0; //
+const double Mu = 0.1; //
 
 // Species _X
 module _X
@@ -16,7 +16,7 @@ module _X
   _X  :  int init 0;
 
 		// Immigration
-		[Immigration] _X > 0 -> (_X' = _X + 1);
+		[Immigration] _X >= 0 -> (_X' = _X + 1);
 		// Death
 		[Death] _X > 0 -> (_X' = _X - 1);
 
@@ -38,7 +38,7 @@ module Sink
   Sink  :  int init 0;
 
 		// Death
-		[Death] Sink > 0 -> (Sink' = Sink + 1);
+		[Death] Sink >= 0 -> (Sink' = Sink + 1);
 
 endmodule
 

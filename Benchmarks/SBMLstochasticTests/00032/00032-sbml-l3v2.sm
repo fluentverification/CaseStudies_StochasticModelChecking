@@ -7,8 +7,8 @@ ctmc
 // Compartment size
 
 // Model parameters
-const double k1 = 0.001; // 
-const double k2 = 0.01; // 
+const double k1 = 0.001; //
+const double k2 = 0.01; //
 
 // Species _P
 module _P
@@ -18,7 +18,7 @@ module _P
 		// Dimerisation
 		[Dimerisation] _P > 0 -> (_P' = _P - 2);
 		// Disassociation
-		[Disassociation] _P > 0 -> (_P' = _P + 2);
+		[Disassociation] _P >= 0 -> (_P' = _P + 2);
 
 endmodule
 
@@ -28,7 +28,7 @@ module P2
   P2  :  int init 0;
 
 		// Dimerisation
-		[Dimerisation] P2 > 0 -> (P2' = P2 + 1);
+		[Dimerisation] P2 >= 0 -> (P2' = P2 + 1);
 		// Disassociation
 		[Disassociation] P2 > 0 -> (P2' = P2 - 1);
 

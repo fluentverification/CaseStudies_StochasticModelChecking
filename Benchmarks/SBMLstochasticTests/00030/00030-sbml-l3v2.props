@@ -2,4 +2,4 @@
 // Original file: /Users/lukas/Lab/GitHub_Repositories/CaseStudies_StochasticModelChecking/Benchmarks/SBML_Stochastic_Tests/00030/00030-sbml-l3v2.xml
 // @GeneticLogicLab
 
-P=? [ true U [0,50] (X < 28.542298) ]
+P=? [ true U [0,50] (_P < 28.676 & P2 > 33.211) ]
