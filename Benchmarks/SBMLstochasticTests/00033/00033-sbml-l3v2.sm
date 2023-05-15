@@ -16,9 +16,9 @@ module _P
   _P  :  int init 100;
 
 		// Dimerisation
-		[Dimerisation] _P >= 0 -> (_P' = _P - 2);
+		[Dimerisation] _P > 1 -> (_P' = _P - 2);
 		// Disassociation
-		[Disassociation] _P > 0 -> (_P' = _P + 2);
+		[Disassociation] _P >= 0 -> (_P' = _P + 2);
 
 endmodule
 
