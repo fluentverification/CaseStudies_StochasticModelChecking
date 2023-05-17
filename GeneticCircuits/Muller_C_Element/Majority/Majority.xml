@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sbml xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" xmlns:arrays="http://www.sbml.org/sbml/level3/version1/arrays/version1" xmlns="http://www.sbml.org/sbml/level3/version2/core" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" level="2" version="2" layout:required="false" comp:required="true" fbc:required="false" arrays:required="true">
-  <model metaid="iBioSim58" id="majority" name="Created from majority.gcm" substanceUnits="mole" volumeUnits="litre">
-    <listOfFunctionDefinitions>
-      <functionDefinition id="neighborQuantityLeft" name="neighborQuantityLeft">
+<sbml xmlns="http://www.sbml.org/sbml/level2/version2" xmlns:addedPrefix="http://www.sbml.org/sbml/level3/version2/core" level="2" version="2">
+  <addedPrefix:model metaid="iBioSim58" id="majority" name="Created from majority.gcm">
+    <addedPrefix:listOfFunctionDefinitions>
+      <addedPrefix:functionDefinition id="neighborQuantityLeft" name="neighborQuantityLeft">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <lambda>
             <bvar>
@@ -11,8 +11,8 @@
             <cn type="integer"> 0 </cn>
           </lambda>
         </math>
-      </functionDefinition>
-      <functionDefinition id="neighborQuantityRight" name="neighborQuantityRight">
+      </addedPrefix:functionDefinition>
+      <addedPrefix:functionDefinition id="neighborQuantityRight" name="neighborQuantityRight">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <lambda>
             <bvar>
@@ -21,8 +21,8 @@
             <cn type="integer"> 0 </cn>
           </lambda>
         </math>
-      </functionDefinition>
-      <functionDefinition id="neighborQuantityAbove" name="neighborQuantityAbove">
+      </addedPrefix:functionDefinition>
+      <addedPrefix:functionDefinition id="neighborQuantityAbove" name="neighborQuantityAbove">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <lambda>
             <bvar>
@@ -31,8 +31,8 @@
             <cn type="integer"> 0 </cn>
           </lambda>
         </math>
-      </functionDefinition>
-      <functionDefinition id="neighborQuantityBelow" name="neighborQuantityBelow">
+      </addedPrefix:functionDefinition>
+      <addedPrefix:functionDefinition id="neighborQuantityBelow" name="neighborQuantityBelow">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <lambda>
             <bvar>
@@ -41,8 +41,8 @@
             <cn type="integer"> 0 </cn>
           </lambda>
         </math>
-      </functionDefinition>
-      <functionDefinition id="getCompartmentLocationX" name="getCompartmentLocationX">
+      </addedPrefix:functionDefinition>
+      <addedPrefix:functionDefinition id="getCompartmentLocationX" name="getCompartmentLocationX">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <lambda>
             <bvar>
@@ -51,8 +51,8 @@
             <cn type="integer"> 0 </cn>
           </lambda>
         </math>
-      </functionDefinition>
-      <functionDefinition id="getCompartmentLocationY" name="getCompartmentLocationY">
+      </addedPrefix:functionDefinition>
+      <addedPrefix:functionDefinition id="getCompartmentLocationY" name="getCompartmentLocationY">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <lambda>
             <bvar>
@@ -61,8 +61,8 @@
             <cn type="integer"> 0 </cn>
           </lambda>
         </math>
-      </functionDefinition>
-      <functionDefinition id="F" name="Eventually Property">
+      </addedPrefix:functionDefinition>
+      <addedPrefix:functionDefinition id="F" name="Eventually Property">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <lambda>
             <bvar>
@@ -84,55 +84,55 @@
             </apply>
           </lambda>
         </math>
-      </functionDefinition>
-    </listOfFunctionDefinitions>
-    <listOfCompartments>
-      <compartment id="default" spatialDimensions="3" size="1" constant="true"/>
-    </listOfCompartments>
-    <listOfSpecies>
-      <species metaid="iBioSim2" id="D" compartment="default" initialAmount="200" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-      <species metaid="iBioSim3" id="EE" compartment="default" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-      <species metaid="iBioSim4" id="AA" compartment="default" initialAmount="40" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false"/>
-      <species metaid="iBioSim5" id="B" compartment="default" initialAmount="120" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false"/>
-      <species metaid="iBioSim6" id="CC" compartment="default" initialAmount="120" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-      <species metaid="iBioSim7" id="Y" compartment="default" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-      <species metaid="iBioSim8" id="XX" compartment="default" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-      <species metaid="iBioSim9" id="Z" compartment="default" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-      <species metaid="iBioSim10" sboTerm="SBO:0000590" id="P8" name="P8" compartment="default" initialAmount="2" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-      <species metaid="iBioSim11" sboTerm="SBO:0000590" id="P5" name="P5" compartment="default" initialAmount="2" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-      <species metaid="iBioSim12" sboTerm="SBO:0000590" id="P4" name="P4" compartment="default" initialAmount="2" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-      <species metaid="iBioSim13" sboTerm="SBO:0000590" id="P7" name="P7" compartment="default" initialAmount="2" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-      <species metaid="iBioSim14" sboTerm="SBO:0000590" id="P6" name="P6" compartment="default" initialAmount="2" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-      <species metaid="iBioSim15" sboTerm="SBO:0000590" id="P1" name="P1" compartment="default" initialAmount="2" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-      <species metaid="iBioSim16" sboTerm="SBO:0000590" id="P3" name="P3" compartment="default" initialAmount="2" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-      <species metaid="iBioSim17" sboTerm="SBO:0000590" id="P2" name="P2" compartment="default" initialAmount="2" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-    </listOfSpecies>
-    <listOfParameters>
-      <parameter metaid="iBioSim18" id="kr_f" name="Forward repression binding rate" value="0.5" constant="true"/>
-      <parameter metaid="iBioSim19" id="kr_r" name="Reverse repression binding rate" value="1" constant="true"/>
-      <parameter metaid="iBioSim20" id="ka_f" name="Forward activation binding rate" value="0.0033" constant="true"/>
-      <parameter metaid="iBioSim21" id="ka_r" name="Reverse activation binding rate" value="1" constant="true"/>
-      <parameter metaid="iBioSim22" id="kc_f" name="Forward complex formation rate" value="0.05" constant="true"/>
-      <parameter metaid="iBioSim23" id="kc_r" name="Reverse complex formation rate" value="1" constant="true"/>
-      <parameter metaid="iBioSim24" id="ko_f" name="Forward RNAP binding rate" value="0.033" constant="true"/>
-      <parameter metaid="iBioSim25" id="ko_r" name="Reverse RNAP binding rate" value="1" constant="true"/>
-      <parameter metaid="iBioSim26" id="kao_f" name="Forward activated RNAP binding rate" value="1" constant="true"/>
-      <parameter metaid="iBioSim27" id="kao_r" name="Reverse activated RNAP binding rate" value="1" constant="true"/>
-      <parameter metaid="iBioSim28" id="kmdiff_f" name="Forward membrane diffusion rate" value="1" constant="true"/>
-      <parameter metaid="iBioSim29" id="kmdiff_r" name="Reverse membrane diffusion rate" value="0.01" constant="true"/>
-      <parameter metaid="iBioSim30" id="kd" name="Degradation rate" value="0.0075" constant="true"/>
-      <parameter metaid="iBioSim31" id="kecd" name="Extracellular degradation rate" value="0.005" constant="true"/>
-      <parameter metaid="iBioSim32" id="nc" name="Stoichiometry of binding" value="2" constant="true"/>
-      <parameter metaid="iBioSim33" id="nr" name="Initial RNAP count" value="30" constant="true"/>
-      <parameter metaid="iBioSim34" id="ko" name="Open complex production rate" value="0.05" constant="true"/>
-      <parameter metaid="iBioSim35" id="kb" name="Basal production rate" value="0.0001" constant="true"/>
-      <parameter metaid="iBioSim36" id="ng" name="Initial promoter count" value="2" constant="true"/>
-      <parameter metaid="iBioSim37" id="np" name="Stoichiometry of production" value="10" constant="true"/>
-      <parameter metaid="iBioSim38" id="ka" name="Activated production rate" value="0.25" constant="true"/>
-      <parameter metaid="iBioSim39" id="kecdiff" name="Extracellular diffusion rate" value="1" constant="true"/>
-    </listOfParameters>
-    <listOfConstraints>
-      <constraint metaid="Condition_0">
+      </addedPrefix:functionDefinition>
+    </addedPrefix:listOfFunctionDefinitions>
+    <addedPrefix:listOfCompartments>
+      <addedPrefix:compartment id="default" spatialDimensions="3" size="1" constant="true"/>
+    </addedPrefix:listOfCompartments>
+    <addedPrefix:listOfSpecies>
+      <addedPrefix:species metaid="iBioSim2" id="D" compartment="default" initialAmount="200" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <addedPrefix:species metaid="iBioSim3" id="EE" compartment="default" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <addedPrefix:species metaid="iBioSim4" id="AA" compartment="default" initialAmount="40" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false"/>
+      <addedPrefix:species metaid="iBioSim5" id="B" compartment="default" initialAmount="120" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false"/>
+      <addedPrefix:species metaid="iBioSim6" id="CC" compartment="default" initialAmount="120" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <addedPrefix:species metaid="iBioSim7" id="Y" compartment="default" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <addedPrefix:species metaid="iBioSim8" id="XX" compartment="default" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <addedPrefix:species metaid="iBioSim9" id="Z" compartment="default" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <addedPrefix:species metaid="iBioSim10" id="P8" name="P8" compartment="default" initialAmount="2" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <addedPrefix:species metaid="iBioSim11" id="P5" name="P5" compartment="default" initialAmount="2" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <addedPrefix:species metaid="iBioSim12" id="P4" name="P4" compartment="default" initialAmount="2" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <addedPrefix:species metaid="iBioSim13" id="P7" name="P7" compartment="default" initialAmount="2" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <addedPrefix:species metaid="iBioSim14" id="P6" name="P6" compartment="default" initialAmount="2" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <addedPrefix:species metaid="iBioSim15" id="P1" name="P1" compartment="default" initialAmount="2" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <addedPrefix:species metaid="iBioSim16" id="P3" name="P3" compartment="default" initialAmount="2" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <addedPrefix:species metaid="iBioSim17" id="P2" name="P2" compartment="default" initialAmount="2" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+    </addedPrefix:listOfSpecies>
+    <addedPrefix:listOfParameters>
+      <addedPrefix:parameter metaid="iBioSim18" id="kr_f" name="Forward repression binding rate" value="0.5" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim19" id="kr_r" name="Reverse repression binding rate" value="1" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim20" id="ka_f" name="Forward activation binding rate" value="0.0033" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim21" id="ka_r" name="Reverse activation binding rate" value="1" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim22" id="kc_f" name="Forward complex formation rate" value="0.05" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim23" id="kc_r" name="Reverse complex formation rate" value="1" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim24" id="ko_f" name="Forward RNAP binding rate" value="0.033" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim25" id="ko_r" name="Reverse RNAP binding rate" value="1" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim26" id="kao_f" name="Forward activated RNAP binding rate" value="1" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim27" id="kao_r" name="Reverse activated RNAP binding rate" value="1" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim28" id="kmdiff_f" name="Forward membrane diffusion rate" value="1" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim29" id="kmdiff_r" name="Reverse membrane diffusion rate" value="0.01" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim30" id="kd" name="Degradation rate" value="0.0075" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim31" id="kecd" name="Extracellular degradation rate" value="0.005" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim32" id="nc" name="Stoichiometry of binding" value="2" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim33" id="nr" name="Initial RNAP count" value="30" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim34" id="ko" name="Open complex production rate" value="0.05" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim35" id="kb" name="Basal production rate" value="0.0001" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim36" id="ng" name="Initial promoter count" value="2" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim37" id="np" name="Stoichiometry of production" value="10" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim38" id="ka" name="Activated production rate" value="0.25" constant="true"/>
+      <addedPrefix:parameter metaid="iBioSim39" id="kecdiff" name="Extracellular diffusion rate" value="1" constant="true"/>
+    </addedPrefix:listOfParameters>
+    <addedPrefix:listOfConstraints>
+      <addedPrefix:constraint metaid="Condition_0">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <apply>
             <ci> F </ci>
@@ -159,14 +159,14 @@
         <message>
           <p xmlns="http://www.w3.org/1999/xhtml">Pr=?{(true)PU[0,2100]((E greater than 40) and (C less than 20))}</p>
         </message>
-      </constraint>
-    </listOfConstraints>
-    <listOfReactions>
-      <reaction metaid="iBioSim40" sboTerm="SBO:0000179" id="Degradation_D" reversible="false" compartment="default">
-        <listOfReactants>
-          <speciesReference species="D" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <kineticLaw>
+      </addedPrefix:constraint>
+    </addedPrefix:listOfConstraints>
+    <addedPrefix:listOfReactions>
+      <addedPrefix:reaction metaid="iBioSim40" sboTerm="SBO:0000179" id="Degradation_D" reversible="false">
+        <addedPrefix:listOfReactants>
+          <addedPrefix:speciesReference species="D" stoichiometry="1"/>
+        </addedPrefix:listOfReactants>
+        <addedPrefix:kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <times/>
@@ -174,13 +174,13 @@
               <ci> D </ci>
             </apply>
           </math>
-        </kineticLaw>
-      </reaction>
-      <reaction metaid="iBioSim41" sboTerm="SBO:0000179" id="Degradation_EE" reversible="false" compartment="default">
-        <listOfReactants>
-          <speciesReference species="EE" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <kineticLaw>
+        </addedPrefix:kineticLaw>
+      </addedPrefix:reaction>
+      <addedPrefix:reaction metaid="iBioSim41" sboTerm="SBO:0000179" id="Degradation_EE" reversible="false">
+        <addedPrefix:listOfReactants>
+          <addedPrefix:speciesReference species="EE" stoichiometry="1"/>
+        </addedPrefix:listOfReactants>
+        <addedPrefix:kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <times/>
@@ -188,13 +188,13 @@
               <ci> EE </ci>
             </apply>
           </math>
-        </kineticLaw>
-      </reaction>
-      <reaction metaid="iBioSim44" sboTerm="SBO:0000179" id="Degradation_CC" reversible="false" compartment="default">
-        <listOfReactants>
-          <speciesReference species="CC" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <kineticLaw>
+        </addedPrefix:kineticLaw>
+      </addedPrefix:reaction>
+      <addedPrefix:reaction metaid="iBioSim44" sboTerm="SBO:0000179" id="Degradation_CC" reversible="false">
+        <addedPrefix:listOfReactants>
+          <addedPrefix:speciesReference species="CC" stoichiometry="1"/>
+        </addedPrefix:listOfReactants>
+        <addedPrefix:kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <times/>
@@ -202,13 +202,13 @@
               <ci> CC </ci>
             </apply>
           </math>
-        </kineticLaw>
-      </reaction>
-      <reaction metaid="iBioSim45" sboTerm="SBO:0000179" id="Degradation_Y" reversible="false" compartment="default">
-        <listOfReactants>
-          <speciesReference species="Y" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <kineticLaw>
+        </addedPrefix:kineticLaw>
+      </addedPrefix:reaction>
+      <addedPrefix:reaction metaid="iBioSim45" sboTerm="SBO:0000179" id="Degradation_Y" reversible="false">
+        <addedPrefix:listOfReactants>
+          <addedPrefix:speciesReference species="Y" stoichiometry="1"/>
+        </addedPrefix:listOfReactants>
+        <addedPrefix:kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <times/>
@@ -216,13 +216,13 @@
               <ci> Y </ci>
             </apply>
           </math>
-        </kineticLaw>
-      </reaction>
-      <reaction metaid="iBioSim46" sboTerm="SBO:0000179" id="Degradation_XX" reversible="false" compartment="default">
-        <listOfReactants>
-          <speciesReference species="XX" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <kineticLaw>
+        </addedPrefix:kineticLaw>
+      </addedPrefix:reaction>
+      <addedPrefix:reaction metaid="iBioSim46" sboTerm="SBO:0000179" id="Degradation_XX" reversible="false">
+        <addedPrefix:listOfReactants>
+          <addedPrefix:speciesReference species="XX" stoichiometry="1"/>
+        </addedPrefix:listOfReactants>
+        <addedPrefix:kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <times/>
@@ -230,13 +230,13 @@
               <ci> XX </ci>
             </apply>
           </math>
-        </kineticLaw>
-      </reaction>
-      <reaction metaid="iBioSim47" sboTerm="SBO:0000179" id="Degradation_Z" reversible="false" compartment="default">
-        <listOfReactants>
-          <speciesReference species="Z" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <kineticLaw>
+        </addedPrefix:kineticLaw>
+      </addedPrefix:reaction>
+      <addedPrefix:reaction metaid="iBioSim47" sboTerm="SBO:0000179" id="Degradation_Z" reversible="false">
+        <addedPrefix:listOfReactants>
+          <addedPrefix:speciesReference species="Z" stoichiometry="1"/>
+        </addedPrefix:listOfReactants>
+        <addedPrefix:kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <times/>
@@ -244,17 +244,17 @@
               <ci> Z </ci>
             </apply>
           </math>
-        </kineticLaw>
-      </reaction>
-      <reaction metaid="iBioSim48" sboTerm="SBO:0000589" id="Production_P8" reversible="false" compartment="default">
-        <listOfProducts>
-          <speciesReference species="CC" stoichiometry="10" constant="true"/>
-        </listOfProducts>
-        <listOfModifiers>
-          <modifierSpeciesReference sboTerm="SBO:0000598" species="P8"/>
-          <modifierSpeciesReference sboTerm="SBO:0000020" species="EE"/>
-        </listOfModifiers>
-        <kineticLaw>
+        </addedPrefix:kineticLaw>
+      </addedPrefix:reaction>
+      <addedPrefix:reaction metaid="iBioSim48" sboTerm="SBO:0000589" id="Production_P8" reversible="false">
+        <addedPrefix:listOfProducts>
+          <addedPrefix:speciesReference species="CC" stoichiometry="10"/>
+        </addedPrefix:listOfProducts>
+        <addedPrefix:listOfModifiers>
+          <addedPrefix:modifierSpeciesReference sboTerm="SBO:0000598" species="P8"/>
+          <addedPrefix:modifierSpeciesReference sboTerm="SBO:0000020" species="EE"/>
+        </addedPrefix:listOfModifiers>
+        <addedPrefix:kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <divide/>
@@ -300,17 +300,17 @@
               </apply>
             </apply>
           </math>
-        </kineticLaw>
-      </reaction>
-      <reaction metaid="iBioSim49" sboTerm="SBO:0000589" id="Production_P5" reversible="false" compartment="default">
-        <listOfProducts>
-          <speciesReference species="D" stoichiometry="10" constant="true"/>
-        </listOfProducts>
-        <listOfModifiers>
-          <modifierSpeciesReference sboTerm="SBO:0000598" species="P5"/>
-          <modifierSpeciesReference sboTerm="SBO:0000020" species="Y"/>
-        </listOfModifiers>
-        <kineticLaw>
+        </addedPrefix:kineticLaw>
+      </addedPrefix:reaction>
+      <addedPrefix:reaction metaid="iBioSim49" sboTerm="SBO:0000589" id="Production_P5" reversible="false">
+        <addedPrefix:listOfProducts>
+          <addedPrefix:speciesReference species="D" stoichiometry="10"/>
+        </addedPrefix:listOfProducts>
+        <addedPrefix:listOfModifiers>
+          <addedPrefix:modifierSpeciesReference sboTerm="SBO:0000598" species="P5"/>
+          <addedPrefix:modifierSpeciesReference sboTerm="SBO:0000020" species="Y"/>
+        </addedPrefix:listOfModifiers>
+        <addedPrefix:kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <divide/>
@@ -356,17 +356,17 @@
               </apply>
             </apply>
           </math>
-        </kineticLaw>
-      </reaction>
-      <reaction metaid="iBioSim50" sboTerm="SBO:0000589" id="Production_P4" reversible="false" compartment="default">
-        <listOfProducts>
-          <speciesReference species="D" stoichiometry="10" constant="true"/>
-        </listOfProducts>
-        <listOfModifiers>
-          <modifierSpeciesReference sboTerm="SBO:0000598" species="P4"/>
-          <modifierSpeciesReference sboTerm="SBO:0000020" species="XX"/>
-        </listOfModifiers>
-        <kineticLaw>
+        </addedPrefix:kineticLaw>
+      </addedPrefix:reaction>
+      <addedPrefix:reaction metaid="iBioSim50" sboTerm="SBO:0000589" id="Production_P4" reversible="false">
+        <addedPrefix:listOfProducts>
+          <addedPrefix:speciesReference species="D" stoichiometry="10"/>
+        </addedPrefix:listOfProducts>
+        <addedPrefix:listOfModifiers>
+          <addedPrefix:modifierSpeciesReference sboTerm="SBO:0000598" species="P4"/>
+          <addedPrefix:modifierSpeciesReference sboTerm="SBO:0000020" species="XX"/>
+        </addedPrefix:listOfModifiers>
+        <addedPrefix:kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <divide/>
@@ -412,17 +412,17 @@
               </apply>
             </apply>
           </math>
-        </kineticLaw>
-      </reaction>
-      <reaction metaid="iBioSim51" sboTerm="SBO:0000589" id="Production_P7" reversible="false" compartment="default">
-        <listOfProducts>
-          <speciesReference species="EE" stoichiometry="10" constant="true"/>
-        </listOfProducts>
-        <listOfModifiers>
-          <modifierSpeciesReference sboTerm="SBO:0000598" species="P7"/>
-          <modifierSpeciesReference sboTerm="SBO:0000020" species="D"/>
-        </listOfModifiers>
-        <kineticLaw>
+        </addedPrefix:kineticLaw>
+      </addedPrefix:reaction>
+      <addedPrefix:reaction metaid="iBioSim51" sboTerm="SBO:0000589" id="Production_P7" reversible="false">
+        <addedPrefix:listOfProducts>
+          <addedPrefix:speciesReference species="EE" stoichiometry="10"/>
+        </addedPrefix:listOfProducts>
+        <addedPrefix:listOfModifiers>
+          <addedPrefix:modifierSpeciesReference sboTerm="SBO:0000598" species="P7"/>
+          <addedPrefix:modifierSpeciesReference sboTerm="SBO:0000020" species="D"/>
+        </addedPrefix:listOfModifiers>
+        <addedPrefix:kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <divide/>
@@ -468,17 +468,17 @@
               </apply>
             </apply>
           </math>
-        </kineticLaw>
-      </reaction>
-      <reaction metaid="iBioSim52" sboTerm="SBO:0000589" id="Production_P6" reversible="false" compartment="default">
-        <listOfProducts>
-          <speciesReference species="D" stoichiometry="10" constant="true"/>
-        </listOfProducts>
-        <listOfModifiers>
-          <modifierSpeciesReference sboTerm="SBO:0000598" species="P6"/>
-          <modifierSpeciesReference sboTerm="SBO:0000020" species="Z"/>
-        </listOfModifiers>
-        <kineticLaw>
+        </addedPrefix:kineticLaw>
+      </addedPrefix:reaction>
+      <addedPrefix:reaction metaid="iBioSim52" sboTerm="SBO:0000589" id="Production_P6" reversible="false">
+        <addedPrefix:listOfProducts>
+          <addedPrefix:speciesReference species="D" stoichiometry="10"/>
+        </addedPrefix:listOfProducts>
+        <addedPrefix:listOfModifiers>
+          <addedPrefix:modifierSpeciesReference sboTerm="SBO:0000598" species="P6"/>
+          <addedPrefix:modifierSpeciesReference sboTerm="SBO:0000020" species="Z"/>
+        </addedPrefix:listOfModifiers>
+        <addedPrefix:kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <divide/>
@@ -524,18 +524,18 @@
               </apply>
             </apply>
           </math>
-        </kineticLaw>
-      </reaction>
-      <reaction metaid="iBioSim53" sboTerm="SBO:0000589" id="Production_P1" reversible="false" compartment="default">
-        <listOfProducts>
-          <speciesReference species="Y" stoichiometry="10" constant="true"/>
-          <speciesReference species="XX" stoichiometry="10" constant="true"/>
-        </listOfProducts>
-        <listOfModifiers>
-          <modifierSpeciesReference sboTerm="SBO:0000598" species="P1"/>
-          <modifierSpeciesReference sboTerm="SBO:0000020" species="AA"/>
-        </listOfModifiers>
-        <kineticLaw>
+        </addedPrefix:kineticLaw>
+      </addedPrefix:reaction>
+      <addedPrefix:reaction metaid="iBioSim53" sboTerm="SBO:0000589" id="Production_P1" reversible="false">
+        <addedPrefix:listOfProducts>
+          <addedPrefix:speciesReference species="Y" stoichiometry="10"/>
+          <addedPrefix:speciesReference species="XX" stoichiometry="10"/>
+        </addedPrefix:listOfProducts>
+        <addedPrefix:listOfModifiers>
+          <addedPrefix:modifierSpeciesReference sboTerm="SBO:0000598" species="P1"/>
+          <addedPrefix:modifierSpeciesReference sboTerm="SBO:0000020" species="AA"/>
+        </addedPrefix:listOfModifiers>
+        <addedPrefix:kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <divide/>
@@ -581,18 +581,18 @@
               </apply>
             </apply>
           </math>
-        </kineticLaw>
-      </reaction>
-      <reaction metaid="iBioSim54" sboTerm="SBO:0000589" id="Production_P3" reversible="false" compartment="default">
-        <listOfProducts>
-          <speciesReference species="Z" stoichiometry="10" constant="true"/>
-          <speciesReference species="Y" stoichiometry="10" constant="true"/>
-        </listOfProducts>
-        <listOfModifiers>
-          <modifierSpeciesReference sboTerm="SBO:0000598" species="P3"/>
-          <modifierSpeciesReference sboTerm="SBO:0000020" species="D"/>
-        </listOfModifiers>
-        <kineticLaw>
+        </addedPrefix:kineticLaw>
+      </addedPrefix:reaction>
+      <addedPrefix:reaction metaid="iBioSim54" sboTerm="SBO:0000589" id="Production_P3" reversible="false">
+        <addedPrefix:listOfProducts>
+          <addedPrefix:speciesReference species="Z" stoichiometry="10"/>
+          <addedPrefix:speciesReference species="Y" stoichiometry="10"/>
+        </addedPrefix:listOfProducts>
+        <addedPrefix:listOfModifiers>
+          <addedPrefix:modifierSpeciesReference sboTerm="SBO:0000598" species="P3"/>
+          <addedPrefix:modifierSpeciesReference sboTerm="SBO:0000020" species="D"/>
+        </addedPrefix:listOfModifiers>
+        <addedPrefix:kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <divide/>
@@ -638,18 +638,18 @@
               </apply>
             </apply>
           </math>
-        </kineticLaw>
-      </reaction>
-      <reaction metaid="iBioSim55" sboTerm="SBO:0000589" id="Production_P2" reversible="false" compartment="default">
-        <listOfProducts>
-          <speciesReference species="XX" stoichiometry="10" constant="true"/>
-          <speciesReference species="Z" stoichiometry="10" constant="true"/>
-        </listOfProducts>
-        <listOfModifiers>
-          <modifierSpeciesReference sboTerm="SBO:0000598" species="P2"/>
-          <modifierSpeciesReference sboTerm="SBO:0000020" species="B"/>
-        </listOfModifiers>
-        <kineticLaw>
+        </addedPrefix:kineticLaw>
+      </addedPrefix:reaction>
+      <addedPrefix:reaction metaid="iBioSim55" sboTerm="SBO:0000589" id="Production_P2" reversible="false">
+        <addedPrefix:listOfProducts>
+          <addedPrefix:speciesReference species="XX" stoichiometry="10"/>
+          <addedPrefix:speciesReference species="Z" stoichiometry="10"/>
+        </addedPrefix:listOfProducts>
+        <addedPrefix:listOfModifiers>
+          <addedPrefix:modifierSpeciesReference sboTerm="SBO:0000598" species="P2"/>
+          <addedPrefix:modifierSpeciesReference sboTerm="SBO:0000020" species="B"/>
+        </addedPrefix:listOfModifiers>
+        <addedPrefix:kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <divide/>
@@ -695,12 +695,12 @@
               </apply>
             </apply>
           </math>
-        </kineticLaw>
-      </reaction>
-    </listOfReactions>
-    <listOfEvents>
-      <event metaid="iBioSim1" id="event0" useValuesFromTriggerTime="false">
-        <trigger initialValue="false" persistent="false">
+        </addedPrefix:kineticLaw>
+      </addedPrefix:reaction>
+    </addedPrefix:listOfReactions>
+    <addedPrefix:listOfEvents>
+      <addedPrefix:event metaid="iBioSim1" id="event0">
+        <addedPrefix:trigger>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <geq/>
@@ -708,22 +708,22 @@
               <cn type="integer"> 5000 </cn>
             </apply>
           </math>
-        </trigger>
-        <delay>
+        </addedPrefix:trigger>
+        <addedPrefix:delay>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <cn type="integer"> 0 </cn>
           </math>
-        </delay>
-        <listOfEventAssignments>
-          <eventAssignment variable="AA">
+        </addedPrefix:delay>
+        <addedPrefix:listOfEventAssignments>
+          <addedPrefix:eventAssignment variable="AA">
             <math xmlns="http://www.w3.org/1998/Math/MathML">
               <cn type="integer"> 40 </cn>
             </math>
-          </eventAssignment>
-        </listOfEventAssignments>
-      </event>
-      <event metaid="iBioSim43" id="event1" useValuesFromTriggerTime="false">
-        <trigger initialValue="false" persistent="false">
+          </addedPrefix:eventAssignment>
+        </addedPrefix:listOfEventAssignments>
+      </addedPrefix:event>
+      <addedPrefix:event metaid="iBioSim43" id="event1">
+        <addedPrefix:trigger>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <geq/>
@@ -731,22 +731,22 @@
               <cn type="integer"> 10000 </cn>
             </apply>
           </math>
-        </trigger>
-        <delay>
+        </addedPrefix:trigger>
+        <addedPrefix:delay>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <cn type="integer"> 0 </cn>
           </math>
-        </delay>
-        <listOfEventAssignments>
-          <eventAssignment variable="B">
+        </addedPrefix:delay>
+        <addedPrefix:listOfEventAssignments>
+          <addedPrefix:eventAssignment variable="B">
             <math xmlns="http://www.w3.org/1998/Math/MathML">
               <cn type="integer"> 40 </cn>
             </math>
-          </eventAssignment>
-        </listOfEventAssignments>
-      </event>
-      <event metaid="iBioSim56" id="event2" useValuesFromTriggerTime="false">
-        <trigger initialValue="false" persistent="false">
+          </addedPrefix:eventAssignment>
+        </addedPrefix:listOfEventAssignments>
+      </addedPrefix:event>
+      <addedPrefix:event metaid="iBioSim56" id="event2">
+        <addedPrefix:trigger>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <geq/>
@@ -754,22 +754,22 @@
               <cn type="integer"> 15000 </cn>
             </apply>
           </math>
-        </trigger>
-        <delay>
+        </addedPrefix:trigger>
+        <addedPrefix:delay>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <cn type="integer"> 0 </cn>
           </math>
-        </delay>
-        <listOfEventAssignments>
-          <eventAssignment variable="AA">
+        </addedPrefix:delay>
+        <addedPrefix:listOfEventAssignments>
+          <addedPrefix:eventAssignment variable="AA">
             <math xmlns="http://www.w3.org/1998/Math/MathML">
               <cn type="integer"> 0 </cn>
             </math>
-          </eventAssignment>
-        </listOfEventAssignments>
-      </event>
-      <event metaid="iBioSim57" id="event3" useValuesFromTriggerTime="false">
-        <trigger initialValue="false" persistent="false">
+          </addedPrefix:eventAssignment>
+        </addedPrefix:listOfEventAssignments>
+      </addedPrefix:event>
+      <addedPrefix:event metaid="iBioSim57" id="event3">
+        <addedPrefix:trigger>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <geq/>
@@ -777,452 +777,20 @@
               <cn type="integer"> 20000 </cn>
             </apply>
           </math>
-        </trigger>
-        <delay>
+        </addedPrefix:trigger>
+        <addedPrefix:delay>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <cn type="integer"> 0 </cn>
           </math>
-        </delay>
-        <listOfEventAssignments>
-          <eventAssignment variable="B">
+        </addedPrefix:delay>
+        <addedPrefix:listOfEventAssignments>
+          <addedPrefix:eventAssignment variable="B">
             <math xmlns="http://www.w3.org/1998/Math/MathML">
               <cn type="integer"> 0 </cn>
             </math>
-          </eventAssignment>
-        </listOfEventAssignments>
-      </event>
-    </listOfEvents>
-    <layout:listOfLayouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1">
-      <layout:layout layout:id="iBioSim">
-        <layout:dimensions layout:width="1070" layout:height="539.295817894065"/>
-        <layout:listOfCompartmentGlyphs>
-          <layout:compartmentGlyph layout:id="Glyph__default" layout:compartment="default">
-            <layout:boundingBox>
-              <layout:position layout:x="0" layout:y="0"/>
-              <layout:dimensions layout:width="1070" layout:height="425"/>
-            </layout:boundingBox>
-          </layout:compartmentGlyph>
-        </layout:listOfCompartmentGlyphs>
-        <layout:listOfSpeciesGlyphs>
-          <layout:speciesGlyph layout:id="Glyph__D" layout:species="D">
-            <layout:boundingBox>
-              <layout:position layout:x="10" layout:y="509.295817894065"/>
-              <layout:dimensions layout:width="100" layout:height="30"/>
-            </layout:boundingBox>
-          </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="Glyph__EE" layout:species="EE">
-            <layout:boundingBox>
-              <layout:position layout:x="10" layout:y="434.711172178454"/>
-              <layout:dimensions layout:width="100" layout:height="30"/>
-            </layout:boundingBox>
-          </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="Glyph__AA" layout:species="AA">
-            <layout:boundingBox>
-              <layout:position layout:x="509.295817894065" layout:y="254.647908947033"/>
-              <layout:dimensions layout:width="100" layout:height="30"/>
-            </layout:boundingBox>
-          </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="Glyph__B" layout:species="B">
-            <layout:boundingBox>
-              <layout:position layout:x="434.711172178454" layout:y="74.5846457156113"/>
-              <layout:dimensions layout:width="100" layout:height="30"/>
-            </layout:boundingBox>
-          </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="Glyph__CC" layout:species="CC">
-            <layout:boundingBox>
-              <layout:position layout:x="254.647908947033" layout:y="0"/>
-              <layout:dimensions layout:width="100" layout:height="30"/>
-            </layout:boundingBox>
-          </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="Glyph__Y" layout:species="Y">
-            <layout:boundingBox>
-              <layout:position layout:x="74.5846457156113" layout:y="74.5846457156113"/>
-              <layout:dimensions layout:width="100" layout:height="30"/>
-            </layout:boundingBox>
-          </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="Glyph__XX" layout:species="XX">
-            <layout:boundingBox>
-              <layout:position layout:x="0" layout:y="254.647908947032"/>
-              <layout:dimensions layout:width="100" layout:height="30"/>
-            </layout:boundingBox>
-          </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="Glyph__Z" layout:species="Z">
-            <layout:boundingBox>
-              <layout:position layout:x="250" layout:y="359.711172178454"/>
-              <layout:dimensions layout:width="100" layout:height="30"/>
-            </layout:boundingBox>
-          </layout:speciesGlyph>
-        </layout:listOfSpeciesGlyphs>
-        <layout:listOfReactionGlyphs>
-          <layout:reactionGlyph layout:id="Glyph__EE__repression__CC">
-            <layout:boundingBox>
-              <layout:position layout:x="304.647908947033" layout:y="15"/>
-              <layout:dimensions layout:width="0" layout:height="0"/>
-            </layout:boundingBox>
-            <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="ReferenceGlyph__EE__repression__CC" layout:speciesGlyph="Glyph__CC" layout:role="product">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="60" layout:y="449.711172178454"/>
-                      <layout:end layout:x="304.647908947033" layout:y="15"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-            </layout:listOfSpeciesReferenceGlyphs>
-          </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="Glyph__Y__repression__D">
-            <layout:boundingBox>
-              <layout:position layout:x="60" layout:y="524.295817894065"/>
-              <layout:dimensions layout:width="0" layout:height="0"/>
-            </layout:boundingBox>
-            <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="ReferenceGlyph__Y__repression__D" layout:speciesGlyph="Glyph__D" layout:role="product">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="124.584645715611" layout:y="89.5846457156113"/>
-                      <layout:end layout:x="60" layout:y="524.295817894065"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-            </layout:listOfSpeciesReferenceGlyphs>
-          </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="Glyph__XX__repression__D">
-            <layout:boundingBox>
-              <layout:position layout:x="60" layout:y="524.295817894065"/>
-              <layout:dimensions layout:width="0" layout:height="0"/>
-            </layout:boundingBox>
-            <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="ReferenceGlyph__XX__repression__D" layout:speciesGlyph="Glyph__D" layout:role="product">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="50" layout:y="269.647908947032"/>
-                      <layout:end layout:x="60" layout:y="524.295817894065"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-            </layout:listOfSpeciesReferenceGlyphs>
-          </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="Glyph__D__repression__EE">
-            <layout:boundingBox>
-              <layout:position layout:x="60" layout:y="449.711172178454"/>
-              <layout:dimensions layout:width="0" layout:height="0"/>
-            </layout:boundingBox>
-            <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="ReferenceGlyph__D__repression__EE" layout:speciesGlyph="Glyph__EE" layout:role="product">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="60" layout:y="524.295817894065"/>
-                      <layout:end layout:x="60" layout:y="449.711172178454"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-            </layout:listOfSpeciesReferenceGlyphs>
-          </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="Glyph__Z__repression__D">
-            <layout:boundingBox>
-              <layout:position layout:x="60" layout:y="524.295817894065"/>
-              <layout:dimensions layout:width="0" layout:height="0"/>
-            </layout:boundingBox>
-            <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="ReferenceGlyph__Z__repression__D" layout:speciesGlyph="Glyph__D" layout:role="product">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="300" layout:y="374.711172178454"/>
-                      <layout:end layout:x="60" layout:y="524.295817894065"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-            </layout:listOfSpeciesReferenceGlyphs>
-          </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="Glyph__AA__repression__Y">
-            <layout:boundingBox>
-              <layout:position layout:x="124.584645715611" layout:y="89.5846457156113"/>
-              <layout:dimensions layout:width="0" layout:height="0"/>
-            </layout:boundingBox>
-            <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="ReferenceGlyph__AA__repression__Y" layout:speciesGlyph="Glyph__Y" layout:role="product">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="559.295817894065" layout:y="269.647908947033"/>
-                      <layout:end layout:x="124.584645715611" layout:y="89.5846457156113"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-            </layout:listOfSpeciesReferenceGlyphs>
-          </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="Glyph__AA__repression__XX">
-            <layout:boundingBox>
-              <layout:position layout:x="50" layout:y="269.647908947032"/>
-              <layout:dimensions layout:width="0" layout:height="0"/>
-            </layout:boundingBox>
-            <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="ReferenceGlyph__AA__repression__XX" layout:speciesGlyph="Glyph__XX" layout:role="product">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="559.295817894065" layout:y="269.647908947033"/>
-                      <layout:end layout:x="50" layout:y="269.647908947032"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-            </layout:listOfSpeciesReferenceGlyphs>
-          </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="Glyph__D__repression__Z">
-            <layout:boundingBox>
-              <layout:position layout:x="300" layout:y="374.711172178454"/>
-              <layout:dimensions layout:width="0" layout:height="0"/>
-            </layout:boundingBox>
-            <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="ReferenceGlyph__D__repression__Z" layout:speciesGlyph="Glyph__Z" layout:role="product">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="60" layout:y="524.295817894065"/>
-                      <layout:end layout:x="300" layout:y="374.711172178454"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-            </layout:listOfSpeciesReferenceGlyphs>
-          </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="Glyph__D__repression__Y">
-            <layout:boundingBox>
-              <layout:position layout:x="124.584645715611" layout:y="89.5846457156113"/>
-              <layout:dimensions layout:width="0" layout:height="0"/>
-            </layout:boundingBox>
-            <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="ReferenceGlyph__D__repression__Y" layout:speciesGlyph="Glyph__Y" layout:role="product">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="60" layout:y="524.295817894065"/>
-                      <layout:end layout:x="124.584645715611" layout:y="89.5846457156113"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-            </layout:listOfSpeciesReferenceGlyphs>
-          </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="Glyph__B__repression__XX">
-            <layout:boundingBox>
-              <layout:position layout:x="50" layout:y="269.647908947032"/>
-              <layout:dimensions layout:width="0" layout:height="0"/>
-            </layout:boundingBox>
-            <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="ReferenceGlyph__B__repression__XX" layout:speciesGlyph="Glyph__XX" layout:role="product">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="484.711172178454" layout:y="89.5846457156113"/>
-                      <layout:end layout:x="50" layout:y="269.647908947032"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-            </layout:listOfSpeciesReferenceGlyphs>
-          </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="Glyph__B__repression__Z">
-            <layout:boundingBox>
-              <layout:position layout:x="300" layout:y="374.711172178454"/>
-              <layout:dimensions layout:width="0" layout:height="0"/>
-            </layout:boundingBox>
-            <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="ReferenceGlyph__B__repression__Z" layout:speciesGlyph="Glyph__Z" layout:role="product">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="484.711172178454" layout:y="89.5846457156113"/>
-                      <layout:end layout:x="300" layout:y="374.711172178454"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-            </layout:listOfSpeciesReferenceGlyphs>
-          </layout:reactionGlyph>
-        </layout:listOfReactionGlyphs>
-        <layout:listOfTextGlyphs>
-          <layout:textGlyph layout:id="TextGlyph__default" layout:text="default" layout:graphicalObject="Glyph__default">
-            <layout:boundingBox>
-              <layout:position layout:x="0" layout:y="0"/>
-              <layout:dimensions layout:width="1070" layout:height="425"/>
-            </layout:boundingBox>
-          </layout:textGlyph>
-          <layout:textGlyph layout:id="TextGlyph__Condition_0" layout:text="Condition_0" layout:graphicalObject="Glyph__Condition_0">
-            <layout:boundingBox>
-              <layout:position layout:x="40" layout:y="100"/>
-              <layout:dimensions layout:width="50" layout:height="40"/>
-            </layout:boundingBox>
-          </layout:textGlyph>
-          <layout:textGlyph layout:id="TextGlyph__event0" layout:text="event0" layout:graphicalObject="Glyph__event0">
-            <layout:boundingBox>
-              <layout:position layout:x="670" layout:y="90"/>
-              <layout:dimensions layout:width="75" layout:height="25"/>
-            </layout:boundingBox>
-          </layout:textGlyph>
-          <layout:textGlyph layout:id="TextGlyph__event1" layout:text="event1" layout:graphicalObject="Glyph__event1">
-            <layout:boundingBox>
-              <layout:position layout:x="720" layout:y="170"/>
-              <layout:dimensions layout:width="75" layout:height="25"/>
-            </layout:boundingBox>
-          </layout:textGlyph>
-          <layout:textGlyph layout:id="TextGlyph__event2" layout:text="event2" layout:graphicalObject="Glyph__event2">
-            <layout:boundingBox>
-              <layout:position layout:x="738" layout:y="223"/>
-              <layout:dimensions layout:width="75" layout:height="25"/>
-            </layout:boundingBox>
-          </layout:textGlyph>
-          <layout:textGlyph layout:id="TextGlyph__event3" layout:text="event3" layout:graphicalObject="Glyph__event3">
-            <layout:boundingBox>
-              <layout:position layout:x="752" layout:y="282"/>
-              <layout:dimensions layout:width="75" layout:height="25"/>
-            </layout:boundingBox>
-          </layout:textGlyph>
-          <layout:textGlyph layout:id="TextGlyph__D" layout:text="D" layout:graphicalObject="Glyph__D">
-            <layout:boundingBox>
-              <layout:position layout:x="10" layout:y="509.295817894065"/>
-              <layout:dimensions layout:width="100" layout:height="30"/>
-            </layout:boundingBox>
-          </layout:textGlyph>
-          <layout:textGlyph layout:id="TextGlyph__EE" layout:text="EE" layout:graphicalObject="Glyph__EE">
-            <layout:boundingBox>
-              <layout:position layout:x="10" layout:y="434.711172178454"/>
-              <layout:dimensions layout:width="100" layout:height="30"/>
-            </layout:boundingBox>
-          </layout:textGlyph>
-          <layout:textGlyph layout:id="TextGlyph__Z" layout:text="Z" layout:graphicalObject="Glyph__Z">
-            <layout:boundingBox>
-              <layout:position layout:x="250" layout:y="359.711172178454"/>
-              <layout:dimensions layout:width="100" layout:height="30"/>
-            </layout:boundingBox>
-          </layout:textGlyph>
-        </layout:listOfTextGlyphs>
-        <layout:listOfAdditionalGraphicalObjects>
-          <layout:generalGlyph layout:id="Glyph__Condition_0" layout:metaidRef="Condition_0">
-            <layout:boundingBox>
-              <layout:position layout:x="40" layout:y="100"/>
-              <layout:dimensions layout:width="50" layout:height="40"/>
-            </layout:boundingBox>
-            <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:id="Glyph__Condition_0__substrate__CC" layout:glyph="Glyph__CC" layout:role="substrate">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="304.647908947033" layout:y="15"/>
-                      <layout:end layout:x="65" layout:y="120"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:referenceGlyph>
-              <layout:referenceGlyph layout:id="Glyph__Condition_0__substrate__EE" layout:glyph="Glyph__EE" layout:role="substrate">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="60" layout:y="449.711172178454"/>
-                      <layout:end layout:x="65" layout:y="120"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:referenceGlyph>
-            </layout:listOfReferenceGlyphs>
-          </layout:generalGlyph>
-          <layout:generalGlyph layout:id="Glyph__event0" layout:reference="event0">
-            <layout:boundingBox>
-              <layout:position layout:x="670" layout:y="90"/>
-              <layout:dimensions layout:width="75" layout:height="25"/>
-            </layout:boundingBox>
-            <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:id="Glyph__event0__product__AA" layout:glyph="Glyph__AA" layout:role="product">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="707.5" layout:y="102.5"/>
-                      <layout:end layout:x="559.295817894065" layout:y="269.647908947033"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:referenceGlyph>
-            </layout:listOfReferenceGlyphs>
-          </layout:generalGlyph>
-          <layout:generalGlyph layout:id="Glyph__event1" layout:reference="event1">
-            <layout:boundingBox>
-              <layout:position layout:x="720" layout:y="170"/>
-              <layout:dimensions layout:width="75" layout:height="25"/>
-            </layout:boundingBox>
-            <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:id="Glyph__event1__product__B" layout:glyph="Glyph__B" layout:role="product">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="757.5" layout:y="182.5"/>
-                      <layout:end layout:x="484.711172178454" layout:y="89.5846457156113"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:referenceGlyph>
-            </layout:listOfReferenceGlyphs>
-          </layout:generalGlyph>
-          <layout:generalGlyph layout:id="Glyph__event2" layout:reference="event2">
-            <layout:boundingBox>
-              <layout:position layout:x="738" layout:y="223"/>
-              <layout:dimensions layout:width="75" layout:height="25"/>
-            </layout:boundingBox>
-            <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:id="Glyph__event2__product__AA" layout:glyph="Glyph__AA" layout:role="product">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="775.5" layout:y="235.5"/>
-                      <layout:end layout:x="559.295817894065" layout:y="269.647908947033"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:referenceGlyph>
-            </layout:listOfReferenceGlyphs>
-          </layout:generalGlyph>
-          <layout:generalGlyph layout:id="Glyph__event3" layout:reference="event3">
-            <layout:boundingBox>
-              <layout:position layout:x="752" layout:y="282"/>
-              <layout:dimensions layout:width="75" layout:height="25"/>
-            </layout:boundingBox>
-            <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:id="Glyph__event3__product__B" layout:glyph="Glyph__B" layout:role="product">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="789.5" layout:y="294.5"/>
-                      <layout:end layout:x="484.711172178454" layout:y="89.5846457156113"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:referenceGlyph>
-            </layout:listOfReferenceGlyphs>
-          </layout:generalGlyph>
-        </layout:listOfAdditionalGraphicalObjects>
-      </layout:layout>
-    </layout:listOfLayouts>
-    <comp:listOfPorts>
-      <comp:port sboTerm="SBO:0000601" comp:idRef="D" comp:id="internal__D"/>
-      <comp:port sboTerm="SBO:0000600" comp:idRef="B" comp:id="input__B"/>
-      <comp:port sboTerm="SBO:0000601" comp:idRef="Y" comp:id="internal__Y"/>
-      <comp:port sboTerm="SBO:0000601" comp:idRef="Z" comp:id="internal__Z"/>
-      <comp:port sboTerm="SBO:0000601" comp:idRef="default" comp:id="compartment__default"/>
-      <comp:port sboTerm="SBO:0000600" comp:idRef="AA" comp:id="input__AA"/>
-      <comp:port sboTerm="SBO:0000601" comp:idRef="EE" comp:id="output__EE"/>
-      <comp:port sboTerm="SBO:0000601" comp:idRef="XX" comp:id="output__XX"/>
-      <comp:port sboTerm="SBO:0000601" comp:idRef="CC" comp:id="output__CC"/>
-    </comp:listOfPorts>
-  </model>
+          </addedPrefix:eventAssignment>
+        </addedPrefix:listOfEventAssignments>
+      </addedPrefix:event>
+    </addedPrefix:listOfEvents>
+  </addedPrefix:model>
 </sbml>

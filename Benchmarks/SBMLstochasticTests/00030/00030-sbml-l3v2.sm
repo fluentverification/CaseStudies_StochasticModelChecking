@@ -38,7 +38,7 @@ endmodule
 module reaction_rates
 
 		// Dimerisation:  ->  _P -> P2
-		[Dimerisation] ((k1 * _P* ( _P- 1)) / 2) > 0 -> ((k1 * _P* ( _P- 1)) / 2) : true;
+		[Dimerisation] ((k1 * _P * ( _P - 1)) / 2) > 0 -> ((k1 * _P* ( _P - 1)) / 2) : true;
 
 		// Disassociation:  ->  P2 -> _P
 		[Disassociation] (k2 * P2) > 0 -> (k2 * P2) : true;
