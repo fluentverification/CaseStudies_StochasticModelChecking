@@ -25,6 +25,3 @@ Contains PRISM and IVy files for the reaction of the Kuwahara Enzyme.
 Various relevant PRISM models (mostly conversions of the SBML files in `./SBML`) that can be used to model certain properties of systems. Can be run in STORM, PRISM, or STAMINA.
 
 
-
-
-### References
