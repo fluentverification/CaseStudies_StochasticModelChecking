@@ -1,0 +1,107 @@
+2023-02-02 12:08:21,958 ERROR o.s.j.x.p.SBMLCoreParser [main] Property compartment is not defined in reaction for Level 2 and Version 1.
+2023-02-02 12:08:21,960 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = compartment, value 'Cell' , element name = reaction
+2023-02-02 12:08:21,960 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'compartment' on the element reaction. Please check the specification for SBML.
+2023-02-02 12:08:21,962 ERROR o.s.j.x.p.SBMLCoreParser [main] Property constant is not defined in speciesReference for Level 2 and Version 1.
+2023-02-02 12:08:21,963 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = constant, value 'true' , element name = speciesReference
+2023-02-02 12:08:21,963 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'constant' on the element speciesReference. Please check the specification for SBML.
+2023-02-02 12:08:21,966 ERROR o.s.j.x.p.SBMLCoreParser [main] Property compartment is not defined in reaction for Level 2 and Version 1.
+2023-02-02 12:08:21,966 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = compartment, value 'Cell' , element name = reaction
+2023-02-02 12:08:21,966 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'compartment' on the element reaction. Please check the specification for SBML.
+2023-02-02 12:08:21,967 ERROR o.s.j.x.p.SBMLCoreParser [main] Property constant is not defined in speciesReference for Level 2 and Version 1.
+2023-02-02 12:08:21,967 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = constant, value 'true' , element name = speciesReference
+2023-02-02 12:08:21,967 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'constant' on the element speciesReference. Please check the specification for SBML.
+2023-02-02 12:08:21,968 ERROR o.s.j.x.p.SBMLCoreParser [main] Property compartment is not defined in reaction for Level 2 and Version 1.
+2023-02-02 12:08:21,968 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = compartment, value 'Cell' , element name = reaction
+2023-02-02 12:08:21,968 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'compartment' on the element reaction. Please check the specification for SBML.
+2023-02-02 12:08:21,969 ERROR o.s.j.x.p.SBMLCoreParser [main] Property constant is not defined in speciesReference for Level 2 and Version 1.
+2023-02-02 12:08:21,969 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = constant, value 'true' , element name = speciesReference
+2023-02-02 12:08:21,969 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'constant' on the element speciesReference. Please check the specification for SBML.
+2023-02-02 12:08:21,970 ERROR o.s.j.x.p.SBMLCoreParser [main] Property compartment is not defined in reaction for Level 2 and Version 1.
+2023-02-02 12:08:21,970 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = compartment, value 'Cell' , element name = reaction
+2023-02-02 12:08:21,970 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'compartment' on the element reaction. Please check the specification for SBML.
+2023-02-02 12:08:21,971 ERROR o.s.j.x.p.SBMLCoreParser [main] Property constant is not defined in speciesReference for Level 2 and Version 1.
+2023-02-02 12:08:21,971 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = constant, value 'true' , element name = speciesReference
+2023-02-02 12:08:21,971 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'constant' on the element speciesReference. Please check the specification for SBML.
+2023-02-02 12:08:21,972 ERROR o.s.j.x.p.SBMLCoreParser [main] Property compartment is not defined in reaction for Level 2 and Version 1.
+2023-02-02 12:08:21,972 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = compartment, value 'Cell' , element name = reaction
+2023-02-02 12:08:21,972 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'compartment' on the element reaction. Please check the specification for SBML.
+2023-02-02 12:08:21,973 ERROR o.s.j.x.p.SBMLCoreParser [main] Property constant is not defined in speciesReference for Level 2 and Version 1.
+2023-02-02 12:08:21,973 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = constant, value 'true' , element name = speciesReference
+2023-02-02 12:08:21,973 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'constant' on the element speciesReference. Please check the specification for SBML.
+2023-02-02 12:08:21,974 ERROR o.s.j.x.p.SBMLCoreParser [main] Property compartment is not defined in reaction for Level 2 and Version 1.
+2023-02-02 12:08:21,974 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = compartment, value 'Cell' , element name = reaction
+2023-02-02 12:08:21,974 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'compartment' on the element reaction. Please check the specification for SBML.
+2023-02-02 12:08:21,974 ERROR o.s.j.x.p.SBMLCoreParser [main] Property constant is not defined in speciesReference for Level 2 and Version 1.
+2023-02-02 12:08:21,974 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = constant, value 'true' , element name = speciesReference
+2023-02-02 12:08:21,975 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'constant' on the element speciesReference. Please check the specification for SBML.
+2023-02-02 12:08:21,975 ERROR o.s.j.x.p.SBMLCoreParser [main] Property constant is not defined in speciesReference for Level 2 and Version 1.
+2023-02-02 12:08:21,975 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = constant, value 'true' , element name = speciesReference
+2023-02-02 12:08:21,975 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'constant' on the element speciesReference. Please check the specification for SBML.
+2023-02-02 12:08:21,976 ERROR o.s.j.x.p.SBMLCoreParser [main] Property constant is not defined in speciesReference for Level 2 and Version 1.
+2023-02-02 12:08:21,976 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = constant, value 'true' , element name = speciesReference
+2023-02-02 12:08:21,976 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'constant' on the element speciesReference. Please check the specification for SBML.
+2023-02-02 12:08:21,977 WARN o.s.j.x.p.SBMLCoreParser [main] The element 'listOfLocalParameters' is not recognized.
+2023-02-02 12:08:21,977 ERROR o.s.j.x.p.SBMLCoreParser [main] Property compartment is not defined in reaction for Level 2 and Version 1.
+2023-02-02 12:08:21,977 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = compartment, value 'Cell' , element name = reaction
+2023-02-02 12:08:21,978 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'compartment' on the element reaction. Please check the specification for SBML.
+2023-02-02 12:08:21,978 ERROR o.s.j.x.p.SBMLCoreParser [main] Property constant is not defined in speciesReference for Level 2 and Version 1.
+2023-02-02 12:08:21,978 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = constant, value 'true' , element name = speciesReference
+2023-02-02 12:08:21,978 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'constant' on the element speciesReference. Please check the specification for SBML.
+2023-02-02 12:08:21,979 ERROR o.s.j.x.p.SBMLCoreParser [main] Property constant is not defined in speciesReference for Level 2 and Version 1.
+2023-02-02 12:08:21,979 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = constant, value 'true' , element name = speciesReference
+2023-02-02 12:08:21,979 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'constant' on the element speciesReference. Please check the specification for SBML.
+2023-02-02 12:08:21,979 ERROR o.s.j.x.p.SBMLCoreParser [main] Property constant is not defined in speciesReference for Level 2 and Version 1.
+2023-02-02 12:08:21,979 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = constant, value 'true' , element name = speciesReference
+2023-02-02 12:08:21,980 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'constant' on the element speciesReference. Please check the specification for SBML.
+2023-02-02 12:08:21,981 WARN o.s.j.x.p.SBMLCoreParser [main] The element 'listOfLocalParameters' is not recognized.
+2023-02-02 12:08:21,981 ERROR o.s.j.x.p.SBMLCoreParser [main] Property compartment is not defined in reaction for Level 2 and Version 1.
+2023-02-02 12:08:21,981 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = compartment, value 'Cell' , element name = reaction
+2023-02-02 12:08:21,981 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'compartment' on the element reaction. Please check the specification for SBML.
+2023-02-02 12:08:21,982 ERROR o.s.j.x.p.SBMLCoreParser [main] Property constant is not defined in speciesReference for Level 2 and Version 1.
+2023-02-02 12:08:21,982 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = constant, value 'true' , element name = speciesReference
+2023-02-02 12:08:21,982 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'constant' on the element speciesReference. Please check the specification for SBML.
+2023-02-02 12:08:21,983 ERROR o.s.j.x.p.SBMLCoreParser [main] Property constant is not defined in speciesReference for Level 2 and Version 1.
+2023-02-02 12:08:21,983 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = constant, value 'true' , element name = speciesReference
+2023-02-02 12:08:21,983 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'constant' on the element speciesReference. Please check the specification for SBML.
+2023-02-02 12:08:21,984 ERROR o.s.j.x.p.SBMLCoreParser [main] Property compartment is not defined in reaction for Level 2 and Version 1.
+2023-02-02 12:08:21,985 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = compartment, value 'Cell' , element name = reaction
+2023-02-02 12:08:21,985 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'compartment' on the element reaction. Please check the specification for SBML.
+2023-02-02 12:08:21,985 ERROR o.s.j.x.p.SBMLCoreParser [main] Property constant is not defined in speciesReference for Level 2 and Version 1.
+2023-02-02 12:08:21,985 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = constant, value 'true' , element name = speciesReference
+2023-02-02 12:08:21,985 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'constant' on the element speciesReference. Please check the specification for SBML.
+2023-02-02 12:08:21,987 ERROR o.s.j.x.p.SBMLCoreParser [main] Property useValuesFromTriggerTime is not defined in event for Level 2 and Version 1.
+2023-02-02 12:08:21,987 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = useValuesFromTriggerTime, value 'false' , element name = event
+2023-02-02 12:08:21,987 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'useValuesFromTriggerTime' on the element event. Please check the specification for SBML.
+2023-02-02 12:08:21,988 ERROR o.s.j.x.p.SBMLCoreParser [main] Property initialValue is not defined in trigger for Level 2 and Version 1.
+2023-02-02 12:08:21,988 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = initialValue, value 'false' , element name = trigger
+2023-02-02 12:08:21,988 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'initialValue' on the element trigger. Please check the specification for SBML.
+2023-02-02 12:08:21,988 ERROR o.s.j.x.p.SBMLCoreParser [main] Property persistent is not defined in trigger for Level 2 and Version 1.
+2023-02-02 12:08:21,988 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = persistent, value 'false' , element name = trigger
+2023-02-02 12:08:21,988 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'persistent' on the element trigger. Please check the specification for SBML.
+2023-02-02 12:08:21,989 ERROR o.s.j.x.p.SBMLCoreParser [main] Property useValuesFromTriggerTime is not defined in event for Level 2 and Version 1.
+2023-02-02 12:08:21,989 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = useValuesFromTriggerTime, value 'false' , element name = event
+2023-02-02 12:08:21,989 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'useValuesFromTriggerTime' on the element event. Please check the specification for SBML.
+2023-02-02 12:08:21,990 ERROR o.s.j.x.p.SBMLCoreParser [main] Property initialValue is not defined in trigger for Level 2 and Version 1.
+2023-02-02 12:08:21,990 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = initialValue, value 'false' , element name = trigger
+2023-02-02 12:08:21,990 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'initialValue' on the element trigger. Please check the specification for SBML.
+2023-02-02 12:08:21,990 ERROR o.s.j.x.p.SBMLCoreParser [main] Property persistent is not defined in trigger for Level 2 and Version 1.
+2023-02-02 12:08:21,990 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = persistent, value 'false' , element name = trigger
+2023-02-02 12:08:21,991 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'persistent' on the element trigger. Please check the specification for SBML.
+2023-02-02 12:08:21,991 ERROR o.s.j.x.p.SBMLCoreParser [main] Property useValuesFromTriggerTime is not defined in event for Level 2 and Version 1.
+2023-02-02 12:08:21,991 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = useValuesFromTriggerTime, value 'false' , element name = event
+2023-02-02 12:08:21,991 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'useValuesFromTriggerTime' on the element event. Please check the specification for SBML.
+2023-02-02 12:08:21,992 ERROR o.s.j.x.p.SBMLCoreParser [main] Property initialValue is not defined in trigger for Level 2 and Version 1.
+2023-02-02 12:08:21,992 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = initialValue, value 'false' , element name = trigger
+2023-02-02 12:08:21,992 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'initialValue' on the element trigger. Please check the specification for SBML.
+2023-02-02 12:08:21,992 ERROR o.s.j.x.p.SBMLCoreParser [main] Property persistent is not defined in trigger for Level 2 and Version 1.
+2023-02-02 12:08:21,992 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = persistent, value 'false' , element name = trigger
+2023-02-02 12:08:21,992 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'persistent' on the element trigger. Please check the specification for SBML.
+2023-02-02 12:08:21,993 ERROR o.s.j.x.p.SBMLCoreParser [main] Property useValuesFromTriggerTime is not defined in event for Level 2 and Version 1.
+2023-02-02 12:08:21,993 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = useValuesFromTriggerTime, value 'false' , element name = event
+2023-02-02 12:08:21,994 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'useValuesFromTriggerTime' on the element event. Please check the specification for SBML.
+2023-02-02 12:08:21,994 ERROR o.s.j.x.p.SBMLCoreParser [main] Property initialValue is not defined in trigger for Level 2 and Version 1.
+2023-02-02 12:08:21,994 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = initialValue, value 'false' , element name = trigger
+2023-02-02 12:08:21,994 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'initialValue' on the element trigger. Please check the specification for SBML.
+2023-02-02 12:08:21,995 ERROR o.s.j.x.p.SBMLCoreParser [main] Property persistent is not defined in trigger for Level 2 and Version 1.
+2023-02-02 12:08:21,995 INFO o.s.j.x.p.SBMLCoreParser [main] Attribute = persistent, value 'false' , element name = trigger
+2023-02-02 12:08:21,995 WARN o.s.j.x.p.SBMLCoreParser [main] Could not recognize the attribute 'persistent' on the element trigger. Please check the specification for SBML.

@@ -3,7 +3,7 @@
 
 ctmc
 
-const int MAX_AMOUNT = 1000;
+//const int MAX_AMOUNT = 1000;
 
 // Compartment size
 const double Cell = 1.0;
@@ -153,166 +153,157 @@ const double Kr__BetI_protein_Circuit10_10_YFP_module_sub__pBetI = 0.5;
 const double nc__BetI_protein_Circuit10_10_YFP_module_sub__pBetI = 2;
 
 // Species YFP_protein
-const int YFP_protein_MAX = MAX_AMOUNT;
+// const int YFP_protein_MAX = MAX_AMOUNT;
 module YFP_protein
 
-	YFP_protein : [0..YFP_protein_MAX] init 0; // Initial amount 0
+	// YFP_protein : [0..YFP_protein_MAX] init 0; // Initial amount 0
+	YFP_protein : int init 0; // Initial amount 0
 
 	// Degradation_YFP_protein
 	[Degradation_YFP_protein] YFP_protein > 9 -> (YFP_protein'=YFP_protein-10);
 	// R_abstracted_production_Circuit10_10_YFP_module_sub__pPhlF
-	[R_abstracted_production_Circuit10_10_YFP_module_sub__pPhlF]  YFP_protein <= YFP_protein_MAX-10 -> (YFP_protein'=YFP_protein+10);
+	// [R_abstracted_production_Circuit10_10_YFP_module_sub__pPhlF]  YFP_protein <= YFP_protein_MAX-10 -> (YFP_protein'=YFP_protein+10);
+	[R_abstracted_production_Circuit10_10_YFP_module_sub__pPhlF] YFP_protein >= 0 -> (YFP_protein'=YFP_protein+10);
 	// R_abstracted_production_Circuit10_10_YFP_module_sub__pBetI
-	[R_abstracted_production_Circuit10_10_YFP_module_sub__pBetI]  YFP_protein <= YFP_protein_MAX-10 -> (YFP_protein'=YFP_protein+10);
+	// [R_abstracted_production_Circuit10_10_YFP_module_sub__pBetI]  YFP_protein <= YFP_protein_MAX-10 -> (YFP_protein'=YFP_protein+10);
+	[R_abstracted_production_Circuit10_10_YFP_module_sub__pBetI] YFP_protein >= 0 -> (YFP_protein'=YFP_protein+10);
 
 endmodule
 
 // Species BetI_protein
-const int BetI_protein_MAX = MAX_AMOUNT;
+//const int BetI_protein_MAX = MAX_AMOUNT;
 module BetI_protein
 
-	BetI_protein : [0..BetI_protein_MAX] init 70; // Initial amount high
+	BetI_protein : int init 70; 
 
 	// Degradation_BetI_protein
 	[Degradation_BetI_protein] BetI_protein > 9 -> (BetI_protein'=BetI_protein-10);
-	// R_abstracted_production_Circuit10_10_BetI_module_sub__pHlyIIR
-	[R_abstracted_production_Circuit10_10_BetI_module_sub__pHlyIIR]  BetI_protein <= BetI_protein_MAX-10 -> (BetI_protein'=BetI_protein+10);
+        // R_abstracted_production_Circuit10_10_BetI_module_sub__pHlyIIR
+	[R_abstracted_production_Circuit10_10_BetI_module_sub__pHlyIIR]  BetI_protein >= 0 -> (BetI_protein'=BetI_protein+10);
 	// R_abstracted_production_Circuit10_10_BetI_module_sub__pTet
-	[R_abstracted_production_Circuit10_10_BetI_module_sub__pTet]  BetI_protein <= BetI_protein_MAX-10 -> (BetI_protein'=BetI_protein+10);
+	[R_abstracted_production_Circuit10_10_BetI_module_sub__pTet]  BetI_protein >= 0 -> (BetI_protein'=BetI_protein+10);
 
 endmodule
 
 // Species PhlF_protein
-const int PhlF_protein_MAX = MAX_AMOUNT;
+// const int PhlF_protein_MAX = MAX_AMOUNT;
 module PhlF_protein
 
-	PhlF_protein : [0..PhlF_protein_MAX] init 70; // Initial amount 0
+	PhlF_protein : int init 70;
 
 	// Degradation_PhlF_protein
 	[Degradation_PhlF_protein] PhlF_protein > 9 -> (PhlF_protein'=PhlF_protein-10);
 	// R_abstracted_production_Circuit10_10_PhIF_module_sub__pAmtR
-	[R_abstracted_production_Circuit10_10_PhIF_module_sub__pAmtR]  PhlF_protein <= PhlF_protein_MAX-10 -> (PhlF_protein'=PhlF_protein+10);
+	[R_abstracted_production_Circuit10_10_PhIF_module_sub__pAmtR]  PhlF_protein >= 0 -> (PhlF_protein'=PhlF_protein+10);
 	// R_abstracted_production_Circuit10_10_PhIF_module_sub__pTac
-	[R_abstracted_production_Circuit10_10_PhIF_module_sub__pTac]  PhlF_protein <= PhlF_protein_MAX-10 -> (PhlF_protein'=PhlF_protein+10);
+	[R_abstracted_production_Circuit10_10_PhIF_module_sub__pTac]  PhlF_protein >= 0 -> (PhlF_protein'=PhlF_protein+10);
 
 endmodule
 
 // Species HlyIIR_protein
-const int HlyIIR_protein_MAX = MAX_AMOUNT;
 module HlyIIR_protein
 
-	HlyIIR_protein : [0..HlyIIR_protein_MAX] init 310; // Initial amount 0
+	HlyIIR_protein : int init 310; 
 
 	// Degradation_HlyIIR_protein
 	[Degradation_HlyIIR_protein] HlyIIR_protein > 9 -> (HlyIIR_protein'=HlyIIR_protein-10);
 	// R_abstracted_production_Circuit10_10_HIyIIR_module_sub__pBAD
-	[R_abstracted_production_Circuit10_10_HIyIIR_module_sub__pBAD]  HlyIIR_protein <= HlyIIR_protein_MAX-10 -> (HlyIIR_protein'=HlyIIR_protein+10);
+	[R_abstracted_production_Circuit10_10_HIyIIR_module_sub__pBAD]  HlyIIR_protein >= 0 -> (HlyIIR_protein'=HlyIIR_protein+10);
 	// R_abstracted_production_Circuit10_10_HIyIIR_module_sub__pTet
-	[R_abstracted_production_Circuit10_10_HIyIIR_module_sub__pTet]  HlyIIR_protein <= HlyIIR_protein_MAX-10 -> (HlyIIR_protein'=HlyIIR_protein+10);
+	[R_abstracted_production_Circuit10_10_HIyIIR_module_sub__pTet]  HlyIIR_protein >= 0 -> (HlyIIR_protein'=HlyIIR_protein+10);
 
 endmodule
 
 // Species AmtR_protein
-const int AmtR_protein_MAX = MAX_AMOUNT;
 module AmtR_protein
 
-	AmtR_protein : [0..AmtR_protein_MAX] init 250; // Initial amount 0
+	AmtR_protein : int init 250;
 
 	// Degradation_AmtR_protein
 	[Degradation_AmtR_protein] AmtR_protein > 9 -> (AmtR_protein'=AmtR_protein-10);
 	// R_abstracted_production_Circuit10_10_AmtR_module_sub__pBAD
-	[R_abstracted_production_Circuit10_10_AmtR_module_sub__pBAD]  AmtR_protein <= AmtR_protein_MAX-10 -> (AmtR_protein'=AmtR_protein+10);
+	[R_abstracted_production_Circuit10_10_AmtR_module_sub__pBAD]  AmtR_protein >= 0 -> (AmtR_protein'=AmtR_protein+10);
 	// R_abstracted_production_Circuit10_10_AmtR_module_sub__pHlyIIR
-	[R_abstracted_production_Circuit10_10_AmtR_module_sub__pHlyIIR]  AmtR_protein <= AmtR_protein_MAX-10 -> (AmtR_protein'=AmtR_protein+10);
+	[R_abstracted_production_Circuit10_10_AmtR_module_sub__pHlyIIR]  AmtR_protein >= 0 -> (AmtR_protein'=AmtR_protein+10);
 
 endmodule
 
 // Species Circuit10_10_AmtR_module_sub__pBAD
-const int Circuit10_10_AmtR_module_sub__pBAD_MAX = MAX_AMOUNT;
 module Circuit10_10_AmtR_module_sub__pBAD
 
-	Circuit10_10_AmtR_module_sub__pBAD : [0..Circuit10_10_AmtR_module_sub__pBAD_MAX] init 2; // Initial amount 2
+	Circuit10_10_AmtR_module_sub__pBAD : int init 2; // Initial amount 2
 
 
 endmodule
 
 // Species Circuit10_10_AmtR_module_sub__pHlyIIR
-const int Circuit10_10_AmtR_module_sub__pHlyIIR_MAX = MAX_AMOUNT;
 module Circuit10_10_AmtR_module_sub__pHlyIIR
 
-	Circuit10_10_AmtR_module_sub__pHlyIIR : [0..Circuit10_10_AmtR_module_sub__pHlyIIR_MAX] init 2; // Initial amount 2
+	Circuit10_10_AmtR_module_sub__pHlyIIR : int init 2; // Initial amount 2
 
 
 endmodule
 
 // Species Circuit10_10_PhIF_module_sub__pAmtR
-const int Circuit10_10_PhIF_module_sub__pAmtR_MAX = MAX_AMOUNT;
 module Circuit10_10_PhIF_module_sub__pAmtR
 
-	Circuit10_10_PhIF_module_sub__pAmtR : [0..Circuit10_10_PhIF_module_sub__pAmtR_MAX] init 2; // Initial amount 2
+	Circuit10_10_PhIF_module_sub__pAmtR : int init 2; // Initial amount 2
 
 
 endmodule
 
 // Species Circuit10_10_PhIF_module_sub__pTac
-const int Circuit10_10_PhIF_module_sub__pTac_MAX = MAX_AMOUNT;
 module Circuit10_10_PhIF_module_sub__pTac
 
-	Circuit10_10_PhIF_module_sub__pTac : [0..Circuit10_10_PhIF_module_sub__pTac_MAX] init 2; // Initial amount 2
+	Circuit10_10_PhIF_module_sub__pTac : int init 2; // Initial amount 2
 
 
 endmodule
 
 // Species Circuit10_10_BetI_module_sub__pHlyIIR
-const int Circuit10_10_BetI_module_sub__pHlyIIR_MAX = MAX_AMOUNT;
 module Circuit10_10_BetI_module_sub__pHlyIIR
 
-	Circuit10_10_BetI_module_sub__pHlyIIR : [0..Circuit10_10_BetI_module_sub__pHlyIIR_MAX] init 2; // Initial amount 2
+	Circuit10_10_BetI_module_sub__pHlyIIR : int init 2; // Initial amount 2
 
 
 endmodule
 
 // Species Circuit10_10_BetI_module_sub__pTet
-const int Circuit10_10_BetI_module_sub__pTet_MAX = MAX_AMOUNT;
 module Circuit10_10_BetI_module_sub__pTet
 
-	Circuit10_10_BetI_module_sub__pTet : [0..Circuit10_10_BetI_module_sub__pTet_MAX] init 2; // Initial amount 2
+	Circuit10_10_BetI_module_sub__pTet : int init 2; // Initial amount 2
 
 
 endmodule
 
 // Species Circuit10_10_YFP_module_sub__pBetI
-const int Circuit10_10_YFP_module_sub__pBetI_MAX = MAX_AMOUNT;
 module Circuit10_10_YFP_module_sub__pBetI
 
-	Circuit10_10_YFP_module_sub__pBetI : [0..Circuit10_10_YFP_module_sub__pBetI_MAX] init 2; // Initial amount 2
+	Circuit10_10_YFP_module_sub__pBetI : int init 2; // Initial amount 2
 
 
 endmodule
 
 // Species Circuit10_10_YFP_module_sub__pPhlF
-const int Circuit10_10_YFP_module_sub__pPhlF_MAX = MAX_AMOUNT;
 module Circuit10_10_YFP_module_sub__pPhlF
 
-	Circuit10_10_YFP_module_sub__pPhlF : [0..Circuit10_10_YFP_module_sub__pPhlF_MAX] init 2; // Initial amount 2
+	Circuit10_10_YFP_module_sub__pPhlF : int init 2; // Initial amount 2
 
 
 endmodule
 
 // Species Circuit10_10_HIyIIR_module_sub__pTet
-const int Circuit10_10_HIyIIR_module_sub__pTet_MAX = MAX_AMOUNT;
 module Circuit10_10_HIyIIR_module_sub__pTet
 
-	Circuit10_10_HIyIIR_module_sub__pTet : [0..Circuit10_10_HIyIIR_module_sub__pTet_MAX] init 2; // Initial amount 2
+	Circuit10_10_HIyIIR_module_sub__pTet : int init 2; // Initial amount 2
 
 
 endmodule
 
 // Species Circuit10_10_HIyIIR_module_sub__pBAD
-const int Circuit10_10_HIyIIR_module_sub__pBAD_MAX = MAX_AMOUNT;
 module Circuit10_10_HIyIIR_module_sub__pBAD
 
-	Circuit10_10_HIyIIR_module_sub__pBAD : [0..Circuit10_10_HIyIIR_module_sub__pBAD_MAX] init 2; // Initial amount 2
+	Circuit10_10_HIyIIR_module_sub__pBAD : int init 2; // Initial amount 2
 
 
 endmodule
