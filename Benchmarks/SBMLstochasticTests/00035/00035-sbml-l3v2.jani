@@ -1,0 +1,411 @@
+{
+    "actions": [
+        {
+            "name": "Dimerisation"
+        },
+        {
+            "name": "Disassociation"
+        }
+    ],
+    "automata": [
+        {
+            "edges": [
+                {
+                    "action": "Dimerisation",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "P2 <- (P2 + 1)",
+                                    "ref": "P2",
+                                    "value": {
+                                        "left": "P2",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(P2 >= 0)",
+                        "exp": {
+                            "left": "P2",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "Disassociation",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "P2 <- (P2 - 1)",
+                                    "ref": "P2",
+                                    "value": {
+                                        "left": "P2",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(P2 > 0)",
+                        "exp": {
+                            "left": "P2",
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l",
+                    "transient-values": [
+                        {
+                            "comment": "rewardmodel_P2 <- P2",
+                            "ref": "rewardmodel_P2",
+                            "value": "P2"
+                        }
+                    ]
+                }
+            ],
+            "name": "P2",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "Dimerisation",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((((1/1000 * (100 - (2 * P2))) * ((100 - (2 * P2)) - 1)) / 2) / (((1/1000 * (100 - (2 * P2))) * ((100 - (2 * P2)) - 1)) / 2))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": 0.001,
+                                                "op": "*",
+                                                "right": {
+                                                    "left": 100,
+                                                    "op": "-",
+                                                    "right": {
+                                                        "left": 2,
+                                                        "op": "*",
+                                                        "right": "P2"
+                                                    }
+                                                }
+                                            },
+                                            "op": "*",
+                                            "right": {
+                                                "left": {
+                                                    "left": 100,
+                                                    "op": "-",
+                                                    "right": {
+                                                        "left": 2,
+                                                        "op": "*",
+                                                        "right": "P2"
+                                                    }
+                                                },
+                                                "op": "-",
+                                                "right": 1
+                                            }
+                                        },
+                                        "op": "/",
+                                        "right": 2
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": {
+                                                "left": 0.001,
+                                                "op": "*",
+                                                "right": {
+                                                    "left": 100,
+                                                    "op": "-",
+                                                    "right": {
+                                                        "left": 2,
+                                                        "op": "*",
+                                                        "right": "P2"
+                                                    }
+                                                }
+                                            },
+                                            "op": "*",
+                                            "right": {
+                                                "left": {
+                                                    "left": 100,
+                                                    "op": "-",
+                                                    "right": {
+                                                        "left": 2,
+                                                        "op": "*",
+                                                        "right": "P2"
+                                                    }
+                                                },
+                                                "op": "-",
+                                                "right": 1
+                                            }
+                                        },
+                                        "op": "/",
+                                        "right": 2
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((((1/1000 * (100 - (2 * P2))) * ((100 - (2 * P2)) - 1)) / 2) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": 0.001,
+                                        "op": "*",
+                                        "right": {
+                                            "left": 100,
+                                            "op": "-",
+                                            "right": {
+                                                "left": 2,
+                                                "op": "*",
+                                                "right": "P2"
+                                            }
+                                        }
+                                    },
+                                    "op": "*",
+                                    "right": {
+                                        "left": {
+                                            "left": 100,
+                                            "op": "-",
+                                            "right": {
+                                                "left": 2,
+                                                "op": "*",
+                                                "right": "P2"
+                                            }
+                                        },
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                "op": "/",
+                                "right": 2
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(((1/1000 * (100 - (2 * P2))) * ((100 - (2 * P2)) - 1)) / 2)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": 0.001,
+                                    "op": "*",
+                                    "right": {
+                                        "left": 100,
+                                        "op": "-",
+                                        "right": {
+                                            "left": 2,
+                                            "op": "*",
+                                            "right": "P2"
+                                        }
+                                    }
+                                },
+                                "op": "*",
+                                "right": {
+                                    "left": {
+                                        "left": 100,
+                                        "op": "-",
+                                        "right": {
+                                            "left": 2,
+                                            "op": "*",
+                                            "right": "P2"
+                                        }
+                                    },
+                                    "op": "-",
+                                    "right": 1
+                                }
+                            },
+                            "op": "/",
+                            "right": 2
+                        }
+                    }
+                },
+                {
+                    "action": "Disassociation",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((1/100 * P2) / (1/100 * P2))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.01,
+                                        "op": "*",
+                                        "right": "P2"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.01,
+                                        "op": "*",
+                                        "right": "P2"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((1/100 * P2) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.01,
+                                "op": "*",
+                                "right": "P2"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(1/100 * P2)",
+                        "exp": {
+                            "left": 0.01,
+                            "op": "*",
+                            "right": "P2"
+                        }
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "reaction_rates",
+            "variables": []
+        }
+    ],
+    "constants": [
+        {
+            "name": "k1",
+            "type": "real",
+            "value": 0.001
+        },
+        {
+            "name": "k2",
+            "type": "real",
+            "value": 0.01
+        }
+    ],
+    "features": [
+        "derived-operators"
+    ],
+    "jani-version": 1,
+    "name": "00035-sbml-l3v2",
+    "properties": [
+        {
+            "expression": {
+                "fun": "values",
+                "op": "filter",
+                "states": {
+                    "op": "initial"
+                },
+                "values": {
+                    "exp": {
+                        "left": true,
+                        "op": "U",
+                        "right": {
+                            "left": "P2",
+                            "op": "≥",
+                            "right": 36
+                        },
+                        "time-bounds": {
+                            "lower": 0,
+                            "lower-exclusive": false,
+                            "upper": 50,
+                            "upper-exclusive": false
+                        }
+                    },
+                    "op": "Pmin"
+                }
+            },
+            "name": "1"
+        }
+    ],
+    "restrict-initial": {
+        "exp": true
+    },
+    "system": {
+        "elements": [
+            {
+                "automaton": "P2"
+            },
+            {
+                "automaton": "reaction_rates"
+            }
+        ],
+        "syncs": [
+            {
+                "result": "Dimerisation",
+                "synchronise": [
+                    "Dimerisation",
+                    "Dimerisation"
+                ]
+            },
+            {
+                "result": "Disassociation",
+                "synchronise": [
+                    "Disassociation",
+                    "Disassociation"
+                ]
+            }
+        ]
+    },
+    "type": "ctmc",
+    "variables": [
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_P2",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "P2",
+            "type": "int"
+        }
+    ]
+}

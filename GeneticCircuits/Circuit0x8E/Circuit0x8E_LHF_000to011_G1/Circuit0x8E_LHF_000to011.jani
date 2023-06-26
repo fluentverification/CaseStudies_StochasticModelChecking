@@ -1,0 +1,4091 @@
+{
+    "actions": [
+        {
+            "name": "AmtR_degradation_interaction"
+        },
+        {
+            "name": "BM3R1_degradation_interaction"
+        },
+        {
+            "name": "BetI_degradation_interaction"
+        },
+        {
+            "name": "HlyIIR_degradation_interaction"
+        },
+        {
+            "name": "PhlF_degradation_interaction"
+        },
+        {
+            "name": "YFP_degradation_interaction"
+        },
+        {
+            "name": "topModel_AmtRpart_module_sub__AmtR_protein_interaction_0"
+        },
+        {
+            "name": "topModel_AmtRpart_module_sub__AmtR_protein_interaction_1"
+        },
+        {
+            "name": "topModel_BetIpart_module_sub__BetI_protein_interaction_0"
+        },
+        {
+            "name": "topModel_BetIpart_module_sub__BetI_protein_interaction_1"
+        },
+        {
+            "name": "topModel_Inverter1_module_sub__HlyIIR_protein_interaction"
+        },
+        {
+            "name": "topModel_Inverter2_module_sub__BM3R1_protein_interaction"
+        },
+        {
+            "name": "topModel_PhlFpart_module_sub__PhlF_protein_interaction_0"
+        },
+        {
+            "name": "topModel_PhlFpart_module_sub__PhlF_protein_interaction_1"
+        },
+        {
+            "name": "topModel_YFPpart_module_sub__YFP_protein_interaction_0"
+        },
+        {
+            "name": "topModel_YFPpart_module_sub__YFP_protein_interaction_1"
+        }
+    ],
+    "automata": [
+        {
+            "edges": [
+                {
+                    "action": "HlyIIR_degradation_interaction",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "HlyIIR_protein <- (HlyIIR_protein - 10)",
+                                    "ref": "HlyIIR_protein",
+                                    "value": {
+                                        "left": "HlyIIR_protein",
+                                        "op": "-",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(HlyIIR_protein > 9)",
+                        "exp": {
+                            "left": "HlyIIR_protein",
+                            "op": ">",
+                            "right": 9
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "topModel_Inverter1_module_sub__HlyIIR_protein_interaction",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "HlyIIR_protein <- (HlyIIR_protein + 10)",
+                                    "ref": "HlyIIR_protein",
+                                    "value": {
+                                        "left": "HlyIIR_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(HlyIIR_protein >= 0)",
+                        "exp": {
+                            "left": "HlyIIR_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l",
+                    "transient-values": [
+                        {
+                            "comment": "rewardmodel_HlyIIR_protein <- HlyIIR_protein",
+                            "ref": "rewardmodel_HlyIIR_protein",
+                            "value": "HlyIIR_protein"
+                        },
+                        {
+                            "comment": "rewardmodel_LacI_protein <- LacI_protein",
+                            "ref": "rewardmodel_LacI_protein",
+                            "value": "LacI_protein"
+                        },
+                        {
+                            "comment": "rewardmodel_Ara_AraC_protein <- Ara_AraC_protein",
+                            "ref": "rewardmodel_Ara_AraC_protein",
+                            "value": "Ara_AraC_protein"
+                        },
+                        {
+                            "comment": "rewardmodel_BetI_protein <- BetI_protein",
+                            "ref": "rewardmodel_BetI_protein",
+                            "value": "BetI_protein"
+                        },
+                        {
+                            "comment": "rewardmodel_PhlF_protein <- PhlF_protein",
+                            "ref": "rewardmodel_PhlF_protein",
+                            "value": "PhlF_protein"
+                        },
+                        {
+                            "comment": "rewardmodel_AmtR_protein <- AmtR_protein",
+                            "ref": "rewardmodel_AmtR_protein",
+                            "value": "AmtR_protein"
+                        },
+                        {
+                            "comment": "rewardmodel_TetR_protein <- TetR_protein",
+                            "ref": "rewardmodel_TetR_protein",
+                            "value": "TetR_protein"
+                        },
+                        {
+                            "comment": "rewardmodel_YFP_protein <- YFP_protein",
+                            "ref": "rewardmodel_YFP_protein",
+                            "value": "YFP_protein"
+                        },
+                        {
+                            "comment": "rewardmodel_BM3R1_protein <- BM3R1_protein",
+                            "ref": "rewardmodel_BM3R1_protein",
+                            "value": "BM3R1_protein"
+                        },
+                        {
+                            "comment": "rewardmodel_topModel_BetIpart_module_sub__pTet <- topModel_BetIpart_module_sub__pTet",
+                            "ref": "rewardmodel_topModel_BetIpart_module_sub__pTet",
+                            "value": "topModel_BetIpart_module_sub__pTet"
+                        },
+                        {
+                            "comment": "rewardmodel_topModel_BetIpart_module_sub__pHlyIIR <- topModel_BetIpart_module_sub__pHlyIIR",
+                            "ref": "rewardmodel_topModel_BetIpart_module_sub__pHlyIIR",
+                            "value": "topModel_BetIpart_module_sub__pHlyIIR"
+                        },
+                        {
+                            "comment": "rewardmodel_topModel_AmtRpart_module_sub__pBM3R1 <- topModel_AmtRpart_module_sub__pBM3R1",
+                            "ref": "rewardmodel_topModel_AmtRpart_module_sub__pBM3R1",
+                            "value": "topModel_AmtRpart_module_sub__pBM3R1"
+                        },
+                        {
+                            "comment": "rewardmodel_topModel_AmtRpart_module_sub__pBAD <- topModel_AmtRpart_module_sub__pBAD",
+                            "ref": "rewardmodel_topModel_AmtRpart_module_sub__pBAD",
+                            "value": "topModel_AmtRpart_module_sub__pBAD"
+                        },
+                        {
+                            "comment": "rewardmodel_topModel_Inverter2_module_sub__Inverter2_fc <- topModel_Inverter2_module_sub__Inverter2_fc",
+                            "ref": "rewardmodel_topModel_Inverter2_module_sub__Inverter2_fc",
+                            "value": "topModel_Inverter2_module_sub__Inverter2_fc"
+                        },
+                        {
+                            "comment": "rewardmodel_topModel_YFPpart_module_sub__pBetI <- topModel_YFPpart_module_sub__pBetI",
+                            "ref": "rewardmodel_topModel_YFPpart_module_sub__pBetI",
+                            "value": "topModel_YFPpart_module_sub__pBetI"
+                        },
+                        {
+                            "comment": "rewardmodel_topModel_YFPpart_module_sub__pPhlF <- topModel_YFPpart_module_sub__pPhlF",
+                            "ref": "rewardmodel_topModel_YFPpart_module_sub__pPhlF",
+                            "value": "topModel_YFPpart_module_sub__pPhlF"
+                        },
+                        {
+                            "comment": "rewardmodel_topModel_Inverter1_module_sub__Inverter1_fc <- topModel_Inverter1_module_sub__Inverter1_fc",
+                            "ref": "rewardmodel_topModel_Inverter1_module_sub__Inverter1_fc",
+                            "value": "topModel_Inverter1_module_sub__Inverter1_fc"
+                        },
+                        {
+                            "comment": "rewardmodel_topModel_PhlFpart_module_sub__pTac <- topModel_PhlFpart_module_sub__pTac",
+                            "ref": "rewardmodel_topModel_PhlFpart_module_sub__pTac",
+                            "value": "topModel_PhlFpart_module_sub__pTac"
+                        },
+                        {
+                            "comment": "rewardmodel_topModel_PhlFpart_module_sub__pAmtR <- topModel_PhlFpart_module_sub__pAmtR",
+                            "ref": "rewardmodel_topModel_PhlFpart_module_sub__pAmtR",
+                            "value": "topModel_PhlFpart_module_sub__pAmtR"
+                        }
+                    ]
+                }
+            ],
+            "name": "HlyIIR_protein",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "LacI_protein",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "Ara_AraC_protein",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "BetI_degradation_interaction",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "BetI_protein <- (BetI_protein - 10)",
+                                    "ref": "BetI_protein",
+                                    "value": {
+                                        "left": "BetI_protein",
+                                        "op": "-",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(BetI_protein > 9)",
+                        "exp": {
+                            "left": "BetI_protein",
+                            "op": ">",
+                            "right": 9
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "topModel_BetIpart_module_sub__BetI_protein_interaction_0",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "BetI_protein <- (BetI_protein + 10)",
+                                    "ref": "BetI_protein",
+                                    "value": {
+                                        "left": "BetI_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(BetI_protein >= 0)",
+                        "exp": {
+                            "left": "BetI_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "topModel_BetIpart_module_sub__BetI_protein_interaction_1",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "BetI_protein <- (BetI_protein + 10)",
+                                    "ref": "BetI_protein",
+                                    "value": {
+                                        "left": "BetI_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(BetI_protein >= 0)",
+                        "exp": {
+                            "left": "BetI_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "BetI_protein",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "PhlF_degradation_interaction",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "PhlF_protein <- (PhlF_protein - 10)",
+                                    "ref": "PhlF_protein",
+                                    "value": {
+                                        "left": "PhlF_protein",
+                                        "op": "-",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(PhlF_protein > 9)",
+                        "exp": {
+                            "left": "PhlF_protein",
+                            "op": ">",
+                            "right": 9
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "topModel_PhlFpart_module_sub__PhlF_protein_interaction_0",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "PhlF_protein <- (PhlF_protein + 10)",
+                                    "ref": "PhlF_protein",
+                                    "value": {
+                                        "left": "PhlF_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(PhlF_protein >= 0)",
+                        "exp": {
+                            "left": "PhlF_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "topModel_PhlFpart_module_sub__PhlF_protein_interaction_1",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "PhlF_protein <- (PhlF_protein + 10)",
+                                    "ref": "PhlF_protein",
+                                    "value": {
+                                        "left": "PhlF_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(PhlF_protein >= 0)",
+                        "exp": {
+                            "left": "PhlF_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "PhlF_protein",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "AmtR_degradation_interaction",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "AmtR_protein <- (AmtR_protein - 10)",
+                                    "ref": "AmtR_protein",
+                                    "value": {
+                                        "left": "AmtR_protein",
+                                        "op": "-",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(AmtR_protein > 9)",
+                        "exp": {
+                            "left": "AmtR_protein",
+                            "op": ">",
+                            "right": 9
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "topModel_AmtRpart_module_sub__AmtR_protein_interaction_0",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "AmtR_protein <- (AmtR_protein + 10)",
+                                    "ref": "AmtR_protein",
+                                    "value": {
+                                        "left": "AmtR_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(AmtR_protein >= 0)",
+                        "exp": {
+                            "left": "AmtR_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "topModel_AmtRpart_module_sub__AmtR_protein_interaction_1",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "AmtR_protein <- (AmtR_protein + 10)",
+                                    "ref": "AmtR_protein",
+                                    "value": {
+                                        "left": "AmtR_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(AmtR_protein >= 0)",
+                        "exp": {
+                            "left": "AmtR_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "AmtR_protein",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "TetR_protein",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "YFP_degradation_interaction",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "YFP_protein <- (YFP_protein - 10)",
+                                    "ref": "YFP_protein",
+                                    "value": {
+                                        "left": "YFP_protein",
+                                        "op": "-",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(YFP_protein > 9)",
+                        "exp": {
+                            "left": "YFP_protein",
+                            "op": ">",
+                            "right": 9
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "topModel_YFPpart_module_sub__YFP_protein_interaction_0",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "YFP_protein <- (YFP_protein + 10)",
+                                    "ref": "YFP_protein",
+                                    "value": {
+                                        "left": "YFP_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(YFP_protein >= 0)",
+                        "exp": {
+                            "left": "YFP_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "topModel_YFPpart_module_sub__YFP_protein_interaction_1",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "YFP_protein <- (YFP_protein + 10)",
+                                    "ref": "YFP_protein",
+                                    "value": {
+                                        "left": "YFP_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(YFP_protein >= 0)",
+                        "exp": {
+                            "left": "YFP_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "YFP_protein",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "BM3R1_degradation_interaction",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "BM3R1_protein <- (BM3R1_protein - 10)",
+                                    "ref": "BM3R1_protein",
+                                    "value": {
+                                        "left": "BM3R1_protein",
+                                        "op": "-",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(BM3R1_protein > 9)",
+                        "exp": {
+                            "left": "BM3R1_protein",
+                            "op": ">",
+                            "right": 9
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "topModel_Inverter2_module_sub__BM3R1_protein_interaction",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "BM3R1_protein <- (BM3R1_protein + 10)",
+                                    "ref": "BM3R1_protein",
+                                    "value": {
+                                        "left": "BM3R1_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(BM3R1_protein >= 0)",
+                        "exp": {
+                            "left": "BM3R1_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "BM3R1_protein",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "topModel_BetIpart_module_sub__pTet",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "topModel_BetIpart_module_sub__pHlyIIR",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "topModel_AmtRpart_module_sub__pBM3R1",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "topModel_AmtRpart_module_sub__pBAD",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "topModel_Inverter2_module_sub__Inverter2_fc",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "topModel_YFPpart_module_sub__pBetI",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "topModel_YFPpart_module_sub__pPhlF",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "topModel_Inverter1_module_sub__Inverter1_fc",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "topModel_PhlFpart_module_sub__pTac",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "topModel_PhlFpart_module_sub__pAmtR",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "AmtR_degradation_interaction",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((3/4000 * AmtR_protein) / (3/4000 * AmtR_protein))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "AmtR_protein"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "AmtR_protein"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((3/4000 * AmtR_protein) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.00075,
+                                "op": "*",
+                                "right": "AmtR_protein"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(3/4000 * AmtR_protein)",
+                        "exp": {
+                            "left": 0.00075,
+                            "op": "*",
+                            "right": "AmtR_protein"
+                        }
+                    }
+                },
+                {
+                    "action": "BM3R1_degradation_interaction",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((3/4000 * BM3R1_protein) / (3/4000 * BM3R1_protein))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "BM3R1_protein"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "BM3R1_protein"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((3/4000 * BM3R1_protein) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.00075,
+                                "op": "*",
+                                "right": "BM3R1_protein"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(3/4000 * BM3R1_protein)",
+                        "exp": {
+                            "left": 0.00075,
+                            "op": "*",
+                            "right": "BM3R1_protein"
+                        }
+                    }
+                },
+                {
+                    "action": "BetI_degradation_interaction",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((3/4000 * BetI_protein) / (3/4000 * BetI_protein))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "BetI_protein"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "BetI_protein"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((3/4000 * BetI_protein) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.00075,
+                                "op": "*",
+                                "right": "BetI_protein"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(3/4000 * BetI_protein)",
+                        "exp": {
+                            "left": 0.00075,
+                            "op": "*",
+                            "right": "BetI_protein"
+                        }
+                    }
+                },
+                {
+                    "action": "HlyIIR_degradation_interaction",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((3/4000 * HlyIIR_protein) / (3/4000 * HlyIIR_protein))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "HlyIIR_protein"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "HlyIIR_protein"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((3/4000 * HlyIIR_protein) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.00075,
+                                "op": "*",
+                                "right": "HlyIIR_protein"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(3/4000 * HlyIIR_protein)",
+                        "exp": {
+                            "left": 0.00075,
+                            "op": "*",
+                            "right": "HlyIIR_protein"
+                        }
+                    }
+                },
+                {
+                    "action": "PhlF_degradation_interaction",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((3/4000 * PhlF_protein) / (3/4000 * PhlF_protein))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "PhlF_protein"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "PhlF_protein"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((3/4000 * PhlF_protein) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.00075,
+                                "op": "*",
+                                "right": "PhlF_protein"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(3/4000 * PhlF_protein)",
+                        "exp": {
+                            "left": 0.00075,
+                            "op": "*",
+                            "right": "PhlF_protein"
+                        }
+                    }
+                },
+                {
+                    "action": "YFP_degradation_interaction",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((3/4000 * YFP_protein) / (3/4000 * YFP_protein))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "YFP_protein"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "YFP_protein"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((3/4000 * YFP_protein) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.00075,
+                                "op": "*",
+                                "right": "YFP_protein"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(3/4000 * YFP_protein)",
+                        "exp": {
+                            "left": 0.00075,
+                            "op": "*",
+                            "right": "YFP_protein"
+                        }
+                    }
+                },
+                {
+                    "action": "topModel_AmtRpart_module_sub__AmtR_protein_interaction_0",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "(((topModel_AmtRpart_module_sub__pBM3R1 * ((((1/10000 * 33/1000) / 1) * 30) + ((((1/4 * 1) / 1) * 30) * (((33/10000 / 1) * Ara_AraC_protein) ^ 2)))) / ((1 + ((33/1000 / 1) * 30)) + (((1 / 1) * 30) * (((33/10000 / 1) * Ara_AraC_protein) ^ 2)))) / ((topModel_AmtRpart_module_sub__pBM3R1 * ((((1/10000 * 33/1000) / 1) * 30) + ((((1/4 * 1) / 1) * 30) * (((33/10000 / 1) * Ara_AraC_protein) ^ 2)))) / ((1 + ((33/1000 / 1) * 30)) + (((1 / 1) * 30) * (((33/10000 / 1) * Ara_AraC_protein) ^ 2)))))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": "topModel_AmtRpart_module_sub__pBM3R1",
+                                            "op": "*",
+                                            "right": {
+                                                "left": 9.9e-05,
+                                                "op": "+",
+                                                "right": {
+                                                    "left": 7.5,
+                                                    "op": "*",
+                                                    "right": {
+                                                        "left": {
+                                                            "left": 0.0033,
+                                                            "op": "*",
+                                                            "right": "Ara_AraC_protein"
+                                                        },
+                                                        "op": "pow",
+                                                        "right": 2
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": 30,
+                                                "op": "*",
+                                                "right": {
+                                                    "left": {
+                                                        "left": 0.0033,
+                                                        "op": "*",
+                                                        "right": "Ara_AraC_protein"
+                                                    },
+                                                    "op": "pow",
+                                                    "right": 2
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": "topModel_AmtRpart_module_sub__pBM3R1",
+                                            "op": "*",
+                                            "right": {
+                                                "left": 9.9e-05,
+                                                "op": "+",
+                                                "right": {
+                                                    "left": 7.5,
+                                                    "op": "*",
+                                                    "right": {
+                                                        "left": {
+                                                            "left": 0.0033,
+                                                            "op": "*",
+                                                            "right": "Ara_AraC_protein"
+                                                        },
+                                                        "op": "pow",
+                                                        "right": 2
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": 30,
+                                                "op": "*",
+                                                "right": {
+                                                    "left": {
+                                                        "left": 0.0033,
+                                                        "op": "*",
+                                                        "right": "Ara_AraC_protein"
+                                                    },
+                                                    "op": "pow",
+                                                    "right": 2
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(((topModel_AmtRpart_module_sub__pBM3R1 * ((((1/10000 * 33/1000) / 1) * 30) + ((((1/4 * 1) / 1) * 30) * (((33/10000 / 1) * Ara_AraC_protein) ^ 2)))) / ((1 + ((33/1000 / 1) * 30)) + (((1 / 1) * 30) * (((33/10000 / 1) * Ara_AraC_protein) ^ 2)))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": "topModel_AmtRpart_module_sub__pBM3R1",
+                                    "op": "*",
+                                    "right": {
+                                        "left": 9.9e-05,
+                                        "op": "+",
+                                        "right": {
+                                            "left": 7.5,
+                                            "op": "*",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.0033,
+                                                    "op": "*",
+                                                    "right": "Ara_AraC_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                },
+                                "op": "/",
+                                "right": {
+                                    "left": 1.99,
+                                    "op": "+",
+                                    "right": {
+                                        "left": 30,
+                                        "op": "*",
+                                        "right": {
+                                            "left": {
+                                                "left": 0.0033,
+                                                "op": "*",
+                                                "right": "Ara_AraC_protein"
+                                            },
+                                            "op": "pow",
+                                            "right": 2
+                                        }
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "((topModel_AmtRpart_module_sub__pBM3R1 * ((((1/10000 * 33/1000) / 1) * 30) + ((((1/4 * 1) / 1) * 30) * (((33/10000 / 1) * Ara_AraC_protein) ^ 2)))) / ((1 + ((33/1000 / 1) * 30)) + (((1 / 1) * 30) * (((33/10000 / 1) * Ara_AraC_protein) ^ 2))))",
+                        "exp": {
+                            "left": {
+                                "left": "topModel_AmtRpart_module_sub__pBM3R1",
+                                "op": "*",
+                                "right": {
+                                    "left": 9.9e-05,
+                                    "op": "+",
+                                    "right": {
+                                        "left": 7.5,
+                                        "op": "*",
+                                        "right": {
+                                            "left": {
+                                                "left": 0.0033,
+                                                "op": "*",
+                                                "right": "Ara_AraC_protein"
+                                            },
+                                            "op": "pow",
+                                            "right": 2
+                                        }
+                                    }
+                                }
+                            },
+                            "op": "/",
+                            "right": {
+                                "left": 1.99,
+                                "op": "+",
+                                "right": {
+                                    "left": 30,
+                                    "op": "*",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.0033,
+                                            "op": "*",
+                                            "right": "Ara_AraC_protein"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "action": "topModel_AmtRpart_module_sub__AmtR_protein_interaction_1",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((((((topModel_AmtRpart_module_sub__pBAD * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * BM3R1_protein) ^ 2))) / (((((topModel_AmtRpart_module_sub__pBAD * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * BM3R1_protein) ^ 2))))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": {
+                                                    "left": {
+                                                        "left": "topModel_AmtRpart_module_sub__pBAD",
+                                                        "op": "*",
+                                                        "right": 0.05
+                                                    },
+                                                    "op": "*",
+                                                    "right": 0.033
+                                                },
+                                                "op": "/",
+                                                "right": 1
+                                            },
+                                            "op": "*",
+                                            "right": 30
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "BM3R1_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": {
+                                                "left": {
+                                                    "left": {
+                                                        "left": "topModel_AmtRpart_module_sub__pBAD",
+                                                        "op": "*",
+                                                        "right": 0.05
+                                                    },
+                                                    "op": "*",
+                                                    "right": 0.033
+                                                },
+                                                "op": "/",
+                                                "right": 1
+                                            },
+                                            "op": "*",
+                                            "right": 30
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "BM3R1_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((((((topModel_AmtRpart_module_sub__pBAD * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * BM3R1_protein) ^ 2))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": "topModel_AmtRpart_module_sub__pBAD",
+                                                "op": "*",
+                                                "right": 0.05
+                                            },
+                                            "op": "*",
+                                            "right": 0.033
+                                        },
+                                        "op": "/",
+                                        "right": 1
+                                    },
+                                    "op": "*",
+                                    "right": 30
+                                },
+                                "op": "/",
+                                "right": {
+                                    "left": 1.99,
+                                    "op": "+",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.5,
+                                            "op": "*",
+                                            "right": "BM3R1_protein"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(((((topModel_AmtRpart_module_sub__pBAD * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * BM3R1_protein) ^ 2)))",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": {
+                                            "left": "topModel_AmtRpart_module_sub__pBAD",
+                                            "op": "*",
+                                            "right": 0.05
+                                        },
+                                        "op": "*",
+                                        "right": 0.033
+                                    },
+                                    "op": "/",
+                                    "right": 1
+                                },
+                                "op": "*",
+                                "right": 30
+                            },
+                            "op": "/",
+                            "right": {
+                                "left": 1.99,
+                                "op": "+",
+                                "right": {
+                                    "left": {
+                                        "left": 0.5,
+                                        "op": "*",
+                                        "right": "BM3R1_protein"
+                                    },
+                                    "op": "pow",
+                                    "right": 2
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "action": "topModel_BetIpart_module_sub__BetI_protein_interaction_0",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((((((topModel_BetIpart_module_sub__pTet * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * HlyIIR_protein) ^ 2))) / (((((topModel_BetIpart_module_sub__pTet * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * HlyIIR_protein) ^ 2))))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": {
+                                                    "left": {
+                                                        "left": "topModel_BetIpart_module_sub__pTet",
+                                                        "op": "*",
+                                                        "right": 0.05
+                                                    },
+                                                    "op": "*",
+                                                    "right": 0.033
+                                                },
+                                                "op": "/",
+                                                "right": 1
+                                            },
+                                            "op": "*",
+                                            "right": 30
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "HlyIIR_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": {
+                                                "left": {
+                                                    "left": {
+                                                        "left": "topModel_BetIpart_module_sub__pTet",
+                                                        "op": "*",
+                                                        "right": 0.05
+                                                    },
+                                                    "op": "*",
+                                                    "right": 0.033
+                                                },
+                                                "op": "/",
+                                                "right": 1
+                                            },
+                                            "op": "*",
+                                            "right": 30
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "HlyIIR_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((((((topModel_BetIpart_module_sub__pTet * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * HlyIIR_protein) ^ 2))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": "topModel_BetIpart_module_sub__pTet",
+                                                "op": "*",
+                                                "right": 0.05
+                                            },
+                                            "op": "*",
+                                            "right": 0.033
+                                        },
+                                        "op": "/",
+                                        "right": 1
+                                    },
+                                    "op": "*",
+                                    "right": 30
+                                },
+                                "op": "/",
+                                "right": {
+                                    "left": 1.99,
+                                    "op": "+",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.5,
+                                            "op": "*",
+                                            "right": "HlyIIR_protein"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(((((topModel_BetIpart_module_sub__pTet * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * HlyIIR_protein) ^ 2)))",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": {
+                                            "left": "topModel_BetIpart_module_sub__pTet",
+                                            "op": "*",
+                                            "right": 0.05
+                                        },
+                                        "op": "*",
+                                        "right": 0.033
+                                    },
+                                    "op": "/",
+                                    "right": 1
+                                },
+                                "op": "*",
+                                "right": 30
+                            },
+                            "op": "/",
+                            "right": {
+                                "left": 1.99,
+                                "op": "+",
+                                "right": {
+                                    "left": {
+                                        "left": 0.5,
+                                        "op": "*",
+                                        "right": "HlyIIR_protein"
+                                    },
+                                    "op": "pow",
+                                    "right": 2
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "action": "topModel_BetIpart_module_sub__BetI_protein_interaction_1",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((((((topModel_BetIpart_module_sub__pHlyIIR * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * TetR_protein) ^ 2))) / (((((topModel_BetIpart_module_sub__pHlyIIR * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * TetR_protein) ^ 2))))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": {
+                                                    "left": {
+                                                        "left": "topModel_BetIpart_module_sub__pHlyIIR",
+                                                        "op": "*",
+                                                        "right": 0.05
+                                                    },
+                                                    "op": "*",
+                                                    "right": 0.033
+                                                },
+                                                "op": "/",
+                                                "right": 1
+                                            },
+                                            "op": "*",
+                                            "right": 30
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "TetR_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": {
+                                                "left": {
+                                                    "left": {
+                                                        "left": "topModel_BetIpart_module_sub__pHlyIIR",
+                                                        "op": "*",
+                                                        "right": 0.05
+                                                    },
+                                                    "op": "*",
+                                                    "right": 0.033
+                                                },
+                                                "op": "/",
+                                                "right": 1
+                                            },
+                                            "op": "*",
+                                            "right": 30
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "TetR_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((((((topModel_BetIpart_module_sub__pHlyIIR * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * TetR_protein) ^ 2))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": "topModel_BetIpart_module_sub__pHlyIIR",
+                                                "op": "*",
+                                                "right": 0.05
+                                            },
+                                            "op": "*",
+                                            "right": 0.033
+                                        },
+                                        "op": "/",
+                                        "right": 1
+                                    },
+                                    "op": "*",
+                                    "right": 30
+                                },
+                                "op": "/",
+                                "right": {
+                                    "left": 1.99,
+                                    "op": "+",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.5,
+                                            "op": "*",
+                                            "right": "TetR_protein"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(((((topModel_BetIpart_module_sub__pHlyIIR * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * TetR_protein) ^ 2)))",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": {
+                                            "left": "topModel_BetIpart_module_sub__pHlyIIR",
+                                            "op": "*",
+                                            "right": 0.05
+                                        },
+                                        "op": "*",
+                                        "right": 0.033
+                                    },
+                                    "op": "/",
+                                    "right": 1
+                                },
+                                "op": "*",
+                                "right": 30
+                            },
+                            "op": "/",
+                            "right": {
+                                "left": 1.99,
+                                "op": "+",
+                                "right": {
+                                    "left": {
+                                        "left": 0.5,
+                                        "op": "*",
+                                        "right": "TetR_protein"
+                                    },
+                                    "op": "pow",
+                                    "right": 2
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "action": "topModel_Inverter1_module_sub__HlyIIR_protein_interaction",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "(((topModel_Inverter1_module_sub__Inverter1_fc * ((((1/10000 * 33/1000) / 1) * 30) + ((((1/4 * 1) / 1) * 30) * (((33/10000 / 1) * Ara_AraC_protein) ^ 2)))) / ((1 + ((33/1000 / 1) * 30)) + (((1 / 1) * 30) * (((33/10000 / 1) * Ara_AraC_protein) ^ 2)))) / ((topModel_Inverter1_module_sub__Inverter1_fc * ((((1/10000 * 33/1000) / 1) * 30) + ((((1/4 * 1) / 1) * 30) * (((33/10000 / 1) * Ara_AraC_protein) ^ 2)))) / ((1 + ((33/1000 / 1) * 30)) + (((1 / 1) * 30) * (((33/10000 / 1) * Ara_AraC_protein) ^ 2)))))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": "topModel_Inverter1_module_sub__Inverter1_fc",
+                                            "op": "*",
+                                            "right": {
+                                                "left": 9.9e-05,
+                                                "op": "+",
+                                                "right": {
+                                                    "left": 7.5,
+                                                    "op": "*",
+                                                    "right": {
+                                                        "left": {
+                                                            "left": 0.0033,
+                                                            "op": "*",
+                                                            "right": "Ara_AraC_protein"
+                                                        },
+                                                        "op": "pow",
+                                                        "right": 2
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": 30,
+                                                "op": "*",
+                                                "right": {
+                                                    "left": {
+                                                        "left": 0.0033,
+                                                        "op": "*",
+                                                        "right": "Ara_AraC_protein"
+                                                    },
+                                                    "op": "pow",
+                                                    "right": 2
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": "topModel_Inverter1_module_sub__Inverter1_fc",
+                                            "op": "*",
+                                            "right": {
+                                                "left": 9.9e-05,
+                                                "op": "+",
+                                                "right": {
+                                                    "left": 7.5,
+                                                    "op": "*",
+                                                    "right": {
+                                                        "left": {
+                                                            "left": 0.0033,
+                                                            "op": "*",
+                                                            "right": "Ara_AraC_protein"
+                                                        },
+                                                        "op": "pow",
+                                                        "right": 2
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": 30,
+                                                "op": "*",
+                                                "right": {
+                                                    "left": {
+                                                        "left": 0.0033,
+                                                        "op": "*",
+                                                        "right": "Ara_AraC_protein"
+                                                    },
+                                                    "op": "pow",
+                                                    "right": 2
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(((topModel_Inverter1_module_sub__Inverter1_fc * ((((1/10000 * 33/1000) / 1) * 30) + ((((1/4 * 1) / 1) * 30) * (((33/10000 / 1) * Ara_AraC_protein) ^ 2)))) / ((1 + ((33/1000 / 1) * 30)) + (((1 / 1) * 30) * (((33/10000 / 1) * Ara_AraC_protein) ^ 2)))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": "topModel_Inverter1_module_sub__Inverter1_fc",
+                                    "op": "*",
+                                    "right": {
+                                        "left": 9.9e-05,
+                                        "op": "+",
+                                        "right": {
+                                            "left": 7.5,
+                                            "op": "*",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.0033,
+                                                    "op": "*",
+                                                    "right": "Ara_AraC_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                },
+                                "op": "/",
+                                "right": {
+                                    "left": 1.99,
+                                    "op": "+",
+                                    "right": {
+                                        "left": 30,
+                                        "op": "*",
+                                        "right": {
+                                            "left": {
+                                                "left": 0.0033,
+                                                "op": "*",
+                                                "right": "Ara_AraC_protein"
+                                            },
+                                            "op": "pow",
+                                            "right": 2
+                                        }
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "((topModel_Inverter1_module_sub__Inverter1_fc * ((((1/10000 * 33/1000) / 1) * 30) + ((((1/4 * 1) / 1) * 30) * (((33/10000 / 1) * Ara_AraC_protein) ^ 2)))) / ((1 + ((33/1000 / 1) * 30)) + (((1 / 1) * 30) * (((33/10000 / 1) * Ara_AraC_protein) ^ 2))))",
+                        "exp": {
+                            "left": {
+                                "left": "topModel_Inverter1_module_sub__Inverter1_fc",
+                                "op": "*",
+                                "right": {
+                                    "left": 9.9e-05,
+                                    "op": "+",
+                                    "right": {
+                                        "left": 7.5,
+                                        "op": "*",
+                                        "right": {
+                                            "left": {
+                                                "left": 0.0033,
+                                                "op": "*",
+                                                "right": "Ara_AraC_protein"
+                                            },
+                                            "op": "pow",
+                                            "right": 2
+                                        }
+                                    }
+                                }
+                            },
+                            "op": "/",
+                            "right": {
+                                "left": 1.99,
+                                "op": "+",
+                                "right": {
+                                    "left": 30,
+                                    "op": "*",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.0033,
+                                            "op": "*",
+                                            "right": "Ara_AraC_protein"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "action": "topModel_Inverter2_module_sub__BM3R1_protein_interaction",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((((((topModel_Inverter2_module_sub__Inverter2_fc * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * TetR_protein) ^ 2))) / (((((topModel_Inverter2_module_sub__Inverter2_fc * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * TetR_protein) ^ 2))))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": {
+                                                    "left": {
+                                                        "left": "topModel_Inverter2_module_sub__Inverter2_fc",
+                                                        "op": "*",
+                                                        "right": 0.05
+                                                    },
+                                                    "op": "*",
+                                                    "right": 0.033
+                                                },
+                                                "op": "/",
+                                                "right": 1
+                                            },
+                                            "op": "*",
+                                            "right": 30
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "TetR_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": {
+                                                "left": {
+                                                    "left": {
+                                                        "left": "topModel_Inverter2_module_sub__Inverter2_fc",
+                                                        "op": "*",
+                                                        "right": 0.05
+                                                    },
+                                                    "op": "*",
+                                                    "right": 0.033
+                                                },
+                                                "op": "/",
+                                                "right": 1
+                                            },
+                                            "op": "*",
+                                            "right": 30
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "TetR_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((((((topModel_Inverter2_module_sub__Inverter2_fc * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * TetR_protein) ^ 2))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": "topModel_Inverter2_module_sub__Inverter2_fc",
+                                                "op": "*",
+                                                "right": 0.05
+                                            },
+                                            "op": "*",
+                                            "right": 0.033
+                                        },
+                                        "op": "/",
+                                        "right": 1
+                                    },
+                                    "op": "*",
+                                    "right": 30
+                                },
+                                "op": "/",
+                                "right": {
+                                    "left": 1.99,
+                                    "op": "+",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.5,
+                                            "op": "*",
+                                            "right": "TetR_protein"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(((((topModel_Inverter2_module_sub__Inverter2_fc * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * TetR_protein) ^ 2)))",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": {
+                                            "left": "topModel_Inverter2_module_sub__Inverter2_fc",
+                                            "op": "*",
+                                            "right": 0.05
+                                        },
+                                        "op": "*",
+                                        "right": 0.033
+                                    },
+                                    "op": "/",
+                                    "right": 1
+                                },
+                                "op": "*",
+                                "right": 30
+                            },
+                            "op": "/",
+                            "right": {
+                                "left": 1.99,
+                                "op": "+",
+                                "right": {
+                                    "left": {
+                                        "left": 0.5,
+                                        "op": "*",
+                                        "right": "TetR_protein"
+                                    },
+                                    "op": "pow",
+                                    "right": 2
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "action": "topModel_PhlFpart_module_sub__PhlF_protein_interaction_0",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((((((topModel_PhlFpart_module_sub__pTac * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * LacI_protein) ^ 2))) / (((((topModel_PhlFpart_module_sub__pTac * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * LacI_protein) ^ 2))))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": {
+                                                    "left": {
+                                                        "left": "topModel_PhlFpart_module_sub__pTac",
+                                                        "op": "*",
+                                                        "right": 0.05
+                                                    },
+                                                    "op": "*",
+                                                    "right": 0.033
+                                                },
+                                                "op": "/",
+                                                "right": 1
+                                            },
+                                            "op": "*",
+                                            "right": 30
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "LacI_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": {
+                                                "left": {
+                                                    "left": {
+                                                        "left": "topModel_PhlFpart_module_sub__pTac",
+                                                        "op": "*",
+                                                        "right": 0.05
+                                                    },
+                                                    "op": "*",
+                                                    "right": 0.033
+                                                },
+                                                "op": "/",
+                                                "right": 1
+                                            },
+                                            "op": "*",
+                                            "right": 30
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "LacI_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((((((topModel_PhlFpart_module_sub__pTac * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * LacI_protein) ^ 2))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": "topModel_PhlFpart_module_sub__pTac",
+                                                "op": "*",
+                                                "right": 0.05
+                                            },
+                                            "op": "*",
+                                            "right": 0.033
+                                        },
+                                        "op": "/",
+                                        "right": 1
+                                    },
+                                    "op": "*",
+                                    "right": 30
+                                },
+                                "op": "/",
+                                "right": {
+                                    "left": 1.99,
+                                    "op": "+",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.5,
+                                            "op": "*",
+                                            "right": "LacI_protein"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(((((topModel_PhlFpart_module_sub__pTac * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * LacI_protein) ^ 2)))",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": {
+                                            "left": "topModel_PhlFpart_module_sub__pTac",
+                                            "op": "*",
+                                            "right": 0.05
+                                        },
+                                        "op": "*",
+                                        "right": 0.033
+                                    },
+                                    "op": "/",
+                                    "right": 1
+                                },
+                                "op": "*",
+                                "right": 30
+                            },
+                            "op": "/",
+                            "right": {
+                                "left": 1.99,
+                                "op": "+",
+                                "right": {
+                                    "left": {
+                                        "left": 0.5,
+                                        "op": "*",
+                                        "right": "LacI_protein"
+                                    },
+                                    "op": "pow",
+                                    "right": 2
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "action": "topModel_PhlFpart_module_sub__PhlF_protein_interaction_1",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((((((topModel_PhlFpart_module_sub__pAmtR * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * AmtR_protein) ^ 2))) / (((((topModel_PhlFpart_module_sub__pAmtR * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * AmtR_protein) ^ 2))))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": {
+                                                    "left": {
+                                                        "left": "topModel_PhlFpart_module_sub__pAmtR",
+                                                        "op": "*",
+                                                        "right": 0.05
+                                                    },
+                                                    "op": "*",
+                                                    "right": 0.033
+                                                },
+                                                "op": "/",
+                                                "right": 1
+                                            },
+                                            "op": "*",
+                                            "right": 30
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "AmtR_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": {
+                                                "left": {
+                                                    "left": {
+                                                        "left": "topModel_PhlFpart_module_sub__pAmtR",
+                                                        "op": "*",
+                                                        "right": 0.05
+                                                    },
+                                                    "op": "*",
+                                                    "right": 0.033
+                                                },
+                                                "op": "/",
+                                                "right": 1
+                                            },
+                                            "op": "*",
+                                            "right": 30
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "AmtR_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((((((topModel_PhlFpart_module_sub__pAmtR * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * AmtR_protein) ^ 2))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": "topModel_PhlFpart_module_sub__pAmtR",
+                                                "op": "*",
+                                                "right": 0.05
+                                            },
+                                            "op": "*",
+                                            "right": 0.033
+                                        },
+                                        "op": "/",
+                                        "right": 1
+                                    },
+                                    "op": "*",
+                                    "right": 30
+                                },
+                                "op": "/",
+                                "right": {
+                                    "left": 1.99,
+                                    "op": "+",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.5,
+                                            "op": "*",
+                                            "right": "AmtR_protein"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(((((topModel_PhlFpart_module_sub__pAmtR * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * AmtR_protein) ^ 2)))",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": {
+                                            "left": "topModel_PhlFpart_module_sub__pAmtR",
+                                            "op": "*",
+                                            "right": 0.05
+                                        },
+                                        "op": "*",
+                                        "right": 0.033
+                                    },
+                                    "op": "/",
+                                    "right": 1
+                                },
+                                "op": "*",
+                                "right": 30
+                            },
+                            "op": "/",
+                            "right": {
+                                "left": 1.99,
+                                "op": "+",
+                                "right": {
+                                    "left": {
+                                        "left": 0.5,
+                                        "op": "*",
+                                        "right": "AmtR_protein"
+                                    },
+                                    "op": "pow",
+                                    "right": 2
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "action": "topModel_YFPpart_module_sub__YFP_protein_interaction_0",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((((((topModel_YFPpart_module_sub__pBetI * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * PhlF_protein) ^ 2))) / (((((topModel_YFPpart_module_sub__pBetI * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * PhlF_protein) ^ 2))))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": {
+                                                    "left": {
+                                                        "left": "topModel_YFPpart_module_sub__pBetI",
+                                                        "op": "*",
+                                                        "right": 0.05
+                                                    },
+                                                    "op": "*",
+                                                    "right": 0.033
+                                                },
+                                                "op": "/",
+                                                "right": 1
+                                            },
+                                            "op": "*",
+                                            "right": 30
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "PhlF_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": {
+                                                "left": {
+                                                    "left": {
+                                                        "left": "topModel_YFPpart_module_sub__pBetI",
+                                                        "op": "*",
+                                                        "right": 0.05
+                                                    },
+                                                    "op": "*",
+                                                    "right": 0.033
+                                                },
+                                                "op": "/",
+                                                "right": 1
+                                            },
+                                            "op": "*",
+                                            "right": 30
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "PhlF_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((((((topModel_YFPpart_module_sub__pBetI * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * PhlF_protein) ^ 2))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": "topModel_YFPpart_module_sub__pBetI",
+                                                "op": "*",
+                                                "right": 0.05
+                                            },
+                                            "op": "*",
+                                            "right": 0.033
+                                        },
+                                        "op": "/",
+                                        "right": 1
+                                    },
+                                    "op": "*",
+                                    "right": 30
+                                },
+                                "op": "/",
+                                "right": {
+                                    "left": 1.99,
+                                    "op": "+",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.5,
+                                            "op": "*",
+                                            "right": "PhlF_protein"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(((((topModel_YFPpart_module_sub__pBetI * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * PhlF_protein) ^ 2)))",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": {
+                                            "left": "topModel_YFPpart_module_sub__pBetI",
+                                            "op": "*",
+                                            "right": 0.05
+                                        },
+                                        "op": "*",
+                                        "right": 0.033
+                                    },
+                                    "op": "/",
+                                    "right": 1
+                                },
+                                "op": "*",
+                                "right": 30
+                            },
+                            "op": "/",
+                            "right": {
+                                "left": 1.99,
+                                "op": "+",
+                                "right": {
+                                    "left": {
+                                        "left": 0.5,
+                                        "op": "*",
+                                        "right": "PhlF_protein"
+                                    },
+                                    "op": "pow",
+                                    "right": 2
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "action": "topModel_YFPpart_module_sub__YFP_protein_interaction_1",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((((((topModel_YFPpart_module_sub__pPhlF * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * BetI_protein) ^ 2))) / (((((topModel_YFPpart_module_sub__pPhlF * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * BetI_protein) ^ 2))))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": {
+                                                    "left": {
+                                                        "left": "topModel_YFPpart_module_sub__pPhlF",
+                                                        "op": "*",
+                                                        "right": 0.05
+                                                    },
+                                                    "op": "*",
+                                                    "right": 0.033
+                                                },
+                                                "op": "/",
+                                                "right": 1
+                                            },
+                                            "op": "*",
+                                            "right": 30
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "BetI_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": {
+                                                "left": {
+                                                    "left": {
+                                                        "left": "topModel_YFPpart_module_sub__pPhlF",
+                                                        "op": "*",
+                                                        "right": 0.05
+                                                    },
+                                                    "op": "*",
+                                                    "right": 0.033
+                                                },
+                                                "op": "/",
+                                                "right": 1
+                                            },
+                                            "op": "*",
+                                            "right": 30
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "BetI_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((((((topModel_YFPpart_module_sub__pPhlF * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * BetI_protein) ^ 2))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": "topModel_YFPpart_module_sub__pPhlF",
+                                                "op": "*",
+                                                "right": 0.05
+                                            },
+                                            "op": "*",
+                                            "right": 0.033
+                                        },
+                                        "op": "/",
+                                        "right": 1
+                                    },
+                                    "op": "*",
+                                    "right": 30
+                                },
+                                "op": "/",
+                                "right": {
+                                    "left": 1.99,
+                                    "op": "+",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.5,
+                                            "op": "*",
+                                            "right": "BetI_protein"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(((((topModel_YFPpart_module_sub__pPhlF * 1/20) * 33/1000) / 1) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * BetI_protein) ^ 2)))",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": {
+                                            "left": "topModel_YFPpart_module_sub__pPhlF",
+                                            "op": "*",
+                                            "right": 0.05
+                                        },
+                                        "op": "*",
+                                        "right": 0.033
+                                    },
+                                    "op": "/",
+                                    "right": 1
+                                },
+                                "op": "*",
+                                "right": 30
+                            },
+                            "op": "/",
+                            "right": {
+                                "left": 1.99,
+                                "op": "+",
+                                "right": {
+                                    "left": {
+                                        "left": 0.5,
+                                        "op": "*",
+                                        "right": "BetI_protein"
+                                    },
+                                    "op": "pow",
+                                    "right": 2
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "reaction_rates",
+            "variables": []
+        }
+    ],
+    "constants": [
+        {
+            "name": "Cell",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "kd",
+            "type": "real",
+            "value": 0.00075
+        },
+        {
+            "name": "kc_f",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "kc_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "nc",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "topModel_BetIpart_module_sub__kr_f",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "topModel_BetIpart_module_sub__kr_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_BetIpart_module_sub__ka_f",
+            "type": "real",
+            "value": 0.0033
+        },
+        {
+            "name": "topModel_BetIpart_module_sub__ka_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_BetIpart_module_sub__ko_f",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "topModel_BetIpart_module_sub__ko_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_BetIpart_module_sub__kao_f",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_BetIpart_module_sub__kao_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_BetIpart_module_sub__nc",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "topModel_BetIpart_module_sub__nr",
+            "type": "real",
+            "value": 30
+        },
+        {
+            "name": "topModel_BetIpart_module_sub__ko",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "topModel_BetIpart_module_sub__kb",
+            "type": "real",
+            "value": 0.0001
+        },
+        {
+            "name": "topModel_BetIpart_module_sub__ng",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "topModel_BetIpart_module_sub__np",
+            "type": "real",
+            "value": 10
+        },
+        {
+            "name": "topModel_BetIpart_module_sub__ka",
+            "type": "real",
+            "value": 0.25
+        },
+        {
+            "name": "topModel_AmtRpart_module_sub__kr_f",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "topModel_AmtRpart_module_sub__kr_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_AmtRpart_module_sub__ka_f",
+            "type": "real",
+            "value": 0.0033
+        },
+        {
+            "name": "topModel_AmtRpart_module_sub__ka_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_AmtRpart_module_sub__ko_f",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "topModel_AmtRpart_module_sub__ko_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_AmtRpart_module_sub__kao_f",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_AmtRpart_module_sub__kao_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_AmtRpart_module_sub__nc",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "topModel_AmtRpart_module_sub__nr",
+            "type": "real",
+            "value": 30
+        },
+        {
+            "name": "topModel_AmtRpart_module_sub__ko",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "topModel_AmtRpart_module_sub__kb",
+            "type": "real",
+            "value": 0.0001
+        },
+        {
+            "name": "topModel_AmtRpart_module_sub__ng",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "topModel_AmtRpart_module_sub__np",
+            "type": "real",
+            "value": 10
+        },
+        {
+            "name": "topModel_AmtRpart_module_sub__ka",
+            "type": "real",
+            "value": 0.25
+        },
+        {
+            "name": "topModel_Inverter2_module_sub__kr_f",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "topModel_Inverter2_module_sub__kr_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_Inverter2_module_sub__ka_f",
+            "type": "real",
+            "value": 0.0033
+        },
+        {
+            "name": "topModel_Inverter2_module_sub__ka_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_Inverter2_module_sub__ko_f",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "topModel_Inverter2_module_sub__ko_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_Inverter2_module_sub__kao_f",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_Inverter2_module_sub__kao_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_Inverter2_module_sub__nc",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "topModel_Inverter2_module_sub__nr",
+            "type": "real",
+            "value": 30
+        },
+        {
+            "name": "topModel_Inverter2_module_sub__ko",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "topModel_Inverter2_module_sub__kb",
+            "type": "real",
+            "value": 0.0001
+        },
+        {
+            "name": "topModel_Inverter2_module_sub__ng",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "topModel_Inverter2_module_sub__np",
+            "type": "real",
+            "value": 10
+        },
+        {
+            "name": "topModel_Inverter2_module_sub__ka",
+            "type": "real",
+            "value": 0.25
+        },
+        {
+            "name": "topModel_YFPpart_module_sub__kr_f",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "topModel_YFPpart_module_sub__kr_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_YFPpart_module_sub__ka_f",
+            "type": "real",
+            "value": 0.0033
+        },
+        {
+            "name": "topModel_YFPpart_module_sub__ka_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_YFPpart_module_sub__ko_f",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "topModel_YFPpart_module_sub__ko_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_YFPpart_module_sub__kao_f",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_YFPpart_module_sub__kao_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_YFPpart_module_sub__nc",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "topModel_YFPpart_module_sub__nr",
+            "type": "real",
+            "value": 30
+        },
+        {
+            "name": "topModel_YFPpart_module_sub__ko",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "topModel_YFPpart_module_sub__kb",
+            "type": "real",
+            "value": 0.0001
+        },
+        {
+            "name": "topModel_YFPpart_module_sub__ng",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "topModel_YFPpart_module_sub__np",
+            "type": "real",
+            "value": 10
+        },
+        {
+            "name": "topModel_YFPpart_module_sub__ka",
+            "type": "real",
+            "value": 0.25
+        },
+        {
+            "name": "topModel_Inverter1_module_sub__kr_f",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "topModel_Inverter1_module_sub__kr_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_Inverter1_module_sub__ka_f",
+            "type": "real",
+            "value": 0.0033
+        },
+        {
+            "name": "topModel_Inverter1_module_sub__ka_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_Inverter1_module_sub__ko_f",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "topModel_Inverter1_module_sub__ko_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_Inverter1_module_sub__kao_f",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_Inverter1_module_sub__kao_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_Inverter1_module_sub__nc",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "topModel_Inverter1_module_sub__nr",
+            "type": "real",
+            "value": 30
+        },
+        {
+            "name": "topModel_Inverter1_module_sub__ko",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "topModel_Inverter1_module_sub__kb",
+            "type": "real",
+            "value": 0.0001
+        },
+        {
+            "name": "topModel_Inverter1_module_sub__ng",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "topModel_Inverter1_module_sub__np",
+            "type": "real",
+            "value": 10
+        },
+        {
+            "name": "topModel_Inverter1_module_sub__ka",
+            "type": "real",
+            "value": 0.25
+        },
+        {
+            "name": "topModel_PhlFpart_module_sub__kr_f",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "topModel_PhlFpart_module_sub__kr_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_PhlFpart_module_sub__ka_f",
+            "type": "real",
+            "value": 0.0033
+        },
+        {
+            "name": "topModel_PhlFpart_module_sub__ka_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_PhlFpart_module_sub__ko_f",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "topModel_PhlFpart_module_sub__ko_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_PhlFpart_module_sub__kao_f",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_PhlFpart_module_sub__kao_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "topModel_PhlFpart_module_sub__nc",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "topModel_PhlFpart_module_sub__nr",
+            "type": "real",
+            "value": 30
+        },
+        {
+            "name": "topModel_PhlFpart_module_sub__ko",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "topModel_PhlFpart_module_sub__kb",
+            "type": "real",
+            "value": 0.0001
+        },
+        {
+            "name": "topModel_PhlFpart_module_sub__ng",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "topModel_PhlFpart_module_sub__np",
+            "type": "real",
+            "value": 10
+        },
+        {
+            "name": "topModel_PhlFpart_module_sub__ka",
+            "type": "real",
+            "value": 0.25
+        }
+    ],
+    "features": [
+        "derived-operators"
+    ],
+    "jani-version": 1,
+    "name": "Circuit0x8E_LHF_000to011",
+    "properties": [
+        {
+            "expression": {
+                "fun": "values",
+                "op": "filter",
+                "states": {
+                    "op": "initial"
+                },
+                "values": {
+                    "exp": {
+                        "left": true,
+                        "op": "U",
+                        "right": {
+                            "left": "YFP_protein",
+                            "op": "≤",
+                            "right": 30
+                        },
+                        "time-bounds": {
+                            "lower": 0,
+                            "lower-exclusive": false,
+                            "upper": 1000,
+                            "upper-exclusive": false
+                        }
+                    },
+                    "op": "Pmin"
+                }
+            },
+            "name": "1"
+        }
+    ],
+    "restrict-initial": {
+        "exp": true
+    },
+    "system": {
+        "elements": [
+            {
+                "automaton": "HlyIIR_protein"
+            },
+            {
+                "automaton": "LacI_protein"
+            },
+            {
+                "automaton": "Ara_AraC_protein"
+            },
+            {
+                "automaton": "BetI_protein"
+            },
+            {
+                "automaton": "PhlF_protein"
+            },
+            {
+                "automaton": "AmtR_protein"
+            },
+            {
+                "automaton": "TetR_protein"
+            },
+            {
+                "automaton": "YFP_protein"
+            },
+            {
+                "automaton": "BM3R1_protein"
+            },
+            {
+                "automaton": "topModel_BetIpart_module_sub__pTet"
+            },
+            {
+                "automaton": "topModel_BetIpart_module_sub__pHlyIIR"
+            },
+            {
+                "automaton": "topModel_AmtRpart_module_sub__pBM3R1"
+            },
+            {
+                "automaton": "topModel_AmtRpart_module_sub__pBAD"
+            },
+            {
+                "automaton": "topModel_Inverter2_module_sub__Inverter2_fc"
+            },
+            {
+                "automaton": "topModel_YFPpart_module_sub__pBetI"
+            },
+            {
+                "automaton": "topModel_YFPpart_module_sub__pPhlF"
+            },
+            {
+                "automaton": "topModel_Inverter1_module_sub__Inverter1_fc"
+            },
+            {
+                "automaton": "topModel_PhlFpart_module_sub__pTac"
+            },
+            {
+                "automaton": "topModel_PhlFpart_module_sub__pAmtR"
+            },
+            {
+                "automaton": "reaction_rates"
+            }
+        ],
+        "syncs": [
+            {
+                "result": "AmtR_degradation_interaction",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "AmtR_degradation_interaction",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "AmtR_degradation_interaction"
+                ]
+            },
+            {
+                "result": "BM3R1_degradation_interaction",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "BM3R1_degradation_interaction",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "BM3R1_degradation_interaction"
+                ]
+            },
+            {
+                "result": "BetI_degradation_interaction",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    "BetI_degradation_interaction",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "BetI_degradation_interaction"
+                ]
+            },
+            {
+                "result": "HlyIIR_degradation_interaction",
+                "synchronise": [
+                    "HlyIIR_degradation_interaction",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "HlyIIR_degradation_interaction"
+                ]
+            },
+            {
+                "result": "PhlF_degradation_interaction",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    "PhlF_degradation_interaction",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "PhlF_degradation_interaction"
+                ]
+            },
+            {
+                "result": "YFP_degradation_interaction",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "YFP_degradation_interaction",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "YFP_degradation_interaction"
+                ]
+            },
+            {
+                "result": "topModel_AmtRpart_module_sub__AmtR_protein_interaction_0",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "topModel_AmtRpart_module_sub__AmtR_protein_interaction_0",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "topModel_AmtRpart_module_sub__AmtR_protein_interaction_0"
+                ]
+            },
+            {
+                "result": "topModel_AmtRpart_module_sub__AmtR_protein_interaction_1",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "topModel_AmtRpart_module_sub__AmtR_protein_interaction_1",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "topModel_AmtRpart_module_sub__AmtR_protein_interaction_1"
+                ]
+            },
+            {
+                "result": "topModel_BetIpart_module_sub__BetI_protein_interaction_0",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    "topModel_BetIpart_module_sub__BetI_protein_interaction_0",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "topModel_BetIpart_module_sub__BetI_protein_interaction_0"
+                ]
+            },
+            {
+                "result": "topModel_BetIpart_module_sub__BetI_protein_interaction_1",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    "topModel_BetIpart_module_sub__BetI_protein_interaction_1",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "topModel_BetIpart_module_sub__BetI_protein_interaction_1"
+                ]
+            },
+            {
+                "result": "topModel_Inverter1_module_sub__HlyIIR_protein_interaction",
+                "synchronise": [
+                    "topModel_Inverter1_module_sub__HlyIIR_protein_interaction",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "topModel_Inverter1_module_sub__HlyIIR_protein_interaction"
+                ]
+            },
+            {
+                "result": "topModel_Inverter2_module_sub__BM3R1_protein_interaction",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "topModel_Inverter2_module_sub__BM3R1_protein_interaction",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "topModel_Inverter2_module_sub__BM3R1_protein_interaction"
+                ]
+            },
+            {
+                "result": "topModel_PhlFpart_module_sub__PhlF_protein_interaction_0",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    "topModel_PhlFpart_module_sub__PhlF_protein_interaction_0",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "topModel_PhlFpart_module_sub__PhlF_protein_interaction_0"
+                ]
+            },
+            {
+                "result": "topModel_PhlFpart_module_sub__PhlF_protein_interaction_1",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    "topModel_PhlFpart_module_sub__PhlF_protein_interaction_1",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "topModel_PhlFpart_module_sub__PhlF_protein_interaction_1"
+                ]
+            },
+            {
+                "result": "topModel_YFPpart_module_sub__YFP_protein_interaction_0",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "topModel_YFPpart_module_sub__YFP_protein_interaction_0",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "topModel_YFPpart_module_sub__YFP_protein_interaction_0"
+                ]
+            },
+            {
+                "result": "topModel_YFPpart_module_sub__YFP_protein_interaction_1",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "topModel_YFPpart_module_sub__YFP_protein_interaction_1",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "topModel_YFPpart_module_sub__YFP_protein_interaction_1"
+                ]
+            }
+        ]
+    },
+    "type": "ctmc",
+    "variables": [
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_HlyIIR_protein",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_LacI_protein",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_Ara_AraC_protein",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_BetI_protein",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_PhlF_protein",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_AmtR_protein",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_TetR_protein",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_YFP_protein",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_BM3R1_protein",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_topModel_BetIpart_module_sub__pTet",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_topModel_BetIpart_module_sub__pHlyIIR",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_topModel_AmtRpart_module_sub__pBM3R1",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_topModel_AmtRpart_module_sub__pBAD",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_topModel_Inverter2_module_sub__Inverter2_fc",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_topModel_YFPpart_module_sub__pBetI",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_topModel_YFPpart_module_sub__pPhlF",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_topModel_Inverter1_module_sub__Inverter1_fc",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_topModel_PhlFpart_module_sub__pTac",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_topModel_PhlFpart_module_sub__pAmtR",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "HlyIIR_protein",
+            "type": "int"
+        },
+        {
+            "initial-value": 60,
+            "name": "LacI_protein",
+            "type": "int"
+        },
+        {
+            "initial-value": 60,
+            "name": "Ara_AraC_protein",
+            "type": "int"
+        },
+        {
+            "initial-value": 70,
+            "name": "BetI_protein",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "PhlF_protein",
+            "type": "int"
+        },
+        {
+            "initial-value": 70,
+            "name": "AmtR_protein",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "TetR_protein",
+            "type": "int"
+        },
+        {
+            "initial-value": 70,
+            "name": "YFP_protein",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "BM3R1_protein",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "topModel_BetIpart_module_sub__pTet",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "topModel_BetIpart_module_sub__pHlyIIR",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "topModel_AmtRpart_module_sub__pBM3R1",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "topModel_AmtRpart_module_sub__pBAD",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "topModel_Inverter2_module_sub__Inverter2_fc",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "topModel_YFPpart_module_sub__pBetI",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "topModel_YFPpart_module_sub__pPhlF",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "topModel_Inverter1_module_sub__Inverter1_fc",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "topModel_PhlFpart_module_sub__pTac",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "topModel_PhlFpart_module_sub__pAmtR",
+            "type": "int"
+        }
+    ]
+}

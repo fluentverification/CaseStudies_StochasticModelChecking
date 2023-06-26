@@ -1,0 +1,1423 @@
+{
+    "actions": [
+        {
+            "name": "R0"
+        },
+        {
+            "name": "R1"
+        },
+        {
+            "name": "R2"
+        },
+        {
+            "name": "R3"
+        },
+        {
+            "name": "R4"
+        },
+        {
+            "name": "R5"
+        }
+    ],
+    "automata": [
+        {
+            "edges": [
+                {
+                    "action": "R0",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "S0 <- (S0 - 1)",
+                                    "ref": "S0",
+                                    "value": {
+                                        "left": "S0",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((S0 >= 0) & (S1 >= 0))",
+                        "exp": {
+                            "left": {
+                                "left": "S0",
+                                "op": "≥",
+                                "right": 0
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": "S1",
+                                "op": "≥",
+                                "right": 0
+                            }
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R1",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "S0 <- (S0 + 1)",
+                                    "ref": "S0",
+                                    "value": {
+                                        "left": "S0",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(S2 >= 0)",
+                        "exp": {
+                            "left": "S2",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R2",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "S0 <- (S0 + 1)",
+                                    "ref": "S0",
+                                    "value": {
+                                        "left": "S0",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(S2 >= 0)",
+                        "exp": {
+                            "left": "S2",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l",
+                    "transient-values": [
+                        {
+                            "comment": "rewardmodel_S0 <- S0",
+                            "ref": "rewardmodel_S0",
+                            "value": "S0"
+                        },
+                        {
+                            "comment": "rewardmodel_S1 <- S1",
+                            "ref": "rewardmodel_S1",
+                            "value": "S1"
+                        },
+                        {
+                            "comment": "rewardmodel_S2 <- S2",
+                            "ref": "rewardmodel_S2",
+                            "value": "S2"
+                        },
+                        {
+                            "comment": "rewardmodel_S3 <- S3",
+                            "ref": "rewardmodel_S3",
+                            "value": "S3"
+                        },
+                        {
+                            "comment": "rewardmodel_S4 <- S4",
+                            "ref": "rewardmodel_S4",
+                            "value": "S4"
+                        },
+                        {
+                            "comment": "rewardmodel_S5 <- S5",
+                            "ref": "rewardmodel_S5",
+                            "value": "S5"
+                        }
+                    ]
+                }
+            ],
+            "name": "S0",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "R0",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "S1 <- (S1 - 1)",
+                                    "ref": "S1",
+                                    "value": {
+                                        "left": "S1",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((S0 >= 0) & (S1 >= 0))",
+                        "exp": {
+                            "left": {
+                                "left": "S0",
+                                "op": "≥",
+                                "right": 0
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": "S1",
+                                "op": "≥",
+                                "right": 0
+                            }
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R1",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "S1 <- (S1 + 1)",
+                                    "ref": "S1",
+                                    "value": {
+                                        "left": "S1",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(S2 >= 0)",
+                        "exp": {
+                            "left": "S2",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R5",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "S1 <- (S1 + 1)",
+                                    "ref": "S1",
+                                    "value": {
+                                        "left": "S1",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(S5 >= 0)",
+                        "exp": {
+                            "left": "S5",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "S1",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "R0",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "S2 <- (S2 + 1)",
+                                    "ref": "S2",
+                                    "value": {
+                                        "left": "S2",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((S0 >= 0) & (S1 >= 0))",
+                        "exp": {
+                            "left": {
+                                "left": "S0",
+                                "op": "≥",
+                                "right": 0
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": "S1",
+                                "op": "≥",
+                                "right": 0
+                            }
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R1",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "S2 <- (S2 - 1)",
+                                    "ref": "S2",
+                                    "value": {
+                                        "left": "S2",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(S2 >= 0)",
+                        "exp": {
+                            "left": "S2",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R2",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "S2 <- (S2 - 1)",
+                                    "ref": "S2",
+                                    "value": {
+                                        "left": "S2",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(S2 >= 0)",
+                        "exp": {
+                            "left": "S2",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "S2",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "R3",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "S3 <- (S3 - 1)",
+                                    "ref": "S3",
+                                    "value": {
+                                        "left": "S3",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((S3 >= 0) & (S4 >= 0))",
+                        "exp": {
+                            "left": {
+                                "left": "S3",
+                                "op": "≥",
+                                "right": 0
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": "S4",
+                                "op": "≥",
+                                "right": 0
+                            }
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R4",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "S3 <- (S3 + 1)",
+                                    "ref": "S3",
+                                    "value": {
+                                        "left": "S3",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(S5 >= 0)",
+                        "exp": {
+                            "left": "S5",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R5",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "S3 <- (S3 + 1)",
+                                    "ref": "S3",
+                                    "value": {
+                                        "left": "S3",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(S5 >= 0)",
+                        "exp": {
+                            "left": "S5",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "S3",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "R2",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "S4 <- (S4 + 1)",
+                                    "ref": "S4",
+                                    "value": {
+                                        "left": "S4",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(S2 >= 0)",
+                        "exp": {
+                            "left": "S2",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R3",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "S4 <- (S4 - 1)",
+                                    "ref": "S4",
+                                    "value": {
+                                        "left": "S4",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((S3 >= 0) & (S4 >= 0))",
+                        "exp": {
+                            "left": {
+                                "left": "S3",
+                                "op": "≥",
+                                "right": 0
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": "S4",
+                                "op": "≥",
+                                "right": 0
+                            }
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R4",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "S4 <- (S4 + 1)",
+                                    "ref": "S4",
+                                    "value": {
+                                        "left": "S4",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(S5 >= 0)",
+                        "exp": {
+                            "left": "S5",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "S4",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "R3",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "S5 <- (S5 + 1)",
+                                    "ref": "S5",
+                                    "value": {
+                                        "left": "S5",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((S3 >= 0) & (S4 >= 0))",
+                        "exp": {
+                            "left": {
+                                "left": "S3",
+                                "op": "≥",
+                                "right": 0
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": "S4",
+                                "op": "≥",
+                                "right": 0
+                            }
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R4",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "S5 <- (S5 - 1)",
+                                    "ref": "S5",
+                                    "value": {
+                                        "left": "S5",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(S5 >= 0)",
+                        "exp": {
+                            "left": "S5",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R5",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "S5 <- (S5 - 1)",
+                                    "ref": "S5",
+                                    "value": {
+                                        "left": "S5",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(S5 >= 0)",
+                        "exp": {
+                            "left": "S5",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "S5",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "R0",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "(((1 * S0) * S1) / ((1 * S0) * S1))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": 1,
+                                            "op": "*",
+                                            "right": "S0"
+                                        },
+                                        "op": "*",
+                                        "right": "S1"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": 1,
+                                            "op": "*",
+                                            "right": "S0"
+                                        },
+                                        "op": "*",
+                                        "right": "S1"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(((1 * S0) * S1) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": 1,
+                                    "op": "*",
+                                    "right": "S0"
+                                },
+                                "op": "*",
+                                "right": "S1"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "((1 * S0) * S1)",
+                        "exp": {
+                            "left": {
+                                "left": 1,
+                                "op": "*",
+                                "right": "S0"
+                            },
+                            "op": "*",
+                            "right": "S1"
+                        }
+                    }
+                },
+                {
+                    "action": "R1",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((1 * S2) / (1 * S2))",
+                                "exp": {
+                                    "left": {
+                                        "left": 1,
+                                        "op": "*",
+                                        "right": "S2"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 1,
+                                        "op": "*",
+                                        "right": "S2"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((1 * S2) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 1,
+                                "op": "*",
+                                "right": "S2"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(1 * S2)",
+                        "exp": {
+                            "left": 1,
+                            "op": "*",
+                            "right": "S2"
+                        }
+                    }
+                },
+                {
+                    "action": "R2",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((1/10 * S2) / (1/10 * S2))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.1,
+                                        "op": "*",
+                                        "right": "S2"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.1,
+                                        "op": "*",
+                                        "right": "S2"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((1/10 * S2) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.1,
+                                "op": "*",
+                                "right": "S2"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(1/10 * S2)",
+                        "exp": {
+                            "left": 0.1,
+                            "op": "*",
+                            "right": "S2"
+                        }
+                    }
+                },
+                {
+                    "action": "R3",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "(((1 * S3) * S4) / ((1 * S3) * S4))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": 1,
+                                            "op": "*",
+                                            "right": "S3"
+                                        },
+                                        "op": "*",
+                                        "right": "S4"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": 1,
+                                            "op": "*",
+                                            "right": "S3"
+                                        },
+                                        "op": "*",
+                                        "right": "S4"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(((1 * S3) * S4) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": 1,
+                                    "op": "*",
+                                    "right": "S3"
+                                },
+                                "op": "*",
+                                "right": "S4"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "((1 * S3) * S4)",
+                        "exp": {
+                            "left": {
+                                "left": 1,
+                                "op": "*",
+                                "right": "S3"
+                            },
+                            "op": "*",
+                            "right": "S4"
+                        }
+                    }
+                },
+                {
+                    "action": "R4",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((1 * S5) / (1 * S5))",
+                                "exp": {
+                                    "left": {
+                                        "left": 1,
+                                        "op": "*",
+                                        "right": "S5"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 1,
+                                        "op": "*",
+                                        "right": "S5"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((1 * S5) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 1,
+                                "op": "*",
+                                "right": "S5"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(1 * S5)",
+                        "exp": {
+                            "left": 1,
+                            "op": "*",
+                            "right": "S5"
+                        }
+                    }
+                },
+                {
+                    "action": "R5",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((1/10 * S5) / (1/10 * S5))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.1,
+                                        "op": "*",
+                                        "right": "S5"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.1,
+                                        "op": "*",
+                                        "right": "S5"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((1/10 * S5) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.1,
+                                "op": "*",
+                                "right": "S5"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(1/10 * S5)",
+                        "exp": {
+                            "left": 0.1,
+                            "op": "*",
+                            "right": "S5"
+                        }
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "reaction_rates",
+            "variables": []
+        }
+    ],
+    "constants": [
+        {
+            "name": "Cell",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "local_kf_0",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "local_kr_0",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "local_kf_1",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "local_kr_1",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "local_kf_2",
+            "type": "real",
+            "value": 0.1
+        },
+        {
+            "name": "local_kr_2",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "local_kf_3",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "local_kr_3",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "local_kf_4",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "local_kr_4",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "local_kf_5",
+            "type": "real",
+            "value": 0.1
+        },
+        {
+            "name": "local_kr_5",
+            "type": "real",
+            "value": 1
+        }
+    ],
+    "features": [
+        "derived-operators"
+    ],
+    "jani-version": 1,
+    "name": "EnzymaticFutileCycle",
+    "properties": [
+        {
+            "expression": {
+                "fun": "values",
+                "op": "filter",
+                "states": {
+                    "op": "initial"
+                },
+                "values": {
+                    "exp": {
+                        "left": true,
+                        "op": "U",
+                        "right": {
+                            "left": "S4",
+                            "op": "≤",
+                            "right": 25
+                        },
+                        "time-bounds": {
+                            "upper": 100,
+                            "upper-exclusive": false
+                        }
+                    },
+                    "op": "Pmin"
+                }
+            },
+            "name": "1"
+        }
+    ],
+    "restrict-initial": {
+        "exp": true
+    },
+    "system": {
+        "elements": [
+            {
+                "automaton": "S0"
+            },
+            {
+                "automaton": "S1"
+            },
+            {
+                "automaton": "S2"
+            },
+            {
+                "automaton": "S3"
+            },
+            {
+                "automaton": "S4"
+            },
+            {
+                "automaton": "S5"
+            },
+            {
+                "automaton": "reaction_rates"
+            }
+        ],
+        "syncs": [
+            {
+                "result": "R0",
+                "synchronise": [
+                    "R0",
+                    "R0",
+                    "R0",
+                    null,
+                    null,
+                    null,
+                    "R0"
+                ]
+            },
+            {
+                "result": "R1",
+                "synchronise": [
+                    "R1",
+                    "R1",
+                    "R1",
+                    null,
+                    null,
+                    null,
+                    "R1"
+                ]
+            },
+            {
+                "result": "R2",
+                "synchronise": [
+                    "R2",
+                    null,
+                    "R2",
+                    null,
+                    "R2",
+                    null,
+                    "R2"
+                ]
+            },
+            {
+                "result": "R3",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    "R3",
+                    "R3",
+                    "R3",
+                    "R3"
+                ]
+            },
+            {
+                "result": "R4",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    "R4",
+                    "R4",
+                    "R4",
+                    "R4"
+                ]
+            },
+            {
+                "result": "R5",
+                "synchronise": [
+                    null,
+                    "R5",
+                    null,
+                    "R5",
+                    null,
+                    "R5",
+                    "R5"
+                ]
+            }
+        ]
+    },
+    "type": "ctmc",
+    "variables": [
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_S0",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_S1",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_S2",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_S3",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_S4",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_S5",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 1,
+            "name": "S0",
+            "type": "int"
+        },
+        {
+            "initial-value": 50,
+            "name": "S1",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "S2",
+            "type": "int"
+        },
+        {
+            "initial-value": 1,
+            "name": "S3",
+            "type": "int"
+        },
+        {
+            "initial-value": 50,
+            "name": "S4",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "S5",
+            "type": "int"
+        }
+    ]
+}

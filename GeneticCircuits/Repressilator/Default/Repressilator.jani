@@ -1,0 +1,1283 @@
+{
+    "actions": [
+        {
+            "name": "Degradation_CI"
+        },
+        {
+            "name": "Degradation_LacI"
+        },
+        {
+            "name": "Degradation_TetR"
+        },
+        {
+            "name": "Production_P0"
+        },
+        {
+            "name": "Production_P1"
+        },
+        {
+            "name": "Production_P2"
+        }
+    ],
+    "automata": [
+        {
+            "edges": [
+                {
+                    "action": "Degradation_CI",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "CI <- (CI - 1)",
+                                    "ref": "CI",
+                                    "value": {
+                                        "left": "CI",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(CI > 0)",
+                        "exp": {
+                            "left": "CI",
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "Production_P2",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "CI <- (CI + 10)",
+                                    "ref": "CI",
+                                    "value": {
+                                        "left": "CI",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(CI <= (100 - 10))",
+                        "exp": {
+                            "left": "CI",
+                            "op": "≤",
+                            "right": 90
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l",
+                    "transient-values": [
+                        {
+                            "comment": "rewardmodel_CI <- CI",
+                            "ref": "rewardmodel_CI",
+                            "value": "CI"
+                        },
+                        {
+                            "comment": "rewardmodel_LacI <- LacI",
+                            "ref": "rewardmodel_LacI",
+                            "value": "LacI"
+                        },
+                        {
+                            "comment": "rewardmodel_TetR <- TetR",
+                            "ref": "rewardmodel_TetR",
+                            "value": "TetR"
+                        },
+                        {
+                            "comment": "rewardmodel_P0 <- P0",
+                            "ref": "rewardmodel_P0",
+                            "value": "P0"
+                        },
+                        {
+                            "comment": "rewardmodel_P1 <- P1",
+                            "ref": "rewardmodel_P1",
+                            "value": "P1"
+                        },
+                        {
+                            "comment": "rewardmodel_P2 <- P2",
+                            "ref": "rewardmodel_P2",
+                            "value": "P2"
+                        }
+                    ]
+                }
+            ],
+            "name": "CI",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "Degradation_LacI",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "LacI <- (LacI - 1)",
+                                    "ref": "LacI",
+                                    "value": {
+                                        "left": "LacI",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(LacI > 0)",
+                        "exp": {
+                            "left": "LacI",
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "Production_P0",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "LacI <- (LacI + 10)",
+                                    "ref": "LacI",
+                                    "value": {
+                                        "left": "LacI",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(LacI <= (100 - 10))",
+                        "exp": {
+                            "left": "LacI",
+                            "op": "≤",
+                            "right": 90
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "LacI",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "Degradation_TetR",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "TetR <- (TetR - 1)",
+                                    "ref": "TetR",
+                                    "value": {
+                                        "left": "TetR",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(TetR > 0)",
+                        "exp": {
+                            "left": "TetR",
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "Production_P1",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "TetR <- (TetR + 10)",
+                                    "ref": "TetR",
+                                    "value": {
+                                        "left": "TetR",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(TetR <= (100 - 10))",
+                        "exp": {
+                            "left": "TetR",
+                            "op": "≤",
+                            "right": 90
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "TetR",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "P0",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "P1",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "P2",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "Degradation_CI",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((3/400 * CI) / (3/400 * CI))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.0075,
+                                        "op": "*",
+                                        "right": "CI"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.0075,
+                                        "op": "*",
+                                        "right": "CI"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((3/400 * CI) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.0075,
+                                "op": "*",
+                                "right": "CI"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(3/400 * CI)",
+                        "exp": {
+                            "left": 0.0075,
+                            "op": "*",
+                            "right": "CI"
+                        }
+                    }
+                },
+                {
+                    "action": "Degradation_LacI",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((3/400 * LacI) / (3/400 * LacI))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.0075,
+                                        "op": "*",
+                                        "right": "LacI"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.0075,
+                                        "op": "*",
+                                        "right": "LacI"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((3/400 * LacI) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.0075,
+                                "op": "*",
+                                "right": "LacI"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(3/400 * LacI)",
+                        "exp": {
+                            "left": 0.0075,
+                            "op": "*",
+                            "right": "LacI"
+                        }
+                    }
+                },
+                {
+                    "action": "Degradation_TetR",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((3/400 * TetR) / (3/400 * TetR))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.0075,
+                                        "op": "*",
+                                        "right": "TetR"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.0075,
+                                        "op": "*",
+                                        "right": "TetR"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((3/400 * TetR) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.0075,
+                                "op": "*",
+                                "right": "TetR"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(3/400 * TetR)",
+                        "exp": {
+                            "left": 0.0075,
+                            "op": "*",
+                            "right": "TetR"
+                        }
+                    }
+                },
+                {
+                    "action": "Production_P0",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "(((((P0 * 1/20) * (33/1000 / 1)) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * CI) ^ 2))) / ((((P0 * 1/20) * (33/1000 / 1)) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * CI) ^ 2))))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": 30,
+                                                "op": "*",
+                                                "right": 0.05
+                                            },
+                                            "op": "*",
+                                            "right": {
+                                                "left": 0.033,
+                                                "op": "*",
+                                                "right": "P0"
+                                            }
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "CI"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": {
+                                                "left": 30,
+                                                "op": "*",
+                                                "right": 0.05
+                                            },
+                                            "op": "*",
+                                            "right": {
+                                                "left": 0.033,
+                                                "op": "*",
+                                                "right": "P0"
+                                            }
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "CI"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(((((P0 * 1/20) * (33/1000 / 1)) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * CI) ^ 2))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": 30,
+                                        "op": "*",
+                                        "right": 0.05
+                                    },
+                                    "op": "*",
+                                    "right": {
+                                        "left": 0.033,
+                                        "op": "*",
+                                        "right": "P0"
+                                    }
+                                },
+                                "op": "/",
+                                "right": {
+                                    "left": 1.99,
+                                    "op": "+",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.5,
+                                            "op": "*",
+                                            "right": "CI"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "((((P0 * 1/20) * (33/1000 / 1)) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * CI) ^ 2)))",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": 30,
+                                    "op": "*",
+                                    "right": 0.05
+                                },
+                                "op": "*",
+                                "right": {
+                                    "left": 0.033,
+                                    "op": "*",
+                                    "right": "P0"
+                                }
+                            },
+                            "op": "/",
+                            "right": {
+                                "left": 1.99,
+                                "op": "+",
+                                "right": {
+                                    "left": {
+                                        "left": 0.5,
+                                        "op": "*",
+                                        "right": "CI"
+                                    },
+                                    "op": "pow",
+                                    "right": 2
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "action": "Production_P1",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "(((((P1 * 1/20) * (33/1000 / 1)) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * LacI) ^ 2))) / ((((P1 * 1/20) * (33/1000 / 1)) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * LacI) ^ 2))))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": 30,
+                                                "op": "*",
+                                                "right": 0.05
+                                            },
+                                            "op": "*",
+                                            "right": {
+                                                "left": 0.033,
+                                                "op": "*",
+                                                "right": "P1"
+                                            }
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "LacI"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": {
+                                                "left": 30,
+                                                "op": "*",
+                                                "right": 0.05
+                                            },
+                                            "op": "*",
+                                            "right": {
+                                                "left": 0.033,
+                                                "op": "*",
+                                                "right": "P1"
+                                            }
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "LacI"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(((((P1 * 1/20) * (33/1000 / 1)) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * LacI) ^ 2))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": 30,
+                                        "op": "*",
+                                        "right": 0.05
+                                    },
+                                    "op": "*",
+                                    "right": {
+                                        "left": 0.033,
+                                        "op": "*",
+                                        "right": "P1"
+                                    }
+                                },
+                                "op": "/",
+                                "right": {
+                                    "left": 1.99,
+                                    "op": "+",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.5,
+                                            "op": "*",
+                                            "right": "LacI"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "((((P1 * 1/20) * (33/1000 / 1)) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * LacI) ^ 2)))",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": 30,
+                                    "op": "*",
+                                    "right": 0.05
+                                },
+                                "op": "*",
+                                "right": {
+                                    "left": 0.033,
+                                    "op": "*",
+                                    "right": "P1"
+                                }
+                            },
+                            "op": "/",
+                            "right": {
+                                "left": 1.99,
+                                "op": "+",
+                                "right": {
+                                    "left": {
+                                        "left": 0.5,
+                                        "op": "*",
+                                        "right": "LacI"
+                                    },
+                                    "op": "pow",
+                                    "right": 2
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "action": "Production_P2",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "(((((P2 * 1/20) * (33/1000 / 1)) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * TetR) ^ 2))) / ((((P2 * 1/20) * (33/1000 / 1)) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * TetR) ^ 2))))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": {
+                                                "left": 30,
+                                                "op": "*",
+                                                "right": 0.05
+                                            },
+                                            "op": "*",
+                                            "right": {
+                                                "left": 0.033,
+                                                "op": "*",
+                                                "right": "P2"
+                                            }
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "TetR"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": {
+                                                "left": 30,
+                                                "op": "*",
+                                                "right": 0.05
+                                            },
+                                            "op": "*",
+                                            "right": {
+                                                "left": 0.033,
+                                                "op": "*",
+                                                "right": "P2"
+                                            }
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "TetR"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(((((P2 * 1/20) * (33/1000 / 1)) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * TetR) ^ 2))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": {
+                                        "left": 30,
+                                        "op": "*",
+                                        "right": 0.05
+                                    },
+                                    "op": "*",
+                                    "right": {
+                                        "left": 0.033,
+                                        "op": "*",
+                                        "right": "P2"
+                                    }
+                                },
+                                "op": "/",
+                                "right": {
+                                    "left": 1.99,
+                                    "op": "+",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.5,
+                                            "op": "*",
+                                            "right": "TetR"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "((((P2 * 1/20) * (33/1000 / 1)) * 30) / ((1 + ((33/1000 / 1) * 30)) + (((1/2 / 1) * TetR) ^ 2)))",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": 30,
+                                    "op": "*",
+                                    "right": 0.05
+                                },
+                                "op": "*",
+                                "right": {
+                                    "left": 0.033,
+                                    "op": "*",
+                                    "right": "P2"
+                                }
+                            },
+                            "op": "/",
+                            "right": {
+                                "left": 1.99,
+                                "op": "+",
+                                "right": {
+                                    "left": {
+                                        "left": 0.5,
+                                        "op": "*",
+                                        "right": "TetR"
+                                    },
+                                    "op": "pow",
+                                    "right": 2
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "reaction_rates",
+            "variables": []
+        }
+    ],
+    "constants": [
+        {
+            "name": "MAX_AMOUNT",
+            "type": "int",
+            "value": 100
+        },
+        {
+            "name": "Cell",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "kd",
+            "type": "real",
+            "value": 0.0075
+        },
+        {
+            "name": "kr_f",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "kr_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "ka_f",
+            "type": "real",
+            "value": 0.0033
+        },
+        {
+            "name": "ka_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "ko_f",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "ko_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "kao_f",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "kao_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "nc",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "nr",
+            "type": "real",
+            "value": 30
+        },
+        {
+            "name": "ko",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "kb",
+            "type": "real",
+            "value": 0.0001
+        },
+        {
+            "name": "ng",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "np",
+            "type": "real",
+            "value": 10
+        },
+        {
+            "name": "ka",
+            "type": "real",
+            "value": 0.25
+        },
+        {
+            "name": "CI_MAX",
+            "type": "int",
+            "value": 100
+        },
+        {
+            "name": "LacI_MAX",
+            "type": "int",
+            "value": 100
+        },
+        {
+            "name": "TetR_MAX",
+            "type": "int",
+            "value": 100
+        },
+        {
+            "name": "P0_MAX",
+            "type": "int",
+            "value": 100
+        },
+        {
+            "name": "P1_MAX",
+            "type": "int",
+            "value": 100
+        },
+        {
+            "name": "P2_MAX",
+            "type": "int",
+            "value": 100
+        }
+    ],
+    "features": [
+        "derived-operators"
+    ],
+    "jani-version": 1,
+    "name": "Repressilator",
+    "properties": [
+        {
+            "expression": {
+                "fun": "values",
+                "op": "filter",
+                "states": {
+                    "op": "initial"
+                },
+                "values": {
+                    "exp": {
+                        "left": true,
+                        "op": "U",
+                        "right": {
+                            "left": "CI",
+                            "op": "≥",
+                            "right": 12
+                        },
+                        "time-bounds": {
+                            "lower": 0,
+                            "lower-exclusive": false,
+                            "upper": 50,
+                            "upper-exclusive": false
+                        }
+                    },
+                    "op": "Pmin"
+                }
+            },
+            "name": "1"
+        }
+    ],
+    "restrict-initial": {
+        "exp": true
+    },
+    "system": {
+        "elements": [
+            {
+                "automaton": "CI"
+            },
+            {
+                "automaton": "LacI"
+            },
+            {
+                "automaton": "TetR"
+            },
+            {
+                "automaton": "P0"
+            },
+            {
+                "automaton": "P1"
+            },
+            {
+                "automaton": "P2"
+            },
+            {
+                "automaton": "reaction_rates"
+            }
+        ],
+        "syncs": [
+            {
+                "result": "Degradation_CI",
+                "synchronise": [
+                    "Degradation_CI",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "Degradation_CI"
+                ]
+            },
+            {
+                "result": "Degradation_LacI",
+                "synchronise": [
+                    null,
+                    "Degradation_LacI",
+                    null,
+                    null,
+                    null,
+                    null,
+                    "Degradation_LacI"
+                ]
+            },
+            {
+                "result": "Degradation_TetR",
+                "synchronise": [
+                    null,
+                    null,
+                    "Degradation_TetR",
+                    null,
+                    null,
+                    null,
+                    "Degradation_TetR"
+                ]
+            },
+            {
+                "result": "Production_P0",
+                "synchronise": [
+                    null,
+                    "Production_P0",
+                    null,
+                    null,
+                    null,
+                    null,
+                    "Production_P0"
+                ]
+            },
+            {
+                "result": "Production_P1",
+                "synchronise": [
+                    null,
+                    null,
+                    "Production_P1",
+                    null,
+                    null,
+                    null,
+                    "Production_P1"
+                ]
+            },
+            {
+                "result": "Production_P2",
+                "synchronise": [
+                    "Production_P2",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "Production_P2"
+                ]
+            }
+        ]
+    },
+    "type": "ctmc",
+    "variables": [
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_CI",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_LacI",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_TetR",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_P0",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_P1",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_P2",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "CI",
+            "type": {
+                "base": "int",
+                "kind": "bounded",
+                "lower-bound": 0,
+                "upper-bound": 100
+            }
+        },
+        {
+            "initial-value": 0,
+            "name": "LacI",
+            "type": {
+                "base": "int",
+                "kind": "bounded",
+                "lower-bound": 0,
+                "upper-bound": 100
+            }
+        },
+        {
+            "initial-value": 0,
+            "name": "TetR",
+            "type": {
+                "base": "int",
+                "kind": "bounded",
+                "lower-bound": 0,
+                "upper-bound": 100
+            }
+        },
+        {
+            "initial-value": 2,
+            "name": "P0",
+            "type": {
+                "base": "int",
+                "kind": "bounded",
+                "lower-bound": 0,
+                "upper-bound": 100
+            }
+        },
+        {
+            "initial-value": 2,
+            "name": "P1",
+            "type": {
+                "base": "int",
+                "kind": "bounded",
+                "lower-bound": 0,
+                "upper-bound": 100
+            }
+        },
+        {
+            "initial-value": 2,
+            "name": "P2",
+            "type": {
+                "base": "int",
+                "kind": "bounded",
+                "lower-bound": 0,
+                "upper-bound": 100
+            }
+        }
+    ]
+}
