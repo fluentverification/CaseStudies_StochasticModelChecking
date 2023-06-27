@@ -1,0 +1,299 @@
+{
+    "actions": [
+        {
+            "name": "Birth"
+        },
+        {
+            "name": "Death"
+        }
+    ],
+    "automata": [
+        {
+            "edges": [
+                {
+                    "action": "Birth",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "_X <- (_X + 1)",
+                                    "ref": "_X",
+                                    "value": {
+                                        "left": "_X",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(_X >= 0)",
+                        "exp": {
+                            "left": "_X",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "Death",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "_X <- (_X - 1)",
+                                    "ref": "_X",
+                                    "value": {
+                                        "left": "_X",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(_X > 0)",
+                        "exp": {
+                            "left": "_X",
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l",
+                    "transient-values": [
+                        {
+                            "comment": "rewardmodel__X <- _X",
+                            "ref": "rewardmodel__X",
+                            "value": "_X"
+                        }
+                    ]
+                }
+            ],
+            "name": "_X",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "Birth",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((1 * _X) / (1 * _X))",
+                                "exp": {
+                                    "left": {
+                                        "left": 1,
+                                        "op": "*",
+                                        "right": "_X"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 1,
+                                        "op": "*",
+                                        "right": "_X"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((1 * _X) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 1,
+                                "op": "*",
+                                "right": "_X"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(1 * _X)",
+                        "exp": {
+                            "left": 1,
+                            "op": "*",
+                            "right": "_X"
+                        }
+                    }
+                },
+                {
+                    "action": "Death",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((11/10 * _X) / (11/10 * _X))",
+                                "exp": {
+                                    "left": {
+                                        "left": 1.1,
+                                        "op": "*",
+                                        "right": "_X"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 1.1,
+                                        "op": "*",
+                                        "right": "_X"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((11/10 * _X) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 1.1,
+                                "op": "*",
+                                "right": "_X"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(11/10 * _X)",
+                        "exp": {
+                            "left": 1.1,
+                            "op": "*",
+                            "right": "_X"
+                        }
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "reaction_rates",
+            "variables": []
+        }
+    ],
+    "constants": [
+        {
+            "name": "Lambda",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Mu",
+            "type": "real",
+            "value": 1.1
+        }
+    ],
+    "features": [
+        "derived-operators"
+    ],
+    "jani-version": 1,
+    "name": "00003-sbml-l3v2",
+    "properties": [
+        {
+            "expression": {
+                "fun": "values",
+                "op": "filter",
+                "states": {
+                    "op": "initial"
+                },
+                "values": {
+                    "exp": {
+                        "left": true,
+                        "op": "U",
+                        "right": {
+                            "left": "_X",
+                            "op": "<",
+                            "right": 0.67379
+                        },
+                        "time-bounds": {
+                            "lower": 0,
+                            "lower-exclusive": false,
+                            "upper": 50,
+                            "upper-exclusive": false
+                        }
+                    },
+                    "op": "Pmin"
+                }
+            },
+            "name": "1"
+        }
+    ],
+    "restrict-initial": {
+        "exp": true
+    },
+    "system": {
+        "elements": [
+            {
+                "automaton": "_X"
+            },
+            {
+                "automaton": "reaction_rates"
+            }
+        ],
+        "syncs": [
+            {
+                "result": "Birth",
+                "synchronise": [
+                    "Birth",
+                    "Birth"
+                ]
+            },
+            {
+                "result": "Death",
+                "synchronise": [
+                    "Death",
+                    "Death"
+                ]
+            }
+        ]
+    },
+    "type": "ctmc",
+    "variables": [
+        {
+            "initial-value": 0,
+            "name": "rewardmodel__X",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 100,
+            "name": "_X",
+            "type": "int"
+        }
+    ]
+}

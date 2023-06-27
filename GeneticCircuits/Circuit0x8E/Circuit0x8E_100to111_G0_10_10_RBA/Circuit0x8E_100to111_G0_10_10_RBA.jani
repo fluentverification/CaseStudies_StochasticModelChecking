@@ -1,0 +1,2949 @@
+{
+    "actions": [
+        {
+            "name": "Degradation_AmtR_protein"
+        },
+        {
+            "name": "Degradation_BetI_protein"
+        },
+        {
+            "name": "Degradation_HlyIIR_protein"
+        },
+        {
+            "name": "Degradation_PhlF_protein"
+        },
+        {
+            "name": "Degradation_YFP_protein"
+        },
+        {
+            "name": "R_abstracted_production_Circuit10_10_AmtR_module_sub__pBAD"
+        },
+        {
+            "name": "R_abstracted_production_Circuit10_10_AmtR_module_sub__pHlyIIR"
+        },
+        {
+            "name": "R_abstracted_production_Circuit10_10_BetI_module_sub__pHlyIIR"
+        },
+        {
+            "name": "R_abstracted_production_Circuit10_10_BetI_module_sub__pTet"
+        },
+        {
+            "name": "R_abstracted_production_Circuit10_10_HIyIIR_module_sub__pBAD"
+        },
+        {
+            "name": "R_abstracted_production_Circuit10_10_HIyIIR_module_sub__pTet"
+        },
+        {
+            "name": "R_abstracted_production_Circuit10_10_PhIF_module_sub__pAmtR"
+        },
+        {
+            "name": "R_abstracted_production_Circuit10_10_PhIF_module_sub__pTac"
+        },
+        {
+            "name": "R_abstracted_production_Circuit10_10_YFP_module_sub__pBetI"
+        },
+        {
+            "name": "R_abstracted_production_Circuit10_10_YFP_module_sub__pPhlF"
+        }
+    ],
+    "automata": [
+        {
+            "edges": [
+                {
+                    "action": "Degradation_YFP_protein",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "YFP_protein <- (YFP_protein - 10)",
+                                    "ref": "YFP_protein",
+                                    "value": {
+                                        "left": "YFP_protein",
+                                        "op": "-",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(YFP_protein > 9)",
+                        "exp": {
+                            "left": "YFP_protein",
+                            "op": ">",
+                            "right": 9
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_YFP_module_sub__pBetI",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "YFP_protein <- (YFP_protein + 10)",
+                                    "ref": "YFP_protein",
+                                    "value": {
+                                        "left": "YFP_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(YFP_protein >= 0)",
+                        "exp": {
+                            "left": "YFP_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_YFP_module_sub__pPhlF",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "YFP_protein <- (YFP_protein + 10)",
+                                    "ref": "YFP_protein",
+                                    "value": {
+                                        "left": "YFP_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(YFP_protein >= 0)",
+                        "exp": {
+                            "left": "YFP_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l",
+                    "transient-values": [
+                        {
+                            "comment": "rewardmodel_YFP_protein <- YFP_protein",
+                            "ref": "rewardmodel_YFP_protein",
+                            "value": "YFP_protein"
+                        },
+                        {
+                            "comment": "rewardmodel_BetI_protein <- BetI_protein",
+                            "ref": "rewardmodel_BetI_protein",
+                            "value": "BetI_protein"
+                        },
+                        {
+                            "comment": "rewardmodel_PhlF_protein <- PhlF_protein",
+                            "ref": "rewardmodel_PhlF_protein",
+                            "value": "PhlF_protein"
+                        },
+                        {
+                            "comment": "rewardmodel_HlyIIR_protein <- HlyIIR_protein",
+                            "ref": "rewardmodel_HlyIIR_protein",
+                            "value": "HlyIIR_protein"
+                        },
+                        {
+                            "comment": "rewardmodel_AmtR_protein <- AmtR_protein",
+                            "ref": "rewardmodel_AmtR_protein",
+                            "value": "AmtR_protein"
+                        },
+                        {
+                            "comment": "rewardmodel_Circuit10_10_AmtR_module_sub__pBAD <- Circuit10_10_AmtR_module_sub__pBAD",
+                            "ref": "rewardmodel_Circuit10_10_AmtR_module_sub__pBAD",
+                            "value": "Circuit10_10_AmtR_module_sub__pBAD"
+                        },
+                        {
+                            "comment": "rewardmodel_Circuit10_10_AmtR_module_sub__pHlyIIR <- Circuit10_10_AmtR_module_sub__pHlyIIR",
+                            "ref": "rewardmodel_Circuit10_10_AmtR_module_sub__pHlyIIR",
+                            "value": "Circuit10_10_AmtR_module_sub__pHlyIIR"
+                        },
+                        {
+                            "comment": "rewardmodel_Circuit10_10_PhIF_module_sub__pAmtR <- Circuit10_10_PhIF_module_sub__pAmtR",
+                            "ref": "rewardmodel_Circuit10_10_PhIF_module_sub__pAmtR",
+                            "value": "Circuit10_10_PhIF_module_sub__pAmtR"
+                        },
+                        {
+                            "comment": "rewardmodel_Circuit10_10_PhIF_module_sub__pTac <- Circuit10_10_PhIF_module_sub__pTac",
+                            "ref": "rewardmodel_Circuit10_10_PhIF_module_sub__pTac",
+                            "value": "Circuit10_10_PhIF_module_sub__pTac"
+                        },
+                        {
+                            "comment": "rewardmodel_Circuit10_10_BetI_module_sub__pHlyIIR <- Circuit10_10_BetI_module_sub__pHlyIIR",
+                            "ref": "rewardmodel_Circuit10_10_BetI_module_sub__pHlyIIR",
+                            "value": "Circuit10_10_BetI_module_sub__pHlyIIR"
+                        },
+                        {
+                            "comment": "rewardmodel_Circuit10_10_BetI_module_sub__pTet <- Circuit10_10_BetI_module_sub__pTet",
+                            "ref": "rewardmodel_Circuit10_10_BetI_module_sub__pTet",
+                            "value": "Circuit10_10_BetI_module_sub__pTet"
+                        },
+                        {
+                            "comment": "rewardmodel_Circuit10_10_YFP_module_sub__pBetI <- Circuit10_10_YFP_module_sub__pBetI",
+                            "ref": "rewardmodel_Circuit10_10_YFP_module_sub__pBetI",
+                            "value": "Circuit10_10_YFP_module_sub__pBetI"
+                        },
+                        {
+                            "comment": "rewardmodel_Circuit10_10_YFP_module_sub__pPhlF <- Circuit10_10_YFP_module_sub__pPhlF",
+                            "ref": "rewardmodel_Circuit10_10_YFP_module_sub__pPhlF",
+                            "value": "Circuit10_10_YFP_module_sub__pPhlF"
+                        },
+                        {
+                            "comment": "rewardmodel_Circuit10_10_HIyIIR_module_sub__pTet <- Circuit10_10_HIyIIR_module_sub__pTet",
+                            "ref": "rewardmodel_Circuit10_10_HIyIIR_module_sub__pTet",
+                            "value": "Circuit10_10_HIyIIR_module_sub__pTet"
+                        },
+                        {
+                            "comment": "rewardmodel_Circuit10_10_HIyIIR_module_sub__pBAD <- Circuit10_10_HIyIIR_module_sub__pBAD",
+                            "ref": "rewardmodel_Circuit10_10_HIyIIR_module_sub__pBAD",
+                            "value": "Circuit10_10_HIyIIR_module_sub__pBAD"
+                        }
+                    ]
+                }
+            ],
+            "name": "YFP_protein",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "Degradation_BetI_protein",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "BetI_protein <- (BetI_protein - 10)",
+                                    "ref": "BetI_protein",
+                                    "value": {
+                                        "left": "BetI_protein",
+                                        "op": "-",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(BetI_protein > 9)",
+                        "exp": {
+                            "left": "BetI_protein",
+                            "op": ">",
+                            "right": 9
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_BetI_module_sub__pHlyIIR",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "BetI_protein <- (BetI_protein + 10)",
+                                    "ref": "BetI_protein",
+                                    "value": {
+                                        "left": "BetI_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(BetI_protein >= 0)",
+                        "exp": {
+                            "left": "BetI_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_BetI_module_sub__pTet",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "BetI_protein <- (BetI_protein + 10)",
+                                    "ref": "BetI_protein",
+                                    "value": {
+                                        "left": "BetI_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(BetI_protein >= 0)",
+                        "exp": {
+                            "left": "BetI_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "BetI_protein",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "Degradation_PhlF_protein",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "PhlF_protein <- (PhlF_protein - 10)",
+                                    "ref": "PhlF_protein",
+                                    "value": {
+                                        "left": "PhlF_protein",
+                                        "op": "-",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(PhlF_protein > 9)",
+                        "exp": {
+                            "left": "PhlF_protein",
+                            "op": ">",
+                            "right": 9
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_PhIF_module_sub__pAmtR",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "PhlF_protein <- (PhlF_protein + 10)",
+                                    "ref": "PhlF_protein",
+                                    "value": {
+                                        "left": "PhlF_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(PhlF_protein >= 0)",
+                        "exp": {
+                            "left": "PhlF_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_PhIF_module_sub__pTac",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "PhlF_protein <- (PhlF_protein + 10)",
+                                    "ref": "PhlF_protein",
+                                    "value": {
+                                        "left": "PhlF_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(PhlF_protein >= 0)",
+                        "exp": {
+                            "left": "PhlF_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "PhlF_protein",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "Degradation_HlyIIR_protein",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "HlyIIR_protein <- (HlyIIR_protein - 10)",
+                                    "ref": "HlyIIR_protein",
+                                    "value": {
+                                        "left": "HlyIIR_protein",
+                                        "op": "-",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(HlyIIR_protein > 9)",
+                        "exp": {
+                            "left": "HlyIIR_protein",
+                            "op": ">",
+                            "right": 9
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_HIyIIR_module_sub__pBAD",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "HlyIIR_protein <- (HlyIIR_protein + 10)",
+                                    "ref": "HlyIIR_protein",
+                                    "value": {
+                                        "left": "HlyIIR_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(HlyIIR_protein >= 0)",
+                        "exp": {
+                            "left": "HlyIIR_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_HIyIIR_module_sub__pTet",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "HlyIIR_protein <- (HlyIIR_protein + 10)",
+                                    "ref": "HlyIIR_protein",
+                                    "value": {
+                                        "left": "HlyIIR_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(HlyIIR_protein >= 0)",
+                        "exp": {
+                            "left": "HlyIIR_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "HlyIIR_protein",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "Degradation_AmtR_protein",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "AmtR_protein <- (AmtR_protein - 10)",
+                                    "ref": "AmtR_protein",
+                                    "value": {
+                                        "left": "AmtR_protein",
+                                        "op": "-",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(AmtR_protein > 9)",
+                        "exp": {
+                            "left": "AmtR_protein",
+                            "op": ">",
+                            "right": 9
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_AmtR_module_sub__pBAD",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "AmtR_protein <- (AmtR_protein + 10)",
+                                    "ref": "AmtR_protein",
+                                    "value": {
+                                        "left": "AmtR_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(AmtR_protein >= 0)",
+                        "exp": {
+                            "left": "AmtR_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_AmtR_module_sub__pHlyIIR",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "AmtR_protein <- (AmtR_protein + 10)",
+                                    "ref": "AmtR_protein",
+                                    "value": {
+                                        "left": "AmtR_protein",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(AmtR_protein >= 0)",
+                        "exp": {
+                            "left": "AmtR_protein",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "AmtR_protein",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "Circuit10_10_AmtR_module_sub__pBAD",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "Circuit10_10_AmtR_module_sub__pHlyIIR",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "Circuit10_10_PhIF_module_sub__pAmtR",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "Circuit10_10_PhIF_module_sub__pTac",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "Circuit10_10_BetI_module_sub__pHlyIIR",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "Circuit10_10_BetI_module_sub__pTet",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "Circuit10_10_YFP_module_sub__pBetI",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "Circuit10_10_YFP_module_sub__pPhlF",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "Circuit10_10_HIyIIR_module_sub__pTet",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "Circuit10_10_HIyIIR_module_sub__pBAD",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "Degradation_AmtR_protein",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((3/4000 * AmtR_protein) / (3/4000 * AmtR_protein))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "AmtR_protein"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "AmtR_protein"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((3/4000 * AmtR_protein) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.00075,
+                                "op": "*",
+                                "right": "AmtR_protein"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(3/4000 * AmtR_protein)",
+                        "exp": {
+                            "left": 0.00075,
+                            "op": "*",
+                            "right": "AmtR_protein"
+                        }
+                    }
+                },
+                {
+                    "action": "Degradation_BetI_protein",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((3/4000 * BetI_protein) / (3/4000 * BetI_protein))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "BetI_protein"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "BetI_protein"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((3/4000 * BetI_protein) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.00075,
+                                "op": "*",
+                                "right": "BetI_protein"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(3/4000 * BetI_protein)",
+                        "exp": {
+                            "left": 0.00075,
+                            "op": "*",
+                            "right": "BetI_protein"
+                        }
+                    }
+                },
+                {
+                    "action": "Degradation_HlyIIR_protein",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((3/4000 * HlyIIR_protein) / (3/4000 * HlyIIR_protein))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "HlyIIR_protein"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "HlyIIR_protein"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((3/4000 * HlyIIR_protein) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.00075,
+                                "op": "*",
+                                "right": "HlyIIR_protein"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(3/4000 * HlyIIR_protein)",
+                        "exp": {
+                            "left": 0.00075,
+                            "op": "*",
+                            "right": "HlyIIR_protein"
+                        }
+                    }
+                },
+                {
+                    "action": "Degradation_PhlF_protein",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((3/4000 * PhlF_protein) / (3/4000 * PhlF_protein))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "PhlF_protein"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "PhlF_protein"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((3/4000 * PhlF_protein) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.00075,
+                                "op": "*",
+                                "right": "PhlF_protein"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(3/4000 * PhlF_protein)",
+                        "exp": {
+                            "left": 0.00075,
+                            "op": "*",
+                            "right": "PhlF_protein"
+                        }
+                    }
+                },
+                {
+                    "action": "Degradation_YFP_protein",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((3/4000 * YFP_protein) / (3/4000 * YFP_protein))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "YFP_protein"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.00075,
+                                        "op": "*",
+                                        "right": "YFP_protein"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((3/4000 * YFP_protein) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.00075,
+                                "op": "*",
+                                "right": "YFP_protein"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(3/4000 * YFP_protein)",
+                        "exp": {
+                            "left": 0.00075,
+                            "op": "*",
+                            "right": "YFP_protein"
+                        }
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_AmtR_module_sub__pBAD",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "(((2 * (((1/10000 * 33/1000) * 30) + (((1/4 * 1) * 30) * ((33/10000 * 60) ^ 2)))) / ((1 + (33/1000 * 30)) + ((1 * 30) * ((33/10000 * 60) ^ 2)))) / ((2 * (((1/10000 * 33/1000) * 30) + (((1/4 * 1) * 30) * ((33/10000 * 60) ^ 2)))) / ((1 + (33/1000 * 30)) + ((1 * 30) * ((33/10000 * 60) ^ 2)))))",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(((2 * (((1/10000 * 33/1000) * 30) + (((1/4 * 1) * 30) * ((33/10000 * 60) ^ 2)))) / ((1 + (33/1000 * 30)) + ((1 * 30) * ((33/10000 * 60) ^ 2)))) > 0)",
+                        "exp": true
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "((2 * (((1/10000 * 33/1000) * 30) + (((1/4 * 1) * 30) * ((33/10000 * 60) ^ 2)))) / ((1 + (33/1000 * 30)) + ((1 * 30) * ((33/10000 * 60) ^ 2))))",
+                        "exp": 0.1857977587709878087
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_AmtR_module_sub__pHlyIIR",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * HlyIIR_protein) ^ 2))) / (((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * HlyIIR_protein) ^ 2))))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.099,
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "HlyIIR_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.099,
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "HlyIIR_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * HlyIIR_protein) ^ 2))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.099,
+                                "op": "/",
+                                "right": {
+                                    "left": 1.99,
+                                    "op": "+",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.5,
+                                            "op": "*",
+                                            "right": "HlyIIR_protein"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * HlyIIR_protein) ^ 2)))",
+                        "exp": {
+                            "left": 0.099,
+                            "op": "/",
+                            "right": {
+                                "left": 1.99,
+                                "op": "+",
+                                "right": {
+                                    "left": {
+                                        "left": 0.5,
+                                        "op": "*",
+                                        "right": "HlyIIR_protein"
+                                    },
+                                    "op": "pow",
+                                    "right": 2
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_BetI_module_sub__pHlyIIR",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * HlyIIR_protein) ^ 2))) / (((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * HlyIIR_protein) ^ 2))))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.099,
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "HlyIIR_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.099,
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "HlyIIR_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * HlyIIR_protein) ^ 2))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.099,
+                                "op": "/",
+                                "right": {
+                                    "left": 1.99,
+                                    "op": "+",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.5,
+                                            "op": "*",
+                                            "right": "HlyIIR_protein"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * HlyIIR_protein) ^ 2)))",
+                        "exp": {
+                            "left": 0.099,
+                            "op": "/",
+                            "right": {
+                                "left": 1.99,
+                                "op": "+",
+                                "right": {
+                                    "left": {
+                                        "left": 0.5,
+                                        "op": "*",
+                                        "right": "HlyIIR_protein"
+                                    },
+                                    "op": "pow",
+                                    "right": 2
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_BetI_module_sub__pTet",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * 0) ^ 2))) / (((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * 0) ^ 2))))",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * 0) ^ 2))) > 0)",
+                        "exp": true
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * 0) ^ 2)))",
+                        "exp": 0.04974874371859296096
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_HIyIIR_module_sub__pBAD",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * 0) ^ 2))) / (((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * 0) ^ 2))))",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * 0) ^ 2))) > 0)",
+                        "exp": true
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * 0) ^ 2)))",
+                        "exp": 0.04974874371859296096
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_HIyIIR_module_sub__pTet",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "(((2 * (((1/10000 * 33/1000) * 30) + (((1/4 * 1) * 30) * ((33/10000 * 60) ^ 2)))) / ((1 + (33/1000 * 30)) + ((1 * 30) * ((33/10000 * 60) ^ 2)))) / ((2 * (((1/10000 * 33/1000) * 30) + (((1/4 * 1) * 30) * ((33/10000 * 60) ^ 2)))) / ((1 + (33/1000 * 30)) + ((1 * 30) * ((33/10000 * 60) ^ 2)))))",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(((2 * (((1/10000 * 33/1000) * 30) + (((1/4 * 1) * 30) * ((33/10000 * 60) ^ 2)))) / ((1 + (33/1000 * 30)) + ((1 * 30) * ((33/10000 * 60) ^ 2)))) > 0)",
+                        "exp": true
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "((2 * (((1/10000 * 33/1000) * 30) + (((1/4 * 1) * 30) * ((33/10000 * 60) ^ 2)))) / ((1 + (33/1000 * 30)) + ((1 * 30) * ((33/10000 * 60) ^ 2))))",
+                        "exp": 0.1857977587709878087
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_PhIF_module_sub__pAmtR",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * 0) ^ 2))) / (((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * 0) ^ 2))))",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * 0) ^ 2))) > 0)",
+                        "exp": true
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * 0) ^ 2)))",
+                        "exp": 0.04974874371859296096
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_PhIF_module_sub__pTac",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * AmtR_protein) ^ 2))) / (((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * AmtR_protein) ^ 2))))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.099,
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "AmtR_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.099,
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "AmtR_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * AmtR_protein) ^ 2))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.099,
+                                "op": "/",
+                                "right": {
+                                    "left": 1.99,
+                                    "op": "+",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.5,
+                                            "op": "*",
+                                            "right": "AmtR_protein"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * AmtR_protein) ^ 2)))",
+                        "exp": {
+                            "left": 0.099,
+                            "op": "/",
+                            "right": {
+                                "left": 1.99,
+                                "op": "+",
+                                "right": {
+                                    "left": {
+                                        "left": 0.5,
+                                        "op": "*",
+                                        "right": "AmtR_protein"
+                                    },
+                                    "op": "pow",
+                                    "right": 2
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_YFP_module_sub__pBetI",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * BetI_protein) ^ 2))) / (((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * BetI_protein) ^ 2))))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.099,
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "BetI_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.099,
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "BetI_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * BetI_protein) ^ 2))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.099,
+                                "op": "/",
+                                "right": {
+                                    "left": 1.99,
+                                    "op": "+",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.5,
+                                            "op": "*",
+                                            "right": "BetI_protein"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * BetI_protein) ^ 2)))",
+                        "exp": {
+                            "left": 0.099,
+                            "op": "/",
+                            "right": {
+                                "left": 1.99,
+                                "op": "+",
+                                "right": {
+                                    "left": {
+                                        "left": 0.5,
+                                        "op": "*",
+                                        "right": "BetI_protein"
+                                    },
+                                    "op": "pow",
+                                    "right": 2
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "action": "R_abstracted_production_Circuit10_10_YFP_module_sub__pPhlF",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * PhlF_protein) ^ 2))) / (((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * PhlF_protein) ^ 2))))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.099,
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "PhlF_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.099,
+                                        "op": "/",
+                                        "right": {
+                                            "left": 1.99,
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "PhlF_protein"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * PhlF_protein) ^ 2))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.099,
+                                "op": "/",
+                                "right": {
+                                    "left": 1.99,
+                                    "op": "+",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.5,
+                                            "op": "*",
+                                            "right": "PhlF_protein"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(((1/20 * 2) * (33/1000 * 30)) / ((1 + (33/1000 * 30)) + ((1/2 * PhlF_protein) ^ 2)))",
+                        "exp": {
+                            "left": 0.099,
+                            "op": "/",
+                            "right": {
+                                "left": 1.99,
+                                "op": "+",
+                                "right": {
+                                    "left": {
+                                        "left": 0.5,
+                                        "op": "*",
+                                        "right": "PhlF_protein"
+                                    },
+                                    "op": "pow",
+                                    "right": 2
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "reaction_rates",
+            "variables": []
+        }
+    ],
+    "constants": [
+        {
+            "name": "Cell",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "HIGH",
+            "type": "int",
+            "value": 60
+        },
+        {
+            "name": "TetR_protein",
+            "type": "real",
+            "value": 0
+        },
+        {
+            "name": "LacI_protein",
+            "type": "real",
+            "value": 0
+        },
+        {
+            "name": "Ara_AraC_protein",
+            "type": "real",
+            "value": 60
+        },
+        {
+            "name": "kd",
+            "type": "real",
+            "value": 0.00075
+        },
+        {
+            "name": "kc_f",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "kc_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "nc",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "Circuit10_10_AmtR_module_sub__kr_f",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "Circuit10_10_AmtR_module_sub__kr_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_AmtR_module_sub__ka_f",
+            "type": "real",
+            "value": 0.0033
+        },
+        {
+            "name": "Circuit10_10_AmtR_module_sub__ka_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_AmtR_module_sub__ko_f",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "Circuit10_10_AmtR_module_sub__ko_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_AmtR_module_sub__kao_f",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_AmtR_module_sub__kao_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_AmtR_module_sub__nc",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "Circuit10_10_AmtR_module_sub__nr",
+            "type": "real",
+            "value": 30
+        },
+        {
+            "name": "Circuit10_10_AmtR_module_sub__ko",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "Circuit10_10_AmtR_module_sub__kb",
+            "type": "real",
+            "value": 0.0001
+        },
+        {
+            "name": "Circuit10_10_AmtR_module_sub__ng",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "Circuit10_10_AmtR_module_sub__np",
+            "type": "real",
+            "value": 10
+        },
+        {
+            "name": "Circuit10_10_AmtR_module_sub__ka",
+            "type": "real",
+            "value": 0.25
+        },
+        {
+            "name": "Circuit10_10_PhIF_module_sub__kr_f",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "Circuit10_10_PhIF_module_sub__kr_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_PhIF_module_sub__ka_f",
+            "type": "real",
+            "value": 0.0033
+        },
+        {
+            "name": "Circuit10_10_PhIF_module_sub__ka_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_PhIF_module_sub__ko_f",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "Circuit10_10_PhIF_module_sub__ko_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_PhIF_module_sub__kao_f",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_PhIF_module_sub__kao_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_PhIF_module_sub__nc",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "Circuit10_10_PhIF_module_sub__nr",
+            "type": "real",
+            "value": 30
+        },
+        {
+            "name": "Circuit10_10_PhIF_module_sub__ko",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "Circuit10_10_PhIF_module_sub__kb",
+            "type": "real",
+            "value": 0.0001
+        },
+        {
+            "name": "Circuit10_10_PhIF_module_sub__ng",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "Circuit10_10_PhIF_module_sub__np",
+            "type": "real",
+            "value": 10
+        },
+        {
+            "name": "Circuit10_10_PhIF_module_sub__ka",
+            "type": "real",
+            "value": 0.25
+        },
+        {
+            "name": "Circuit10_10_BetI_module_sub__kr_f",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "Circuit10_10_BetI_module_sub__kr_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_BetI_module_sub__ka_f",
+            "type": "real",
+            "value": 0.0033
+        },
+        {
+            "name": "Circuit10_10_BetI_module_sub__ka_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_BetI_module_sub__ko_f",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "Circuit10_10_BetI_module_sub__ko_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_BetI_module_sub__kao_f",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_BetI_module_sub__kao_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_BetI_module_sub__nc",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "Circuit10_10_BetI_module_sub__nr",
+            "type": "real",
+            "value": 30
+        },
+        {
+            "name": "Circuit10_10_BetI_module_sub__ko",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "Circuit10_10_BetI_module_sub__kb",
+            "type": "real",
+            "value": 0.0001
+        },
+        {
+            "name": "Circuit10_10_BetI_module_sub__ng",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "Circuit10_10_BetI_module_sub__np",
+            "type": "real",
+            "value": 10
+        },
+        {
+            "name": "Circuit10_10_BetI_module_sub__ka",
+            "type": "real",
+            "value": 0.25
+        },
+        {
+            "name": "Circuit10_10_YFP_module_sub__kr_f",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "Circuit10_10_YFP_module_sub__kr_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_YFP_module_sub__ka_f",
+            "type": "real",
+            "value": 0.0033
+        },
+        {
+            "name": "Circuit10_10_YFP_module_sub__ka_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_YFP_module_sub__ko_f",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "Circuit10_10_YFP_module_sub__ko_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_YFP_module_sub__kao_f",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_YFP_module_sub__kao_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_YFP_module_sub__nc",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "Circuit10_10_YFP_module_sub__nr",
+            "type": "real",
+            "value": 30
+        },
+        {
+            "name": "Circuit10_10_YFP_module_sub__ko",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "Circuit10_10_YFP_module_sub__kb",
+            "type": "real",
+            "value": 0.0001
+        },
+        {
+            "name": "Circuit10_10_YFP_module_sub__ng",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "Circuit10_10_YFP_module_sub__np",
+            "type": "real",
+            "value": 10
+        },
+        {
+            "name": "Circuit10_10_YFP_module_sub__ka",
+            "type": "real",
+            "value": 0.25
+        },
+        {
+            "name": "Circuit10_10_HIyIIR_module_sub__kr_f",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "Circuit10_10_HIyIIR_module_sub__kr_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_HIyIIR_module_sub__ka_f",
+            "type": "real",
+            "value": 0.0033
+        },
+        {
+            "name": "Circuit10_10_HIyIIR_module_sub__ka_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_HIyIIR_module_sub__ko_f",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "Circuit10_10_HIyIIR_module_sub__ko_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_HIyIIR_module_sub__kao_f",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_HIyIIR_module_sub__kao_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Circuit10_10_HIyIIR_module_sub__nc",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "Circuit10_10_HIyIIR_module_sub__nr",
+            "type": "real",
+            "value": 30
+        },
+        {
+            "name": "Circuit10_10_HIyIIR_module_sub__ko",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "Circuit10_10_HIyIIR_module_sub__kb",
+            "type": "real",
+            "value": 0.0001
+        },
+        {
+            "name": "Circuit10_10_HIyIIR_module_sub__ng",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "Circuit10_10_HIyIIR_module_sub__np",
+            "type": "real",
+            "value": 10
+        },
+        {
+            "name": "Circuit10_10_HIyIIR_module_sub__ka",
+            "type": "real",
+            "value": 0.25
+        },
+        {
+            "name": "ko__Circuit10_10_HIyIIR_module_sub__pBAD",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "Ko__Circuit10_10_HIyIIR_module_sub__pBAD",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "ng__Circuit10_10_HIyIIR_module_sub__pBAD",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "RNAP",
+            "type": "real",
+            "value": 30
+        },
+        {
+            "name": "Kr__TetR_protein_Circuit10_10_HIyIIR_module_sub__pBAD",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "nc__TetR_protein_Circuit10_10_HIyIIR_module_sub__pBAD",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "ko__Circuit10_10_PhIF_module_sub__pAmtR",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "Ko__Circuit10_10_PhIF_module_sub__pAmtR",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "ng__Circuit10_10_PhIF_module_sub__pAmtR",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "Kr__LacI_protein_Circuit10_10_PhIF_module_sub__pAmtR",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "nc__LacI_protein_Circuit10_10_PhIF_module_sub__pAmtR",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "ko__Circuit10_10_YFP_module_sub__pPhlF",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "Ko__Circuit10_10_YFP_module_sub__pPhlF",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "ng__Circuit10_10_YFP_module_sub__pPhlF",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "Kr__PhlF_protein_Circuit10_10_YFP_module_sub__pPhlF",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "nc__PhlF_protein_Circuit10_10_YFP_module_sub__pPhlF",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "ng__Circuit10_10_HIyIIR_module_sub__pTet",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "kb__Circuit10_10_HIyIIR_module_sub__pTet",
+            "type": "real",
+            "value": 0.0001
+        },
+        {
+            "name": "Ko__Circuit10_10_HIyIIR_module_sub__pTet",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "ka__Ara_AraC_protein_Circuit10_10_HIyIIR_module_sub__pTet",
+            "type": "real",
+            "value": 0.25
+        },
+        {
+            "name": "Ka__Ara_AraC_protein_Circuit10_10_HIyIIR_module_sub__pTet",
+            "type": "real",
+            "value": 0.0033
+        },
+        {
+            "name": "Kao__Ara_AraC_protein_Circuit10_10_HIyIIR_module_sub__pTet",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "nc__Ara_AraC_protein_Circuit10_10_HIyIIR_module_sub__pTet",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "ng__Circuit10_10_AmtR_module_sub__pBAD",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "kb__Circuit10_10_AmtR_module_sub__pBAD",
+            "type": "real",
+            "value": 0.0001
+        },
+        {
+            "name": "Ko__Circuit10_10_AmtR_module_sub__pBAD",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "ka__Ara_AraC_protein_Circuit10_10_AmtR_module_sub__pBAD",
+            "type": "real",
+            "value": 0.25
+        },
+        {
+            "name": "Ka__Ara_AraC_protein_Circuit10_10_AmtR_module_sub__pBAD",
+            "type": "real",
+            "value": 0.0033
+        },
+        {
+            "name": "Kao__Ara_AraC_protein_Circuit10_10_AmtR_module_sub__pBAD",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "nc__Ara_AraC_protein_Circuit10_10_AmtR_module_sub__pBAD",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "ko__Circuit10_10_BetI_module_sub__pHlyIIR",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "Ko__Circuit10_10_BetI_module_sub__pHlyIIR",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "ng__Circuit10_10_BetI_module_sub__pHlyIIR",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "Kr__HlyIIR_protein_Circuit10_10_BetI_module_sub__pHlyIIR",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "nc__HlyIIR_protein_Circuit10_10_BetI_module_sub__pHlyIIR",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "ko__Circuit10_10_AmtR_module_sub__pHlyIIR",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "Ko__Circuit10_10_AmtR_module_sub__pHlyIIR",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "ng__Circuit10_10_AmtR_module_sub__pHlyIIR",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "Kr__HlyIIR_protein_Circuit10_10_AmtR_module_sub__pHlyIIR",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "nc__HlyIIR_protein_Circuit10_10_AmtR_module_sub__pHlyIIR",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "ko__Circuit10_10_PhIF_module_sub__pTac",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "Ko__Circuit10_10_PhIF_module_sub__pTac",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "ng__Circuit10_10_PhIF_module_sub__pTac",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "Kr__AmtR_protein_Circuit10_10_PhIF_module_sub__pTac",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "nc__AmtR_protein_Circuit10_10_PhIF_module_sub__pTac",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "ko__Circuit10_10_BetI_module_sub__pTet",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "Ko__Circuit10_10_BetI_module_sub__pTet",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "ng__Circuit10_10_BetI_module_sub__pTet",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "Kr__TetR_protein_Circuit10_10_BetI_module_sub__pTet",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "nc__TetR_protein_Circuit10_10_BetI_module_sub__pTet",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "ko__Circuit10_10_YFP_module_sub__pBetI",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "Ko__Circuit10_10_YFP_module_sub__pBetI",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "ng__Circuit10_10_YFP_module_sub__pBetI",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "Kr__BetI_protein_Circuit10_10_YFP_module_sub__pBetI",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "nc__BetI_protein_Circuit10_10_YFP_module_sub__pBetI",
+            "type": "real",
+            "value": 2
+        }
+    ],
+    "features": [
+        "derived-operators"
+    ],
+    "jani-version": 1,
+    "name": "Circuit0x8E_100to111_G0_10_10_RBA",
+    "properties": [
+        {
+            "expression": {
+                "fun": "values",
+                "op": "filter",
+                "states": {
+                    "op": "initial"
+                },
+                "values": {
+                    "exp": {
+                        "left": true,
+                        "op": "U",
+                        "right": {
+                            "left": "YFP_protein",
+                            "op": "≥",
+                            "right": 10
+                        },
+                        "time-bounds": {
+                            "lower": 0,
+                            "lower-exclusive": false,
+                            "upper": 1000,
+                            "upper-exclusive": false
+                        }
+                    },
+                    "op": "Pmin"
+                }
+            },
+            "name": "1"
+        }
+    ],
+    "restrict-initial": {
+        "exp": true
+    },
+    "system": {
+        "elements": [
+            {
+                "automaton": "YFP_protein"
+            },
+            {
+                "automaton": "BetI_protein"
+            },
+            {
+                "automaton": "PhlF_protein"
+            },
+            {
+                "automaton": "HlyIIR_protein"
+            },
+            {
+                "automaton": "AmtR_protein"
+            },
+            {
+                "automaton": "Circuit10_10_AmtR_module_sub__pBAD"
+            },
+            {
+                "automaton": "Circuit10_10_AmtR_module_sub__pHlyIIR"
+            },
+            {
+                "automaton": "Circuit10_10_PhIF_module_sub__pAmtR"
+            },
+            {
+                "automaton": "Circuit10_10_PhIF_module_sub__pTac"
+            },
+            {
+                "automaton": "Circuit10_10_BetI_module_sub__pHlyIIR"
+            },
+            {
+                "automaton": "Circuit10_10_BetI_module_sub__pTet"
+            },
+            {
+                "automaton": "Circuit10_10_YFP_module_sub__pBetI"
+            },
+            {
+                "automaton": "Circuit10_10_YFP_module_sub__pPhlF"
+            },
+            {
+                "automaton": "Circuit10_10_HIyIIR_module_sub__pTet"
+            },
+            {
+                "automaton": "Circuit10_10_HIyIIR_module_sub__pBAD"
+            },
+            {
+                "automaton": "reaction_rates"
+            }
+        ],
+        "syncs": [
+            {
+                "result": "Degradation_AmtR_protein",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    "Degradation_AmtR_protein",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "Degradation_AmtR_protein"
+                ]
+            },
+            {
+                "result": "Degradation_BetI_protein",
+                "synchronise": [
+                    null,
+                    "Degradation_BetI_protein",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "Degradation_BetI_protein"
+                ]
+            },
+            {
+                "result": "Degradation_HlyIIR_protein",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    "Degradation_HlyIIR_protein",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "Degradation_HlyIIR_protein"
+                ]
+            },
+            {
+                "result": "Degradation_PhlF_protein",
+                "synchronise": [
+                    null,
+                    null,
+                    "Degradation_PhlF_protein",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "Degradation_PhlF_protein"
+                ]
+            },
+            {
+                "result": "Degradation_YFP_protein",
+                "synchronise": [
+                    "Degradation_YFP_protein",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "Degradation_YFP_protein"
+                ]
+            },
+            {
+                "result": "R_abstracted_production_Circuit10_10_AmtR_module_sub__pBAD",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    "R_abstracted_production_Circuit10_10_AmtR_module_sub__pBAD",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "R_abstracted_production_Circuit10_10_AmtR_module_sub__pBAD"
+                ]
+            },
+            {
+                "result": "R_abstracted_production_Circuit10_10_AmtR_module_sub__pHlyIIR",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    "R_abstracted_production_Circuit10_10_AmtR_module_sub__pHlyIIR",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "R_abstracted_production_Circuit10_10_AmtR_module_sub__pHlyIIR"
+                ]
+            },
+            {
+                "result": "R_abstracted_production_Circuit10_10_BetI_module_sub__pHlyIIR",
+                "synchronise": [
+                    null,
+                    "R_abstracted_production_Circuit10_10_BetI_module_sub__pHlyIIR",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "R_abstracted_production_Circuit10_10_BetI_module_sub__pHlyIIR"
+                ]
+            },
+            {
+                "result": "R_abstracted_production_Circuit10_10_BetI_module_sub__pTet",
+                "synchronise": [
+                    null,
+                    "R_abstracted_production_Circuit10_10_BetI_module_sub__pTet",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "R_abstracted_production_Circuit10_10_BetI_module_sub__pTet"
+                ]
+            },
+            {
+                "result": "R_abstracted_production_Circuit10_10_HIyIIR_module_sub__pBAD",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    "R_abstracted_production_Circuit10_10_HIyIIR_module_sub__pBAD",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "R_abstracted_production_Circuit10_10_HIyIIR_module_sub__pBAD"
+                ]
+            },
+            {
+                "result": "R_abstracted_production_Circuit10_10_HIyIIR_module_sub__pTet",
+                "synchronise": [
+                    null,
+                    null,
+                    null,
+                    "R_abstracted_production_Circuit10_10_HIyIIR_module_sub__pTet",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "R_abstracted_production_Circuit10_10_HIyIIR_module_sub__pTet"
+                ]
+            },
+            {
+                "result": "R_abstracted_production_Circuit10_10_PhIF_module_sub__pAmtR",
+                "synchronise": [
+                    null,
+                    null,
+                    "R_abstracted_production_Circuit10_10_PhIF_module_sub__pAmtR",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "R_abstracted_production_Circuit10_10_PhIF_module_sub__pAmtR"
+                ]
+            },
+            {
+                "result": "R_abstracted_production_Circuit10_10_PhIF_module_sub__pTac",
+                "synchronise": [
+                    null,
+                    null,
+                    "R_abstracted_production_Circuit10_10_PhIF_module_sub__pTac",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "R_abstracted_production_Circuit10_10_PhIF_module_sub__pTac"
+                ]
+            },
+            {
+                "result": "R_abstracted_production_Circuit10_10_YFP_module_sub__pBetI",
+                "synchronise": [
+                    "R_abstracted_production_Circuit10_10_YFP_module_sub__pBetI",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "R_abstracted_production_Circuit10_10_YFP_module_sub__pBetI"
+                ]
+            },
+            {
+                "result": "R_abstracted_production_Circuit10_10_YFP_module_sub__pPhlF",
+                "synchronise": [
+                    "R_abstracted_production_Circuit10_10_YFP_module_sub__pPhlF",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "R_abstracted_production_Circuit10_10_YFP_module_sub__pPhlF"
+                ]
+            }
+        ]
+    },
+    "type": "ctmc",
+    "variables": [
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_YFP_protein",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_BetI_protein",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_PhlF_protein",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_HlyIIR_protein",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_AmtR_protein",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_Circuit10_10_AmtR_module_sub__pBAD",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_Circuit10_10_AmtR_module_sub__pHlyIIR",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_Circuit10_10_PhIF_module_sub__pAmtR",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_Circuit10_10_PhIF_module_sub__pTac",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_Circuit10_10_BetI_module_sub__pHlyIIR",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_Circuit10_10_BetI_module_sub__pTet",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_Circuit10_10_YFP_module_sub__pBetI",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_Circuit10_10_YFP_module_sub__pPhlF",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_Circuit10_10_HIyIIR_module_sub__pTet",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_Circuit10_10_HIyIIR_module_sub__pBAD",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "YFP_protein",
+            "type": "int"
+        },
+        {
+            "initial-value": 70,
+            "name": "BetI_protein",
+            "type": "int"
+        },
+        {
+            "initial-value": 70,
+            "name": "PhlF_protein",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "HlyIIR_protein",
+            "type": "int"
+        },
+        {
+            "initial-value": 70,
+            "name": "AmtR_protein",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "Circuit10_10_AmtR_module_sub__pBAD",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "Circuit10_10_AmtR_module_sub__pHlyIIR",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "Circuit10_10_PhIF_module_sub__pAmtR",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "Circuit10_10_PhIF_module_sub__pTac",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "Circuit10_10_BetI_module_sub__pHlyIIR",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "Circuit10_10_BetI_module_sub__pTet",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "Circuit10_10_YFP_module_sub__pBetI",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "Circuit10_10_YFP_module_sub__pPhlF",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "Circuit10_10_HIyIIR_module_sub__pTet",
+            "type": "int"
+        },
+        {
+            "initial-value": 2,
+            "name": "Circuit10_10_HIyIIR_module_sub__pBAD",
+            "type": "int"
+        }
+    ]
+}
