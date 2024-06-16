@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" level="3" version="1" fbc:required="false">
+  <model metaid="iBioSim22" id="GeneticToggleSwitch" name="Created by iBioSim flatten routine" fbc:strict="false">
+    <annotation>
+      <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+          <rdf:Description rdf:about="#iBioSim1">
+            <mts:ModuleDefinitions>
+              <rdf:Bag>
+                <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell"/>
+              </rdf:Bag>
+            </mts:ModuleDefinitions>
+          </rdf:Description>
+        </rdf:RDF>
+      </ModelToSBOL>
+    </annotation>
+    <listOfCompartments>
+      <compartment id="Cell" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species metaid="iBioSim2" id="IPTG" compartment="Cell" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#iBioSim2">
+                <mts:ComponentDefinitions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/IPTG/1"/>
+                  </rdf:Bag>
+                </mts:ComponentDefinitions>
+                <mts:DNAComponents>
+                  <rdf:Seq>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/IPTG/1"/>
+                  </rdf:Seq>
+                </mts:DNAComponents>
+                <mts:Strand>+</mts:Strand>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+      </species>
+      <species metaid="iBioSim3" id="aTc" compartment="Cell" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#iBioSim3">
+                <mts:ComponentDefinitions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/aTc/1"/>
+                  </rdf:Bag>
+                </mts:ComponentDefinitions>
+                <mts:DNAComponents>
+                  <rdf:Seq>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/aTc/1"/>
+                  </rdf:Seq>
+                </mts:DNAComponents>
+                <mts:Strand>+</mts:Strand>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+      </species>
+      <species metaid="iBioSim4" id="YFP" compartment="Cell" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#iBioSim4">
+                <mts:ComponentDefinitions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/YFP_protein/1"/>
+                  </rdf:Bag>
+                </mts:ComponentDefinitions>
+                <mts:DNAComponents>
+                  <rdf:Seq>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/YFP_protein/1"/>
+                  </rdf:Seq>
+                </mts:DNAComponents>
+                <mts:Strand>+</mts:Strand>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+      </species>
+      <species metaid="iBioSim5" sboTerm="SBO:0000253" id="aTc_TetR_protein" compartment="Cell" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#iBioSim5">
+                <mts:ComponentDefinitions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/aTc_TetR_protein/1"/>
+                  </rdf:Bag>
+                </mts:ComponentDefinitions>
+                <mts:DNAComponents>
+                  <rdf:Seq>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/aTc_TetR_protein/1"/>
+                  </rdf:Seq>
+                </mts:DNAComponents>
+                <mts:Strand>+</mts:Strand>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+      </species>
+      <species metaid="iBioSim6" id="LacI" compartment="Cell" initialAmount="60" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#iBioSim6">
+                <mts:ComponentDefinitions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/LacI_protein/1"/>
+                  </rdf:Bag>
+                </mts:ComponentDefinitions>
+                <mts:DNAComponents>
+                  <rdf:Seq>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/LacI_protein/1"/>
+                  </rdf:Seq>
+                </mts:DNAComponents>
+                <mts:Strand>+</mts:Strand>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+      </species>
+      <species metaid="iBioSim7" sboTerm="SBO:0000253" id="IPTG_LacI_protein" compartment="Cell" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#iBioSim7">
+                <mts:ComponentDefinitions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/IPTG_LacI_protein/1"/>
+                  </rdf:Bag>
+                </mts:ComponentDefinitions>
+                <mts:DNAComponents>
+                  <rdf:Seq>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/IPTG_LacI_protein/1"/>
+                  </rdf:Seq>
+                </mts:DNAComponents>
+                <mts:Strand>+</mts:Strand>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+      </species>
+      <species metaid="iBioSim8" id="TetR" compartment="Cell" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#iBioSim8">
+                <mts:ComponentDefinitions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/TetR_protein/1"/>
+                  </rdf:Bag>
+                </mts:ComponentDefinitions>
+                <mts:DNAComponents>
+                  <rdf:Seq>
+                    <rdf:li rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/TetR_protein/1"/>
+                  </rdf:Seq>
+                </mts:DNAComponents>
+                <mts:Strand>+</mts:Strand>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+      </species>
+      <species metaid="iBioSim23" sboTerm="SBO:0000590" id="M1" compartment="Cell" initialAmount="2" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species metaid="iBioSim25" sboTerm="SBO:0000590" id="M2" compartment="Cell" initialAmount="2" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter metaid="iBioSim1" id="kd" name="Degradation rate" value="0.0075" constant="true"/>
+      <parameter metaid="iBioSim30" id="kc_f" name="Forward complex formation rate" value="0.05" constant="true"/>
+      <parameter metaid="iBioSim31" id="kc_r" name="Reverse complex formation rate" value="1" constant="true"/>
+      <parameter metaid="iBioSim32" id="nc" name="Stoichiometry of binding" value="2" constant="true"/>
+      <parameter metaid="iBioSim27" id="kr_f" name="Forward repression binding rate" value="0.5" constant="true"/>
+      <parameter metaid="iBioSim38" id="kr_r" name="Reverse repression binding rate" value="1" constant="true"/>
+      <parameter metaid="iBioSim39" id="ka_f" name="Forward activation binding rate" value="0.0033" constant="true"/>
+      <parameter metaid="iBioSim42" id="ka_r" name="Reverse activation binding rate" value="1" constant="true"/>
+      <parameter metaid="iBioSim43" id="ko_f" name="Forward RNAP binding rate" value="0.033" constant="true"/>
+      <parameter metaid="iBioSim44" id="ko_r" name="Reverse RNAP binding rate" value="1" constant="true"/>
+      <parameter metaid="iBioSim45" id="kao_f" name="Forward activated RNAP binding rate" value="1" constant="true"/>
+      <parameter metaid="iBioSim46" id="kao_r" name="Reverse activated RNAP binding rate" value="1" constant="true"/>
+      <parameter metaid="iBioSim47" id="nr" name="Initial RNAP count" value="30" constant="true"/>
+      <parameter metaid="iBioSim48" id="ko" name="Open complex production rate" value="0.05" constant="true"/>
+      <parameter metaid="iBioSim49" id="kb" name="Basal production rate" value="0.0001" constant="true"/>
+      <parameter metaid="iBioSim50" id="ng" name="Initial promoter count" value="2" constant="true"/>
+      <parameter metaid="iBioSim51" id="np" name="Stoichiometry of production" value="10" constant="true"/>
+      <parameter metaid="iBioSim52" id="ka" name="Activated production rate" value="0.25" constant="true"/>
+    </listOfParameters>
+    <listOfConstraints>
+      <constraint metaid="c0">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <lt/>
+            <ci> YFP </ci>
+            <cn type="integer"> 30 </cn>
+          </apply>
+        </math>
+      </constraint>
+    </listOfConstraints>
+    <listOfReactions>
+      <reaction metaid="iBioSim33" sboTerm="SBO:0000179" id="YFP_degradation_interaction" reversible="false" fast="false" compartment="Cell">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#">
+                <mts:Interactions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell/YFP_degradation_interaction"/>
+                  </rdf:Bag>
+                </mts:Interactions>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+        <listOfReactants>
+          <speciesReference metaid="iBioSim9" species="YFP" stoichiometry="1" constant="true">
+            <annotation>
+              <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+                <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+                  <rdf:Description rdf:about="#iBioSim9">
+                    <mts:Participations>
+                      <rdf:Bag>
+                        <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell/YFP_protein"/>
+                      </rdf:Bag>
+                    </mts:Participations>
+                  </rdf:Description>
+                </rdf:RDF>
+              </ModelToSBOL>
+            </annotation>
+          </speciesReference>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kd </ci>
+              <ci> YFP </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="iBioSim34" sboTerm="SBO:0000179" id="aTc_TetR_protein_degradation_interaction" reversible="false" fast="false" compartment="Cell">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#">
+                <mts:Interactions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell/aTc_TetR_protein_degradation_interaction"/>
+                  </rdf:Bag>
+                </mts:Interactions>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+        <listOfReactants>
+          <speciesReference metaid="iBioSim10" species="aTc_TetR_protein" stoichiometry="1" constant="true">
+            <annotation>
+              <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+                <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+                  <rdf:Description rdf:about="#iBioSim10">
+                    <mts:Participations>
+                      <rdf:Bag>
+                        <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell/aTc_TetR_protein"/>
+                      </rdf:Bag>
+                    </mts:Participations>
+                  </rdf:Description>
+                </rdf:RDF>
+              </ModelToSBOL>
+            </annotation>
+          </speciesReference>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kd </ci>
+              <ci> aTc_TetR_protein </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="iBioSim35" sboTerm="SBO:0000179" id="LacI_degradation_interaction" reversible="false" fast="false" compartment="Cell">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#">
+                <mts:Interactions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell/LacI_degradation_interaction"/>
+                  </rdf:Bag>
+                </mts:Interactions>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+        <listOfReactants>
+          <speciesReference metaid="iBioSim11" species="LacI" stoichiometry="1" constant="true">
+            <annotation>
+              <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+                <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+                  <rdf:Description rdf:about="#iBioSim11">
+                    <mts:Participations>
+                      <rdf:Bag>
+                        <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell/LacI_protein"/>
+                      </rdf:Bag>
+                    </mts:Participations>
+                  </rdf:Description>
+                </rdf:RDF>
+              </ModelToSBOL>
+            </annotation>
+          </speciesReference>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kd </ci>
+              <ci> LacI </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="iBioSim13" sboTerm="SBO:0000177" id="Complex_aTc_TetR_protein" reversible="true" fast="false" compartment="Cell">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#iBioSim13">
+                <mts:Interactions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell/aTc_TetR_protein_complex_formation"/>
+                  </rdf:Bag>
+                </mts:Interactions>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+        <listOfReactants>
+          <speciesReference metaid="iBioSim15" species="aTc" stoichiometry="2" constant="true">
+            <annotation>
+              <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+                <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+                  <rdf:Description rdf:about="#iBioSim15">
+                    <mts:Participations>
+                      <rdf:Bag>
+                        <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell/aTc"/>
+                      </rdf:Bag>
+                    </mts:Participations>
+                  </rdf:Description>
+                </rdf:RDF>
+              </ModelToSBOL>
+            </annotation>
+          </speciesReference>
+          <speciesReference metaid="iBioSim16" species="TetR" stoichiometry="2" constant="true">
+            <annotation>
+              <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+                <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+                  <rdf:Description rdf:about="#iBioSim16">
+                    <mts:Participations>
+                      <rdf:Bag>
+                        <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell/TetR_protein"/>
+                      </rdf:Bag>
+                    </mts:Participations>
+                  </rdf:Description>
+                </rdf:RDF>
+              </ModelToSBOL>
+            </annotation>
+          </speciesReference>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference metaid="iBioSim14" species="aTc_TetR_protein" stoichiometry="1" constant="true">
+            <annotation>
+              <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+                <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+                  <rdf:Description rdf:about="#iBioSim14">
+                    <mts:Participations>
+                      <rdf:Bag>
+                        <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell/aTc_TetR_protein"/>
+                      </rdf:Bag>
+                    </mts:Participations>
+                  </rdf:Description>
+                </rdf:RDF>
+              </ModelToSBOL>
+            </annotation>
+          </speciesReference>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kc_f </ci>
+                <apply>
+                  <power/>
+                  <ci> aTc </ci>
+                  <ci> nc </ci>
+                </apply>
+                <apply>
+                  <power/>
+                  <ci> TetR </ci>
+                  <ci> nc </ci>
+                </apply>
+              </apply>
+              <apply>
+                <times/>
+                <ci> kc_r </ci>
+                <ci> aTc_TetR_protein </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="iBioSim17" sboTerm="SBO:0000177" id="Complex_IPTG_LacI_protein" reversible="true" fast="false" compartment="Cell">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#iBioSim17">
+                <mts:Interactions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell/IPTG_LacI_protein_complex_formation"/>
+                  </rdf:Bag>
+                </mts:Interactions>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+        <listOfReactants>
+          <speciesReference metaid="iBioSim19" species="IPTG" stoichiometry="2" constant="true">
+            <annotation>
+              <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+                <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+                  <rdf:Description rdf:about="#iBioSim19">
+                    <mts:Participations>
+                      <rdf:Bag>
+                        <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell/IPTG"/>
+                      </rdf:Bag>
+                    </mts:Participations>
+                  </rdf:Description>
+                </rdf:RDF>
+              </ModelToSBOL>
+            </annotation>
+          </speciesReference>
+          <speciesReference metaid="iBioSim20" species="LacI" stoichiometry="2" constant="true">
+            <annotation>
+              <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+                <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+                  <rdf:Description rdf:about="#iBioSim20">
+                    <mts:Participations>
+                      <rdf:Bag>
+                        <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell/LacI_protein"/>
+                      </rdf:Bag>
+                    </mts:Participations>
+                  </rdf:Description>
+                </rdf:RDF>
+              </ModelToSBOL>
+            </annotation>
+          </speciesReference>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference metaid="iBioSim18" species="IPTG_LacI_protein" stoichiometry="1" constant="true">
+            <annotation>
+              <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+                <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+                  <rdf:Description rdf:about="#iBioSim18">
+                    <mts:Participations>
+                      <rdf:Bag>
+                        <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell/IPTG_LacI_protein"/>
+                      </rdf:Bag>
+                    </mts:Participations>
+                  </rdf:Description>
+                </rdf:RDF>
+              </ModelToSBOL>
+            </annotation>
+          </speciesReference>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kc_f </ci>
+                <apply>
+                  <power/>
+                  <ci> IPTG </ci>
+                  <ci> nc </ci>
+                </apply>
+                <apply>
+                  <power/>
+                  <ci> LacI </ci>
+                  <ci> nc </ci>
+                </apply>
+              </apply>
+              <apply>
+                <times/>
+                <ci> kc_r </ci>
+                <ci> IPTG_LacI_protein </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="iBioSim37" sboTerm="SBO:0000179" id="TetR_degradation_interaction" reversible="false" fast="false" compartment="Cell">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#">
+                <mts:Interactions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell/TetR_degradation_interaction"/>
+                  </rdf:Bag>
+                </mts:Interactions>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+        <listOfReactants>
+          <speciesReference metaid="iBioSim21" species="TetR" stoichiometry="1" constant="true">
+            <annotation>
+              <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+                <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+                  <rdf:Description rdf:about="#iBioSim21">
+                    <mts:Participations>
+                      <rdf:Bag>
+                        <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell/TetR_protein"/>
+                      </rdf:Bag>
+                    </mts:Participations>
+                  </rdf:Description>
+                </rdf:RDF>
+              </ModelToSBOL>
+            </annotation>
+          </speciesReference>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kd </ci>
+              <ci> TetR </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="iBioSim29" sboTerm="SBO:0000589" id="Production_M2" reversible="false" fast="false" compartment="Cell">
+        <listOfProducts>
+          <speciesReference species="LacI" stoichiometry="10" constant="true"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference sboTerm="SBO:0000598" species="M2"/>
+          <modifierSpeciesReference sboTerm="SBO:0000020" species="TetR"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <apply>
+                  <divide/>
+                  <apply>
+                    <times/>
+                    <ci> M2 </ci>
+                    <ci> ko </ci>
+                    <ci> ko_f </ci>
+                  </apply>
+                  <ci> ko_r </ci>
+                </apply>
+                <ci> nr </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <cn type="integer"> 1 </cn>
+                <apply>
+                  <times/>
+                  <apply>
+                    <divide/>
+                    <ci> ko_f </ci>
+                    <ci> ko_r </ci>
+                  </apply>
+                  <ci> nr </ci>
+                </apply>
+                <apply>
+                  <power/>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <divide/>
+                      <ci> kr_f </ci>
+                      <ci> kr_r </ci>
+                    </apply>
+                    <ci> TetR </ci>
+                  </apply>
+                  <ci> nc </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="iBioSim36" sboTerm="SBO:0000179" id="IPTG_LacI_protein_degradation_interaction" reversible="false" fast="false" compartment="Cell">
+        <annotation>
+          <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+              <rdf:Description rdf:about="#">
+                <mts:Interactions>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell/IPTG_LacI_protein_degradation_interaction"/>
+                  </rdf:Bag>
+                </mts:Interactions>
+              </rdf:Description>
+            </rdf:RDF>
+          </ModelToSBOL>
+        </annotation>
+        <listOfReactants>
+          <speciesReference metaid="iBioSim12" species="IPTG_LacI_protein" stoichiometry="1" constant="true">
+            <annotation>
+              <ModelToSBOL xmlns="http://sbolstandard.org/modeltosbol/1.0#">
+                <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:mts="http://sbolstandard.org/modeltosbol/1.0#">
+                  <rdf:Description rdf:about="#iBioSim12">
+                    <mts:Participations>
+                      <rdf:Bag>
+                        <rdf:li rdf:resource="https://async.ece.utah.edu/tools/ibiosim/topModell/IPTG_LacI_protein"/>
+                      </rdf:Bag>
+                    </mts:Participations>
+                  </rdf:Description>
+                </rdf:RDF>
+              </ModelToSBOL>
+            </annotation>
+          </speciesReference>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kd </ci>
+              <ci> IPTG_LacI_protein </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="iBioSim26" sboTerm="SBO:0000589" id="Production_M1" reversible="false" fast="false" compartment="Cell">
+        <listOfProducts>
+          <speciesReference species="YFP" stoichiometry="10" constant="true"/>
+          <speciesReference species="TetR" stoichiometry="10" constant="true"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference sboTerm="SBO:0000598" species="M1"/>
+          <modifierSpeciesReference sboTerm="SBO:0000020" species="LacI"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <apply>
+                  <divide/>
+                  <apply>
+                    <times/>
+                    <ci> M1 </ci>
+                    <ci> ko </ci>
+                    <ci> ko_f </ci>
+                  </apply>
+                  <ci> ko_r </ci>
+                </apply>
+                <ci> nr </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <cn type="integer"> 1 </cn>
+                <apply>
+                  <times/>
+                  <apply>
+                    <divide/>
+                    <ci> ko_f </ci>
+                    <ci> ko_r </ci>
+                  </apply>
+                  <ci> nr </ci>
+                </apply>
+                <apply>
+                  <power/>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <divide/>
+                      <ci> kr_f </ci>
+                      <ci> kr_r </ci>
+                    </apply>
+                    <ci> LacI </ci>
+                  </apply>
+                  <ci> nc </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
