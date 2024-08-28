@@ -1,0 +1,2 @@
+// mScarlet count exceeded 10 molecules during the interval [1000, 2100]
+P=?[F [1000, 2100] (mScarlet >= 10)]

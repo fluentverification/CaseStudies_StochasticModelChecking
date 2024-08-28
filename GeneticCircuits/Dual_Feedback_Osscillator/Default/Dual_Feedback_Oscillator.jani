@@ -1,0 +1,1129 @@
+{
+    "actions": [
+        {
+            "name": "Degradation_AraC"
+        },
+        {
+            "name": "Degradation_LacI"
+        },
+        {
+            "name": "Production_P1"
+        },
+        {
+            "name": "Production_P2"
+        }
+    ],
+    "automata": [
+        {
+            "edges": [
+                {
+                    "action": "Degradation_AraC",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "AraC <- (AraC - 1)",
+                                    "ref": "AraC",
+                                    "value": {
+                                        "left": "AraC",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(AraC > 0)",
+                        "exp": {
+                            "left": "AraC",
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "Production_P2",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "AraC <- (AraC + 10)",
+                                    "ref": "AraC",
+                                    "value": {
+                                        "left": "AraC",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(AraC <= (100 - 10))",
+                        "exp": {
+                            "left": "AraC",
+                            "op": "≤",
+                            "right": 90
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l",
+                    "transient-values": [
+                        {
+                            "comment": "rewardmodel_AraC <- AraC",
+                            "ref": "rewardmodel_AraC",
+                            "value": "AraC"
+                        },
+                        {
+                            "comment": "rewardmodel_LacI <- LacI",
+                            "ref": "rewardmodel_LacI",
+                            "value": "LacI"
+                        },
+                        {
+                            "comment": "rewardmodel_P1 <- P1",
+                            "ref": "rewardmodel_P1",
+                            "value": "P1"
+                        },
+                        {
+                            "comment": "rewardmodel_P2 <- P2",
+                            "ref": "rewardmodel_P2",
+                            "value": "P2"
+                        }
+                    ]
+                }
+            ],
+            "name": "AraC",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "Degradation_LacI",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "LacI <- (LacI - 1)",
+                                    "ref": "LacI",
+                                    "value": {
+                                        "left": "LacI",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(LacI > 0)",
+                        "exp": {
+                            "left": "LacI",
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "Production_P1",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "LacI <- (LacI + 10)",
+                                    "ref": "LacI",
+                                    "value": {
+                                        "left": "LacI",
+                                        "op": "+",
+                                        "right": 10
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(LacI <= (100 - 10))",
+                        "exp": {
+                            "left": "LacI",
+                            "op": "≤",
+                            "right": 90
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "LacI",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "P1",
+            "variables": []
+        },
+        {
+            "edges": [],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "P2",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "Degradation_AraC",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((3/400 * AraC) / (3/400 * AraC))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.0075,
+                                        "op": "*",
+                                        "right": "AraC"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.0075,
+                                        "op": "*",
+                                        "right": "AraC"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((3/400 * AraC) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.0075,
+                                "op": "*",
+                                "right": "AraC"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(3/400 * AraC)",
+                        "exp": {
+                            "left": 0.0075,
+                            "op": "*",
+                            "right": "AraC"
+                        }
+                    }
+                },
+                {
+                    "action": "Degradation_LacI",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((3/400 * LacI) / (3/400 * LacI))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.0075,
+                                        "op": "*",
+                                        "right": "LacI"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.0075,
+                                        "op": "*",
+                                        "right": "LacI"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((3/400 * LacI) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.0075,
+                                "op": "*",
+                                "right": "LacI"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(3/400 * LacI)",
+                        "exp": {
+                            "left": 0.0075,
+                            "op": "*",
+                            "right": "LacI"
+                        }
+                    }
+                },
+                {
+                    "action": "Production_P1",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "(((P1 * (((1/10000 * (33/1000 / 1)) * 100) + (((1/4 * (1 / 1)) * 100) * (((33/10000 / 1) * AraC) ^ 2)))) / (((1 + ((33/1000 / 1) * 100)) + (((1 / 1) * 100) * (((33/10000 / 1) * AraC) ^ 2))) + (((1/2 / 1) * LacI) ^ 2))) / ((P1 * (((1/10000 * (33/1000 / 1)) * 100) + (((1/4 * (1 / 1)) * 100) * (((33/10000 / 1) * AraC) ^ 2)))) / (((1 + ((33/1000 / 1) * 100)) + (((1 / 1) * 100) * (((33/10000 / 1) * AraC) ^ 2))) + (((1/2 / 1) * LacI) ^ 2))))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": "P1",
+                                            "op": "*",
+                                            "right": {
+                                                "left": 0.00033,
+                                                "op": "+",
+                                                "right": {
+                                                    "left": 25,
+                                                    "op": "*",
+                                                    "right": {
+                                                        "left": {
+                                                            "left": 0.0033,
+                                                            "op": "*",
+                                                            "right": "AraC"
+                                                        },
+                                                        "op": "pow",
+                                                        "right": 2
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": {
+                                                "left": 4.3,
+                                                "op": "+",
+                                                "right": {
+                                                    "left": 100,
+                                                    "op": "*",
+                                                    "right": {
+                                                        "left": {
+                                                            "left": 0.0033,
+                                                            "op": "*",
+                                                            "right": "AraC"
+                                                        },
+                                                        "op": "pow",
+                                                        "right": 2
+                                                    }
+                                                }
+                                            },
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "LacI"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": "P1",
+                                            "op": "*",
+                                            "right": {
+                                                "left": 0.00033,
+                                                "op": "+",
+                                                "right": {
+                                                    "left": 25,
+                                                    "op": "*",
+                                                    "right": {
+                                                        "left": {
+                                                            "left": 0.0033,
+                                                            "op": "*",
+                                                            "right": "AraC"
+                                                        },
+                                                        "op": "pow",
+                                                        "right": 2
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": {
+                                                "left": 4.3,
+                                                "op": "+",
+                                                "right": {
+                                                    "left": 100,
+                                                    "op": "*",
+                                                    "right": {
+                                                        "left": {
+                                                            "left": 0.0033,
+                                                            "op": "*",
+                                                            "right": "AraC"
+                                                        },
+                                                        "op": "pow",
+                                                        "right": 2
+                                                    }
+                                                }
+                                            },
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "LacI"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(((P1 * (((1/10000 * (33/1000 / 1)) * 100) + (((1/4 * (1 / 1)) * 100) * (((33/10000 / 1) * AraC) ^ 2)))) / (((1 + ((33/1000 / 1) * 100)) + (((1 / 1) * 100) * (((33/10000 / 1) * AraC) ^ 2))) + (((1/2 / 1) * LacI) ^ 2))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": "P1",
+                                    "op": "*",
+                                    "right": {
+                                        "left": 0.00033,
+                                        "op": "+",
+                                        "right": {
+                                            "left": 25,
+                                            "op": "*",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.0033,
+                                                    "op": "*",
+                                                    "right": "AraC"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                },
+                                "op": "/",
+                                "right": {
+                                    "left": {
+                                        "left": 4.3,
+                                        "op": "+",
+                                        "right": {
+                                            "left": 100,
+                                            "op": "*",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.0033,
+                                                    "op": "*",
+                                                    "right": "AraC"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "+",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.5,
+                                            "op": "*",
+                                            "right": "LacI"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "((P1 * (((1/10000 * (33/1000 / 1)) * 100) + (((1/4 * (1 / 1)) * 100) * (((33/10000 / 1) * AraC) ^ 2)))) / (((1 + ((33/1000 / 1) * 100)) + (((1 / 1) * 100) * (((33/10000 / 1) * AraC) ^ 2))) + (((1/2 / 1) * LacI) ^ 2)))",
+                        "exp": {
+                            "left": {
+                                "left": "P1",
+                                "op": "*",
+                                "right": {
+                                    "left": 0.00033,
+                                    "op": "+",
+                                    "right": {
+                                        "left": 25,
+                                        "op": "*",
+                                        "right": {
+                                            "left": {
+                                                "left": 0.0033,
+                                                "op": "*",
+                                                "right": "AraC"
+                                            },
+                                            "op": "pow",
+                                            "right": 2
+                                        }
+                                    }
+                                }
+                            },
+                            "op": "/",
+                            "right": {
+                                "left": {
+                                    "left": 4.3,
+                                    "op": "+",
+                                    "right": {
+                                        "left": 100,
+                                        "op": "*",
+                                        "right": {
+                                            "left": {
+                                                "left": 0.0033,
+                                                "op": "*",
+                                                "right": "AraC"
+                                            },
+                                            "op": "pow",
+                                            "right": 2
+                                        }
+                                    }
+                                },
+                                "op": "+",
+                                "right": {
+                                    "left": {
+                                        "left": 0.5,
+                                        "op": "*",
+                                        "right": "LacI"
+                                    },
+                                    "op": "pow",
+                                    "right": 2
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "action": "Production_P2",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "(((P2 * (((1/10000 * (33/1000 / 1)) * 100) + (((1/4 * (1 / 1)) * 100) * (((33/10000 / 1) * AraC) ^ 2)))) / (((1 + ((33/1000 / 1) * 100)) + (((1 / 1) * 100) * (((33/10000 / 1) * AraC) ^ 2))) + (((1/2 / 1) * LacI) ^ 2))) / ((P2 * (((1/10000 * (33/1000 / 1)) * 100) + (((1/4 * (1 / 1)) * 100) * (((33/10000 / 1) * AraC) ^ 2)))) / (((1 + ((33/1000 / 1) * 100)) + (((1 / 1) * 100) * (((33/10000 / 1) * AraC) ^ 2))) + (((1/2 / 1) * LacI) ^ 2))))",
+                                "exp": {
+                                    "left": {
+                                        "left": {
+                                            "left": "P2",
+                                            "op": "*",
+                                            "right": {
+                                                "left": 0.00033,
+                                                "op": "+",
+                                                "right": {
+                                                    "left": 25,
+                                                    "op": "*",
+                                                    "right": {
+                                                        "left": {
+                                                            "left": 0.0033,
+                                                            "op": "*",
+                                                            "right": "AraC"
+                                                        },
+                                                        "op": "pow",
+                                                        "right": 2
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": {
+                                                "left": 4.3,
+                                                "op": "+",
+                                                "right": {
+                                                    "left": 100,
+                                                    "op": "*",
+                                                    "right": {
+                                                        "left": {
+                                                            "left": 0.0033,
+                                                            "op": "*",
+                                                            "right": "AraC"
+                                                        },
+                                                        "op": "pow",
+                                                        "right": 2
+                                                    }
+                                                }
+                                            },
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "LacI"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": {
+                                            "left": "P2",
+                                            "op": "*",
+                                            "right": {
+                                                "left": 0.00033,
+                                                "op": "+",
+                                                "right": {
+                                                    "left": 25,
+                                                    "op": "*",
+                                                    "right": {
+                                                        "left": {
+                                                            "left": 0.0033,
+                                                            "op": "*",
+                                                            "right": "AraC"
+                                                        },
+                                                        "op": "pow",
+                                                        "right": 2
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "op": "/",
+                                        "right": {
+                                            "left": {
+                                                "left": 4.3,
+                                                "op": "+",
+                                                "right": {
+                                                    "left": 100,
+                                                    "op": "*",
+                                                    "right": {
+                                                        "left": {
+                                                            "left": 0.0033,
+                                                            "op": "*",
+                                                            "right": "AraC"
+                                                        },
+                                                        "op": "pow",
+                                                        "right": 2
+                                                    }
+                                                }
+                                            },
+                                            "op": "+",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.5,
+                                                    "op": "*",
+                                                    "right": "LacI"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(((P2 * (((1/10000 * (33/1000 / 1)) * 100) + (((1/4 * (1 / 1)) * 100) * (((33/10000 / 1) * AraC) ^ 2)))) / (((1 + ((33/1000 / 1) * 100)) + (((1 / 1) * 100) * (((33/10000 / 1) * AraC) ^ 2))) + (((1/2 / 1) * LacI) ^ 2))) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": {
+                                    "left": "P2",
+                                    "op": "*",
+                                    "right": {
+                                        "left": 0.00033,
+                                        "op": "+",
+                                        "right": {
+                                            "left": 25,
+                                            "op": "*",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.0033,
+                                                    "op": "*",
+                                                    "right": "AraC"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    }
+                                },
+                                "op": "/",
+                                "right": {
+                                    "left": {
+                                        "left": 4.3,
+                                        "op": "+",
+                                        "right": {
+                                            "left": 100,
+                                            "op": "*",
+                                            "right": {
+                                                "left": {
+                                                    "left": 0.0033,
+                                                    "op": "*",
+                                                    "right": "AraC"
+                                                },
+                                                "op": "pow",
+                                                "right": 2
+                                            }
+                                        }
+                                    },
+                                    "op": "+",
+                                    "right": {
+                                        "left": {
+                                            "left": 0.5,
+                                            "op": "*",
+                                            "right": "LacI"
+                                        },
+                                        "op": "pow",
+                                        "right": 2
+                                    }
+                                }
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "((P2 * (((1/10000 * (33/1000 / 1)) * 100) + (((1/4 * (1 / 1)) * 100) * (((33/10000 / 1) * AraC) ^ 2)))) / (((1 + ((33/1000 / 1) * 100)) + (((1 / 1) * 100) * (((33/10000 / 1) * AraC) ^ 2))) + (((1/2 / 1) * LacI) ^ 2)))",
+                        "exp": {
+                            "left": {
+                                "left": "P2",
+                                "op": "*",
+                                "right": {
+                                    "left": 0.00033,
+                                    "op": "+",
+                                    "right": {
+                                        "left": 25,
+                                        "op": "*",
+                                        "right": {
+                                            "left": {
+                                                "left": 0.0033,
+                                                "op": "*",
+                                                "right": "AraC"
+                                            },
+                                            "op": "pow",
+                                            "right": 2
+                                        }
+                                    }
+                                }
+                            },
+                            "op": "/",
+                            "right": {
+                                "left": {
+                                    "left": 4.3,
+                                    "op": "+",
+                                    "right": {
+                                        "left": 100,
+                                        "op": "*",
+                                        "right": {
+                                            "left": {
+                                                "left": 0.0033,
+                                                "op": "*",
+                                                "right": "AraC"
+                                            },
+                                            "op": "pow",
+                                            "right": 2
+                                        }
+                                    }
+                                },
+                                "op": "+",
+                                "right": {
+                                    "left": {
+                                        "left": 0.5,
+                                        "op": "*",
+                                        "right": "LacI"
+                                    },
+                                    "op": "pow",
+                                    "right": 2
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "reaction_rates",
+            "variables": []
+        }
+    ],
+    "constants": [
+        {
+            "name": "MAX_AMOUNT",
+            "type": "int",
+            "value": 100
+        },
+        {
+            "name": "Cell",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "ko_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "nr",
+            "type": "real",
+            "value": 100
+        },
+        {
+            "name": "np",
+            "type": "real",
+            "value": 10
+        },
+        {
+            "name": "kr_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "ka_f",
+            "type": "real",
+            "value": 0.0033
+        },
+        {
+            "name": "kecdiff",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "ko",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "kmdiff_f",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "kecd",
+            "type": "real",
+            "value": 0.005
+        },
+        {
+            "name": "kc_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "kr_f",
+            "type": "real",
+            "value": 0.5
+        },
+        {
+            "name": "ka_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "nc",
+            "type": "real",
+            "value": 2
+        },
+        {
+            "name": "kd",
+            "type": "real",
+            "value": 0.0075
+        },
+        {
+            "name": "kao_r",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "kb",
+            "type": "real",
+            "value": 0.0001
+        },
+        {
+            "name": "ng",
+            "type": "real",
+            "value": 20
+        },
+        {
+            "name": "ka",
+            "type": "real",
+            "value": 0.25
+        },
+        {
+            "name": "kao_f",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "kmdiff_r",
+            "type": "real",
+            "value": 0.01
+        },
+        {
+            "name": "ko_f",
+            "type": "real",
+            "value": 0.033
+        },
+        {
+            "name": "kc_f",
+            "type": "real",
+            "value": 0.05
+        },
+        {
+            "name": "limit",
+            "type": "real",
+            "value": 0
+        },
+        {
+            "name": "AraC_MAX",
+            "type": "int",
+            "value": 100
+        },
+        {
+            "name": "LacI_MAX",
+            "type": "int",
+            "value": 100
+        },
+        {
+            "name": "P1_MAX",
+            "type": "int",
+            "value": 100
+        },
+        {
+            "name": "P2_MAX",
+            "type": "int",
+            "value": 100
+        }
+    ],
+    "features": [
+        "derived-operators"
+    ],
+    "jani-version": 1,
+    "name": "Dual_Feedback_Oscillator",
+    "properties": [
+        {
+            "expression": {
+                "fun": "values",
+                "op": "filter",
+                "states": {
+                    "op": "initial"
+                },
+                "values": {
+                    "exp": {
+                        "left": true,
+                        "op": "U",
+                        "right": {
+                            "left": "AraC",
+                            "op": "≥",
+                            "right": 2
+                        },
+                        "time-bounds": {
+                            "lower": 0,
+                            "lower-exclusive": false,
+                            "upper": 50,
+                            "upper-exclusive": false
+                        }
+                    },
+                    "op": "Pmin"
+                }
+            },
+            "name": "1"
+        }
+    ],
+    "restrict-initial": {
+        "exp": true
+    },
+    "system": {
+        "elements": [
+            {
+                "automaton": "AraC"
+            },
+            {
+                "automaton": "LacI"
+            },
+            {
+                "automaton": "P1"
+            },
+            {
+                "automaton": "P2"
+            },
+            {
+                "automaton": "reaction_rates"
+            }
+        ],
+        "syncs": [
+            {
+                "result": "Degradation_AraC",
+                "synchronise": [
+                    "Degradation_AraC",
+                    null,
+                    null,
+                    null,
+                    "Degradation_AraC"
+                ]
+            },
+            {
+                "result": "Degradation_LacI",
+                "synchronise": [
+                    null,
+                    "Degradation_LacI",
+                    null,
+                    null,
+                    "Degradation_LacI"
+                ]
+            },
+            {
+                "result": "Production_P1",
+                "synchronise": [
+                    null,
+                    "Production_P1",
+                    null,
+                    null,
+                    "Production_P1"
+                ]
+            },
+            {
+                "result": "Production_P2",
+                "synchronise": [
+                    "Production_P2",
+                    null,
+                    null,
+                    null,
+                    "Production_P2"
+                ]
+            }
+        ]
+    },
+    "type": "ctmc",
+    "variables": [
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_AraC",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_LacI",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_P1",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "rewardmodel_P2",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "AraC",
+            "type": {
+                "base": "int",
+                "kind": "bounded",
+                "lower-bound": 0,
+                "upper-bound": 100
+            }
+        },
+        {
+            "initial-value": 0,
+            "name": "LacI",
+            "type": {
+                "base": "int",
+                "kind": "bounded",
+                "lower-bound": 0,
+                "upper-bound": 100
+            }
+        },
+        {
+            "initial-value": 20,
+            "name": "P1",
+            "type": {
+                "base": "int",
+                "kind": "bounded",
+                "lower-bound": 0,
+                "upper-bound": 100
+            }
+        },
+        {
+            "initial-value": 20,
+            "name": "P2",
+            "type": {
+                "base": "int",
+                "kind": "bounded",
+                "lower-bound": 0,
+                "upper-bound": 100
+            }
+        }
+    ]
+}

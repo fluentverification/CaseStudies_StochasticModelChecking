@@ -1,0 +1,275 @@
+{
+    "actions": [
+        {
+            "name": "Death"
+        },
+        {
+            "name": "Immigration"
+        }
+    ],
+    "automata": [
+        {
+            "edges": [
+                {
+                    "action": "Death",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "_X <- (_X - 1)",
+                                    "ref": "_X",
+                                    "value": {
+                                        "left": "_X",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(_X > 0)",
+                        "exp": {
+                            "left": "_X",
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                },
+                {
+                    "action": "Immigration",
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "_X <- (_X + 1)",
+                                    "ref": "_X",
+                                    "value": {
+                                        "left": "_X",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(_X >= 0)",
+                        "exp": {
+                            "left": "_X",
+                            "op": "≥",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l",
+                    "transient-values": [
+                        {
+                            "comment": "rewardmodel__X <- _X",
+                            "ref": "rewardmodel__X",
+                            "value": "_X"
+                        }
+                    ]
+                }
+            ],
+            "name": "_X",
+            "variables": []
+        },
+        {
+            "edges": [
+                {
+                    "action": "Death",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "((1/10 * _X) / (1/10 * _X))",
+                                "exp": {
+                                    "left": {
+                                        "left": 0.1,
+                                        "op": "*",
+                                        "right": "_X"
+                                    },
+                                    "op": "/",
+                                    "right": {
+                                        "left": 0.1,
+                                        "op": "*",
+                                        "right": "_X"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "((1/10 * _X) > 0)",
+                        "exp": {
+                            "left": {
+                                "left": 0.1,
+                                "op": "*",
+                                "right": "_X"
+                            },
+                            "op": ">",
+                            "right": 0
+                        }
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "(1/10 * _X)",
+                        "exp": {
+                            "left": 0.1,
+                            "op": "*",
+                            "right": "_X"
+                        }
+                    }
+                },
+                {
+                    "action": "Immigration",
+                    "destinations": [
+                        {
+                            "location": "l",
+                            "probability": {
+                                "comment": "(1 / 1)",
+                                "exp": 1
+                            }
+                        }
+                    ],
+                    "guard": {
+                        "comment": "(1 > 0)",
+                        "exp": true
+                    },
+                    "location": "l",
+                    "rate": {
+                        "comment": "1",
+                        "exp": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "l"
+            ],
+            "locations": [
+                {
+                    "name": "l"
+                }
+            ],
+            "name": "reaction_rates",
+            "variables": []
+        }
+    ],
+    "constants": [
+        {
+            "name": "Alpha",
+            "type": "real",
+            "value": 1
+        },
+        {
+            "name": "Mu",
+            "type": "real",
+            "value": 0.1
+        }
+    ],
+    "features": [
+        "derived-operators"
+    ],
+    "jani-version": 1,
+    "name": "00028-sbml-l3v2",
+    "properties": [
+        {
+            "expression": {
+                "fun": "values",
+                "op": "filter",
+                "states": {
+                    "op": "initial"
+                },
+                "values": {
+                    "exp": {
+                        "left": true,
+                        "op": "U",
+                        "right": {
+                            "left": "_X",
+                            "op": "<",
+                            "right": 13.283399945
+                        },
+                        "time-bounds": {
+                            "lower": 0,
+                            "lower-exclusive": false,
+                            "upper": 50,
+                            "upper-exclusive": false
+                        }
+                    },
+                    "op": "Pmin"
+                }
+            },
+            "name": "1"
+        }
+    ],
+    "restrict-initial": {
+        "exp": true
+    },
+    "system": {
+        "elements": [
+            {
+                "automaton": "_X"
+            },
+            {
+                "automaton": "reaction_rates"
+            }
+        ],
+        "syncs": [
+            {
+                "result": "Death",
+                "synchronise": [
+                    "Death",
+                    "Death"
+                ]
+            },
+            {
+                "result": "Immigration",
+                "synchronise": [
+                    "Immigration",
+                    "Immigration"
+                ]
+            }
+        ]
+    },
+    "type": "ctmc",
+    "variables": [
+        {
+            "initial-value": 0,
+            "name": "rewardmodel__X",
+            "transient": true,
+            "type": "real"
+        },
+        {
+            "initial-value": 0,
+            "name": "_X",
+            "type": "int"
+        }
+    ]
+}

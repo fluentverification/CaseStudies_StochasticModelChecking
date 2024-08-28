@@ -7,8 +7,8 @@ ctmc
 // Compartment size
 
 // Model parameters
-const double Alpha = 1.0; // 
-const double Mu = 4.0; // 
+const double Alpha = 1.0; //
+const double Mu = 4.0; //
 
 // Species _X
 module _X
@@ -16,7 +16,7 @@ module _X
   _X  :  int init 0;
 
 		// Immigration
-		[Immigration] _X > 0 -> (_X' = _X + 100);
+		[Immigration] _X >= 0 -> (_X' = _X + 100);
 		// Death
 		[Death] _X > 0 -> (_X' = _X - 1);
 
@@ -28,7 +28,7 @@ module reaction_rates
 		// Immigration:  ->   -> d_X
 		[Immigration] Alpha > 0 -> Alpha : true;
 
-		// Death:  ->  _X -> 
+		// Death:  ->  _X ->
 		[Death] (Mu * _X) > 0 -> (Mu * _X) : true;
 
 endmodule
