@@ -16,6 +16,6 @@ Chemical reaction networks are systems including some number of chemical species
 
 Genetic circuits are part of synthetic biology, a research field combining engineering principles with biology. Researchers build circuits out of defined biological parts adding desired functionalities to biological systems. Automation in the design process allows scientists to model and analyze their genetic circuits \emph{in silico} to test the system before implementation. Stochastic model checking has been used to analyze genetic circuits before, which have an infinite state space and therefore suit the case studies presented here.
 
-### Fault Computing
+### Fault Tolerant Computing
 
 Fault tolerant computing encompasses a wide variety of fault mechanisms and strategies to mitigate them. The case studies presented here focus on circuits that experience transient upsets modeled by Markov processes. Case studies in this field are given in two subcategories.
