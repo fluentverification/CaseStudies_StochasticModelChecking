@@ -1,4 +1,4 @@
-# Fault Tolerance Computing and Electronics 
+# Fault Tolerant Computing and Electronics 
 
 This directory contains models in the fault tolerance domain. 
 
