@@ -30,7 +30,7 @@ This guide explains how to pull, configure, and run the `ifndefjosh/sstamina` to
 ### Step-by-Step Instructions
 
 #### 1. Prepare Your Project Directory
-Before starting, ensure your terminal is inside the folder containing the model files. Docker uses the active folder to share files with the container.
+Before starting, ensure the terminal is inside the folder containing the model files. Docker uses the active folder to share files with the container.
 
 ```bash
 cd /path/to/your/StaminaDocker
