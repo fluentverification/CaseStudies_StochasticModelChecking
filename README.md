@@ -54,7 +54,7 @@ docker run --rm \
   --platform linux/amd64 \
   -v "\$(pwd)":/data \
   ifndefjosh/sstamina:v3.0_2025 \
-  /opt/stamina-storm/build/sstamina /data/your_model.prism /data/your_properties.csl
+  /opt/stamina-storm/build/sstamina -J /data/your_model.prism /data/your_properties.csl
 ```
 ## Windows Alternatives
 
@@ -65,7 +65,7 @@ If you are running the tool on Windows instead of macOS, you do not need the `--
 docker run --rm \
   -v "\${PWD}:/data" \
   ifndefjosh/sstamina:v3.0_2025 \
-  /opt/stamina-storm/build/sstamina /data/your_model.prism /data/your_properties.csl
+  /opt/stamina-storm/build/sstamina -J /data/your_model.prism /data/your_properties.csl
 ```
 
 ### Windows (Command Prompt - CMD):
@@ -73,7 +73,7 @@ docker run --rm \
 docker run --rm \
   -v "%cd%:/data" \
   ifndefjosh/sstamina:v3.0_2025 \
-  /opt/stamina-storm/build/sstamina /data/your_model.prism /data/your_properties.csl
+  /opt/stamina-storm/build/sstamina -J /data/your_model.prism /data/your_properties.csl
 ```
 
 ---
