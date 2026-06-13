@@ -22,7 +22,7 @@ This guide explains how to pull, configure, and run the `ifndefjosh/sstamina` to
 
 ### Prerequisites
 
-- [Docker Desktop](https://docker.com) installed and running on Mac.
+- [Docker Desktop](https://docker.com) installed and running on your computer.
 - Model files (e.g., `.sm` and `.props`) saved together in a dedicated project directory.
 
 ---
