@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FLUENT Verification Case Studies</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./styles/styles.css">
+	<script src="./scripts/indexReader.js"></script>
+	<script src="./scripts/scripts.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
+</head>
+<!-- TODO: On losing focus, not on click-->
+<body onclick="hideAllSuggestions()">
+	<div id=navbar>
+		<a class="full-width" id=toggle-nav onclick="toggleNavbar()">&#9776;</a>
+		<a class="navlink" href=index.html id=logo>FLUENT Case Studies</a>
+		<a class="navlink" href=index.html>Home</a>
+		<a class="navlink" href=https://fluentverification.github.io>Fluent Verification</a>
+		<a class="navlink" href=https://staminachecker.org>STAMINA</a>
+		<a class="navlink" href=https://async.ece.utah.edu/tools/ibiosim>iBioSim</a>
+	</div>
+	<div id=contents>
+		<div id=top-buffer>&nbsp;</div>
+		<form id=search>
+			<h1 id="search-header">Search for Case Studies:</h1>
+			<label for="query" class="hidden">Search Query:</label>
+<!-- 			<input type="submit" value="Search"> -->
+			<input type=text name="query" placeholder="Search Query" id=query oninput="showSuggestions()" onkeypress="queryKeyPressHandler(event)">
+			<i class="icon icon_edit-find search-button" onclick="search()"></i>
+			<div id="query-suggestions" class=suggestions>
+<!--				<div class="suggestion">Hazard Circuit</div>
+				<div class="suggestion">No Hazard Circuit</div>-->
+			</div>
+			<span id="toggle-advanced" onclick=toggleAdvanced()>Advanced Search</span>
+			<div id="advanced">
+				<label for="tags" class="hidden">Tags</label>
+<!-- 				<span class=search-button style=><i class="icon icon_tag"></i></span> -->
+				<input type=text name="tags" id=tags placeholder="Tags" oninput="showTagSuggestions()" onkeypress="tagKeyPressHandler(event)">
+				<div id="tag-suggestions" class=suggestions>
+<!--					<div class="suggestion">Hazard Circuit</div>
+					<div class="suggestion">No Hazard Circuit</div>-->
+				</div>
+				<i id=clear-tags class="icon icon_tag icon-overlay" tooltip="Clear All Tags" onclick="clearAllTags()"></i>
+				<div id="tags-box">
+				</div>
+				<div class=column-half>
+					<div class="checkbox-styled">
+						<input type="checkbox" value="1" id="must-have-tags">
+						<label for="must-have-tags"></label>
+					</div>
+					<span class="check-label">Only include results with <i>all</i> custom tags</span>
+					<div class="checkbox-styled">
+						<input type="checkbox" value="0" id="expected-results">
+						<label for="expected-results"></label>
+					</div>
+					<span class="check-label">Include expected check-results for models</span>
+<!-- 				</select> -->
+					<span>Class of Model:</span><br>
+					<div class="checkbox-styled">
+						<input type="checkbox" value="0" id="benchmark">
+						<label for="benchmark"></label>
+					</div>
+					<span class="check-label">Benchmark</span>
+					<div class="checkbox-styled">
+						<input type="checkbox" value="0" id="case-study">
+						<label for="case-study"></label>
+					</div>
+					<span class="case-study">Case Study</span>
+				</div>
+				<div class=column-half>
+					<span>File Format:</span><br>
+	<!-- 				<select placeholder="Format" name="format"> -->
+						<div class="checkbox-styled">
+							<input type="checkbox" value="0" id="prism">
+							<label for="prism"></label>
+						</div>
+						<span class="check-label">Prism Model Files</span>
+						<!-- May not include Ivy models -->
+						<div class="checkbox-styled">
+							<input type="checkbox" value="0" id="ivy">
+							<label for="ivy"></label>
+						</div>
+						<span class="check-label">IVy Model Files</span>
+						<div class="checkbox-styled">
+							<input type="checkbox" value="0" id="sbml">
+							<label for="sbml"></label>
+						</div>
+						<span class="check-label">SBML (XML) Files</span>
+						<div class="checkbox-styled">
+							<input type="checkbox" value="0" id="jani">
+							<label for="jani"></label>
+						</div>
+						<span class="check-label">JANI (JSON) Files</span>
+				</div>
+			</div>
+		</form>
+		<div id=results>
+			<div class="result">
+				<span class="result-title">Circuit0x8E/hazardFree.prism</span>
+				<span class="tag">Prism</span>
+				<span class="tag">Infinite</span>
+				<span class="tag">Benchmark</span>
+				<div class="result-info">
+					Some information about the model here
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p><b>Website Credits:</b> Joshua Jeppson, Andrew Gerber (TODO: Ask Landon if he wants to help with the website)</p>
+		<p><b>Model Credits:</b> Chris Myers, Chris Winstead, Lukas Buecherl, Mohommad Amandi, Zhen Zhang, Chris Winstead, Landon Taylor (TODO: Add whoever else has models)</p>
+		Developed by FLUENT Verification (Utah State University, University of Utah, University of Southern Florida, University of Colorado Boulder)
+		<p style="font-size: 9pt;">This website uses the <a href="https://develop.kde.org/frameworks/breeze-icons/">Breeze Icons</a> from KDE licensed under the GPL3.</p>
+		<div class="checkbox-styled">
+			<input type="checkbox" value="1" id="dark-light" onchange=setDarkOrLightMode()>
+			<label for="dark-light"></label>
+		</div>
+		Dark Mode
+<script>
+var darkMode = (document.cookie.includes("color-scheme=dark")) || window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+if (darkMode) {
+	document.getElementById("dark-light").checked = true;
+	setDarkMode();
+}
+</script>
+	</div>
+</body>
+</html>
